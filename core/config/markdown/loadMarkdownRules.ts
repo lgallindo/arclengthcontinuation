@@ -1,11 +1,11 @@
 import {
   ConfigValidationError,
   markdownToRule,
-} from "@continuedev/config-yaml";
+} from "@arclength-continuation/config-yaml";
 import { IDE, RuleWithSource } from "../..";
 import { PROMPTS_DIR_NAME, RULES_DIR_NAME } from "../../promptFiles";
 import { joinPathsToUri } from "../../util/uri";
-import { getAllDotContinueDefinitionFiles } from "../loadLocalAssistants";
+import { getAllDotArclengthContinuationDefinitionFiles } from "../loadLocalAssistants";
 
 export const SUPPORTED_AGENT_FILES = ["AGENTS.md", "AGENT.md", "CLAUDE.md"];
 /**
@@ -59,7 +59,7 @@ export async function loadMarkdownRules(ide: IDE): Promise<{
 
   for (const dirName of dirsToCheck) {
     try {
-      const markdownFiles = await getAllDotContinueDefinitionFiles(
+      const markdownFiles = await getAllDotArclengthContinuationDefinitionFiles(
         ide,
         {
           includeGlobal: true,

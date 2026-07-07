@@ -1,4 +1,7 @@
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { Skill } from "../util/loadMarkdownSkills.js";
@@ -74,13 +77,13 @@ describe("skillsTool", () => {
       expect(result).toContain("<other_instructions>");
     });
 
-    it("should throw ContinueError when skill not found", async () => {
+    it("should throw ArclengthContinuationError when skill not found", async () => {
       const tool = await skillsTool();
       const error = await tool
         .run({ skill_name: "nonexistent" })
         .catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
-      expect(error.reason).toBe(ContinueErrorReason.SkillNotFound);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
+      expect(error.reason).toBe(ArclengthContinuationErrorReason.SkillNotFound);
       expect(error.message).toContain("nonexistent");
     });
   });

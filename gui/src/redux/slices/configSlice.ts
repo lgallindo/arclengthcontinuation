@@ -1,15 +1,18 @@
-import { ConfigResult, ConfigValidationError } from "@continuedev/config-yaml";
+import {
+  ConfigResult,
+  ConfigValidationError,
+} from "@arclength-continuation/config-yaml";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { BrowserSerializedContinueConfig } from "core";
+import { BrowserSerializedArclengthContinuationConfig } from "core";
 import { DEFAULT_CONTEXT_LENGTH } from "core/llm/constants";
 
 export type ConfigState = {
   configError: ConfigValidationError[] | undefined;
-  config: BrowserSerializedContinueConfig;
+  config: BrowserSerializedArclengthContinuationConfig;
   loading: boolean;
 };
 
-export const EMPTY_CONFIG: BrowserSerializedContinueConfig = {
+export const EMPTY_CONFIG: BrowserSerializedArclengthContinuationConfig = {
   slashCommands: [],
   contextProviders: [],
   tools: [],
@@ -51,7 +54,9 @@ export const configSlice = createSlice({
       state,
       {
         payload: result,
-      }: PayloadAction<ConfigResult<BrowserSerializedContinueConfig>>,
+      }: PayloadAction<
+        ConfigResult<BrowserSerializedArclengthContinuationConfig>
+      >,
     ) => {
       const { config, errors } = result;
       if (!errors || errors.length === 0) {
@@ -73,7 +78,9 @@ export const configSlice = createSlice({
     },
     updateConfig: (
       state,
-      { payload: config }: PayloadAction<BrowserSerializedContinueConfig>,
+      {
+        payload: config,
+      }: PayloadAction<BrowserSerializedArclengthContinuationConfig>,
     ) => {
       state.config = config;
     },

@@ -1,11 +1,11 @@
-import { ModelRole } from "@continuedev/config-yaml";
-import { fetchwithRequestOptions } from "@continuedev/fetch";
-import { findLlmInfo } from "@continuedev/llm-info";
+import { ModelRole } from "@arclength-continuation/config-yaml";
+import { fetchwithRequestOptions } from "@arclength-continuation/fetch";
+import { findLlmInfo } from "@arclength-continuation/llm-info";
 import {
   BaseLlmApi,
   ChatCompletionCreateParams,
   constructLlmApi,
-} from "@continuedev/openai-adapters";
+} from "@arclength-continuation/openai-adapters";
 import Handlebars from "handlebars";
 
 import { DevDataSqliteDb } from "../data/devdataSqlite.js";
@@ -215,7 +215,7 @@ export abstract class BaseLLM implements ILLM {
     };
 
     this.model = options.model;
-    // Use @continuedev/llm-info package to autodetect certain parameters
+    // Use @arclength-continuation/llm-info package to autodetect certain parameters
     const llmInfo = findLlmInfo(this.model, this.underlyingProviderName);
 
     const templateType =
@@ -974,7 +974,7 @@ export abstract class BaseLLM implements ILLM {
   ): CompletionOptions {
     // As of 01/14/25 streaming is currently not available with o1
     // See these threads:
-    // - https://github.com/continuedev/continue/issues/3698
+    // - https://github.com/arclength-continuation/continue/issues/3698
     // - https://community.openai.com/t/streaming-support-for-o1-o1-2024-12-17-resulting-in-400-unsupported-value/1085043
     if (completionOptions.model === "o1") {
       completionOptions.stream = false;

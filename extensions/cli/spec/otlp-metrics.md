@@ -1,10 +1,10 @@
-# OTLP Metrics Specification for Continue CLI
+# OTLP Metrics Specification for Arclength-Continuation CLI
 
-This document specifies the OpenTelemetry Protocol (OTLP) metrics that should be emitted by the Continue CLI to provide comprehensive observability and usage monitoring. The metrics are designed to be compatible with Claude Code dashboards for easy migration.
+This document specifies the OpenTelemetry Protocol (OTLP) metrics that should be emitted by the Arclength-Continuation CLI to provide comprehensive observability and usage monitoring. The metrics are designed to be compatible with Claude Code dashboards for easy migration.
 
 ## Overview
 
-The Continue CLI should emit metrics that provide insights into:
+The Arclength-Continuation CLI should emit metrics that provide insights into:
 
 - Usage patterns and session analytics
 - Performance and reliability
@@ -45,14 +45,14 @@ All metrics and events share these standard attributes:
 | Attribute           | Description                                                   | Controlled By                                       |
 | ------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
 | `session.id`        | Unique session identifier                                     | `OTEL_METRICS_INCLUDE_SESSION_ID` (default: true)   |
-| `app.version`       | Current Continue CLI version                                  | `OTEL_METRICS_INCLUDE_VERSION` (default: false)     |
+| `app.version`       | Current Arclength-Continuation CLI version                    | `OTEL_METRICS_INCLUDE_VERSION` (default: false)     |
 | `organization.id`   | Organization UUID (when authenticated)                        | Always included when available                      |
 | `user.account_uuid` | Account UUID (when authenticated)                             | `OTEL_METRICS_INCLUDE_ACCOUNT_UUID` (default: true) |
 | `terminal.type`     | Terminal type (e.g., `iTerm.app`, `vscode`, `cursor`, `tmux`) | Always included when detected                       |
 
 ## Core Metrics
 
-### ✅ `continue_cli_session_count`
+### ✅ `arclength_continuation_cli_session_count`
 
 **Type:** Counter  
 **Unit:** `count`  
@@ -66,7 +66,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_lines_of_code_count`
+### ✅ `arclength_continuation_cli_lines_of_code_count`
 
 **Type:** Counter  
 **Unit:** `count`  
@@ -81,7 +81,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_pull_request_count`
+### ✅ `arclength_continuation_cli_pull_request_count`
 
 **Type:** Counter  
 **Unit:** `count`  
@@ -95,7 +95,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_commit_count`
+### ✅ `arclength_continuation_cli_commit_count`
 
 **Type:** Counter  
 **Unit:** `count`  
@@ -109,11 +109,11 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_cost_usage`
+### ✅ `arclength_continuation_cli_cost_usage`
 
 **Type:** Counter  
 **Unit:** `USD`  
-**Description:** Cost of the Continue CLI session
+**Description:** Cost of the Arclength-Continuation CLI session
 
 **Attributes:**
 
@@ -124,7 +124,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_token_usage`
+### ✅ `arclength_continuation_cli_token_usage`
 
 **Type:** Counter  
 **Unit:** `tokens`  
@@ -140,7 +140,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ❌ `continue_cli_code_edit_tool_decision`
+### ❌ `arclength_continuation_cli_code_edit_tool_decision`
 
 **Type:** Counter  
 **Unit:** `count`  
@@ -157,7 +157,7 @@ All metrics and events share these standard attributes:
 
 ---
 
-### ✅ `continue_cli_active_time_total`
+### ✅ `arclength_continuation_cli_active_time_total`
 
 **Type:** Counter  
 **Unit:** `s`  
@@ -173,7 +173,7 @@ All metrics and events share these standard attributes:
 
 ### ✅ User Prompt Event
 
-**Event Name:** `continue_cli_user_prompt`
+**Event Name:** `arclength_continuation_cli_user_prompt`
 
 **Attributes:**
 
@@ -189,7 +189,7 @@ All metrics and events share these standard attributes:
 
 ### ✅ Tool Result Event
 
-**Event Name:** `continue_cli_tool_result`
+**Event Name:** `arclength_continuation_cli_tool_result`
 
 **Attributes:**
 
@@ -210,7 +210,7 @@ All metrics and events share these standard attributes:
 
 ### ✅ API Request Event
 
-**Event Name:** `continue_cli_api_request`
+**Event Name:** `arclength_continuation_cli_api_request`
 
 **Attributes:**
 
@@ -229,11 +229,11 @@ All metrics and events share these standard attributes:
 
 ## Additional Metrics
 
-These metrics are unique to Continue CLI and provide additional insights without conflicting with compatibility:
+These metrics are unique to Arclength-Continuation CLI and provide additional insights without conflicting with compatibility:
 
 ### Authentication Metrics
 
-#### ✅ `continue_cli_auth_attempts`
+#### ✅ `arclength_continuation_cli_auth_attempts`
 
 **Type:** Counter  
 **Unit:** `{attempt}`  
@@ -249,7 +249,7 @@ These metrics are unique to Continue CLI and provide additional insights without
 
 ### MCP Integration Metrics
 
-#### ❌ `continue_cli_mcp_connections`
+#### ❌ `arclength_continuation_cli_mcp_connections`
 
 **Type:** Gauge  
 **Unit:** `{connection}`  
@@ -265,7 +265,7 @@ These metrics are unique to Continue CLI and provide additional insights without
 
 ### Performance Metrics
 
-#### ❌ `continue_cli_startup_time`
+#### ❌ `arclength_continuation_cli_startup_time`
 
 **Type:** Histogram  
 **Unit:** `ms`  
@@ -279,7 +279,7 @@ These metrics are unique to Continue CLI and provide additional insights without
 
 **Implementation:** Track in `src/index.ts` and `src/commands/chat.ts`
 
-#### ✅ `continue_cli_response_time`
+#### ✅ `arclength_continuation_cli_response_time`
 
 **Type:** Histogram  
 **Unit:** `ms`  
@@ -298,7 +298,7 @@ These metrics are unique to Continue CLI and provide additional insights without
 
 ### Migration from Claude Code Dashboards
 
-The core metrics (`session_count`, `lines_of_code_count`, `token_usage`, `cost_usage`, etc.) use identical naming and attribute structures to Claude Code, allowing for easy dashboard migration by simply changing the metric prefix from `claude_code_*` to `continue_cli_*`.
+The core metrics (`session_count`, `lines_of_code_count`, `token_usage`, `cost_usage`, etc.) use identical naming and attribute structures to Claude Code, allowing for easy dashboard migration by simply changing the metric prefix from `claude_code_*` to `arclength_continuation_cli_*`.
 
 ### Privacy Considerations
 
@@ -338,6 +338,6 @@ All metrics should include these resource attributes:
 
 **Missing implementations:**
 
-- `continue_cli_code_edit_tool_decision` - requires user confirmation UI
-- `continue_cli_mcp_connections` - needs MCP service monitoring
-- `continue_cli_startup_time` - needs startup time tracking
+- `arclength_continuation_cli_code_edit_tool_decision` - requires user confirmation UI
+- `arclength_continuation_cli_mcp_connections` - needs MCP service monitoring
+- `arclength_continuation_cli_startup_time` - needs startup time tracking

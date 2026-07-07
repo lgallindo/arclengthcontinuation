@@ -1,4 +1,4 @@
-import { fetchwithRequestOptions } from "@continuedev/fetch";
+import { fetchwithRequestOptions } from "@arclength-continuation/fetch";
 import { ChatMessage, IDE, PromptLog } from "..";
 import { ConfigHandler } from "../config/ConfigHandler";
 import { FromCoreProtocol, ToCoreProtocol } from "../protocol";

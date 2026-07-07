@@ -6,9 +6,9 @@ import "./globals.css";
 import "./docs.css";
 
 export const metadata: Metadata = {
-  title: "Continue Docs",
+  title: "Arclength-Continuation Docs",
   description:
-    "Documentation for Continue — the open-source AI code assistant.",
+    "Documentation for Arclength-Continuation — the open-source AI code assistant.",
 };
 
 export default function RootLayout({

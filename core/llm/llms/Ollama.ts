@@ -2,7 +2,7 @@ import { Mutex } from "async-mutex";
 import { JSONSchema7, JSONSchema7Object } from "json-schema";
 import { v4 as uuidv4 } from "uuid";
 
-import { streamResponse } from "@continuedev/fetch";
+import { streamResponse } from "@arclength-continuation/fetch";
 import {
   ChatMessage,
   ChatMessageRole,
@@ -596,7 +596,7 @@ class Ollama extends BaseLLM implements ModelInstaller {
         const chatMessage: ChatMessage = { role: "assistant", content };
 
         if (toolCalls?.length) {
-          // Continue handles the response as a tool call delta but
+          // ArclengthContinuation handles the response as a tool call delta but
           // But ollama returns the full object in one response with no streaming
           chatMessage.toolCalls = toolCalls.map((tc) => ({
             type: "function",

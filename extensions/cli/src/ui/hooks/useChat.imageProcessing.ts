@@ -172,7 +172,7 @@ export async function processImagePlaceholder(
         imageUrl: { url: dataUrl },
       });
 
-      // Continue with remaining text
+      // ArclengthContinuation with remaining text
       return { textContent: parts.slice(1).join(placeholder) };
     }
 

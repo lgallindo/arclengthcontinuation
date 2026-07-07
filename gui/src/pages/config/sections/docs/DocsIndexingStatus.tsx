@@ -1,4 +1,4 @@
-import { ConfigYaml } from "@continuedev/config-yaml";
+import { ConfigYaml } from "@arclength-continuation/config-yaml";
 import {
   ArrowPathIcon,
   PencilIcon,

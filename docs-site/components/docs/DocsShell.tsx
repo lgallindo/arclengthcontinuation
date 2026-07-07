@@ -237,7 +237,7 @@ export function DocsShell({
               <Link href={resolveHref("/")} className="flex items-center">
                 <img
                   src={withBasePath("/images/continue-logo-light.png")}
-                  alt="Continue"
+                  alt="Arclength-Continuation"
                   className="h-8 w-auto dark:invert"
                 />
               </Link>
@@ -247,7 +247,7 @@ export function DocsShell({
               <Link href={resolveHref("/")} className="flex items-center">
                 <img
                   src={withBasePath("/images/continue-logo-light.png")}
-                  alt="Continue"
+                  alt="Arclength-Continuation"
                   className="h-8 w-auto dark:invert"
                 />
               </Link>

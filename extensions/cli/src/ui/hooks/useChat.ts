@@ -819,7 +819,7 @@ export function useChat({
         logger.error("Failed to create policy or reload permissions", {
           error,
         });
-        // Continue with the approval even if policy creation/reload fails
+        // ArclengthContinuation with the approval even if policy creation/reload fails
       }
     }
 
@@ -840,7 +840,7 @@ export function useChat({
             message: {
               role: "system",
               content:
-                "[Tool canceled - please tell Continue what to do differently]",
+                "[Tool canceled - please tell ArclengthContinuation what to do differently]",
             },
             contextItems: [],
           },

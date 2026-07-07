@@ -42,9 +42,11 @@ vi.mock("../auth/workos.js", () => ({
 }));
 
 // Mock the config-yaml package
-vi.mock("@continuedev/config-yaml", async (importOriginal) => {
+vi.mock("@arclength-continuation/config-yaml", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@continuedev/config-yaml")>();
+    await importOriginal<
+      typeof import("@arclength-continuation/config-yaml")
+    >();
   return {
     ...actual,
     decodePackageIdentifier: vi.fn((id) => ({
@@ -128,7 +130,7 @@ describe("Agent file Integration Tests", () => {
     mockGetLlmApi = configModule.getLlmApi as any;
 
     // Get mock functions from config-yaml
-    const configYaml = await import("@continuedev/config-yaml");
+    const configYaml = await import("@arclength-continuation/config-yaml");
     mockDecodePackageIdentifier = configYaml.decodePackageIdentifier as any;
 
     // Create service instances
@@ -532,7 +534,7 @@ describe("Agent file Integration Tests", () => {
 
       // mergeUnrolledAssistants would combine this with base config prompts
       const { mergeUnrolledAssistants } = await import(
-        "@continuedev/config-yaml"
+        "@arclength-continuation/config-yaml"
       );
       const baseConfig = {
         name: "original",

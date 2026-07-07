@@ -3,7 +3,7 @@ import * as fs from "fs/promises";
 import { ConfigHandler } from "../config/ConfigHandler.js";
 import {
   ContextIndexingType,
-  ContinueConfig,
+  ArclengthContinuationConfig,
   IDE,
   IndexingProgressUpdate,
   IndexTag,
@@ -15,8 +15,8 @@ import { Logger } from "../util/Logger.js";
 import { getIndexSqlitePath, getLanceDbPath } from "../util/paths.js";
 import { findUriInDirs, getUriPathBasename } from "../util/uri.js";
 
-import { ConfigResult } from "@continuedev/config-yaml";
-import { ContinueServerClient } from "../continueServer/stubs/client";
+import { ConfigResult } from "@arclength-continuation/config-yaml";
+import { ArclengthContinuationServerClient } from "../continueServer/stubs/client";
 import { LLMError } from "../llm/index.js";
 import { getRootCause } from "../util/errors.js";
 import { ChunkCodebaseIndex } from "./chunk/ChunkCodebaseIndex.js";
@@ -55,7 +55,7 @@ export class CodebaseIndexer {
   // We normally allow this to run in the background,
   // and only need to `await` it for tests.
   public initPromise: Promise<void>;
-  private config!: ContinueConfig;
+  private config!: ArclengthContinuationConfig;
   private indexingCancellationController: AbortController;
   private codebaseIndexingState: IndexingProgressUpdate;
   private readonly pauseToken: PauseToken;
@@ -158,7 +158,7 @@ export class CodebaseIndexer {
     if (!ideSettings) {
       return [];
     }
-    const continueServerClient = new ContinueServerClient(
+    const continueServerClient = new ArclengthContinuationServerClient(
       ideSettings.remoteConfigServerUrl,
       ideSettings.userToken,
     );
@@ -828,8 +828,8 @@ export class CodebaseIndexer {
   }
 
   private isIndexingConfigSame(
-    config1: ContinueConfig | undefined,
-    config2: ContinueConfig,
+    config1: ArclengthContinuationConfig | undefined,
+    config2: ArclengthContinuationConfig,
   ) {
     return embedModelsAreEqual(
       config1?.selectedModelByRole.embed,
@@ -839,7 +839,7 @@ export class CodebaseIndexer {
 
   private async handleConfigUpdate({
     config: newConfig,
-  }: ConfigResult<ContinueConfig>) {
+  }: ConfigResult<ArclengthContinuationConfig>) {
     if (newConfig) {
       const ideSettings = await this.ide.getIdeSettings();
       const pauseCodebaseIndexOnStart = ideSettings.pauseCodebaseIndexOnStart;

@@ -1,4 +1,7 @@
-import { AssistantUnrolled, ModelConfig } from "@continuedev/config-yaml";
+import {
+  AssistantUnrolled,
+  ModelConfig,
+} from "@arclength-continuation/config-yaml";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { AuthConfig } from "../auth/workos.js";

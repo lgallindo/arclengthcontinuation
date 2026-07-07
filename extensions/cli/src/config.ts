@@ -1,13 +1,16 @@
-import { AssistantUnrolled, ModelConfig } from "@continuedev/config-yaml";
+import {
+  AssistantUnrolled,
+  ModelConfig,
+} from "@arclength-continuation/config-yaml";
 import {
   BaseLlmApi,
   constructLlmApi,
   LLMConfig,
-} from "@continuedev/openai-adapters";
+} from "@arclength-continuation/openai-adapters";
 import {
   Configuration,
   DefaultApi,
-} from "@continuedev/sdk/dist/api/dist/index.js";
+} from "@arclength-continuation/sdk/dist/api/dist/index.js";
 
 import { AuthConfig } from "./auth/workos.js";
 import { env } from "./env.js";
@@ -19,7 +22,7 @@ import { getVersion } from "./version.js";
  */
 function getUserAgent(): string {
   const version = getVersion();
-  return `Continue-CLI/${version}`;
+  return `ArclengthContinuation-CLI/${version}`;
 }
 
 /**

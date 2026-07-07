@@ -93,8 +93,8 @@ async function buildWithEsbuild() {
       {
         name: "binary",
         version: "1.0.0",
-        author: "Continue Dev, Inc",
-        license: "Apache-2.0",
+        author: "ArclengthContinuation Dev, Inc",
+        license: "GPL-3.0-or-later",
       },
       undefined,
       2,

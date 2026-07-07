@@ -1,16 +1,16 @@
-import { ContinueConfig, QuickActionConfig } from "core";
+import { ArclengthContinuationConfig, QuickActionConfig } from "core";
 import * as vscode from "vscode";
 
 import { QuickEditShowParams } from "../../../quickEdit/QuickEditQuickPick";
 import { isTutorialFile } from "../../../util/tutorial";
 import {
   CONTINUE_WORKSPACE_KEY,
-  getContinueWorkspaceConfig,
+  getArclengthContinuationWorkspaceConfig,
 } from "../../../util/workspaceConfig";
 
 export const ENABLE_QUICK_ACTIONS_KEY = "enableQuickActions";
 
-export function getQuickActionsConfig(config: ContinueConfig) {
+export function getQuickActionsConfig(config: ArclengthContinuationConfig) {
   return config.experimental?.quickActions;
 }
 
@@ -27,11 +27,16 @@ export function subscribeToVSCodeQuickActionsSettings(listener: Function) {
 export function toggleQuickActions() {
   const curStatus = quickActionsEnabledStatus();
 
-  getContinueWorkspaceConfig().update(ENABLE_QUICK_ACTIONS_KEY, curStatus);
+  getArclengthContinuationWorkspaceConfig().update(
+    ENABLE_QUICK_ACTIONS_KEY,
+    curStatus,
+  );
 }
 
 export function quickActionsEnabledStatus() {
-  return getContinueWorkspaceConfig().get<boolean>(ENABLE_QUICK_ACTIONS_KEY);
+  return getArclengthContinuationWorkspaceConfig().get<boolean>(
+    ENABLE_QUICK_ACTIONS_KEY,
+  );
 }
 
 /**
@@ -64,12 +69,12 @@ export class QuickActionsCodeLensProvider implements vscode.CodeLensProvider {
       return sendToChat
         ? {
             title,
-            command: "continue.customQuickActionSendToChat",
+            command: "arclength-continuation.customQuickActionSendToChat",
             arguments: [prompt, range],
           }
         : {
             title,
-            command: "continue.customQuickActionStreamInlineEdit",
+            command: "arclength-continuation.customQuickActionStreamInlineEdit",
             arguments: [prompt, range],
           };
     });
@@ -77,8 +82,8 @@ export class QuickActionsCodeLensProvider implements vscode.CodeLensProvider {
 
   getDefaultCommand(range: vscode.Range): vscode.Command[] {
     const quickEdit: vscode.Command = {
-      command: "continue.defaultQuickAction",
-      title: "Continue",
+      command: "arclength-continuation.defaultQuickAction",
+      title: "ArclengthContinuation",
       arguments: [{ range } as QuickEditShowParams],
     };
 

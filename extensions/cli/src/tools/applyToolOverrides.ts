@@ -1,4 +1,4 @@
-import type { ToolOverrideConfig } from "@continuedev/config-yaml";
+import type { ToolOverrideConfig } from "@arclength-continuation/config-yaml";
 import type { ChatCompletionTool } from "openai/resources.mjs";
 
 /**

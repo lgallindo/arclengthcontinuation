@@ -1,4 +1,4 @@
-import { ConfigValidationError } from "@continuedev/config-yaml";
+import { ConfigValidationError } from "@arclength-continuation/config-yaml";
 import {
   ArrowTopRightOnSquareIcon,
   Cog6ToothIcon,

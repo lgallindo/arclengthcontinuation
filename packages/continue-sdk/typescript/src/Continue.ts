@@ -1,13 +1,13 @@
-import { decodePackageSlug } from "@continuedev/config-yaml";
+import { decodePackageSlug } from "@arclength-continuation/config-yaml";
 import type { OpenAI } from "openai";
 import { Configuration, DefaultApi } from "../api/dist/index.js";
 import { Assistant } from "./Assistant.js";
 import { createOpenAIClient } from "./createOpenAIClient.js";
 
-export interface ContinueClientOptions {
+export interface ArclengthContinuationClientOptions {
   /**
    * The assistant identifier in the format owner-slug/package-slug
-   * If not provided, only the Continue API client will be returned
+   * If not provided, only the ArclengthContinuation API client will be returned
    */
   assistant?: string;
 
@@ -17,7 +17,7 @@ export interface ContinueClientOptions {
    * API keys must be prefixed with "con_" and provided in the Authorization header.
    * Example: `Authorization: Bearer con_your_api_key_here`
    *
-   * API keys can be generated in the Continue Hub web interface under account settings.
+   * API keys can be generated in the ArclengthContinuation Hub web interface under account settings.
    */
   apiKey: string;
 
@@ -29,19 +29,19 @@ export interface ContinueClientOptions {
   organizationId?: string;
 
   /**
-   * Base URL for the Continue API
+   * Base URL for the ArclengthContinuation API
    */
   baseURL?: string;
 }
 
-export type ContinueClient = {
+export type ArclengthContinuationClient = {
   /**
-   * The Continue API client
+   * The ArclengthContinuation API client
    */
   api: DefaultApi;
 
   /**
-   * The OpenAI client configured to use the Continue API
+   * The OpenAI client configured to use the ArclengthContinuation API
    */
   client: OpenAI;
 
@@ -52,49 +52,49 @@ export type ContinueClient = {
   assistant: Assistant;
 };
 
-export type ContinueClientBase = {
+export type ArclengthContinuationClientBase = {
   /**
-   * The Continue API client
+   * The ArclengthContinuation API client
    */
   api: DefaultApi;
 };
 
-export class Continue {
+export class ArclengthContinuation {
   /**
-   * Create a Continue instance with a specific assistant
+   * Create a ArclengthContinuation instance with a specific assistant
    *
    * When you provide an assistant name, this returns a full client with:
-   * - Continue API access
+   * - ArclengthContinuation API access
    * - A configured OpenAI-compatible client
    * - Assistant configuration and helper methods
    *
    * @param options - Configuration including your API key and assistant name
-   * @returns Full Continue environment with API client, LLM client, and assistant config
+   * @returns Full ArclengthContinuation environment with API client, LLM client, and assistant config
    */
   static async from(
-    options: ContinueClientOptions & { assistant: string },
-  ): Promise<ContinueClient>;
+    options: ArclengthContinuationClientOptions & { assistant: string },
+  ): Promise<ArclengthContinuationClient>;
 
   /**
-   * Create a simple Continue API client
+   * Create a simple ArclengthContinuation API client
    *
-   * When you don't specify an assistant, this returns just the Continue API client
+   * When you don't specify an assistant, this returns just the ArclengthContinuation API client
    * for making direct API calls.
    *
    * @param options - Configuration including your API key
-   * @returns Just the Continue API client
+   * @returns Just the ArclengthContinuation API client
    */
   static async from(
-    options: ContinueClientOptions & { assistant?: undefined },
-  ): Promise<ContinueClientBase>;
+    options: ArclengthContinuationClientOptions & { assistant?: undefined },
+  ): Promise<ArclengthContinuationClientBase>;
 
   /**
    * Internal implementation
    */
   static async from(
-    options: ContinueClientOptions,
-  ): Promise<ContinueClientBase | ContinueClient> {
-    const baseURL = options.baseURL || "https://api.continue.dev/";
+    options: ArclengthContinuationClientOptions,
+  ): Promise<ArclengthContinuationClientBase | ArclengthContinuationClient> {
+    const baseURL = options.baseURL || "https://api.arclength-continuation.dev/";
 
     const continueClient = new DefaultApi(
       new Configuration({

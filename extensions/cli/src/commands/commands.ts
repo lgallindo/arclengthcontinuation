@@ -1,4 +1,4 @@
-import { type AssistantConfig } from "@continuedev/sdk";
+import { type AssistantConfig } from "@arclength-continuation/sdk";
 
 import {
   getSkillSlashCommandName,
@@ -35,7 +35,7 @@ export const SYSTEM_SLASH_COMMANDS: SystemCommand[] = [
   },
   {
     name: "update",
-    description: "Update the Continue CLI",
+    description: "Update the ArclengthContinuation CLI",
     category: "system",
   },
   {

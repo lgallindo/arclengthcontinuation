@@ -2,8 +2,8 @@ import ignore from "ignore";
 
 import { IDE } from "../..";
 import {
-  getGlobalContinueIgArray,
-  getWorkspaceContinueIgArray,
+  getGlobalArclengthContinuationIgArray,
+  getWorkspaceArclengthContinuationIgArray,
 } from "../../indexing/continueignore";
 import { getConfigJsonPath } from "../../util/paths";
 import { findUriInDirs } from "../../util/uri";
@@ -57,8 +57,8 @@ export async function shouldPrefilter(
   const disableInFiles = [
     ...(helper.options.disableInFiles ?? []),
     "*.prompt",
-    ...getGlobalContinueIgArray(),
-    ...(await getWorkspaceContinueIgArray(ide)),
+    ...getGlobalArclengthContinuationIgArray(),
+    ...(await getWorkspaceArclengthContinuationIgArray(ide)),
   ];
   if (await isDisabledForFile(helper.filepath, disableInFiles, ide)) {
     return true;

@@ -11,20 +11,20 @@ import {
   getConfigJsonPath,
   getConfigTsPath,
   getConfigYamlPath,
-  getContinueGlobalPath,
+  getArclengthContinuationGlobalPath,
 } from "core/util/paths";
 import { v4 as uuidv4 } from "uuid";
 import * as vscode from "vscode";
 
-import { ContinueCompletionProvider } from "../autocomplete/completionProvider";
+import { ArclengthContinuationCompletionProvider } from "../autocomplete/completionProvider";
 import {
   monitorBatteryChanges,
   setupStatusBar,
   StatusBarStatus,
 } from "../autocomplete/statusBar";
 import { registerAllCommands } from "../commands";
-import { ContinueConsoleWebviewViewProvider } from "../ContinueConsoleWebviewViewProvider";
-import { ContinueGUIWebviewViewProvider } from "../ContinueGUIWebviewViewProvider";
+import { ArclengthContinuationConsoleWebviewViewProvider } from "../ArclengthContinuationConsoleWebviewViewProvider";
+import { ArclengthContinuationGUIWebviewViewProvider } from "../ArclengthContinuationGUIWebviewViewProvider";
 import { VerticalDiffManager } from "../diff/vertical/manager";
 import { registerAllCodeLensProviders } from "../lang-server/codeLens";
 import { registerAllPromptFilesCompletionProviders } from "../lang-server/promptFileCompletions";
@@ -67,8 +67,8 @@ export class VsCodeExtension {
   private extensionContext: vscode.ExtensionContext;
   private ide: VsCodeIde;
   private ideUtils: VsCodeIdeUtils;
-  private consoleView: ContinueConsoleWebviewViewProvider;
-  private sidebar: ContinueGUIWebviewViewProvider;
+  private consoleView: ArclengthContinuationConsoleWebviewViewProvider;
+  private sidebar: ArclengthContinuationGUIWebviewViewProvider;
   private windowId: string;
   private editDecorationManager: EditDecorationManager;
   private verticalDiffManager: VerticalDiffManager;
@@ -77,7 +77,7 @@ export class VsCodeExtension {
   private battery: Battery;
   private fileSearch: FileSearch;
   private uriHandler = new UriEventHandler();
-  private completionProvider: ContinueCompletionProvider;
+  private completionProvider: ArclengthContinuationCompletionProvider;
 
   private ARBITRARY_TYPING_DELAY = 2000;
 
@@ -136,7 +136,7 @@ export class VsCodeExtension {
             );
           } else if (selection === "Select different model") {
             vscode.commands.executeCommand(
-              "continue.openTabAutocompleteConfigMenu",
+              "arclength-continuation.openTabAutocompleteConfigMenu",
             );
           }
         });
@@ -245,7 +245,7 @@ export class VsCodeExtension {
     const configHandlerPromise = new Promise<ConfigHandler>((resolve) => {
       resolveConfigHandler = resolve;
     });
-    this.sidebar = new ContinueGUIWebviewViewProvider(
+    this.sidebar = new ArclengthContinuationGUIWebviewViewProvider(
       this.windowId,
       this.extensionContext,
     );
@@ -253,7 +253,7 @@ export class VsCodeExtension {
     // Sidebar
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueGUIView",
+        "arclength-continuation.continueGUIView",
         this.sidebar,
         {
           webviewOptions: { retainContextWhenHidden: true },
@@ -337,7 +337,7 @@ export class VsCodeExtension {
     setupStatusBar(
       enabled ? StatusBarStatus.Enabled : StatusBarStatus.Disabled,
     );
-    this.completionProvider = new ContinueCompletionProvider(
+    this.completionProvider = new ArclengthContinuationCompletionProvider(
       this.configHandler,
       this.ide,
       this.sidebar.webviewProtocol,
@@ -385,7 +385,7 @@ export class VsCodeExtension {
     );
 
     // LLM Log view
-    this.consoleView = new ContinueConsoleWebviewViewProvider(
+    this.consoleView = new ArclengthContinuationConsoleWebviewViewProvider(
       this.windowId,
       this.extensionContext,
       this.core.llmLogger,
@@ -393,7 +393,7 @@ export class VsCodeExtension {
 
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueConsoleView",
+        "arclength-continuation.continueConsoleView",
         this.consoleView,
       ),
     );
@@ -448,7 +448,10 @@ export class VsCodeExtension {
     });
 
     // watch global rules directory for changes
-    const globalRulesDir = path.join(getContinueGlobalPath(), "rules");
+    const globalRulesDir = path.join(
+      getArclengthContinuationGlobalPath(),
+      "rules",
+    );
     if (fs.existsSync(globalRulesDir)) {
       fs.watch(globalRulesDir, { recursive: true }, (eventType, filename) => {
         if (filename && filename.endsWith(".md")) {
@@ -525,7 +528,7 @@ export class VsCodeExtension {
       });
     });
 
-    // TODO merge this and re-enable https://github.com/continuedev/continue/pull/8364
+    // TODO merge this and re-enable https://github.com/arclength-continuation/continue/pull/8364
     // vscode.workspace.onDidOpenTextDocument(async (event) => {
     //   const ast = await getAst(event.fileName, event.getText());
     //   if (ast) {

@@ -2,8 +2,8 @@
   "name": "gui",
   "private": true,
   "type": "module",
-  "author": "Continue Dev, Inc",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "vite",
     "tsc:check": "tsc -p ./ --noEmit",
@@ -16,8 +16,8 @@
     "lint": "eslint --ext ts"
   },
   "dependencies": {
-    "@continuedev/config-yaml": "file:../packages/config-yaml",
-    "@continuedev/terminal-security": "file:../packages/terminal-security",
+    "@arclength-continuation/config-yaml": "file:../packages/config-yaml",
+    "@arclength-continuation/terminal-security": "file:../packages/terminal-security",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.0.18",
     "@modelcontextprotocol/ext-apps": "^1.0.1",

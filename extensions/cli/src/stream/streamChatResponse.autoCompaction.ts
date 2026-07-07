@@ -1,5 +1,5 @@
-import { ModelConfig } from "@continuedev/config-yaml";
-import { BaseLlmApi } from "@continuedev/openai-adapters";
+import { ModelConfig } from "@arclength-continuation/config-yaml";
+import { BaseLlmApi } from "@arclength-continuation/openai-adapters";
 import type { ChatHistoryItem } from "core/index.js";
 import type { ChatCompletionTool } from "openai/resources/chat/completions.mjs";
 import React from "react";
@@ -212,7 +212,7 @@ export async function handleAutoCompaction(
     // Handle error notification
     handleCompactionError(error, isHeadless, callbacks);
 
-    // Continue without compaction on error
+    // ArclengthContinuation without compaction on error
     return { chatHistory, compactionIndex: null, wasCompacted: false };
   }
 }

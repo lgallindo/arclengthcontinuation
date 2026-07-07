@@ -99,7 +99,7 @@ export class VsCodeMessenger {
     });
 
     this.onWebview("toggleDevTools", (msg) => {
-      vscode.commands.executeCommand("continue.viewLogs");
+      vscode.commands.executeCommand("arclength-continuation.viewLogs");
     });
 
     this.onWebview("reloadWindow", (msg) => {
@@ -109,12 +109,12 @@ export class VsCodeMessenger {
       vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
     });
     this.onWebview("toggleFullScreen", (msg) => {
-      vscode.commands.executeCommand("continue.openInNewWindow");
+      vscode.commands.executeCommand("arclength-continuation.openInNewWindow");
     });
 
     this.onWebview("acceptDiff", async ({ data: { filepath, streamId } }) => {
       await vscode.commands.executeCommand(
-        "continue.acceptDiff",
+        "arclength-continuation.acceptDiff",
         filepath,
         streamId,
       );
@@ -122,7 +122,7 @@ export class VsCodeMessenger {
 
     this.onWebview("rejectDiff", async ({ data: { filepath, streamId } }) => {
       await vscode.commands.executeCommand(
-        "continue.rejectDiff",
+        "arclength-continuation.rejectDiff",
         filepath,
         streamId,
       );
@@ -253,7 +253,7 @@ export class VsCodeMessenger {
 
     this.onWebview("session/share", async (msg) => {
       await vscode.commands.executeCommand(
-        "continue.shareSession",
+        "arclength-continuation.shareSession",
         msg.data.sessionId,
       );
     });

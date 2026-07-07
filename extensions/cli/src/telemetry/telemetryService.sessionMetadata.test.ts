@@ -126,7 +126,7 @@ describe("TelemetryService - Session Metadata", () => {
         1,
         expect.objectContaining({
           is_github_actions: "false",
-          is_continue_remote_agent: "false",
+          is_arclength_continuation_remote_agent: "false",
         }),
       );
     });
@@ -151,7 +151,7 @@ describe("TelemetryService - Session Metadata", () => {
         1,
         expect.objectContaining({
           is_github_actions: "true",
-          is_continue_remote_agent: "false",
+          is_arclength_continuation_remote_agent: "false",
         }),
       );
     });
@@ -178,13 +178,13 @@ describe("TelemetryService - Session Metadata", () => {
         expect.objectContaining({
           is_headless: "true",
           is_github_actions: "true",
-          is_continue_remote_agent: "false",
+          is_arclength_continuation_remote_agent: "false",
         }),
       );
     });
 
-    it("should include is_continue_remote_agent=true when in remote agent mode", () => {
-      // Set Continue remote agent environment
+    it("should include is_arclength_continuation_remote_agent=true when in remote agent mode", () => {
+      // Set ArclengthContinuation remote agent environment
       process.env.CONTINUE_REMOTE = "true";
 
       const mockAdd = vi.fn();
@@ -202,7 +202,7 @@ describe("TelemetryService - Session Metadata", () => {
       expect(mockAdd).toHaveBeenCalledWith(
         1,
         expect.objectContaining({
-          is_continue_remote_agent: "true",
+          is_arclength_continuation_remote_agent: "true",
         }),
       );
     });
@@ -230,7 +230,7 @@ describe("TelemetryService - Session Metadata", () => {
         expect.objectContaining({
           is_headless: "true",
           is_github_actions: "true",
-          is_continue_remote_agent: "true",
+          is_arclength_continuation_remote_agent: "true",
         }),
       );
     });

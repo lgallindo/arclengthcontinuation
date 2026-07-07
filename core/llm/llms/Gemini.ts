@@ -1,4 +1,4 @@
-import { streamResponse } from "@continuedev/fetch";
+import { streamResponse } from "@arclength-continuation/fetch";
 import { v4 as uuidv4 } from "uuid";
 import {
   AssistantChatMessage,
@@ -21,7 +21,7 @@ import {
   GeminiChatResponse,
   GeminiGenerationConfig,
   GeminiToolFunctionDeclaration,
-  convertContinueToolToGeminiFunction,
+  convertArclengthContinuationToolToGeminiFunction,
   mergeConsecutiveGeminiMessages,
 } from "./gemini-types";
 
@@ -348,7 +348,9 @@ class Gemini extends BaseLLM {
         const functions: GeminiToolFunctionDeclaration[] = [];
         options.tools.forEach((tool) => {
           try {
-            functions.push(convertContinueToolToGeminiFunction(tool));
+            functions.push(
+              convertArclengthContinuationToolToGeminiFunction(tool),
+            );
           } catch (e) {
             console.warn(
               `Failed to convert tool to gemini function definition. Skipping: ${JSON.stringify(tool, null, 2)}`,

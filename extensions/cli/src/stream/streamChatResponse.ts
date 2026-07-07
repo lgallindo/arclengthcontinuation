@@ -1,5 +1,5 @@
-import { ModelConfig } from "@continuedev/config-yaml";
-import { BaseLlmApi } from "@continuedev/openai-adapters";
+import { ModelConfig } from "@arclength-continuation/config-yaml";
+import { BaseLlmApi } from "@arclength-continuation/openai-adapters";
 import type { ChatHistoryItem } from "core/index.js";
 import { convertFromUnifiedHistoryWithSystemMessage } from "core/util/messageConversion.js";
 import * as dotenv from "dotenv";
@@ -42,11 +42,11 @@ dotenv.config();
 
 function updateFinalResponse(
   content: string,
-  shouldContinue: boolean,
+  shouldArclengthContinuation: boolean,
   isHeadless: boolean,
   currentFinalResponse: string,
 ): string {
-  if (!shouldContinue) {
+  if (!shouldArclengthContinuation) {
     return content;
   } else if (isHeadless && content) {
     return content;
@@ -94,11 +94,14 @@ function refreshChatHistoryFromService(
 // Helper function to handle auto-continuation after compaction
 function handleAutoContinuation(
   compactionOccurred: boolean,
-  shouldContinue: boolean,
+  shouldArclengthContinuation: boolean,
   chatHistory: ChatHistoryItem[],
-): { shouldAutoContinue: boolean; chatHistory: ChatHistoryItem[] } {
-  if (!compactionOccurred || shouldContinue) {
-    return { shouldAutoContinue: false, chatHistory };
+): {
+  shouldAutoArclengthContinuation: boolean;
+  chatHistory: ChatHistoryItem[];
+} {
+  if (!compactionOccurred || shouldArclengthContinuation) {
+    return { shouldAutoArclengthContinuation: false, chatHistory };
   }
 
   logger.debug(
@@ -111,20 +114,20 @@ function handleAutoContinuation(
     typeof chatHistorySvc?.isReady === "function" &&
     chatHistorySvc.isReady()
   ) {
-    chatHistorySvc.addUserMessage("continue");
+    chatHistorySvc.addUserMessage("arclength-continuation");
     chatHistory = chatHistorySvc.getHistory();
   } else {
     chatHistory.push({
       message: {
         role: "user",
-        content: "continue",
+        content: "arclength-continuation",
       },
       contextItems: [],
     });
   }
 
   logger.debug("Added continuation message after compaction");
-  return { shouldAutoContinue: true, chatHistory };
+  return { shouldAutoArclengthContinuation: true, chatHistory };
 }
 
 // Helper function to process a single chunk
@@ -139,7 +142,7 @@ interface ProcessChunkOptions {
 
 function processChunk(options: ProcessChunkOptions): {
   aiResponse: string;
-  shouldContinue: boolean;
+  shouldArclengthContinuation: boolean;
 } {
   const {
     chunk,
@@ -151,12 +154,12 @@ function processChunk(options: ProcessChunkOptions): {
   } = options;
   // Safety check: ensure chunk has the expected structure
   if (!chunk.choices || !chunk.choices[0]) {
-    return { aiResponse, shouldContinue: true };
+    return { aiResponse, shouldArclengthContinuation: true };
   }
 
   const choice = chunk.choices[0];
   if (!choice.delta) {
-    return { aiResponse, shouldContinue: true };
+    return { aiResponse, shouldArclengthContinuation: true };
   }
 
   let updatedResponse = aiResponse;
@@ -178,7 +181,7 @@ function processChunk(options: ProcessChunkOptions): {
     }
   }
 
-  return { aiResponse: updatedResponse, shouldContinue: true };
+  return { aiResponse: updatedResponse, shouldArclengthContinuation: true };
 }
 
 interface ProcessStreamingResponseOptions {
@@ -200,7 +203,7 @@ export async function processStreamingResponse(
   content: string;
   finalContent: string; // Added field for final content only
   toolCalls: ToolCall[];
-  shouldContinue: boolean;
+  shouldArclengthContinuation: boolean;
   usage?: any;
 }> {
   const {
@@ -327,7 +330,7 @@ export async function processStreamingResponse(
         isHeadless,
       });
       aiResponse = result.aiResponse;
-      if (!result.shouldContinue) break;
+      if (!result.shouldArclengthContinuation) break;
     }
 
     const responseEndTime = Date.now();
@@ -376,7 +379,7 @@ export async function processStreamingResponse(
         content: aiResponse,
         finalContent: aiResponse,
         toolCalls: [],
-        shouldContinue: false,
+        shouldArclengthContinuation: false,
         usage: fullUsage,
       };
     }
@@ -413,7 +416,7 @@ export async function processStreamingResponse(
     content: aiResponse,
     finalContent: finalContent,
     toolCalls: validToolCalls,
-    shouldContinue: validToolCalls.length > 0,
+    shouldArclengthContinuation: validToolCalls.length > 0,
     usage: fullUsage,
   };
 }
@@ -478,7 +481,7 @@ export async function streamChatResponse(
     });
 
     // Get response from LLM
-    const { content, toolCalls, shouldContinue, usage } =
+    const { content, toolCalls, shouldArclengthContinuation, usage } =
       await processStreamingResponse({
         isHeadless,
         chatHistory,
@@ -499,7 +502,7 @@ export async function streamChatResponse(
     // Update final response based on mode
     finalResponse = updateFinalResponse(
       content,
-      shouldContinue,
+      shouldArclengthContinuation,
       isHeadless,
       finalResponse,
     );
@@ -543,7 +546,7 @@ export async function streamChatResponse(
     // Normal auto-compaction check at 80% threshold
     const compactionResult = await handleNormalAutoCompaction(
       chatHistory,
-      shouldContinue,
+      shouldArclengthContinuation,
       {
         model,
         llmApi,
@@ -561,21 +564,22 @@ export async function streamChatResponse(
 
     // If compaction happened during this turn and we're about to stop,
     // automatically send a continuation message to keep the agent going
-    const autoContinueResult = handleAutoContinuation(
+    const autoArclengthContinuationResult = handleAutoContinuation(
       compactionOccurredThisTurn,
-      shouldContinue,
+      shouldArclengthContinuation,
       chatHistory,
     );
-    chatHistory = autoContinueResult.chatHistory;
-    const shouldAutoContinue = autoContinueResult.shouldAutoContinue;
+    chatHistory = autoArclengthContinuationResult.chatHistory;
+    const shouldAutoArclengthContinuation =
+      autoArclengthContinuationResult.shouldAutoArclengthContinuation;
 
     // Reset flag to avoid infinite continuation
-    if (shouldAutoContinue) {
+    if (shouldAutoArclengthContinuation) {
       compactionOccurredThisTurn = false;
     }
 
     // Check if we should continue (skip break if auto-continuing after compaction)
-    if (!shouldContinue && !shouldAutoContinue) {
+    if (!shouldArclengthContinuation && !shouldAutoArclengthContinuation) {
       break;
     }
   }

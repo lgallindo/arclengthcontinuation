@@ -1,5 +1,8 @@
-import { AssistantUnrolled, ModelConfig } from "@continuedev/config-yaml";
-import { BaseLlmApi } from "@continuedev/openai-adapters";
+import {
+  AssistantUnrolled,
+  ModelConfig,
+} from "@arclength-continuation/config-yaml";
+import { BaseLlmApi } from "@arclength-continuation/openai-adapters";
 import type { Session } from "core/index.js";
 
 import { QuestionRequestedEvent } from "../../services/QuizService.js";

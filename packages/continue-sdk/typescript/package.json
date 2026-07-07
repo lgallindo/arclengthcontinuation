@@ -1,7 +1,7 @@
 {
-  "name": "@continuedev/sdk",
+  "name": "@arclength-continuation/sdk",
   "version": "0.0.13",
-  "description": "SDK for Continue.dev",
+  "description": "SDK for ArclengthContinuation.dev",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "type": "module",
@@ -10,8 +10,8 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
-  "author": "Continue Dev, Inc.",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc.",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "openai": "^4.104.0"
   },

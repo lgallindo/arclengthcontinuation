@@ -1,10 +1,10 @@
 import * as JSONC from "comment-json";
-import { ContinueRcJson, FileType, IDE } from "../..";
+import { ArclengthContinuationRcJson, FileType, IDE } from "../..";
 import { joinPathsToUri } from "../../util/uri";
 
 export async function getWorkspaceRcConfigs(
   ide: IDE,
-): Promise<ContinueRcJson[]> {
+): Promise<ArclengthContinuationRcJson[]> {
   try {
     const workspaces = await ide.getWorkspaceDirs();
     const rcFiles = await Promise.all(
@@ -23,7 +23,9 @@ export async function getWorkspaceRcConfigs(
     );
     return rcFiles
       .flat()
-      .map((file) => JSONC.parse(file) as unknown as ContinueRcJson);
+      .map(
+        (file) => JSONC.parse(file) as unknown as ArclengthContinuationRcJson,
+      );
   } catch (e) {
     console.debug("Failed to load workspace configs: ", e);
     return [];

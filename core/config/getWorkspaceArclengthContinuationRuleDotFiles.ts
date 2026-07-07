@@ -1,9 +1,9 @@
-import { ConfigValidationError } from "@continuedev/config-yaml";
+import { ConfigValidationError } from "@arclength-continuation/config-yaml";
 import { IDE, RuleWithSource } from "..";
 import { joinPathsToUri } from "../util/uri";
 export const SYSTEM_PROMPT_DOT_FILE = ".continuerules";
 
-export async function getWorkspaceContinueRuleDotFiles(ide: IDE) {
+export async function getWorkspaceArclengthContinuationRuleDotFiles(ide: IDE) {
   const dirs = await ide.getWorkspaceDirs();
 
   const errors: ConfigValidationError[] = [];

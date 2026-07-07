@@ -2,7 +2,10 @@ import { execSync } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 
-import { parseMarkdownRule, RuleObject } from "@continuedev/config-yaml";
+import {
+  parseMarkdownRule,
+  RuleObject,
+} from "@arclength-continuation/config-yaml";
 
 import { env } from "./env.js";
 import { processRule } from "./hubLoader.js";
@@ -40,7 +43,7 @@ function getGitStatus(): string {
   }
 }
 
-const baseSystemMessage = `You are an agent in the Continue CLI. Given the user's prompt, you should use the tools available to you to answer the user's question.
+const baseSystemMessage = `You are an agent in the ArclengthContinuation CLI. Given the user's prompt, you should use the tools available to you to answer the user's question.
 
 Notes:
 1. IMPORTANT: You should be concise, direct, and to the point, since your responses will be displayed on a command line interface.
@@ -222,9 +225,9 @@ export async function constructSystemMessage(
     // Check if commit signature is disabled via environment variable
     if (!process.env.CONTINUE_CLI_DISABLE_COMMIT_SIGNATURE) {
       systemMessage += `\n<context name="commitSignature">When creating commits using any CLI or tool, include the following in the commit message:
-Generated with [Continue](https://continue.dev)
+Generated with [ArclengthContinuation](https://arclength-continuation.dev)
 
-Co-Authored-By: Continue <noreply@continue.dev>
+Co-Authored-By: ArclengthContinuation <noreply@arclength-continuation.dev>
 </context>\n`;
     }
   }

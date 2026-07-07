@@ -2,7 +2,10 @@ import ignore from "ignore";
 
 import { ToolImpl } from ".";
 import { walkDir } from "../../indexing/walkDir";
-import { ContinueError, ContinueErrorReason } from "../../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../../util/errors";
 import { resolveInputPath } from "../../util/pathResolver";
 
 export function resolveLsToolDirPath(dirPath: string | undefined) {
@@ -18,8 +21,8 @@ export const lsToolImpl: ToolImpl = async (args, extras) => {
   const dirPath = resolveLsToolDirPath(args?.dirPath);
   const resolvedPath = await resolveInputPath(extras.ide, dirPath);
   if (!resolvedPath) {
-    throw new ContinueError(
-      ContinueErrorReason.DirectoryNotFound,
+    throw new ArclengthContinuationError(
+      ArclengthContinuationErrorReason.DirectoryNotFound,
       `Directory ${args.dirPath} not found or is not accessible. You can use absolute paths, relative paths, or paths starting with ~`,
     );
   }

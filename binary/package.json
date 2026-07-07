@@ -1,7 +1,7 @@
 {
   "name": "binary",
   "version": "1.0.0",
-  "author": "Continue Dev, Inc",
+  "author": "ArclengthContinuation Dev, Inc",
   "description": "",
   "main": "out/index.js",
   "bin": "out/index.js",
@@ -26,7 +26,7 @@
     "rebuild": "node build.js --esbuild-only",
     "build:darwin-x64": "node build.js --os darwin-x64"
   },
-  "license": "Apache-2.0",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
     "@types/follow-redirects": "^1.14.4",

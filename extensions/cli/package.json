@@ -1,7 +1,7 @@
 {
-  "name": "@continuedev/cli",
+  "name": "@arclength-continuation/cli",
   "version": "0.0.0-dev",
-  "description": "Continue CLI",
+  "description": "ArclengthContinuation CLI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -22,7 +22,7 @@
     "build": "npm run build:validate && npm run build:bundle",
     "start": "node dist/cn.js",
     "dev": "tsx src/index.ts",
-    "repomix:sdk": "npx repomix node_modules/@continuedev/sdk --ignore **/api,cli-repomix.xml -o sdk-repomix.xml",
+    "repomix:sdk": "npx repomix node_modules/@arclength-continuation/sdk --ignore **/api,cli-repomix.xml -o sdk-repomix.xml",
     "repomix:cli": "npx repomix --ignore sdk-repomix.xml -o cli-repomix.xml",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
@@ -34,16 +34,16 @@
     "semantic-release": "semantic-release",
     "semantic-release:dry-run": "semantic-release --dry-run"
   },
-  "author": "Continue Dev, Inc.",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc.",
+  "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/continuedev/continue.git"
+    "url": "https://github.com/arclength-continuation/continue.git"
   },
   "bugs": {
-    "url": "https://github.com/continuedev/continue/issues"
+    "url": "https://github.com/arclength-continuation/continue/issues"
   },
-  "homepage": "https://continue.dev",
+  "homepage": "https://arclength-continuation.dev",
   "dependencies": {
     "fdir": "^6.4.2",
     "find-up": "^8.0.0",
@@ -51,10 +51,10 @@
     "js-yaml": "^4.1.1"
   },
   "devDependencies": {
-    "@continuedev/config-yaml": "file:../../packages/config-yaml",
-    "@continuedev/openai-adapters": "file:../../packages/openai-adapters",
-    "@continuedev/sdk": "^0.0.13",
-    "@continuedev/terminal-security": "file:../../packages/terminal-security",
+    "@arclength-continuation/config-yaml": "file:../../packages/config-yaml",
+    "@arclength-continuation/openai-adapters": "file:../../packages/openai-adapters",
+    "@arclength-continuation/sdk": "file:../../packages/continue-sdk/typescript",
+    "@arclength-continuation/terminal-security": "file:../../packages/terminal-security",
     "@modelcontextprotocol/sdk": "^1.24.0",
     "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/exporter-metrics-otlp-grpc": "^0.203.0",

@@ -9,8 +9,8 @@ import {
   RegistryClient,
   unrollAssistant,
   unrollAssistantFromContent,
-} from "@continuedev/config-yaml";
-import { DefaultApiInterface } from "@continuedev/sdk/dist/api/dist/index.js";
+} from "@arclength-continuation/config-yaml";
+import { DefaultApiInterface } from "@arclength-continuation/sdk/dist/api/dist/index.js";
 import chalk from "chalk";
 
 import { uriToPath, uriToSlug } from "./auth/uriUtils.js";
@@ -321,7 +321,7 @@ async function loadLocalConfigYaml(
 }
 
 /**
- * Loads the default continuedev/default-config
+ * Loads the default arclength-continuation/default-config
  */
 async function loadDefaultConfig(
   organizationId: string | null,
@@ -330,7 +330,7 @@ async function loadDefaultConfig(
   injectBlocks: PackageIdentifier[],
 ): Promise<AssistantUnrolled> {
   const resp = await apiClient.getAssistant({
-    ownerSlug: "continuedev",
+    ownerSlug: "arclength-continuation",
     packageSlug: "default-cli-config",
     organizationId: organizationId ?? undefined,
   });
@@ -447,7 +447,7 @@ async function loadConfigYaml(
 }
 
 /**
- * Loads an assistant by slug from the Continue platform
+ * Loads an assistant by slug from the ArclengthContinuation platform
  */
 async function loadAssistantSlug(
   slug: string,

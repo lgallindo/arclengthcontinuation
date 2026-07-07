@@ -1,6 +1,9 @@
 import * as fs from "fs";
 
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -63,8 +66,10 @@ describe("editTool", () => {
       };
 
       const error = await editTool.preprocess!(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
-      expect(error.reason).toBe(ContinueErrorReason.EditToolFileNotRead);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
+      expect(error.reason).toBe(
+        ArclengthContinuationErrorReason.EditToolFileNotRead,
+      );
     });
 
     it("should throw error if file does not exist", async () => {
@@ -79,8 +84,8 @@ describe("editTool", () => {
       };
 
       const error = await editTool.preprocess!(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
-      expect(error.reason).toBe(ContinueErrorReason.FileNotFound);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
+      expect(error.reason).toBe(ArclengthContinuationErrorReason.FileNotFound);
     });
 
     it("should throw error if old_string is not found", async () => {
@@ -94,9 +99,9 @@ describe("editTool", () => {
       };
 
       const error = await editTool.preprocess!(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
       expect(error.reason).toBe(
-        ContinueErrorReason.FindAndReplaceOldStringNotFound,
+        ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
       );
     });
 
@@ -111,9 +116,9 @@ describe("editTool", () => {
       };
 
       const error = await editTool.preprocess!(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
       expect(error.reason).toBe(
-        ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+        ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
       );
     });
 
@@ -127,9 +132,9 @@ describe("editTool", () => {
       };
 
       const error = await editTool.preprocess!(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
       expect(error.reason).toBe(
-        ContinueErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
+        ArclengthContinuationErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
       );
     });
 
@@ -211,8 +216,10 @@ describe("editTool", () => {
       };
 
       const error = await editTool.run(args).catch((e) => e);
-      expect(error).toBeInstanceOf(ContinueError);
-      expect(error.reason).toBe(ContinueErrorReason.FileWriteError);
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
+      expect(error.reason).toBe(
+        ArclengthContinuationErrorReason.FileWriteError,
+      );
     });
   });
 

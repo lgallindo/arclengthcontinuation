@@ -44,12 +44,12 @@ export class VerticalDiffCodeLensProvider implements vscode.CodeLensProvider {
       codeLenses.push(
         new vscode.CodeLens(range, {
           title: `Accept`,
-          command: "continue.acceptVerticalDiffBlock",
+          command: "arclength-continuation.acceptVerticalDiffBlock",
           arguments: [uri, i],
         }),
         new vscode.CodeLens(range, {
           title: `Reject`,
-          command: "continue.rejectVerticalDiffBlock",
+          command: "arclength-continuation.rejectVerticalDiffBlock",
           arguments: [uri, i],
         }),
       );

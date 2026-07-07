@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Continue",
+  "name": "Arclength-Continuation",
   "colors": {
     "primary": "#6b7280",
     "light": "#ffffff",
@@ -213,7 +213,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "https://docs.continue.dev"
+    "href": "https://docs.arclength-continuation.dev"
   },
   "background": {
     "color": {
@@ -223,15 +223,15 @@
   "navbar": {
     "primary": {
       "type": "github",
-      "href": "https://github.com/continuedev/continue"
+      "href": "https://github.com/arclength-continuation/continue"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://twitter.com/continuedev",
-      "github": "https://github.com/continuedev/continue",
-      "linkedin": "https://linkedin.com/company/continuedev",
-      "youtube": "https://www.youtube.com/@continuedev"
+      "x": "https://twitter.com/arclength-continuation",
+      "github": "https://github.com/arclength-continuation/continue",
+      "linkedin": "https://linkedin.com/company/arclength-continuation",
+      "youtube": "https://www.youtube.com/@arclength-continuation"
     }
   },
   "contextual": {
@@ -262,7 +262,7 @@
     },
     {
       "source": "/changelog",
-      "destination": "https://changelog.continue.dev"
+      "destination": "https://changelog.arclength-continuation.dev"
     },
     {
       "source": "/customization",
@@ -874,7 +874,7 @@
     },
     {
       "source": "/about",
-      "destination": "https://continue.dev/about-us"
+      "destination": "https://arclength-continuation.dev/about-us"
     },
     {
       "source": "/autocomplete/model-setup",

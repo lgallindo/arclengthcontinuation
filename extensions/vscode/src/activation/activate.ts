@@ -1,11 +1,14 @@
-import { getContinueRcPath, getTsConfigPath } from "core/util/paths";
+import {
+  getArclengthContinuationRcPath,
+  getTsConfigPath,
+} from "core/util/paths";
 import * as vscode from "vscode";
 
 import { VsCodeExtension } from "../extension/VsCodeExtension";
 import { isUnsupportedPlatform } from "../util/util";
 
 import { GlobalContext } from "core/util/GlobalContext";
-import { VsCodeContinueApi } from "./api";
+import { VsCodeArclengthContinuationApi } from "./api";
 import setupInlineTips from "./InlineTipManager";
 
 export async function activateExtension(context: vscode.ExtensionContext) {
@@ -20,20 +23,20 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
     globalContext.update("hasShownUnsupportedPlatformWarning", true);
     void vscode.window.showInformationMessage(
-      `Continue detected that you are using ${platformTarget}. Due to native dependencies, Continue may not be able to start`,
+      `ArclengthContinuation detected that you are using ${platformTarget}. Due to native dependencies, ArclengthContinuation may not be able to start`,
     );
   }
 
   // Add necessary files
   getTsConfigPath();
-  getContinueRcPath();
+  getArclengthContinuationRcPath();
 
   // Register commands and providers
   setupInlineTips(context);
 
   const vscodeExtension = new VsCodeExtension(context);
 
-  // Load Continue configuration
+  // Load ArclengthContinuation configuration
   if (!context.globalState.get("hasBeenInstalled")) {
     void context.globalState.update("hasBeenInstalled", true);
   }
@@ -59,12 +62,12 @@ export async function activateExtension(context: vscode.ExtensionContext) {
     );
   } catch (error) {
     console.error(
-      "Failed to register Continue config.yaml schema, most likely, YAML extension is not installed",
+      "Failed to register ArclengthContinuation config.yaml schema, most likely, YAML extension is not installed",
       error,
     );
   }
 
-  const api = new VsCodeContinueApi(vscodeExtension);
+  const api = new VsCodeArclengthContinuationApi(vscodeExtension);
   const continuePublicApi = {
     registerCustomContextProvider: api.registerCustomContextProvider.bind(api),
   };

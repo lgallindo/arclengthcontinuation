@@ -1,6 +1,6 @@
 {
   "recommendations": [
-    "Continue.continue",
+    "Arclength-Continuation.continue",
     "vivaxy.vscode-conventional-commits",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",

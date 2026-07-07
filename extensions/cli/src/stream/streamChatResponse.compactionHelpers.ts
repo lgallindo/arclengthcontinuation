@@ -1,5 +1,5 @@
-import { ModelConfig } from "@continuedev/config-yaml";
-import { BaseLlmApi } from "@continuedev/openai-adapters";
+import { ModelConfig } from "@arclength-continuation/config-yaml";
+import { BaseLlmApi } from "@arclength-continuation/openai-adapters";
 import type { ChatHistoryItem } from "core/index.js";
 import type { ChatCompletionTool } from "openai/resources/chat/completions.mjs";
 
@@ -175,13 +175,13 @@ export async function handlePostToolValidation(
  */
 export async function handleNormalAutoCompaction(
   chatHistory: ChatHistoryItem[],
-  shouldContinue: boolean,
+  shouldArclengthContinuation: boolean,
   options: CompactionHelperOptions,
 ): Promise<{ chatHistory: ChatHistoryItem[]; wasCompacted: boolean }> {
   const { model, llmApi, isHeadless, callbacks, systemMessage, tools } =
     options;
 
-  if (!shouldContinue) {
+  if (!shouldArclengthContinuation) {
     return { chatHistory, wasCompacted: false };
   }
 

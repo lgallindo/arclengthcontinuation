@@ -23,7 +23,9 @@ describe.skip("GUI Test", () => {
   before(async function () {
     this.timeout(DEFAULT_TIMEOUT.XL + DEFAULT_TIMEOUT.MD + DEFAULT_TIMEOUT.MD);
     // Uncomment this line for faster testing
-    await GUIActions.moveContinueToSidebar(VSBrowser.instance.driver);
+    await GUIActions.moveArclengthContinuationToSidebar(
+      VSBrowser.instance.driver,
+    );
     await GlobalActions.openTestWorkspace();
     await GlobalActions.clearAllNotifications();
     await GlobalActions.disableNextEdit();
@@ -43,7 +45,10 @@ describe.skip("GUI Test", () => {
 
     await view.switchBack();
     await TestUtils.waitForSuccess(
-      async () => (await GUISelectors.getContinueExtensionBadge(view)).click(),
+      async () =>
+        (
+          await GUISelectors.getArclengthContinuationExtensionBadge(view)
+        ).click(),
       DEFAULT_TIMEOUT.XS,
     );
     await new EditorView().closeAllEditors();
@@ -298,7 +303,7 @@ describe.skip("GUI Test", () => {
       );
 
       expect(await statusMessage.getText()).contain(
-        "Continue viewed the git diff",
+        "ArclengthContinuation viewed the git diff",
       );
     }).timeout(DEFAULT_TIMEOUT.MD * 100);
 
@@ -341,7 +346,7 @@ describe.skip("GUI Test", () => {
       );
 
       const text = await statusMessage.getText();
-      expect(text).contain("Continue tried to view the git diff");
+      expect(text).contain("ArclengthContinuation tried to view the git diff");
     }).timeout(DEFAULT_TIMEOUT.XL);
   });
 

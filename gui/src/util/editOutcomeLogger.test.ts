@@ -1,6 +1,6 @@
 import {
   ApplyState,
-  BrowserSerializedContinueConfig,
+  BrowserSerializedArclengthContinuationConfig,
   ToolCallState,
 } from "core";
 import { describe, expect, it, vi } from "vitest";
@@ -22,18 +22,19 @@ vi.mock("../redux/store", () => ({
   },
 }));
 
-const EMPTY_CONFIG_WITH_TEST_MODEL_SELECTED: BrowserSerializedContinueConfig = {
-  ...EMPTY_CONFIG,
-  selectedModelByRole: {
-    ...EMPTY_CONFIG.selectedModelByRole,
-    chat: {
-      provider: "test",
-      model: "test-model",
-      title: "Test model",
-      underlyingProviderName: "provider",
+const EMPTY_CONFIG_WITH_TEST_MODEL_SELECTED: BrowserSerializedArclengthContinuationConfig =
+  {
+    ...EMPTY_CONFIG,
+    selectedModelByRole: {
+      ...EMPTY_CONFIG.selectedModelByRole,
+      chat: {
+        provider: "test",
+        model: "test-model",
+        title: "Test model",
+        underlyingProviderName: "provider",
+      },
     },
-  },
-};
+  };
 
 describe("assembleEditOutcomeData", () => {
   it("should assemble complete edit outcome data correctly", () => {

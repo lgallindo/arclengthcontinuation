@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 // When deploying to GitHub Pages the site is served from the `/continue/`
-// subpath (https://continuedev.github.io/continue/). GitHub Actions sets
+// subpath (https://arclength-continuation.github.io/continue/). GitHub Actions sets
 // GITHUB_ACTIONS=true, so we only apply the base path there — local dev
 // (localhost:3005) keeps serving from the root.
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";

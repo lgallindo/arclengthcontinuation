@@ -1,4 +1,4 @@
-import { ModelRole } from "@continuedev/config-yaml";
+import { ModelRole } from "@arclength-continuation/config-yaml";
 import { ModelDescription } from "core";
 import { useContext, useState } from "react";
 import Shortcut from "../../../components/gui/Shortcut";
@@ -16,17 +16,22 @@ import { ModelRoleRow } from "../components/ModelRoleRow";
 
 const MODEL_DOCS_URLS = {
   chat: {
-    learnMore: "https://docs.continue.dev/ide-extensions/chat/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/chat/model-setup",
+    learnMore:
+      "https://docs.arclength-continuation.dev/ide-extensions/chat/quick-start",
+    setup:
+      "https://docs.arclength-continuation.dev/ide-extensions/chat/model-setup",
   },
   autocomplete: {
     learnMore:
-      "https://docs.continue.dev/ide-extensions/autocomplete/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/autocomplete/model-setup",
+      "https://docs.arclength-continuation.dev/ide-extensions/autocomplete/quick-start",
+    setup:
+      "https://docs.arclength-continuation.dev/ide-extensions/autocomplete/model-setup",
   },
   edit: {
-    learnMore: "https://docs.continue.dev/ide-extensions/edit/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/edit/model-setup",
+    learnMore:
+      "https://docs.arclength-continuation.dev/ide-extensions/edit/quick-start",
+    setup:
+      "https://docs.arclength-continuation.dev/ide-extensions/edit/model-setup",
   },
 } as const;
 
@@ -185,7 +190,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.apply ?? undefined}
               onSelect={(model) => handleRoleUpdate("apply", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/apply"
+              setupURL="https://docs.arclength-continuation.dev/customize/model-roles/apply"
             />
 
             <Divider />
@@ -198,7 +203,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.embed ?? undefined}
               onSelect={(model) => handleRoleUpdate("embed", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/embeddings"
+              setupURL="https://docs.arclength-continuation.dev/customize/model-roles/embeddings"
             />
 
             <Divider />
@@ -211,7 +216,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.rerank ?? undefined}
               onSelect={(model) => handleRoleUpdate("rerank", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/reranking"
+              setupURL="https://docs.arclength-continuation.dev/customize/model-roles/reranking"
             />
           </div>
         </Toggle>

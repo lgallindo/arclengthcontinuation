@@ -12,12 +12,12 @@ import {
 
 describe("Model Persistence Integration", () => {
   let testDir: string;
-  let originalContinueHome: string | undefined;
+  let originalArclengthContinuationHome: string | undefined;
 
   beforeEach(() => {
     // Create a temporary directory for testing
     testDir = fs.mkdtempSync(path.join(os.tmpdir(), "continue-test-"));
-    originalContinueHome = process.env.CONTINUE_GLOBAL_DIR;
+    originalArclengthContinuationHome = process.env.CONTINUE_GLOBAL_DIR;
     process.env.CONTINUE_GLOBAL_DIR = testDir;
 
     // Clear GlobalContext for clean test state
@@ -29,8 +29,8 @@ describe("Model Persistence Integration", () => {
     if (fs.existsSync(testDir)) {
       fs.rmSync(testDir, { recursive: true });
     }
-    if (originalContinueHome) {
-      process.env.CONTINUE_GLOBAL_DIR = originalContinueHome;
+    if (originalArclengthContinuationHome) {
+      process.env.CONTINUE_GLOBAL_DIR = originalArclengthContinuationHome;
     } else {
       delete process.env.CONTINUE_GLOBAL_DIR;
     }

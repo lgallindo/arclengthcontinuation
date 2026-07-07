@@ -14,10 +14,11 @@ interface FromConsoleView {
 // oldest and also send a message to the view to do the same.
 const MAX_INTERACTIONS = 50;
 
-export class ContinueConsoleWebviewViewProvider
+export class ArclengthContinuationConsoleWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
-  public static readonly viewType = "continue.continueConsoleView";
+  public static readonly viewType =
+    "arclength-continuation.continueConsoleView";
 
   resolveWebviewView(
     webviewView: vscode.WebviewView,
@@ -198,7 +199,7 @@ export class ContinueConsoleWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>ArclengthContinuation</title>
       </head>
       <body>
         <div id="root"></div>

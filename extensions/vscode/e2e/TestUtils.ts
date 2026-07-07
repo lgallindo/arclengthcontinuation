@@ -85,7 +85,7 @@ export class TestUtils {
           break;
         }
       } catch (e) {
-        // Continue if there's an error (element not found)
+        // ArclengthContinuation if there's an error (element not found)
       }
       await new Promise((resolve) => setTimeout(resolve, interval));
     }

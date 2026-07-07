@@ -1,5 +1,5 @@
 {
-  "name": "@continuedev/llm-info",
+  "name": "@arclength-continuation/llm-info",
   "version": "1.0.10",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
     "build": "tsc"
   },
   "author": "Nate Sesti and Ty Dunn",
-  "license": "Apache-2.0",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@types/node": "^22.15.29",
     "typescript": "^5.5.2",

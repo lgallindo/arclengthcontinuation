@@ -33,8 +33,8 @@ import {
   setupStatusBar,
   StatusBarStatus,
 } from "./autocomplete/statusBar";
-import { ContinueConsoleWebviewViewProvider } from "./ContinueConsoleWebviewViewProvider";
-import { ContinueGUIWebviewViewProvider } from "./ContinueGUIWebviewViewProvider";
+import { ArclengthContinuationConsoleWebviewViewProvider } from "./ArclengthContinuationConsoleWebviewViewProvider";
+import { ArclengthContinuationGUIWebviewViewProvider } from "./ArclengthContinuationGUIWebviewViewProvider";
 import { processDiff } from "./diff/processDiff";
 import { VerticalDiffManager } from "./diff/vertical/manager";
 import EditDecorationManager from "./quickEdit/EditDecorationManager";
@@ -54,7 +54,9 @@ let fullScreenPanel: vscode.WebviewPanel | undefined;
 function getFullScreenTab() {
   const tabs = vscode.window.tabGroups.all.flatMap((tabGroup) => tabGroup.tabs);
   return tabs.find((tab) =>
-    (tab.input as any)?.viewType?.endsWith("continue.continueGUIView"),
+    (tab.input as any)?.viewType?.endsWith(
+      "arclength-continuation.continueGUIView",
+    ),
   );
 }
 
@@ -65,7 +67,9 @@ function focusGUI() {
     fullScreenPanel?.reveal();
   } else {
     // focus sidebar
-    vscode.commands.executeCommand("continue.continueGUIView.focus");
+    vscode.commands.executeCommand(
+      "arclength-continuation.continueGUIView.focus",
+    );
     // vscode.commands.executeCommand("workbench.action.focusAuxiliaryBar");
   }
 }
@@ -83,7 +87,7 @@ function hideGUI() {
 }
 
 function waitForSidebarReady(
-  sidebar: ContinueGUIWebviewViewProvider,
+  sidebar: ArclengthContinuationGUIWebviewViewProvider,
   timeout: number,
   interval: number,
 ): Promise<boolean> {
@@ -108,8 +112,8 @@ function waitForSidebarReady(
 const getCommandsMap: (
   ide: VsCodeIde,
   extensionContext: vscode.ExtensionContext,
-  sidebar: ContinueGUIWebviewViewProvider,
-  consoleView: ContinueConsoleWebviewViewProvider,
+  sidebar: ArclengthContinuationGUIWebviewViewProvider,
+  consoleView: ArclengthContinuationConsoleWebviewViewProvider,
   configHandler: ConfigHandler,
   verticalDiffManager: VerticalDiffManager,
   battery: Battery,
@@ -170,7 +174,10 @@ const getCommandsMap: (
   }
 
   return {
-    "continue.acceptDiff": async (newFileUri?: string, streamId?: string) => {
+    "arclength-continuation.acceptDiff": async (
+      newFileUri?: string,
+      streamId?: string,
+    ) => {
       void processDiff(
         "accept",
         sidebar,
@@ -182,7 +189,10 @@ const getCommandsMap: (
       );
     },
 
-    "continue.rejectDiff": async (newFileUri?: string, streamId?: string) => {
+    "arclength-continuation.rejectDiff": async (
+      newFileUri?: string,
+      streamId?: string,
+    ) => {
       void processDiff(
         "reject",
         sidebar,
@@ -193,13 +203,19 @@ const getCommandsMap: (
         streamId,
       );
     },
-    "continue.acceptVerticalDiffBlock": (fileUri?: string, index?: number) => {
+    "arclength-continuation.acceptVerticalDiffBlock": (
+      fileUri?: string,
+      index?: number,
+    ) => {
       verticalDiffManager.acceptRejectVerticalDiffBlock(true, fileUri, index);
     },
-    "continue.rejectVerticalDiffBlock": (fileUri?: string, index?: number) => {
+    "arclength-continuation.rejectVerticalDiffBlock": (
+      fileUri?: string,
+      index?: number,
+    ) => {
       verticalDiffManager.acceptRejectVerticalDiffBlock(false, fileUri, index);
     },
-    "continue.quickFix": async (
+    "arclength-continuation.quickFix": async (
       range: vscode.Range,
       diagnosticMessage: string,
     ) => {
@@ -207,43 +223,50 @@ const getCommandsMap: (
 
       addCodeToContextFromRange(range, sidebar.webviewProtocol, prompt);
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand(
+        "arclength-continuation.continueGUIView.focus",
+      );
     },
-    "continue.defaultQuickAction": async (args: QuickEditShowParams) => {
-      vscode.commands.executeCommand("continue.focusEdit", args);
+    "arclength-continuation.defaultQuickAction": async (
+      args: QuickEditShowParams,
+    ) => {
+      vscode.commands.executeCommand("arclength-continuation.focusEdit", args);
     },
-    "continue.customQuickActionSendToChat": async (
+    "arclength-continuation.customQuickActionSendToChat": async (
       prompt: string,
       range: vscode.Range,
     ) => {
       addCodeToContextFromRange(range, sidebar.webviewProtocol, prompt);
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand(
+        "arclength-continuation.continueGUIView.focus",
+      );
     },
-    "continue.customQuickActionStreamInlineEdit": async (
+    "arclength-continuation.customQuickActionStreamInlineEdit": async (
       prompt: string,
       range: vscode.Range,
     ) => {
       streamInlineEdit("docstring", prompt, range);
     },
-    "continue.codebaseForceReIndex": async () => {
+    "arclength-continuation.codebaseForceReIndex": async () => {
       core.invoke("index/forceReIndex", undefined);
     },
-    "continue.rebuildCodebaseIndex": async () => {
+    "arclength-continuation.rebuildCodebaseIndex": async () => {
       core.invoke("index/forceReIndex", { shouldClearIndexes: true });
     },
-    "continue.docsIndex": async () => {
+    "arclength-continuation.docsIndex": async () => {
       core.invoke("context/indexDocs", { reIndex: false });
     },
-    "continue.docsReIndex": async () => {
+    "arclength-continuation.docsReIndex": async () => {
       core.invoke("context/indexDocs", { reIndex: true });
     },
-    "continue.focusContinueInput": async () => {
-      const isContinueInputFocused = await sidebar.webviewProtocol.request(
-        "isContinueInputFocused",
-        undefined,
-        false,
-      );
+    "arclength-continuation.focusArclengthContinuationInput": async () => {
+      const isArclengthContinuationInputFocused =
+        await sidebar.webviewProtocol.request(
+          "isArclengthContinuationInputFocused",
+          undefined,
+          false,
+        );
 
       // This is a temporary fix—sidebar.webviewProtocol.request is blocking
       // when the GUI hasn't yet been setup and we should instead be
@@ -262,12 +285,12 @@ const getCommandsMap: (
         false,
       );
 
-      if (isContinueInputFocused) {
+      if (isArclengthContinuationInputFocused) {
         if (historyLength === 0) {
           hideGUI();
         } else {
           void sidebar.webviewProtocol?.request(
-            "focusContinueInputWithNewSession",
+            "focusArclengthContinuationInputWithNewSession",
             undefined,
             false,
           );
@@ -275,112 +298,120 @@ const getCommandsMap: (
       } else {
         focusGUI();
         sidebar.webviewProtocol?.request(
-          "focusContinueInputWithNewSession",
+          "focusArclengthContinuationInputWithNewSession",
           undefined,
           false,
         );
         void addHighlightedCodeToContext(sidebar.webviewProtocol);
       }
     },
-    "continue.focusContinueInputWithoutClear": async () => {
-      const isContinueInputFocused = await sidebar.webviewProtocol.request(
-        "isContinueInputFocused",
-        undefined,
-        false,
-      );
+    "arclength-continuation.focusArclengthContinuationInputWithoutClear":
+      async () => {
+        const isArclengthContinuationInputFocused =
+          await sidebar.webviewProtocol.request(
+            "isArclengthContinuationInputFocused",
+            undefined,
+            false,
+          );
 
-      // This is a temporary fix—sidebar.webviewProtocol.request is blocking
-      // when the GUI hasn't yet been setup and we should instead be
-      // immediately throwing an error, or returning a Result object
-      focusGUI();
-      if (!sidebar.isReady) {
-        const isReady = await waitForSidebarReady(sidebar, 5000, 100);
-        if (!isReady) {
-          return;
-        }
-      }
-
-      if (isContinueInputFocused) {
-        hideGUI();
-      } else {
+        // This is a temporary fix—sidebar.webviewProtocol.request is blocking
+        // when the GUI hasn't yet been setup and we should instead be
+        // immediately throwing an error, or returning a Result object
         focusGUI();
+        if (!sidebar.isReady) {
+          const isReady = await waitForSidebarReady(sidebar, 5000, 100);
+          if (!isReady) {
+            return;
+          }
+        }
 
-        sidebar.webviewProtocol?.request(
-          "focusContinueInputWithoutClear",
-          undefined,
-        );
+        if (isArclengthContinuationInputFocused) {
+          hideGUI();
+        } else {
+          focusGUI();
 
-        void addHighlightedCodeToContext(sidebar.webviewProtocol);
-      }
-    },
+          sidebar.webviewProtocol?.request(
+            "focusArclengthContinuationInputWithoutClear",
+            undefined,
+          );
+
+          void addHighlightedCodeToContext(sidebar.webviewProtocol);
+        }
+      },
     // QuickEditShowParams are passed from CodeLens, temp fix
     // until we update to new params specific to Edit
-    "continue.focusEdit": async (args?: QuickEditShowParams) => {
+    "arclength-continuation.focusEdit": async (args?: QuickEditShowParams) => {
       focusGUI();
       sidebar.webviewProtocol?.request("focusEdit", undefined);
     },
-    "continue.exitEditMode": async () => {
+    "arclength-continuation.exitEditMode": async () => {
       editDecorationManager.clear();
       void sidebar.webviewProtocol?.request("exitEditMode", undefined);
     },
-    "continue.writeCommentsForCode": async () => {
+    "arclength-continuation.writeCommentsForCode": async () => {
       streamInlineEdit(
         "comment",
         "Write comments for this code. Do not change anything about the code itself.",
       );
     },
-    "continue.writeDocstringForCode": async () => {
+    "arclength-continuation.writeDocstringForCode": async () => {
       void streamInlineEdit(
         "docstring",
         "Write a docstring for this code. Do not change anything about the code itself.",
       );
     },
-    "continue.fixCode": async () => {
+    "arclength-continuation.fixCode": async () => {
       streamInlineEdit(
         "fix",
         "Fix this code. If it is already 100% correct, simply rewrite the code.",
       );
     },
-    "continue.optimizeCode": async () => {
+    "arclength-continuation.optimizeCode": async () => {
       streamInlineEdit("optimize", "Optimize this code");
     },
-    "continue.fixGrammar": async () => {
+    "arclength-continuation.fixGrammar": async () => {
       streamInlineEdit(
         "fixGrammar",
         "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing.",
       );
     },
-    "continue.clearConsole": async () => {
+    "arclength-continuation.clearConsole": async () => {
       consoleView.clearLog();
     },
-    "continue.viewLogs": async () => {
+    "arclength-continuation.viewLogs": async () => {
       vscode.commands.executeCommand("workbench.action.toggleDevTools");
     },
-    "continue.debugTerminal": async () => {
+    "arclength-continuation.debugTerminal": async () => {
       const terminalContents = await ide.getTerminalContents();
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand(
+        "arclength-continuation.continueGUIView.focus",
+      );
 
       sidebar.webviewProtocol?.request("userInput", {
         input: `I got the following error, can you please help explain how to fix it?\n\n${terminalContents.trim()}`,
       });
     },
-    "continue.hideInlineTip": () => {
+    "arclength-continuation.hideInlineTip": () => {
       vscode.workspace
         .getConfiguration(EXTENSION_NAME)
         .update("showInlineTip", false, vscode.ConfigurationTarget.Global);
     },
 
     // Commands without keyboard shortcuts
-    "continue.addModel": () => {
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+    "arclength-continuation.addModel": () => {
+      vscode.commands.executeCommand(
+        "arclength-continuation.continueGUIView.focus",
+      );
       sidebar.webviewProtocol?.request("addModel", undefined);
     },
-    "continue.newSession": () => {
+    "arclength-continuation.newSession": () => {
       sidebar.webviewProtocol?.request("newSession", undefined);
     },
 
-    "continue.shareSession": async (sessionId: string | undefined) => {
+    "arclength-continuation.shareSession": async (
+      sessionId: string | undefined,
+    ) => {
       if (!sessionId) {
         sessionId = await sidebar.webviewProtocol?.request(
           "getCurrentSessionId",
@@ -416,10 +447,14 @@ const getCommandsMap: (
         void vscode.window.showErrorMessage(errorMessage);
       }
     },
-    "continue.viewHistory": () => {
-      vscode.commands.executeCommand("continue.navigateTo", "/history", true);
+    "arclength-continuation.viewHistory": () => {
+      vscode.commands.executeCommand(
+        "arclength-continuation.navigateTo",
+        "/history",
+        true,
+      );
     },
-    "continue.focusContinueSessionId": async (
+    "arclength-continuation.focusArclengthContinuationSessionId": async (
       sessionId: string | undefined,
     ) => {
       if (!sessionId) {
@@ -427,17 +462,24 @@ const getCommandsMap: (
           prompt: "Enter the Session ID",
         });
       }
-      void sidebar.webviewProtocol?.request("focusContinueSessionId", {
-        sessionId,
-      });
+      void sidebar.webviewProtocol?.request(
+        "focusArclengthContinuationSessionId",
+        {
+          sessionId,
+        },
+      );
     },
-    "continue.applyCodeFromChat": () => {
+    "arclength-continuation.applyCodeFromChat": () => {
       void sidebar.webviewProtocol.request("applyCodeFromChat", undefined);
     },
-    "continue.openConfigPage": () => {
-      vscode.commands.executeCommand("continue.navigateTo", "/config", false);
+    "arclength-continuation.openConfigPage": () => {
+      vscode.commands.executeCommand(
+        "arclength-continuation.navigateTo",
+        "/config",
+        false,
+      );
     },
-    "continue.selectFilesAsContext": async (
+    "arclength-continuation.selectFilesAsContext": async (
       firstUri: vscode.Uri,
       uris: vscode.Uri[],
     ) => {
@@ -445,7 +487,9 @@ const getCommandsMap: (
         throw new Error("No files were selected");
       }
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand(
+        "arclength-continuation.continueGUIView.focus",
+      );
 
       for (const uri of uris) {
         // If it's a folder, add the entire folder contents recursively by using walkDir (to ignore ignored files)
@@ -471,25 +515,25 @@ const getCommandsMap: (
         }
       }
     },
-    "continue.logAutocompleteOutcome": (
+    "arclength-continuation.logAutocompleteOutcome": (
       completionId: string,
       completionProvider: CompletionProvider,
     ) => {
       completionProvider.accept(completionId);
     },
-    "continue.logNextEditOutcomeAccept": (
+    "arclength-continuation.logNextEditOutcomeAccept": (
       completionId: string,
       nextEditLoggingService: NextEditLoggingService,
     ) => {
       nextEditLoggingService.accept(completionId);
     },
-    "continue.logNextEditOutcomeReject": (
+    "arclength-continuation.logNextEditOutcomeReject": (
       completionId: string,
       nextEditLoggingService: NextEditLoggingService,
     ) => {
       nextEditLoggingService.reject(completionId);
     },
-    "continue.toggleTabAutocompleteEnabled": () => {
+    "arclength-continuation.toggleTabAutocompleteEnabled": () => {
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
       const enabled = config.get("enableTabAutocomplete");
       const pauseOnBattery = config.get<boolean>(
@@ -523,7 +567,7 @@ const getCommandsMap: (
         }
       }
     },
-    "continue.forceAutocomplete": async () => {
+    "arclength-continuation.forceAutocomplete": async () => {
       // 1. Explicitly hide any existing suggestion. This clears VS Code's cache for the current position.
       await vscode.commands.executeCommand("editor.action.inlineSuggest.hide");
 
@@ -533,7 +577,7 @@ const getCommandsMap: (
       );
     },
 
-    "continue.openTabAutocompleteConfigMenu": async () => {
+    "arclength-continuation.openTabAutocompleteConfigMenu": async () => {
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
       const quickPick = vscode.window.createQuickPick();
 
@@ -622,28 +666,35 @@ const getCommandsMap: (
             });
           }
         } else if (selectedOption === "$(comment) Open chat") {
-          vscode.commands.executeCommand("continue.focusContinueInput");
+          vscode.commands.executeCommand(
+            "arclength-continuation.focusArclengthContinuationInput",
+          );
         } else if (selectedOption === "$(screen-full) Open full screen chat") {
-          vscode.commands.executeCommand("continue.openInNewWindow");
+          vscode.commands.executeCommand(
+            "arclength-continuation.openInNewWindow",
+          );
         } else if (selectedOption === "$(gear) Open settings") {
-          vscode.commands.executeCommand("continue.navigateTo", "/config");
+          vscode.commands.executeCommand(
+            "arclength-continuation.navigateTo",
+            "/config",
+          );
         }
 
         quickPick.dispose();
       });
       quickPick.show();
     },
-    "continue.navigateTo": (path: string, toggle: boolean) => {
+    "arclength-continuation.navigateTo": (path: string, toggle: boolean) => {
       sidebar.webviewProtocol?.request("navigateTo", { path, toggle });
       focusGUI();
     },
-    "continue.startLocalOllama": () => {
+    "arclength-continuation.startLocalOllama": () => {
       startLocalOllama(ide);
     },
-    "continue.startLocalLemonade": () => {
+    "arclength-continuation.startLocalLemonade": () => {
       startLocalLemonade(ide);
     },
-    "continue.installModel": async (
+    "arclength-continuation.installModel": async (
       modelName: string,
       llmProvider: ILLM | undefined,
     ) => {
@@ -662,7 +713,7 @@ const getCommandsMap: (
         );
       }
     },
-    "continue.convertConfigJsonToConfigYaml": async () => {
+    "arclength-continuation.convertConfigJsonToConfigYaml": async () => {
       const configJson = fs.readFileSync(getConfigJsonPath(), "utf-8");
       const parsed = JSON.parse(configJson);
       const configYaml = convertJsonToYamlConfig(parsed);
@@ -687,12 +738,14 @@ const getCommandsMap: (
         .then(async (selection) => {
           if (selection === "Read the docs") {
             await vscode.env.openExternal(
-              vscode.Uri.parse("https://docs.continue.dev/yaml-migration"),
+              vscode.Uri.parse(
+                "https://docs.arclength-continuation.dev/yaml-migration",
+              ),
             );
           }
         });
     },
-    "continue.enterEnterpriseLicenseKey": async () => {
+    "arclength-continuation.enterEnterpriseLicenseKey": async () => {
       const licenseKey = await vscode.window.showInputBox({
         prompt: "Enter your enterprise license key",
         password: true,
@@ -726,7 +779,7 @@ const getCommandsMap: (
         );
       }
     },
-    "continue.toggleNextEditEnabled": async () => {
+    "arclength-continuation.toggleNextEditEnabled": async () => {
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
       const tabAutocompleteEnabled = config.get<boolean>(
         "enableTabAutocomplete",
@@ -748,7 +801,7 @@ const getCommandsMap: (
         vscode.ConfigurationTarget.Global,
       );
     },
-    "continue.openInNewWindow": async () => {
+    "arclength-continuation.openInNewWindow": async () => {
       focusGUI();
 
       const sessionId = await sidebar.webviewProtocol.request(
@@ -765,13 +818,13 @@ const getCommandsMap: (
       }
 
       // Clear the sidebar to prevent overwriting changes made in fullscreen
-      vscode.commands.executeCommand("continue.newSession");
+      vscode.commands.executeCommand("arclength-continuation.newSession");
 
       // Full screen not open - open it
       // Create the full screen panel
       let panel = vscode.window.createWebviewPanel(
-        "continue.continueGUIView",
-        "Continue",
+        "arclength-continuation.continueGUIView",
+        "ArclengthContinuation",
         vscode.ViewColumn.One,
         {
           retainContextWhenHidden: true,
@@ -790,10 +843,10 @@ const getCommandsMap: (
       );
 
       const sessionLoader = panel.onDidChangeViewState(() => {
-        vscode.commands.executeCommand("continue.newSession");
+        vscode.commands.executeCommand("arclength-continuation.newSession");
         if (sessionId) {
           vscode.commands.executeCommand(
-            "continue.focusContinueSessionId",
+            "arclength-continuation.focusArclengthContinuationSessionId",
             sessionId,
           );
         }
@@ -805,7 +858,9 @@ const getCommandsMap: (
       panel.onDidDispose(
         () => {
           sidebar.resetWebviewProtocolWebview();
-          vscode.commands.executeCommand("continue.focusContinueInput");
+          vscode.commands.executeCommand(
+            "arclength-continuation.focusArclengthContinuationInput",
+          );
         },
         null,
         extensionContext.subscriptions,
@@ -814,7 +869,7 @@ const getCommandsMap: (
       vscode.commands.executeCommand("workbench.action.copyEditorToNewWindow");
       vscode.commands.executeCommand("workbench.action.closeAuxiliaryBar");
     },
-    "continue.forceNextEdit": async () => {
+    "arclength-continuation.forceNextEdit": async () => {
       // This is basically the same logic as forceAutocomplete.
       // I'm writing a new command KV pair here in case we diverge in features.
 
@@ -870,8 +925,8 @@ export function registerAllCommands(
   context: vscode.ExtensionContext,
   ide: VsCodeIde,
   extensionContext: vscode.ExtensionContext,
-  sidebar: ContinueGUIWebviewViewProvider,
-  consoleView: ContinueConsoleWebviewViewProvider,
+  sidebar: ArclengthContinuationGUIWebviewViewProvider,
+  consoleView: ArclengthContinuationConsoleWebviewViewProvider,
   configHandler: ConfigHandler,
   verticalDiffManager: VerticalDiffManager,
   battery: Battery,

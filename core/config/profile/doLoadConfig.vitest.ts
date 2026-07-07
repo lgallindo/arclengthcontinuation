@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import type { PackageIdentifier } from "@continuedev/config-yaml";
+import type { PackageIdentifier } from "@arclength-continuation/config-yaml";
 
 // Mock heavy dependencies before importing doLoadConfig
 const stubConfig = {
@@ -27,16 +27,18 @@ const mockLoadJson = vi.fn().mockResolvedValue({
 });
 
 vi.mock("../yaml/loadYaml", () => ({
-  loadContinueConfigFromYaml: (...args: any[]) => mockLoadYaml(...args),
+  loadArclengthContinuationConfigFromYaml: (...args: any[]) =>
+    mockLoadYaml(...args),
 }));
 vi.mock("../load", () => ({
-  loadContinueConfigFromJson: (...args: any[]) => mockLoadJson(...args),
+  loadArclengthContinuationConfigFromJson: (...args: any[]) =>
+    mockLoadJson(...args),
 }));
 vi.mock("../migrateSharedConfig", () => ({
   migrateJsonSharedConfig: vi.fn(),
 }));
-vi.mock("../getWorkspaceContinueRuleDotFiles", () => ({
-  getWorkspaceContinueRuleDotFiles: vi
+vi.mock("../getWorkspaceArclengthContinuationRuleDotFiles", () => ({
+  getWorkspaceArclengthContinuationRuleDotFiles: vi
     .fn()
     .mockResolvedValue({ rules: [], errors: [] }),
 }));

@@ -14,7 +14,11 @@ global.fetch = vi
     const urlString = url.toString();
 
     // Mock the default config API call
-    if (urlString.includes("get-assistant/continuedev/default-cli-config")) {
+    if (
+      urlString.includes(
+        "get-assistant/arclength-continuation/default-cli-config",
+      )
+    ) {
       return {
         ok: true,
         status: 200,
@@ -53,7 +57,7 @@ vi.mock("./src/systemMessage.js", () => ({
   constructSystemMessage: vi
     .fn()
     .mockResolvedValue(
-      "You are an agent in the Continue CLI. Given the user's prompt, you should use the tools available to you to answer the user's question.",
+      "You are an agent in the ArclengthContinuation CLI. Given the user's prompt, you should use the tools available to you to answer the user's question.",
     ),
   loadMarkdownRulesWithMetadata: vi.fn().mockReturnValue([]),
 }));

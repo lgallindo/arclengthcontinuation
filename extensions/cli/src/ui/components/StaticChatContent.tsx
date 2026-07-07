@@ -1,4 +1,7 @@
-import type { AssistantUnrolled, ModelConfig } from "@continuedev/config-yaml";
+import type {
+  AssistantUnrolled,
+  ModelConfig,
+} from "@arclength-continuation/config-yaml";
 import { Box, Static, Text, useStdout } from "ink";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 

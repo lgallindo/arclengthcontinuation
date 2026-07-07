@@ -20,7 +20,7 @@
 
 // 1. Highlight the code below
 // 2. Press [Cmd/Ctrl + I] to Edit
-// 3. Try asking Continue to "make this more readable"
+// 3. Try asking Arclength-Continuation to "make this more readable"
 function sortingAlgorithm(x: number[]): number[] {
   for (let i = 0; i < x.length; i++) {
     for (let j = 0; j < x.length - 1; j++) {
@@ -39,7 +39,7 @@ function sortingAlgorithm(x: number[]): number[] {
 
 // 1. Highlight the code below
 // 2. Press [Cmd/Ctrl + J] to add to Chat
-// 3. Try asking Continue "what sorting algorithm is this?"
+// 3. Try asking Arclength-Continuation "what sorting algorithm is this?"
 function sortingAlgorithm2(x: number[]): number[] {
   for (let i = 0; i < x.length; i++) {
     for (let j = 0; j < x.length - 1; j++) {
@@ -60,4 +60,4 @@ function sortingAlgorithm2(x: number[]): number[] {
 // 1. Switch from "Chat" to "Agent" mode using the dropdown in the bottom left of the input box
 // 2. Use the "/init" slash command to generate a CONTINUE.md file
 
-  // ——————————————————      Learn more at https://docs.continue.dev      ——————————————————— //
+  // ——————————————————      Learn more at https://docs.arclength-continuation.dev      ——————————————————— //

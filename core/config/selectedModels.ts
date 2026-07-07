@@ -1,6 +1,6 @@
-import { ModelRole } from "@continuedev/config-yaml";
+import { ModelRole } from "@arclength-continuation/config-yaml";
 
-import { ContinueConfig, ILLM } from "..";
+import { ArclengthContinuationConfig, ILLM } from "..";
 import { LLMConfigurationStatuses } from "../llm/constants";
 import {
   GlobalContext,
@@ -8,9 +8,9 @@ import {
 } from "../util/GlobalContext";
 
 export function rectifySelectedModelsFromGlobalContext(
-  continueConfig: ContinueConfig,
+  continueConfig: ArclengthContinuationConfig,
   profileId: string,
-): ContinueConfig {
+): ArclengthContinuationConfig {
   const configCopy = { ...continueConfig };
 
   const globalContext = new GlobalContext();

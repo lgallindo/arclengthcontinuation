@@ -11,11 +11,11 @@ import {
   RegistryClient,
   unrollAssistant,
   validateConfigYaml,
-} from "@continuedev/config-yaml";
+} from "@arclength-continuation/config-yaml";
 import { dirname } from "node:path";
 
 import {
-  ContinueConfig,
+  ArclengthContinuationConfig,
   IDE,
   IdeInfo,
   IdeSettings,
@@ -34,14 +34,14 @@ import { loadJsonMcpConfigs } from "../../context/mcp/json/loadJsonMcpConfigs";
 import { getBaseToolDefinitions } from "../../tools";
 import { getCleanUriPath } from "../../util/uri";
 import { loadConfigContextProviders } from "../loadContextProviders";
-import { getAllDotContinueDefinitionFiles } from "../loadLocalAssistants";
+import { getAllDotArclengthContinuationDefinitionFiles } from "../loadLocalAssistants";
 import { unrollLocalYamlBlocks } from "./loadLocalYamlBlocks";
 import { LocalPlatformClient } from "./LocalPlatformClient";
 import { llmsFromModelConfig } from "./models";
 import {
   convertYamlMcpConfigToInternalMcpOptions,
-  convertYamlRuleToContinueRule,
-} from "./yamlToContinueConfig";
+  convertYamlRuleToArclengthContinuationRule,
+} from "./yamlToArclengthContinuationConfig";
 
 async function loadConfigYaml(options: {
   overrideConfigYaml: AssistantUnrolled | undefined;
@@ -55,7 +55,7 @@ async function loadConfigYaml(options: {
   // Use "content" field to pass pre-read content directly, avoiding
   // fs.readFileSync which fails for vscode-remote:// URIs in WSL (#6242, #7810)
   const localBlockPromises = BLOCK_TYPES.map(async (blockType) => {
-    const localBlocks = await getAllDotContinueDefinitionFiles(
+    const localBlocks = await getAllDotArclengthContinuationDefinitionFiles(
       ide,
       { includeGlobal: true, includeWorkspace: true, fileExtType: "yaml" },
       blockType,
@@ -153,18 +153,21 @@ function nonNullifyConfigYaml(
   };
 }
 
-export async function configYamlToContinueConfig(options: {
+export async function configYamlToArclengthContinuationConfig(options: {
   unrolledAssistant: AssistantUnrolled;
   ide: IDE;
   ideInfo: IdeInfo;
   uniqueId: string;
   llmLogger: ILLMLogger;
-}): Promise<{ config: ContinueConfig; errors: ConfigValidationError[] }> {
+}): Promise<{
+  config: ArclengthContinuationConfig;
+  errors: ConfigValidationError[];
+}> {
   let { unrolledAssistant, ide, ideInfo, uniqueId, llmLogger } = options;
 
   const localErrors: ConfigValidationError[] = [];
 
-  const continueConfig: ContinueConfig = {
+  const continueConfig: ArclengthContinuationConfig = {
     slashCommands: [],
     tools: getBaseToolDefinitions(),
     mcpServerStatuses: [],
@@ -196,7 +199,7 @@ export async function configYamlToContinueConfig(options: {
   const config = nonNullifyConfigYaml(unrolledAssistant);
 
   for (const rule of config.rules ?? []) {
-    const convertedRule = convertYamlRuleToContinueRule(rule);
+    const convertedRule = convertYamlRuleToArclengthContinuationRule(rule);
     continueConfig.rules.push(convertedRule);
   }
 
@@ -382,7 +385,7 @@ export async function configYamlToContinueConfig(options: {
   return { config: continueConfig, errors: localErrors };
 }
 
-export async function loadContinueConfigFromYaml(options: {
+export async function loadArclengthContinuationConfigFromYaml(options: {
   ide: IDE;
   ideSettings: IdeSettings;
   ideInfo: IdeInfo;
@@ -390,7 +393,7 @@ export async function loadContinueConfigFromYaml(options: {
   llmLogger: ILLMLogger;
   overrideConfigYaml: AssistantUnrolled | undefined;
   packageIdentifier: PackageIdentifier;
-}): Promise<ConfigResult<ContinueConfig>> {
+}): Promise<ConfigResult<ArclengthContinuationConfig>> {
   const {
     ide,
     ideSettings,
@@ -418,7 +421,7 @@ export async function loadContinueConfigFromYaml(options: {
   }
 
   const { config: continueConfig, errors: localErrors } =
-    await configYamlToContinueConfig({
+    await configYamlToArclengthContinuationConfig({
       unrolledAssistant: configYamlResult.config,
       ide,
       ideInfo,

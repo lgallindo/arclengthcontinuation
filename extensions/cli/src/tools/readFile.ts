@@ -1,7 +1,10 @@
 import * as fs from "fs";
 
 import { throwIfFileIsSecurityConcern } from "core/indexing/ignore.js";
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 
 import { parseEnvNumber } from "../util/truncateOutput.js";
 
@@ -75,8 +78,8 @@ export const readFileTool: Tool = {
       }
 
       if (!fs.existsSync(filepath)) {
-        throw new ContinueError(
-          ContinueErrorReason.Unspecified,
+        throw new ArclengthContinuationError(
+          ArclengthContinuationErrorReason.Unspecified,
           `File does not exist: ${filepath}`,
         );
       }
@@ -99,8 +102,8 @@ export const readFileTool: Tool = {
             ? ` (Note: limit reduced due to ${parallelCount} parallel tool calls. Single-tool limit: ${baseMaxChars.toLocaleString()} characters or ${baseMaxLines.toLocaleString()} lines.)`
             : "";
 
-        throw new ContinueError(
-          ContinueErrorReason.FileTooLarge,
+        throw new ArclengthContinuationError(
+          ArclengthContinuationErrorReason.FileTooLarge,
           `File is too large to read: ${filepath} (${charCount.toLocaleString()} characters, ${lineCount.toLocaleString()} lines). ` +
             `Maximum allowed: ${maxChars.toLocaleString()} characters or ${maxLines.toLocaleString()} lines.${parallelNote} ` +
             `Consider using terminal commands like 'head', 'tail', 'sed', or 'grep' to read targeted parts of the file.`,
@@ -112,7 +115,7 @@ export const readFileTool: Tool = {
 
       return `Content of ${filepath}:\n${content}`;
     } catch (error) {
-      if (error instanceof ContinueError) {
+      if (error instanceof ArclengthContinuationError) {
         throw error;
       }
       throw new Error(

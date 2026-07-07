@@ -1,4 +1,4 @@
-import { fetchwithRequestOptions } from "@continuedev/fetch";
+import { fetchwithRequestOptions } from "@arclength-continuation/fetch";
 import * as URI from "uri-js";
 import { v4 as uuidv4 } from "uuid";
 
@@ -47,14 +47,14 @@ import {
   type IDE,
 } from ".";
 
-import { ConfigYaml } from "@continuedev/config-yaml";
+import { ConfigYaml } from "@arclength-continuation/config-yaml";
 import { getDiffFn, GitDiffCache } from "./autocomplete/snippets/gitDiffCache";
 import { stringifyMcpPrompt } from "./commands/slash/mcpSlashCommand";
 import { createNewAssistantFile } from "./config/createNewAssistantFile";
 import {
   isColocatedRulesFile,
-  isContinueAgentConfigFile,
-  isContinueConfigRelatedUri,
+  isArclengthContinuationAgentConfigFile,
+  isArclengthContinuationConfigRelatedUri,
 } from "./config/loadLocalAssistants";
 import { CodebaseRulesCache } from "./config/markdown/loadCodebaseRules";
 import {
@@ -82,7 +82,10 @@ import { NextEditProvider } from "./nextEdit/NextEditProvider";
 import type { FromCoreProtocol, ToCoreProtocol } from "./protocol";
 import { OnboardingModes } from "./protocol/core";
 import type { IMessenger, Message } from "./protocol/messenger";
-import { ContinueError, ContinueErrorReason } from "./util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "./util/errors";
 import { shareSession } from "./util/historyUtils";
 import { Logger } from "./util/Logger.js";
 
@@ -407,7 +410,7 @@ export class Core {
         const filepath = msg.data.filepath;
         if (
           !isColocatedRulesFile(filepath) &&
-          !isContinueConfigRelatedUri(filepath)
+          !isArclengthContinuationConfigRelatedUri(filepath)
         ) {
           throw new Error("Only rule files can be deleted");
         }
@@ -863,9 +866,11 @@ export class Core {
       }
 
       // If it's a local config being created, we want to reload all configs so it shows up in the list
-      if (nonColocatedRuleUris.some(isContinueAgentConfigFile)) {
+      if (nonColocatedRuleUris.some(isArclengthContinuationAgentConfigFile)) {
         await this.configHandler.refreshAll("Local config file created");
-      } else if (nonColocatedRuleUris.some(isContinueConfigRelatedUri)) {
+      } else if (
+        nonColocatedRuleUris.some(isArclengthContinuationConfigRelatedUri)
+      ) {
         await this.configHandler.reloadConfig(
           ".continue config-related file created",
         );
@@ -895,9 +900,11 @@ export class Core {
       }
 
       // If it's a local config being deleted, we want to reload all configs so it disappears from the list
-      if (nonColocatedRuleUris.some(isContinueAgentConfigFile)) {
+      if (nonColocatedRuleUris.some(isArclengthContinuationAgentConfigFile)) {
         await this.configHandler.refreshAll("Local config file deleted");
-      } else if (nonColocatedRuleUris.some(isContinueConfigRelatedUri)) {
+      } else if (
+        nonColocatedRuleUris.some(isArclengthContinuationConfigRelatedUri)
+      ) {
         await this.configHandler.reloadConfig(
           ".continue config-related file deleted",
         );
@@ -1099,7 +1106,9 @@ export class Core {
         };
       } catch (e) {
         let errorReason =
-          e instanceof ContinueError ? e.reason : ContinueErrorReason.Unknown;
+          e instanceof ArclengthContinuationError
+            ? e.reason
+            : ArclengthContinuationErrorReason.Unknown;
         let errorMessage =
           e instanceof Error
             ? e.message
@@ -1279,7 +1288,7 @@ export class Core {
           } catch (e) {
             Logger.error(`Failed to update codebase rule: ${e}`);
           }
-        } else if (isContinueConfigRelatedUri(uri)) {
+        } else if (isArclengthContinuationConfigRelatedUri(uri)) {
           await this.configHandler.reloadConfig(
             "Local config-related file updated",
           );
@@ -1442,7 +1451,7 @@ export class Core {
         //     .then((userSelection) => {
         //       if (userSelection === toastOption) {
         //         void this.ide.openUrl(
-        //           "https://docs.continue.dev/customize/model-roles/embeddings",
+        //           "https://docs.arclength-continuation.dev/customize/model-roles/embeddings",
         //         );
         //       }
         //     });

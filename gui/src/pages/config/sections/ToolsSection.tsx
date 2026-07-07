@@ -1,4 +1,7 @@
-import { ConfigYaml, parseConfigYaml } from "@continuedev/config-yaml";
+import {
+  ConfigYaml,
+  parseConfigYaml,
+} from "@arclength-continuation/config-yaml";
 import {
   ArrowPathIcon,
   ChevronDownIcon,
