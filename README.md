@@ -1,67 +1,70 @@
-<h1 align="center">Arclength-Continuation</h1>
+<h1 align="center">ArclengthContinuation</h1>
 
-<p align="center">Pioneering open-source coding agent</p>
+<p align="center">A copyleft-oriented fork of Continue for AI-assisted development across the CLI, VS Code, and JetBrains.</p>
 
 <div align="center">
 
-<a href="https://opensource.org/licenses/GPL-3.0-or-later"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" /></a>
-<a href="https://docs.arclength-continuation.dev"><img src="https://img.shields.io/badge/Docs-docs.arclength-continuation.dev-blue" /></a>
-<a href="https://github.com/arclength-continuation/continue/releases"><img src="https://img.shields.io/badge/Changelog-GitHub_Releases-blue" /></a>
+<a href="./LICENSE-COPYLEFT.md"><img src="https://img.shields.io/badge/Fork_Modifications-GPL--3.0--or--later-blue" /></a>
+<a href="./LICENSE"><img src="https://img.shields.io/badge/Upstream_Base-Apache--2.0-blue" /></a>
 
 </div>
 
 <p align="center">
-  <img src="media/github-readme.png" alt="Banner" />
+  <img src="media/github-readme.png" alt="ArclengthContinuation banner" />
 </p>
 
-## What is Arclength-Continuation?
+## Status
 
-> _Note: The `arclength-continuation/continue` repository is no longer actively maintained and is read-only for all users._
+ArclengthContinuation is a work-in-progress fork of Continue. The immediate project goal is to restore a reliable build baseline, then improve the VS Code extension as a first-class citizen for local and hosted model discovery in VS Code, Google Antigravity, and Kiro-style development environments.
 
-Arclength-Continuation is a coding agent available as a [CLI](#cli), [VS Code extension](#vs-code), and [JetBrains plugin](#jetbrains).
+No project releases are being published from this repository at this time. GitHub Actions workflows are intentionally disabled until the repository automation policy is reviewed.
 
-## Documentation
+## Components
 
-To learn how to configure Arclength-Continuation, how it works, and how to customize it, check out the [Arclength-Continuation Docs](https://docs.arclength-continuation.dev).
+- [CLI](extensions/cli)
+- [VS Code extension](extensions/vscode)
+- [JetBrains plugin](extensions/intellij)
+- [Core packages](core)
+- [TypeScript SDK](packages/continue-sdk/typescript)
 
-## Final 2.0.0 Release
+## Build Verification
 
-We polished Arclength-Continuation and did a final 2.0.0 release of the VS Code extension, CLI, and JetBrains plugin.
+The current build baseline was restored and verified with:
 
-This included removing anonymous telemetry, pulling out authentication, squashing bugs, and more.
+```bash
+cd packages/continue-sdk/typescript
+npm run build
 
-### VS Code
+cd ../../../extensions/cli
+npm run build
 
-[![VS Code Marketplace](https://img.shields.io/badge/VS_Code_Marketplace-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=Arclength-Continuation.continue) [![OpenVSX Registry](https://img.shields.io/badge/OpenVSX_Registry-C160EF?logo=eclipseide&logoColor=white)](https://open-vsx.org/extension/Arclength-Continuation/continue) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/vscode)
+cd ../vscode
+npm run esbuild
 
-### CLI
+cd ../intellij
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 \
+GRADLE_USER_HOME=/home/lugatj/code/foss/continue/.gradle-home \
+./gradlew buildPlugin --stacktrace
+```
 
-[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@arclength-continuation/cli) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/cli)
+Gradle currently runs under JDK 21 and emits JVM 17 bytecode for IntelliJ compatibility. SDKMAN on this machine also has Java 25 available, but the checked-in Gradle wrapper is 8.14.3; Gradle 9.1.0 or newer is required before Java 25 should become the default Gradle runtime.
 
-### JetBrains
+## Repository Automation
 
-> _Note: We recommend using the Arclength-Continuation CLI instead of the JetBrains plugin._
+All workflow files have been moved from `.github/workflows/` to `.github/workflows.disabled/workflows/`. This keeps the previous automation available for audit while preventing GitHub Actions from running.
 
-[![GitHub Releases](https://img.shields.io/badge/GitHub_Releases-181717?logo=github&logoColor=white)](https://github.com/arclength-continuation/continue/releases) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/intellij)
+Before re-enabling automation, review at least:
 
-## Contributors
+- build and pull-request checks
+- release and prerelease jobs
+- marketplace publishing jobs
+- dependency and security scanning jobs
+- bot-triggered agent workflows
 
-Thank you to the entire Arclength-Continuation community for helping us create a pioneering coding agent.
+## Licensing
 
-What we built together pushed the boundaries of what AI developer tooling could be.
+This fork keeps the upstream Apache-2.0 license text in [LICENSE](LICENSE) for the inherited Continue codebase and related upstream notices.
 
-We hope this codebase continues to serve as a foundation for others.
+New ArclengthContinuation modifications are intended to be licensed under GPL-3.0-or-later unless a file or directory states otherwise. See [LICENSE-COPYLEFT.md](LICENSE-COPYLEFT.md).
 
-## Code friends
-
-<a href="https://github.com/arclength-continuation/continue/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=arclength-continuation/continue&max=500" />
-</a>
-
-## License
-
-Apache 2.0 © 2023-2026 Arclength-Continuation Dev, Inc.
-
-## Compilation Setup
-
-To compile the Arclength-Continuation VS Code extension, a strict sequential build is required. Run `./scripts/build_all.sh` to install root dependencies, build internal packages, build `core`, and finally compile `extensions/vscode`.
+This repository still needs a file-level SPDX and notice audit before any public release or package publication.
