@@ -1,14 +1,17 @@
 import fs from "fs";
 import { IDE } from "..";
-import { getGlobalContinueIgnorePath } from "../util/paths";
+import { getGlobalArclengthContinuationIgnorePath } from "../util/paths";
 import { gitIgArrayFromFile } from "./ignore";
 
-export const getGlobalContinueIgArray = () => {
-  const contents = fs.readFileSync(getGlobalContinueIgnorePath(), "utf8");
+export const getGlobalArclengthContinuationIgArray = () => {
+  const contents = fs.readFileSync(
+    getGlobalArclengthContinuationIgnorePath(),
+    "utf8",
+  );
   return gitIgArrayFromFile(contents);
 };
 
-export const getWorkspaceContinueIgArray = async (ide: IDE) => {
+export const getWorkspaceArclengthContinuationIgArray = async (ide: IDE) => {
   const dirs = await ide.getWorkspaceDirs();
   return await dirs.reduce(
     async (accPromise, dir) => {

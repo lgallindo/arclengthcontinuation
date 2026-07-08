@@ -1,5 +1,5 @@
 {
-  "name": "@continuedev/config-yaml",
+  "name": "@arclength-continuation/config-yaml",
   "version": "1.23.0",
   "description": "",
   "main": "dist/index.js",
@@ -20,10 +20,10 @@
     "build": "tsc",
     "generate-schema": "tsc && node dist/scripts/generateJsonSchema.js"
   },
-  "author": "Continue Dev, Inc.",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc.",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@continuedev/config-types": "^1.0.14",
+    "@arclength-continuation/config-types": "file:../config-types",
     "yaml": "^2.8.2",
     "zod": "^3.25.76"
   },

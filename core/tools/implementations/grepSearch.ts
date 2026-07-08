@@ -1,6 +1,9 @@
 import { ToolImpl } from ".";
 import { ContextItem } from "../..";
-import { ContinueError, ContinueErrorReason } from "../../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../../util/errors";
 import { formatGrepSearchResults } from "../../util/grepSearch";
 import { prepareQueryForRipgrep } from "../../util/regexValidator";
 import { getStringArg } from "../parseArgs";
@@ -64,8 +67,8 @@ export const grepSearchImpl: ToolImpl = async (args, extras) => {
       ];
     }
 
-    throw new ContinueError(
-      ContinueErrorReason.SearchExecutionFailed,
+    throw new ArclengthContinuationError(
+      ArclengthContinuationErrorReason.SearchExecutionFailed,
       errorMessage,
     );
   }

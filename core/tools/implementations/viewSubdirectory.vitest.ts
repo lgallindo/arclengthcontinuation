@@ -1,5 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import { ContinueError, ContinueErrorReason } from "../../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../../util/errors";
 import { viewSubdirectoryImpl } from "./viewSubdirectory";
 
 describe("viewSubdirectoryImpl", () => {
@@ -18,7 +21,7 @@ describe("viewSubdirectoryImpl", () => {
         { directory_path: "/non/existent/path" },
         mockExtras as any,
       ),
-    ).rejects.toThrow(ContinueError);
+    ).rejects.toThrow(ArclengthContinuationError);
   });
 
   it("should throw DirectoryNotFound when path exists in resolveInputPath but not on filesystem", async () => {
@@ -39,11 +42,11 @@ describe("viewSubdirectoryImpl", () => {
       );
       expect.fail("Should have thrown DirectoryNotFound error");
     } catch (error) {
-      expect(error).toBeInstanceOf(ContinueError);
-      expect((error as ContinueError).reason).toBe(
-        ContinueErrorReason.DirectoryNotFound,
+      expect(error).toBeInstanceOf(ArclengthContinuationError);
+      expect((error as ArclengthContinuationError).reason).toBe(
+        ArclengthContinuationErrorReason.DirectoryNotFound,
       );
-      expect((error as ContinueError).message).toContain(
+      expect((error as ArclengthContinuationError).message).toContain(
         "does not exist or is not accessible",
       );
     }

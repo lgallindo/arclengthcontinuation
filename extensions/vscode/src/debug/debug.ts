@@ -41,7 +41,7 @@ export function registerDebugTracker(
                   );
                 }
 
-                if (message.body.allThreadsContinued) {
+                if (message.body.allThreadsArclengthContinuationd) {
                   threadStopped.forEach((_, key) =>
                     threadStopped.set(key, false),
                   );

@@ -1,7 +1,7 @@
 {
-  "name": "@continuedev/sdk-generator",
+  "name": "@arclength-continuation/sdk-generator",
   "version": "0.0.1",
-  "description": "SDK Generator for Continue.dev",
+  "description": "SDK Generator for ArclengthContinuation.dev",
   "type": "module",
   "scripts": {
     "build": "echo 'No build step needed'",
@@ -11,10 +11,10 @@
     "generate-client:ALL": "npm run generate-client:typescript && npm run generate-client:python",
     "swagger-ui": "node swagger-ui-server.js"
   },
-  "author": "Continue Dev, Inc.",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc.",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@continuedev/config-yaml": "^1.38.0",
+    "@arclength-continuation/config-yaml": "file:../config-yaml",
     "@openapitools/openapi-generator-cli": "^2.31.0",
     "express": "^4.22.0",
     "swagger-ui-express": "^5.0.0"

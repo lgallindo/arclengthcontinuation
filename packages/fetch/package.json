@@ -1,5 +1,5 @@
 {
-  "name": "@continuedev/fetch",
+  "name": "@arclength-continuation/fetch",
   "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -10,9 +10,9 @@
     "build": "tsc"
   },
   "author": "Nate Sesti and Ty Dunn",
-  "license": "Apache-2.0",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@continuedev/config-types": "^1.0.14",
+    "@arclength-continuation/config-types": "file:../config-types",
     "follow-redirects": "^1.15.6",
     "http-proxy-agent": "^7.0.2",
     "https-proxy-agent": "^7.0.5",

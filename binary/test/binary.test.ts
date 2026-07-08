@@ -1,4 +1,4 @@
-import { ModelDescription, SerializedContinueConfig } from "core";
+import { ModelDescription, SerializedArclengthContinuationConfig } from "core";
 import { IDE } from "core/index.js";
 import { FromIdeProtocol, ToIdeProtocol } from "core/protocol/index.js";
 import { IMessenger } from "core/protocol/messenger";
@@ -332,7 +332,7 @@ describe("Test Suite", () => {
   });
 
   it("should add and delete a model from config.json", async () => {
-    const model: SerializedContinueConfig["models"][number] = {
+    const model: SerializedArclengthContinuationConfig["models"][number] = {
       title: "Test Model",
       provider: "openai",
       model: "gpt-3.5-turbo",
@@ -361,7 +361,7 @@ describe("Test Suite", () => {
   });
 
   it("should make an LLM completion", async () => {
-    const model: SerializedContinueConfig["models"][number] = {
+    const model: SerializedArclengthContinuationConfig["models"][number] = {
       title: "Test Model",
       provider: "mock",
       model: "gpt-3.5-turbo",

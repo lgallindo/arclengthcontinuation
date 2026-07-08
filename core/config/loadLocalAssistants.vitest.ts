@@ -3,10 +3,10 @@ import { walkDirCache } from "../indexing/walkDir";
 import { testIde } from "../test/fixtures";
 import { addToTestDir, setUpTestDir, tearDownTestDir } from "../test/testDir";
 import {
-  getAllDotContinueDefinitionFiles,
+  getAllDotArclengthContinuationDefinitionFiles,
   LoadAssistantFilesOptions,
 } from "./loadLocalAssistants";
-describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", () => {
+describe("ASSISTANTS getAllDotArclengthContinuationDefinitionFiles with fileExtType option", () => {
   beforeEach(() => {
     setUpTestDir();
     walkDirCache.invalidate();
@@ -35,7 +35,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -61,7 +61,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "markdown",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -91,7 +91,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       // fileExtType not specified
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -120,11 +120,12 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const noWorkspaceResult = await getAllDotContinueDefinitionFiles(
-      testIde,
-      workspaceOffOptions,
-      "assistants",
-    );
+    const noWorkspaceResult =
+      await getAllDotArclengthContinuationDefinitionFiles(
+        testIde,
+        workspaceOffOptions,
+        "assistants",
+      );
     expect(noWorkspaceResult).toHaveLength(0);
 
     // Test with includeWorkspace: true
@@ -134,7 +135,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const workspaceResult = await getAllDotContinueDefinitionFiles(
+    const workspaceResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       workspaceOnOptions,
       "assistants",
@@ -168,7 +169,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -187,7 +188,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -202,7 +203,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "assistants",
@@ -226,7 +227,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "yaml",
     };
 
-    const yamlResult = await getAllDotContinueDefinitionFiles(
+    const yamlResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       yamlOptions,
       "assistants",
@@ -251,7 +252,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
       fileExtType: "markdown",
     };
 
-    const markdownResult = await getAllDotContinueDefinitionFiles(
+    const markdownResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       markdownOptions,
       "assistants",
@@ -266,7 +267,7 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
   });
 });
 
-describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () => {
+describe("AGENTS getAllDotArclengthContinuationDefinitionFiles with fileExtType option", () => {
   beforeEach(() => {
     setUpTestDir();
     walkDirCache.invalidate();
@@ -293,7 +294,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -314,7 +315,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "markdown",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -336,7 +337,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       // fileExtType not specified
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -359,11 +360,12 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const noWorkspaceResult = await getAllDotContinueDefinitionFiles(
-      testIde,
-      workspaceOffOptions,
-      "agents",
-    );
+    const noWorkspaceResult =
+      await getAllDotArclengthContinuationDefinitionFiles(
+        testIde,
+        workspaceOffOptions,
+        "agents",
+      );
     expect(noWorkspaceResult).toHaveLength(0);
 
     // Test with includeWorkspace: true
@@ -373,7 +375,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const workspaceResult = await getAllDotContinueDefinitionFiles(
+    const workspaceResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       workspaceOnOptions,
       "agents",
@@ -402,7 +404,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -421,7 +423,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -436,7 +438,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const result = await getAllDotContinueDefinitionFiles(
+    const result = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       options,
       "agents",
@@ -460,7 +462,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "yaml",
     };
 
-    const yamlResult = await getAllDotContinueDefinitionFiles(
+    const yamlResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       yamlOptions,
       "agents",
@@ -480,7 +482,7 @@ describe("AGENTS getAllDotContinueDefinitionFiles with fileExtType option", () =
       fileExtType: "markdown",
     };
 
-    const markdownResult = await getAllDotContinueDefinitionFiles(
+    const markdownResult = await getAllDotArclengthContinuationDefinitionFiles(
       testIde,
       markdownOptions,
       "agents",

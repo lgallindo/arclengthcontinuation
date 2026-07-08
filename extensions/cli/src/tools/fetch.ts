@@ -1,6 +1,9 @@
 import type { ContextItem } from "core/index.js";
 import { fetchUrlContentImpl } from "core/tools/implementations/fetchUrlContent.js";
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 
 import {
   parseEnvNumber,
@@ -62,8 +65,8 @@ export const fetchTool: Tool = {
       console.error = originalConsoleError;
 
       if (contextItems.length === 0) {
-        throw new ContinueError(
-          ContinueErrorReason.Unspecified,
+        throw new ArclengthContinuationError(
+          ArclengthContinuationErrorReason.Unspecified,
           `Could not fetch content from ${url}`,
         );
       }
@@ -84,7 +87,7 @@ export const fetchTool: Tool = {
 
       return truncatedOutput;
     } catch (error) {
-      if (error instanceof ContinueError) {
+      if (error instanceof ArclengthContinuationError) {
         throw error;
       }
       throw new Error(

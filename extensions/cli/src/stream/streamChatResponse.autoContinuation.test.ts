@@ -1,5 +1,5 @@
-import { ModelConfig } from "@continuedev/config-yaml";
-import { BaseLlmApi } from "@continuedev/openai-adapters";
+import { ModelConfig } from "@arclength-continuation/config-yaml";
+import { BaseLlmApi } from "@arclength-continuation/openai-adapters";
 import type { ChatHistoryItem } from "core/index.js";
 import { convertToUnifiedHistory } from "core/util/messageConversion.js";
 import type { ChatCompletionChunk } from "openai/resources/chat/completions.mjs";
@@ -167,11 +167,11 @@ describe("streamChatResponse - auto-continuation after compaction", () => {
       .mockImplementation(async function* () {
         callCount++;
         if (callCount === 1) {
-          // First call: just content, no tool calls (shouldContinue = false)
+          // First call: just content, no tool calls (shouldArclengthContinuation = false)
           yield contentChunk("First response");
         } else if (callCount === 2) {
           // Second call: after auto-continuation
-          yield contentChunk("Continued after compaction");
+          yield contentChunk("ArclengthContinuationd after compaction");
         }
       }) as any;
 
@@ -182,8 +182,8 @@ describe("streamChatResponse - auto-continuation after compaction", () => {
       mockAbortController,
     );
 
-    // Verify "continue" message was added
-    expect(historyUpdates).toContain("continue");
+    // Verify "arclength-continuation" message was added
+    expect(historyUpdates).toContain("arclength-continuation");
 
     // Verify logging occurred
     expect(logger.debug).toHaveBeenCalledWith(
@@ -219,7 +219,7 @@ describe("streamChatResponse - auto-continuation after compaction", () => {
       wasCompacted: true,
     });
 
-    // But tool calls are still being processed (shouldContinue = true)
+    // But tool calls are still being processed (shouldArclengthContinuation = true)
     // This is simulated by having handleToolCalls return true (shouldReturn)
     vi.mocked(handleToolCalls).mockResolvedValue(true);
 
@@ -262,7 +262,7 @@ describe("streamChatResponse - auto-continuation after compaction", () => {
     );
 
     // Should NOT auto-continue because tool calls are pending
-    expect(historyUpdates).not.toContain("continue");
+    expect(historyUpdates).not.toContain("arclength-continuation");
   });
 
   it("should not create infinite loops - flag is reset after continuation", async () => {
@@ -306,10 +306,10 @@ describe("streamChatResponse - auto-continuation after compaction", () => {
       mockAbortController,
     );
 
-    // Should only add "continue" once
+    // Should only add "arclength-continuation" once
     // The flag is reset after the first continuation
     const continueCount = historyUpdates.filter(
-      (msg) => msg === "continue",
+      (msg) => msg === "arclength-continuation",
     ).length;
     expect(continueCount).toBeLessThanOrEqual(1);
 

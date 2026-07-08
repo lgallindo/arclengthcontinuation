@@ -4,11 +4,11 @@ import * as path from "path";
 import * as URI from "uri-js";
 import * as YAML from "yaml";
 
-import { ConfigYaml, DevEventName } from "@continuedev/config-yaml";
+import { ConfigYaml, DevEventName } from "@arclength-continuation/config-yaml";
 import * as JSONC from "comment-json";
 import dotenv from "dotenv";
 
-import { IdeType, SerializedContinueConfig } from "../";
+import { IdeType, SerializedArclengthContinuationConfig } from "../";
 import { defaultConfig } from "../config/default";
 import Types from "../config/types";
 
@@ -44,20 +44,23 @@ export const DEFAULT_CONFIG_TS_CONTENTS = `export function modifyConfig(config: 
 }`;
 
 export function getChromiumPath(): string {
-  return path.join(getContinueUtilsPath(), ".chromium-browser-snapshots");
+  return path.join(
+    getArclengthContinuationUtilsPath(),
+    ".chromium-browser-snapshots",
+  );
 }
 
-export function getContinueUtilsPath(): string {
-  const utilsPath = path.join(getContinueGlobalPath(), ".utils");
+export function getArclengthContinuationUtilsPath(): string {
+  const utilsPath = path.join(getArclengthContinuationGlobalPath(), ".utils");
   if (!fs.existsSync(utilsPath)) {
     fs.mkdirSync(utilsPath);
   }
   return utilsPath;
 }
 
-export function getGlobalContinueIgnorePath(): string {
+export function getGlobalArclengthContinuationIgnorePath(): string {
   const continueIgnorePath = path.join(
-    getContinueGlobalPath(),
+    getArclengthContinuationGlobalPath(),
     ".continueignore",
   );
   if (!fs.existsSync(continueIgnorePath)) {
@@ -66,7 +69,7 @@ export function getGlobalContinueIgnorePath(): string {
   return continueIgnorePath;
 }
 
-export function getContinueGlobalPath(): string {
+export function getArclengthContinuationGlobalPath(): string {
   // This is ~/.continue on mac/linux
   const continuePath = CONTINUE_GLOBAL_DIR;
   if (!fs.existsSync(continuePath)) {
@@ -76,7 +79,10 @@ export function getContinueGlobalPath(): string {
 }
 
 export function getSessionsFolderPath(): string {
-  const sessionsPath = path.join(getContinueGlobalPath(), "sessions");
+  const sessionsPath = path.join(
+    getArclengthContinuationGlobalPath(),
+    "sessions",
+  );
   if (!fs.existsSync(sessionsPath)) {
     fs.mkdirSync(sessionsPath);
   }
@@ -84,7 +90,7 @@ export function getSessionsFolderPath(): string {
 }
 
 export function getIndexFolderPath(): string {
-  const indexPath = path.join(getContinueGlobalPath(), "index");
+  const indexPath = path.join(getArclengthContinuationGlobalPath(), "index");
   if (!fs.existsSync(indexPath)) {
     fs.mkdirSync(indexPath);
   }
@@ -96,7 +102,7 @@ export function getGlobalContextFilePath(): string {
 }
 
 export function getSharedConfigFilePath(): string {
-  return path.join(getContinueGlobalPath(), "sharedConfig.json");
+  return path.join(getArclengthContinuationGlobalPath(), "sharedConfig.json");
 }
 
 export function getSessionFilePath(sessionId: string): string {
@@ -112,12 +118,12 @@ export function getSessionsListPath(): string {
 }
 
 export function getConfigJsonPath(): string {
-  const p = path.join(getContinueGlobalPath(), "config.json");
+  const p = path.join(getArclengthContinuationGlobalPath(), "config.json");
   return p;
 }
 
 export function getConfigYamlPath(ideType?: IdeType): string {
-  const p = path.join(getContinueGlobalPath(), "config.yaml");
+  const p = path.join(getArclengthContinuationGlobalPath(), "config.yaml");
   const exists = fs.existsSync(p);
   const isEmpty = exists && fs.readFileSync(p, "utf8").trim() === "";
   const needsCreation = !exists && !fs.existsSync(getConfigJsonPath());
@@ -138,12 +144,12 @@ export function getPrimaryConfigFilePath(): string {
 }
 
 export function getConfigTsPath(): string {
-  const p = path.join(getContinueGlobalPath(), "config.ts");
+  const p = path.join(getArclengthContinuationGlobalPath(), "config.ts");
   if (!fs.existsSync(p)) {
     fs.writeFileSync(p, DEFAULT_CONFIG_TS_CONTENTS);
   }
 
-  const typesPath = path.join(getContinueGlobalPath(), "types");
+  const typesPath = path.join(getArclengthContinuationGlobalPath(), "types");
   if (!fs.existsSync(typesPath)) {
     fs.mkdirSync(typesPath);
   }
@@ -151,14 +157,17 @@ export function getConfigTsPath(): string {
   if (!fs.existsSync(corePath)) {
     fs.mkdirSync(corePath);
   }
-  const packageJsonPath = path.join(getContinueGlobalPath(), "package.json");
+  const packageJsonPath = path.join(
+    getArclengthContinuationGlobalPath(),
+    "package.json",
+  );
   if (!fs.existsSync(packageJsonPath)) {
     fs.writeFileSync(
       packageJsonPath,
       JSON.stringify({
         name: "continue-config",
         version: "1.0.0",
-        description: "My Continue Configuration",
+        description: "My ArclengthContinuation Configuration",
         main: "config.js",
       }),
     );
@@ -170,11 +179,14 @@ export function getConfigTsPath(): string {
 
 export function getConfigJsPath(): string {
   // Do not create automatically
-  return path.join(getContinueGlobalPath(), "out", "config.js");
+  return path.join(getArclengthContinuationGlobalPath(), "out", "config.js");
 }
 
 export function getTsConfigPath(): string {
-  const tsConfigPath = path.join(getContinueGlobalPath(), "tsconfig.json");
+  const tsConfigPath = path.join(
+    getArclengthContinuationGlobalPath(),
+    "tsconfig.json",
+  );
   if (!fs.existsSync(tsConfigPath)) {
     fs.writeFileSync(
       tsConfigPath,
@@ -207,9 +219,12 @@ export function getTsConfigPath(): string {
   return tsConfigPath;
 }
 
-export function getContinueRcPath(): string {
+export function getArclengthContinuationRcPath(): string {
   // Disable indexing of the config folder to prevent infinite loops
-  const continuercPath = path.join(getContinueGlobalPath(), ".continuerc.json");
+  const continuercPath = path.join(
+    getArclengthContinuationGlobalPath(),
+    ".continuerc.json",
+  );
   if (!fs.existsSync(continuercPath)) {
     fs.writeFileSync(
       continuercPath,
@@ -226,7 +241,7 @@ export function getContinueRcPath(): string {
 }
 
 function getDevDataPath(): string {
-  const sPath = path.join(getContinueGlobalPath(), "dev_data");
+  const sPath = path.join(getArclengthContinuationGlobalPath(), "dev_data");
   if (!fs.existsSync(sPath)) {
     fs.mkdirSync(sPath);
   }
@@ -249,7 +264,9 @@ export function getDevDataFilePath(
 }
 
 function editConfigJson(
-  callback: (config: SerializedContinueConfig) => SerializedContinueConfig,
+  callback: (
+    config: SerializedArclengthContinuationConfig,
+  ) => SerializedArclengthContinuationConfig,
 ): void {
   const config = fs.readFileSync(getConfigJsonPath(), "utf8");
   let configJson = JSONC.parse(config);
@@ -278,8 +295,8 @@ function editConfigYaml(callback: (config: ConfigYaml) => ConfigYaml): void {
 
 export function editConfigFile(
   configJsonCallback: (
-    config: SerializedContinueConfig,
-  ) => SerializedContinueConfig,
+    config: SerializedArclengthContinuationConfig,
+  ) => SerializedArclengthContinuationConfig,
   configYamlCallback: (config: ConfigYaml) => ConfigYaml,
 ): void {
   if (fs.existsSync(getConfigYamlPath())) {
@@ -290,7 +307,10 @@ export function editConfigFile(
 }
 
 function getMigrationsFolderPath(): string {
-  const migrationsPath = path.join(getContinueGlobalPath(), ".migrations");
+  const migrationsPath = path.join(
+    getArclengthContinuationGlobalPath(),
+    ".migrations",
+  );
   if (!fs.existsSync(migrationsPath)) {
     fs.mkdirSync(migrationsPath);
   }
@@ -340,7 +360,7 @@ export function getDocsSqlitePath(): string {
 }
 
 export function getRemoteConfigsFolderPath(): string {
-  const dir = path.join(getContinueGlobalPath(), ".configs");
+  const dir = path.join(getArclengthContinuationGlobalPath(), ".configs");
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
@@ -374,8 +394,8 @@ export function getConfigJsPathForRemote(
   return path.join(getPathToRemoteConfig(remoteConfigServerUrl), "config.js");
 }
 
-export function getContinueDotEnv(): { [key: string]: string } {
-  const filepath = path.join(getContinueGlobalPath(), ".env");
+export function getArclengthContinuationDotEnv(): { [key: string]: string } {
+  const filepath = path.join(getArclengthContinuationGlobalPath(), ".env");
   if (fs.existsSync(filepath)) {
     return dotenv.parse(fs.readFileSync(filepath));
   }
@@ -383,7 +403,7 @@ export function getContinueDotEnv(): { [key: string]: string } {
 }
 
 export function getLogsDirPath(): string {
-  const logsPath = path.join(getContinueGlobalPath(), "logs");
+  const logsPath = path.join(getArclengthContinuationGlobalPath(), "logs");
   if (!fs.existsSync(logsPath)) {
     fs.mkdirSync(logsPath);
   }
@@ -399,7 +419,7 @@ export function getPromptLogsPath(): string {
 }
 
 export function getGlobalFolderWithName(name: string): string {
-  return path.join(getContinueGlobalPath(), name);
+  return path.join(getArclengthContinuationGlobalPath(), name);
 }
 
 export function getGlobalPromptsPath(): string {
@@ -431,11 +451,11 @@ export function readAllGlobalPromptFiles(
 }
 
 export function getRepoMapFilePath(): string {
-  return path.join(getContinueUtilsPath(), "repo_map.txt");
+  return path.join(getArclengthContinuationUtilsPath(), "repo_map.txt");
 }
 
 export function getEsbuildBinaryPath(): string {
-  return path.join(getContinueUtilsPath(), "esbuild");
+  return path.join(getArclengthContinuationUtilsPath(), "esbuild");
 }
 
 export function migrateV1DevDataFiles() {
@@ -460,15 +480,15 @@ export function migrateV1DevDataFiles() {
 }
 
 export function getLocalEnvironmentDotFilePath(): string {
-  return path.join(getContinueGlobalPath(), ".local");
+  return path.join(getArclengthContinuationGlobalPath(), ".local");
 }
 
 export function getStagingEnvironmentDotFilePath(): string {
-  return path.join(getContinueGlobalPath(), ".staging");
+  return path.join(getArclengthContinuationGlobalPath(), ".staging");
 }
 
 export function getDiffsDirectoryPath(): string {
-  const diffsPath = path.join(getContinueGlobalPath(), ".diffs"); // .replace(/^C:/, "c:"); ??
+  const diffsPath = path.join(getArclengthContinuationGlobalPath(), ".diffs"); // .replace(/^C:/, "c:"); ??
   if (!fs.existsSync(diffsPath)) {
     fs.mkdirSync(diffsPath, {
       recursive: true,

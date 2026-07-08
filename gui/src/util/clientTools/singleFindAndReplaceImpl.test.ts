@@ -1,4 +1,4 @@
-import { ContinueErrorReason } from "core/util/errors";
+import { ArclengthContinuationErrorReason } from "core/util/errors";
 import * as ideUtils from "core/util/ideUtils";
 import { beforeEach, describe, expect, it, Mock, vi } from "vitest";
 import { applyForEditTool } from "../../redux/thunks/handleApplyStateUpdate";
@@ -64,7 +64,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingFilepath,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingFilepath,
         }),
       );
     });
@@ -79,7 +80,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingOldString,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingOldString,
         }),
       );
     });
@@ -94,7 +96,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingNewString,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingNewString,
         }),
       );
     });
@@ -110,7 +113,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
         }),
       );
     });
@@ -130,7 +134,7 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FileNotFound,
+          reason: ArclengthContinuationErrorReason.FileNotFound,
         }),
       );
     });
@@ -179,7 +183,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceOldStringNotFound,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
         }),
       );
     });
@@ -223,7 +228,8 @@ describe("singleFindAndReplaceImpl", () => {
         singleFindAndReplaceImpl(args, "tool-call-id", mockExtras),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
         }),
       );
     });

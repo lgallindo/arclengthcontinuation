@@ -3,10 +3,10 @@ import {
   PlatformClient,
   SecretResult,
   SecretType,
-} from "@continuedev/config-yaml";
+} from "@arclength-continuation/config-yaml";
 import * as dotenv from "dotenv";
 import { IDE } from "../..";
-import { getContinueDotEnv } from "../../util/paths";
+import { getArclengthContinuationDotEnv } from "../../util/paths";
 import { joinPathsToUri } from "../../util/uri";
 
 export class LocalPlatformClient implements PlatformClient {
@@ -39,7 +39,7 @@ export class LocalPlatformClient implements PlatformClient {
 
   private findSecretInLocalEnvFile(fqsn: FQSN): string | undefined {
     try {
-      const dotEnv = getContinueDotEnv();
+      const dotEnv = getArclengthContinuationDotEnv();
       return dotEnv[fqsn.secretName];
     } catch (error) {
       console.warn(
@@ -51,14 +51,14 @@ export class LocalPlatformClient implements PlatformClient {
 
   private async findSecretInWorkspaceEnvFiles(
     fqsn: FQSN,
-    insideContinue: boolean,
+    insideArclengthContinuation: boolean,
   ): Promise<string | undefined> {
     try {
       const workspaceDirs = await this.ide.getWorkspaceDirs();
       for (const folder of workspaceDirs) {
         const envFilePath = joinPathsToUri(
           folder,
-          insideContinue ? ".continue" : "",
+          insideArclengthContinuation ? ".continue" : "",
           ".env",
         );
         try {
@@ -74,7 +74,7 @@ export class LocalPlatformClient implements PlatformClient {
           console.warn(
             `Error reading workspace .env file at ${envFilePath}: ${error instanceof Error ? error.message : String(error)}`,
           );
-          // Continue to next workspace folder
+          // ArclengthContinuation to next workspace folder
         }
       }
 

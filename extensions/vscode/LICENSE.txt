@@ -11,3 +11,10 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+ArclengthContinuation fork notice:
+
+New modifications made for the ArclengthContinuation fork are intended to be
+licensed under GPL-3.0-or-later unless a file or directory explicitly states a
+different license. The inherited upstream Continue material remains under its
+original Apache-2.0 terms.

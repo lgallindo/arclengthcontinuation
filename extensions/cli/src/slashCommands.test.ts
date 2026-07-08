@@ -1,4 +1,4 @@
-import type { AssistantUnrolled } from "@continuedev/config-yaml";
+import type { AssistantUnrolled } from "@arclength-continuation/config-yaml";
 import {
   beforeEach,
   describe,

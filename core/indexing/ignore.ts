@@ -2,7 +2,10 @@ import ignore from "ignore";
 
 import path from "path";
 import { fileURLToPath } from "url";
-import { ContinueError, ContinueErrorReason } from "../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../util/errors";
 
 // Security-focused ignore patterns - these should always be excluded for security reasons
 export const DEFAULT_SECURITY_IGNORE_FILETYPES = [
@@ -256,8 +259,8 @@ export function isSecurityConcern(filePathOrUri: string) {
 
 export function throwIfFileIsSecurityConcern(filepath: string) {
   if (isSecurityConcern(filepath)) {
-    throw new ContinueError(
-      ContinueErrorReason.FileIsSecurityConcern,
+    throw new ArclengthContinuationError(
+      ArclengthContinuationErrorReason.FileIsSecurityConcern,
       `Reading or Editing ${filepath} is not allowed because it is a security concern. Do not attempt to read or edit this file in any way.`,
     );
   }

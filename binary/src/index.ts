@@ -12,7 +12,10 @@ import { setupCoreLogging } from "./logging";
 import { TcpMessenger } from "./TcpMessenger";
 
 const logFilePath = getCoreLogsPath();
-fs.appendFileSync(logFilePath, "[info] Starting Continue core...\n");
+fs.appendFileSync(
+  logFilePath,
+  "[info] Starting ArclengthContinuation core...\n",
+);
 
 const program = new Command();
 

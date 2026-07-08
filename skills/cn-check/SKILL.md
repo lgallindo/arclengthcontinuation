@@ -1,15 +1,15 @@
 ---
 name: cn-check
-description: Install and run the Continue CLI (`cn`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with cn", or set up Continue CI locally.
-license: Apache-2.0
+description: Install and run the Arclength-Continuation CLI (`cn`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with cn", or set up Arclength-Continuation CI locally.
+license: GPL-3.0-or-later
 metadata:
-  author: continuedev
+  author: arclength-continuation
   version: "1.0.0"
 ---
 
 # cn check — Local AI Agent Checks
 
-Run AI-powered code checks locally against your working tree changes using the Continue CLI. Each check is an agent (defined in markdown) that reviews your diff, identifies issues, and optionally suggests fixes as a patch.
+Run AI-powered code checks locally against your working tree changes using the Arclength-Continuation CLI. Each check is an agent (defined in markdown) that reviews your diff, identifies issues, and optionally suggests fixes as a patch.
 
 ## When to Use
 
@@ -17,7 +17,7 @@ Run AI-powered code checks locally against your working tree changes using the C
 - User wants to set up `cn check` in a project
 - User needs to create custom check agents
 - User wants to apply AI-suggested fixes locally
-- User asks about Continue CI or agent-based code review
+- User asks about Arclength-Continuation CI or agent-based code review
 
 ## Installation
 
@@ -29,7 +29,7 @@ Run AI-powered code checks locally against your working tree changes using the C
 ### Install the CLI
 
 ```bash
-npm install -g @continuedev/cli
+npm install -g @arclength-continuation/cli
 ```
 
 ### Authenticate (required for Hub checks, optional for local-only)
@@ -50,7 +50,7 @@ cn check
 
 This auto-detects checks from three sources (in priority order):
 
-1. Hub API — checks configured for your repo on continue.dev
+1. Hub API — checks configured for your repo on arclength-continuation.dev
 2. Local agents — markdown files in `.continue/agents/*.md`
 
 ### Specify agents explicitly

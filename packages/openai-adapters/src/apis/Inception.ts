@@ -1,4 +1,4 @@
-import { streamSse } from "@continuedev/fetch";
+import { streamSse } from "@arclength-continuation/fetch";
 import {
   ChatCompletion,
   ChatCompletionChunk,

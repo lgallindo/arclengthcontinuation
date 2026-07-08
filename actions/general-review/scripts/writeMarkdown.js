@@ -12,36 +12,36 @@ const messages = {
 `,
   cli_install_failed: `## Code Review Summary
 
-⚠️ AI review skipped: Continue CLI installation failed.
+⚠️ AI review skipped: Arclength-Continuation CLI installation failed.
 
 ### Troubleshooting
 - Check that npm installation succeeded
-- Verify @continuedev/cli package is available
+- Verify @arclength-continuation/cli package is available
 `,
   empty_output: `## Code Review Summary
 
-⚠️ Continue CLI returned an empty response. Please check the configuration.
+⚠️ Arclength-Continuation CLI returned an empty response. Please check the configuration.
 `,
   cli_not_found: `## Code Review Summary
 
-⚠️ Continue CLI is not properly installed. Please ensure @continuedev/cli is installed globally.
+⚠️ Arclength-Continuation CLI is not properly installed. Please ensure @arclength-continuation/cli is installed globally.
 `,
   config_error: `## Code Review Summary
 
-⚠️ Continue configuration error. Please verify that the assistant exists in Continue Hub.
+⚠️ Arclength-Continuation configuration error. Please verify that the assistant exists in Arclength-Continuation Hub.
 `,
   auth_error: `## Code Review Summary
 
-⚠️ Continue API authentication failed. Please check your CONTINUE_API_KEY.
+⚠️ Arclength-Continuation API authentication failed. Please check your CONTINUE_API_KEY.
 `,
   generic_failure: `## Code Review Summary
 
-⚠️ AI review failed. Please check the Continue API key and configuration.
+⚠️ AI review failed. Please check the Arclength-Continuation API key and configuration.
 
 ### Troubleshooting
 - Verify the CONTINUE_API_KEY secret is set correctly
 - Check that the organization and config path are valid
-- Ensure the Continue service is accessible
+- Ensure the Arclength-Continuation service is accessible
 `,
 };
 

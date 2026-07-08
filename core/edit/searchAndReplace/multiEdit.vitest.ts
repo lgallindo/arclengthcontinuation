@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { EditOperation } from "../../tools/definitions/multiEdit";
-import { ContinueErrorReason } from "../../util/errors";
+import { ArclengthContinuationErrorReason } from "../../util/errors";
 import { validateMultiEdit } from "./multiEditValidation";
 import { executeMultiFindAndReplace } from "./performReplace";
 
@@ -9,7 +9,7 @@ describe("multiEdit shared validation", () => {
     it("should throw error if edits is not an array", () => {
       expect(() => validateMultiEdit({ edits: "not an array" })).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.MultiEditEditsArrayRequired,
+          reason: ArclengthContinuationErrorReason.MultiEditEditsArrayRequired,
         }),
       );
     });
@@ -17,7 +17,7 @@ describe("multiEdit shared validation", () => {
     it("should throw error if edits is missing", () => {
       expect(() => validateMultiEdit({})).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.MultiEditEditsArrayRequired,
+          reason: ArclengthContinuationErrorReason.MultiEditEditsArrayRequired,
         }),
       );
     });
@@ -25,7 +25,7 @@ describe("multiEdit shared validation", () => {
     it("should throw error if edits array is empty", () => {
       expect(() => validateMultiEdit({ edits: [] })).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.MultiEditEditsArrayEmpty,
+          reason: ArclengthContinuationErrorReason.MultiEditEditsArrayEmpty,
         }),
       );
     });
@@ -52,7 +52,8 @@ describe("multiEdit shared validation", () => {
 
       expect(() => validateMultiEdit(args)).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingOldString,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingOldString,
         }),
       );
     });
@@ -69,7 +70,8 @@ describe("multiEdit shared validation", () => {
 
       expect(() => validateMultiEdit(args)).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingNewString,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingNewString,
         }),
       );
     });
@@ -86,7 +88,8 @@ describe("multiEdit shared validation", () => {
 
       expect(() => validateMultiEdit(args)).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceIdenticalOldAndNewStrings,
         }),
       );
     });
@@ -107,7 +110,8 @@ describe("multiEdit shared validation", () => {
 
       expect(() => validateMultiEdit(args)).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceNonFirstEmptyOldString,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceNonFirstEmptyOldString,
         }),
       );
     });
@@ -229,7 +233,8 @@ describe("multiEdit shared validation", () => {
         executeMultiFindAndReplace(originalContent, edits),
       ).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceOldStringNotFound,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
         }),
       );
     });
@@ -247,7 +252,8 @@ describe("multiEdit shared validation", () => {
         executeMultiFindAndReplace(originalContent, edits),
       ).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
         }),
       );
     });
@@ -261,7 +267,8 @@ describe("multiEdit shared validation", () => {
 
       expect(() => executeMultiFindAndReplace(content, edits)).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceOldStringNotFound,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
         }),
       );
     });

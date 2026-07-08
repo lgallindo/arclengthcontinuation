@@ -2,6 +2,7 @@ import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.intellij.platform.gradle.tasks.PrepareSandboxTask
 import org.gradle.kotlin.dsl.intellijPlatform
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 fun environment(key: String) = providers.environmentVariable(key)
 
@@ -63,7 +64,10 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
 }
 
 intellijPlatform {
@@ -102,6 +106,10 @@ qodana {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.release.set(17)
+    }
+
     withType<PrepareSandboxTask> {
         from("../../binary/bin") {
             into(pluginName.map { "$it/core" })

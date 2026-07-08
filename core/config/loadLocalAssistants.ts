@@ -1,4 +1,4 @@
-import { BLOCK_TYPES } from "@continuedev/config-yaml";
+import { BLOCK_TYPES } from "@arclength-continuation/config-yaml";
 import ignore from "ignore";
 import * as URI from "uri-js";
 import { IDE } from "..";
@@ -11,9 +11,9 @@ import { RULES_MARKDOWN_FILENAME } from "../llm/rules/constants";
 import { getGlobalFolderWithName } from "../util/paths";
 import { localPathToUri } from "../util/pathToUri";
 import { getUriPathBasename, joinPathsToUri } from "../util/uri";
-import { SYSTEM_PROMPT_DOT_FILE } from "./getWorkspaceContinueRuleDotFiles";
+import { SYSTEM_PROMPT_DOT_FILE } from "./getWorkspaceArclengthContinuationRuleDotFiles";
 import { SUPPORTED_AGENT_FILES } from "./markdown";
-export function isContinueConfigRelatedUri(uri: string): boolean {
+export function isArclengthContinuationConfigRelatedUri(uri: string): boolean {
   return (
     uri.endsWith(".continuerc.json") ||
     uri.endsWith(".prompt") ||
@@ -29,7 +29,7 @@ export function isContinueConfigRelatedUri(uri: string): boolean {
   );
 }
 
-export function isContinueAgentConfigFile(uri: string): boolean {
+export function isArclengthContinuationAgentConfigFile(uri: string): boolean {
   const isYaml = uri.endsWith(".yaml") || uri.endsWith(".yml");
   if (!isYaml) {
     return false;
@@ -101,7 +101,7 @@ export interface LoadAssistantFilesOptions {
   fileExtType?: "yaml" | "markdown";
 }
 
-export function getDotContinueSubDirs(
+export function getDotArclengthContinuationSubDirs(
   ide: IDE,
   options: LoadAssistantFilesOptions,
   workspaceDirs: string[],
@@ -128,7 +128,7 @@ export function getDotContinueSubDirs(
  * This method searches in both ~/.continue and workspace .continue
  * for all YAML/Markdown files in the specified subdirectory, for example .continue/assistants or .continue/prompts
  */
-export async function getAllDotContinueDefinitionFiles(
+export async function getAllDotArclengthContinuationDefinitionFiles(
   ide: IDE,
   options: LoadAssistantFilesOptions,
   subDirName: string,
@@ -136,7 +136,7 @@ export async function getAllDotContinueDefinitionFiles(
   const workspaceDirs = await ide.getWorkspaceDirs();
 
   // Get all directories to check for assistant files
-  const fullDirs = getDotContinueSubDirs(
+  const fullDirs = getDotArclengthContinuationSubDirs(
     ide,
     options,
     workspaceDirs,

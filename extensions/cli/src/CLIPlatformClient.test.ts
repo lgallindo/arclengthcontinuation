@@ -1,6 +1,10 @@
 import * as fs from "node:fs";
 
-import { FQSN, SecretResult, SecretType } from "@continuedev/config-yaml";
+import {
+  FQSN,
+  SecretResult,
+  SecretType,
+} from "@arclength-continuation/config-yaml";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { CLIPlatformClient } from "./CLIPlatformClient.js";

@@ -10,6 +10,7 @@ import { checks } from "./commands/checks.js";
 import { listSessionsCommand } from "./commands/ls.js";
 import { review } from "./commands/review.js";
 import { serve } from "./commands/serve.js";
+import { setup } from "./commands/setup.js";
 import {
   handleValidationErrors,
   validateFlags,
@@ -173,7 +174,7 @@ const program = new Command();
 program
   .name("cn")
   .description(
-    "Continue CLI - AI-powered development assistant. Starts an interactive session by default, use -p/--print for non-interactive output.",
+    "ArclengthContinuation CLI - AI-powered development assistant. Starts an interactive session by default, use -p/--print for non-interactive output.",
   )
   .version(getVersion(), "-v, --version", "Display version number");
 
@@ -307,6 +308,14 @@ program
     });
   });
 
+// Setup subcommand
+program
+  .command("setup")
+  .description("Configure the LLM provider used by ArclengthContinuation")
+  .action(async () => {
+    await setup();
+  });
+
 // Serve subcommand
 program
   .command("serve [prompt]", { hidden: true })
@@ -319,7 +328,7 @@ program
   .option("--port <port>", "Port to run the server on (default: 8000)", "8000")
   .option(
     "--id <storageId>",
-    "Upload session snapshots to Continue-managed storage using the provided identifier",
+    "Upload session snapshots to ArclengthContinuation-managed storage using the provided identifier",
   )
   .option(
     "--beta-upload-artifact-tool",

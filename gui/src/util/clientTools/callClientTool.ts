@@ -1,6 +1,9 @@
 import { ContextItem, ToolCallState } from "core";
 import { BuiltInToolNames } from "core/tools/builtIn";
-import { ContinueError, ContinueErrorReason } from "core/util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors";
 import { IIdeMessenger } from "../../context/IdeMessenger";
 import { AppThunkDispatch, RootState } from "../../redux/store";
 import { editToolImpl } from "./editImpl";
@@ -19,7 +22,7 @@ export interface ClientToolOutput {
 }
 
 export interface ClientToolResult extends ClientToolOutput {
-  error?: ContinueError;
+  error?: ArclengthContinuationError;
 }
 
 export type ClientToolImpl = (
@@ -57,11 +60,17 @@ export async function callClientTool(
     return {
       respondImmediately: true,
       error:
-        e instanceof ContinueError
+        e instanceof ArclengthContinuationError
           ? e
           : e instanceof Error
-            ? new ContinueError(ContinueErrorReason.Unspecified, e.message)
-            : new ContinueError(ContinueErrorReason.Unknown, String(e)),
+            ? new ArclengthContinuationError(
+                ArclengthContinuationErrorReason.Unspecified,
+                e.message,
+              )
+            : new ArclengthContinuationError(
+                ArclengthContinuationErrorReason.Unknown,
+                String(e),
+              ),
       output: undefined,
     };
   }

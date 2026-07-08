@@ -16,7 +16,7 @@ import { ToolbarOptions } from "./InputToolbar";
 import { Lump } from "./Lump";
 import { TipTapEditor } from "./TipTapEditor";
 
-interface ContinueInputBoxProps {
+interface ArclengthContinuationInputBoxProps {
   isLastUserInput: boolean;
   isMainInput?: boolean;
   onEnter: (
@@ -52,7 +52,9 @@ const EDIT_ALLOWED_SLASH_COMMAND_SOURCES: SlashCommandSource[] = [
   "json-custom-command",
 ];
 
-function ContinueInputBox(props: ContinueInputBoxProps) {
+function ArclengthContinuationInputBox(
+  props: ArclengthContinuationInputBoxProps,
+) {
   const isStreaming = useAppSelector((state) => state.session.isStreaming);
   const availableSlashCommands = useAppSelector(
     selectSlashCommandComboBoxInputs,
@@ -150,4 +152,4 @@ function ContinueInputBox(props: ContinueInputBoxProps) {
   );
 }
 
-export default memo(ContinueInputBox);
+export default memo(ArclengthContinuationInputBox);

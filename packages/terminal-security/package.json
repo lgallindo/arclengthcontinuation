@@ -1,7 +1,7 @@
 {
-  "name": "@continuedev/terminal-security",
+  "name": "@arclength-continuation/terminal-security",
   "version": "1.0.0",
-  "description": "Terminal command security evaluation for Continue",
+  "description": "Terminal command security evaluation for ArclengthContinuation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -11,8 +11,8 @@
     "build": "tsc",
     "clean": "rm -rf dist"
   },
-  "author": "Continue Dev, Inc",
-  "license": "Apache-2.0",
+  "author": "ArclengthContinuation Dev, Inc",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@types/node": "^20.11.19",
     "@types/shell-quote": "^1.7.5",

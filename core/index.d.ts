@@ -3,8 +3,8 @@ import {
   ModelRole,
   PromptTemplates,
   ToolOverrideConfig,
-} from "@continuedev/config-yaml";
-import { ToolPolicy } from "@continuedev/terminal-security";
+} from "@arclength-continuation/config-yaml";
+import { ToolPolicy } from "@arclength-continuation/terminal-security";
 import { McpUiResourceMeta } from "@modelcontextprotocol/ext-apps";
 import { TextResourceContents } from "@modelcontextprotocol/sdk/types.js";
 import Parser from "web-tree-sitter";
@@ -197,7 +197,7 @@ export interface ContextProviderDescription {
 export type FetchFunction = (url: string | URL, init?: any) => Promise<any>;
 
 export interface ContextProviderExtras {
-  config: ContinueConfig;
+  config: ArclengthContinuationConfig;
   fullInput: string;
   embeddingsProvider: ILLM | null;
   reranker: ILLM | null;
@@ -209,7 +209,7 @@ export interface ContextProviderExtras {
 }
 
 export interface LoadSubmenuItemsArgs {
-  config: ContinueConfig;
+  config: ArclengthContinuationConfig;
   ide: IDE;
   fetch: FetchFunction;
 }
@@ -937,7 +937,7 @@ export interface IDE {
 
 // Slash Commands
 
-export interface ContinueSDK {
+export interface ArclengthContinuationSDK {
   ide: IDE;
   llm: ILLM;
   addContextItem: (item: ContextItemWithId) => void;
@@ -946,7 +946,7 @@ export interface ContinueSDK {
   params?: { [key: string]: any } | undefined;
   contextItems: ContextItemWithId[];
   selectedCode: RangeInFile[];
-  config: ContinueConfig;
+  config: ArclengthContinuationConfig;
   fetch: FetchFunction;
   completionOptions?: LLMFullCompletionOptions;
   abortController: AbortController;
@@ -961,11 +961,11 @@ export interface SlashCommandDescription {
 }
 
 export interface SlashCommand extends SlashCommandDescription {
-  run: (sdk: ContinueSDK) => AsyncGenerator<string | undefined>;
+  run: (sdk: ArclengthContinuationSDK) => AsyncGenerator<string | undefined>;
 }
 
 export interface SlashCommandWithSource extends SlashCommandDescription {
-  run?: (sdk: ContinueSDK) => AsyncGenerator<string | undefined>; // Optional - only needed for legacy
+  run?: (sdk: ArclengthContinuationSDK) => AsyncGenerator<string | undefined>; // Optional - only needed for legacy
   source: SlashCommandSource;
   sourceFile?: string;
   slug?: string;
@@ -1118,7 +1118,7 @@ export interface ToolExtras {
     toolCallId: string;
     contextItems: ContextItem[];
   }) => void;
-  config: ContinueConfig;
+  config: ArclengthContinuationConfig;
   codeBaseIndexer?: CodebaseIndexer;
 }
 
@@ -1445,7 +1445,7 @@ export type MCPServerStatus = InternalMcpOptions & {
   sourceFile?: string;
 };
 
-export interface ContinueUIConfig {
+export interface ArclengthContinuationUIConfig {
   codeBlockToolbarPosition?: "top" | "bottom";
   fontSize?: number;
   displayRawMarkdown?: boolean;
@@ -1738,7 +1738,7 @@ export interface JSONModelDescription {
 }
 
 // config.json
-export interface SerializedContinueConfig {
+export interface SerializedArclengthContinuationConfig {
   env?: string[];
   allowAnonymousTelemetry?: boolean;
   models: JSONModelDescription[];
@@ -1754,7 +1754,7 @@ export interface SerializedContinueConfig {
   embeddingsProvider?: EmbeddingsProviderDescription;
   tabAutocompleteModel?: JSONModelDescription | JSONModelDescription[];
   tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
-  ui?: ContinueUIConfig;
+  ui?: ArclengthContinuationUIConfig;
   reranker?: RerankerDescription;
   experimental?: ExperimentalConfig;
   analytics?: AnalyticsConfig;
@@ -1764,17 +1764,18 @@ export interface SerializedContinueConfig {
 
 export type ConfigMergeType = "merge" | "overwrite";
 
-export type ContinueRcJson = Partial<SerializedContinueConfig> & {
-  mergeBehavior: ConfigMergeType;
-};
+export type ArclengthContinuationRcJson =
+  Partial<SerializedArclengthContinuationConfig> & {
+    mergeBehavior: ConfigMergeType;
+  };
 
 // config.ts - give users simplified interfaces
 export interface Config {
-  /** If set to true, Continue will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.continue.dev/telemetry */
+  /** If set to true, ArclengthContinuation will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.arclength-continuation.dev/telemetry */
   allowAnonymousTelemetry?: boolean;
   /** Each entry in this array will originally be a JSONModelDescription, the same object from your config.json, but you may add CustomLLMs.
    * A CustomLLM requires you only to define an AsyncGenerator that calls the LLM and yields string updates. You can choose to define either `streamCompletion` or `streamChat` (or both).
-   * Continue will do the rest of the work to construct prompt templates, handle context items, prune context, etc.
+   * ArclengthContinuation will do the rest of the work to construct prompt templates, handle context items, prune context, etc.
    */
   models: (CustomLLM | JSONModelDescription)[];
   /** A system message to be followed by all of your models */
@@ -1786,18 +1787,18 @@ export interface Config {
   /** The list of slash commands that will be available in the sidebar */
   slashCommands?: (SlashCommand | SlashCommandWithSource)[];
   /** Each entry in this array will originally be a ContextProviderWithParams, the same object from your config.json, but you may add CustomContextProviders.
-   * A CustomContextProvider requires you only to define a title and getContextItems function. When you type '@title <query>', Continue will call `getContextItems(query)`.
+   * A CustomContextProvider requires you only to define a title and getContextItems function. When you type '@title <query>', ArclengthContinuation will call `getContextItems(query)`.
    */
   contextProviders?: (CustomContextProvider | ContextProviderWithParams)[];
-  /** If set to true, Continue will not index your codebase for retrieval */
+  /** If set to true, ArclengthContinuation will not index your codebase for retrieval */
   disableIndexing?: boolean;
-  /** If set to true, Continue will not make extra requests to the LLM to generate a summary title of each session. */
+  /** If set to true, ArclengthContinuation will not make extra requests to the LLM to generate a summary title of each session. */
   disableSessionTitles?: boolean;
-  /** An optional token to identify a user. Not used by Continue unless you write custom coniguration that requires such a token */
+  /** An optional token to identify a user. Not used by ArclengthContinuation unless you write custom coniguration that requires such a token */
   userToken?: string;
-  /** The provider used to calculate embeddings. If left empty, Continue will use transformers.js to calculate the embeddings with all-MiniLM-L6-v2 */
+  /** The provider used to calculate embeddings. If left empty, ArclengthContinuation will use transformers.js to calculate the embeddings with all-MiniLM-L6-v2 */
   embeddingsProvider?: EmbeddingsProviderDescription | ILLM;
-  /** The model that Continue will use for tab autocompletions. */
+  /** The model that ArclengthContinuation will use for tab autocompletions. */
   tabAutocompleteModel?:
     | CustomLLM
     | JSONModelDescription
@@ -1805,7 +1806,7 @@ export interface Config {
   /** Options for tab autocomplete */
   tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
   /** UI styles customization */
-  ui?: ContinueUIConfig;
+  ui?: ArclengthContinuationUIConfig;
   /** Options for the reranker */
   reranker?: RerankerDescription | ILLM;
   /** Experimental configuration */
@@ -1816,8 +1817,8 @@ export interface Config {
   data?: DataDestination[];
 }
 
-// in the actual Continue source code
-export interface ContinueConfig {
+// in the actual ArclengthContinuation source code
+export interface ArclengthContinuationConfig {
   allowAnonymousTelemetry?: boolean;
   // systemMessage?: string;
   completionOptions?: BaseCompletionOptions;
@@ -1828,7 +1829,7 @@ export interface ContinueConfig {
   disableIndexing?: boolean;
   userToken?: string;
   tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
-  ui?: ContinueUIConfig;
+  ui?: ArclengthContinuationUIConfig;
   experimental?: ExperimentalConfig;
   analytics?: AnalyticsConfig;
   docs?: SiteIndexingConfig[];
@@ -1840,7 +1841,7 @@ export interface ContinueConfig {
   data?: DataDestination[];
 }
 
-export interface BrowserSerializedContinueConfig {
+export interface BrowserSerializedArclengthContinuationConfig {
   allowAnonymousTelemetry?: boolean;
   // systemMessage?: string;
   completionOptions?: BaseCompletionOptions;
@@ -1850,7 +1851,7 @@ export interface BrowserSerializedContinueConfig {
   disableIndexing?: boolean;
   disableSessionTitles?: boolean;
   userToken?: string;
-  ui?: ContinueUIConfig;
+  ui?: ArclengthContinuationUIConfig;
   experimental?: ExperimentalConfig;
   analytics?: AnalyticsConfig;
   docs?: SiteIndexingConfig[];

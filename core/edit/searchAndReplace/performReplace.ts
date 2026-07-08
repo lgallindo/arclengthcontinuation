@@ -1,5 +1,8 @@
 import { EditOperation } from "../../tools/definitions/multiEdit";
-import { ContinueError, ContinueErrorReason } from "../../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../../util/errors";
 import { SearchMatchResult, findSearchMatches } from "./findSearchMatch";
 
 /**
@@ -92,8 +95,8 @@ export function executeFindAndReplace(
   const matches = findSearchMatches(fileContent, oldString);
 
   if (matches.length === 0) {
-    throw new ContinueError(
-      ContinueErrorReason.FindAndReplaceOldStringNotFound,
+    throw new ArclengthContinuationError(
+      ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
       `Edit at index ${editIndex}: string not found in file: "${oldString}"`,
     );
   }
@@ -118,8 +121,8 @@ export function executeFindAndReplace(
   } else {
     // For single replacement, check for multiple matches first
     if (matches.length > 1) {
-      throw new ContinueError(
-        ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+      throw new ArclengthContinuationError(
+        ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
         `Edit at index ${editIndex}: String "${oldString}" appears ${matches.length} times in the file. Either provide a more specific string with surrounding context to make it unique, or use replace_all=true to replace all occurrences.`,
       );
     }

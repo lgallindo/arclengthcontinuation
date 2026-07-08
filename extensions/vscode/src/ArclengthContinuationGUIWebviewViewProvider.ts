@@ -7,10 +7,10 @@ import { VsCodeWebviewProtocol } from "./webviewProtocol";
 
 import type { FileEdit } from "core";
 
-export class ContinueGUIWebviewViewProvider
+export class ArclengthContinuationGUIWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
-  public static readonly viewType = "continue.continueGUIView";
+  public static readonly viewType = "arclength-continuation.continueGUIView";
   public webviewProtocol: VsCodeWebviewProtocol;
 
   public get isReady(): boolean {
@@ -135,7 +135,7 @@ export class ContinueGUIWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>ArclengthContinuation</title>
       </head>
       <body>
         <div id="root"></div>

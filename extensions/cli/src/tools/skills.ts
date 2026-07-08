@@ -1,4 +1,7 @@
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 
 import { loadMarkdownSkills } from "../util/loadMarkdownSkills.js";
 import { logger } from "../util/logger.js";
@@ -57,8 +60,8 @@ ${skills.map((skill) => `\nname: ${skill.name}\ndescription: ${skill.description
       const skill = skills.find((s) => s.name === skill_name);
       if (!skill) {
         const availableSkills = skills.map((s) => s.name).join(", ");
-        throw new ContinueError(
-          ContinueErrorReason.SkillNotFound,
+        throw new ArclengthContinuationError(
+          ArclengthContinuationErrorReason.SkillNotFound,
           `Skill "${skill_name}" not found. Available skills: ${availableSkills || "none"}`,
         );
       }

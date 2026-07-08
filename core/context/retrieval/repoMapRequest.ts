@@ -1,4 +1,4 @@
-import { Chunk, ContinueConfig, IDE, ILLM } from "../..";
+import { Chunk, ArclengthContinuationConfig, IDE, ILLM } from "../..";
 import { getModelByRole } from "../../config/util";
 import generateRepoMap from "../../util/generateRepoMap";
 import { resolveRelativePathInDir } from "../../util/ideUtils";
@@ -13,7 +13,7 @@ const SUPPORTED_MODEL_TITLE_FAMILIES = [
 ];
 
 function isSupportedModel(
-  config: ContinueConfig,
+  config: ArclengthContinuationConfig,
   modelTitle?: string,
 ): boolean {
   if (config.experimental?.modelRoles?.repoMapFileSelection) {
@@ -33,7 +33,7 @@ function isSupportedModel(
 
 export async function requestFilesFromRepoMap(
   defaultLlm: ILLM,
-  config: ContinueConfig,
+  config: ArclengthContinuationConfig,
   ide: IDE,
   input: string,
   filterDirUri?: string,

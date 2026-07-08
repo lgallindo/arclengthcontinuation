@@ -1,5 +1,5 @@
-import { fetchwithRequestOptions } from "@continuedev/fetch";
-import * as openAiAdapters from "@continuedev/openai-adapters";
+import { fetchwithRequestOptions } from "@arclength-continuation/fetch";
+import * as openAiAdapters from "@arclength-continuation/openai-adapters";
 import * as dotenv from "dotenv";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { ChatMessage, ILLM } from "..";
@@ -9,8 +9,8 @@ import OpenAI from "./llms/OpenAI";
 
 dotenv.config();
 
-vi.mock("@continuedev/fetch");
-vi.mock("@continuedev/openai-adapters");
+vi.mock("@arclength-continuation/fetch");
+vi.mock("@arclength-continuation/openai-adapters");
 
 async function dudLLMCall(llm: ILLM, messages: ChatMessage[]) {
   try {

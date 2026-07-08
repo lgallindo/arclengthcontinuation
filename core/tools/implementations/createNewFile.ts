@@ -4,7 +4,10 @@ import { ToolImpl } from ".";
 import { throwIfFileIsSecurityConcern } from "../../indexing/ignore";
 import { getCleanUriPath, getUriPathBasename } from "../../util/uri";
 import { getStringArg } from "../parseArgs";
-import { ContinueError, ContinueErrorReason } from "../../util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "../../util/errors";
 
 export const createNewFileImpl: ToolImpl = async (args, extras) => {
   const filepath = getStringArg(args, "filepath");
@@ -18,8 +21,8 @@ export const createNewFileImpl: ToolImpl = async (args, extras) => {
     throwIfFileIsSecurityConcern(getCleanUriPath(resolvedFileUri));
     const exists = await extras.ide.fileExists(resolvedFileUri);
     if (exists) {
-      throw new ContinueError(
-        ContinueErrorReason.FileAlreadyExists,
+      throw new ArclengthContinuationError(
+        ArclengthContinuationErrorReason.FileAlreadyExists,
         `File ${filepath} already exists. Use the edit tool to edit this file`,
       );
     }
@@ -41,8 +44,8 @@ export const createNewFileImpl: ToolImpl = async (args, extras) => {
       },
     ];
   } else {
-    throw new ContinueError(
-      ContinueErrorReason.PathResolutionFailed,
+    throw new ArclengthContinuationError(
+      ArclengthContinuationErrorReason.PathResolutionFailed,
       "Failed to resolve path",
     );
   }

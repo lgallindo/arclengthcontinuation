@@ -1,27 +1,27 @@
-# Continue CLI
+# Arclength-Continuation CLI
 
-The Continue CLI (`cn`) is a customizable command line coding agent.
+The Arclength-Continuation CLI (`cn`) is a customizable command line coding agent.
 
-![Continue CLI Demo](./media/demo.gif)
+![Arclength-Continuation CLI Demo](./media/demo.gif)
 
 ## Installation
 
 **macOS / Linux:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/continuedev/continue/main/extensions/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/arclength-continuation/continue/main/extensions/cli/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/continuedev/continue/main/extensions/cli/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/arclength-continuation/continue/main/extensions/cli/scripts/install.ps1 | iex
 ```
 
 Or install with npm if you have Node.js 20+:
 
 ```bash
-npm i -g @continuedev/cli
+npm i -g @arclength-continuation/cli
 ```
 
 ## Usage
@@ -80,14 +80,14 @@ cn ls --json
 
 ## Environment Variables
 
-- `CONTINUE_CLI_DISABLE_COMMIT_SIGNATURE`: Disable adding the Continue commit signature to generated commit messages
+- `CONTINUE_CLI_DISABLE_COMMIT_SIGNATURE`: Disable adding the Arclength-Continuation commit signature to generated commit messages
 - `FORCE_NO_TTY`: Force TTY-less mode, prevents stdin reading (useful for testing and automation)
 
 ## Commands
 
 - `cn`: Start an interactive chat session
 - `cn ls`: List recent sessions with TUI selector to choose one to resume
-- `cn login`: Authenticate with Continue
+- `cn login`: Authenticate with Arclength-Continuation
 - `cn logout`: Sign out of current session
 - `cn remote`: Launch a remote instance
 - `cn serve`: Start HTTP server mode

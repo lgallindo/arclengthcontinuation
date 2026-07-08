@@ -1,7 +1,4 @@
-import {
-  AssistantUnrolled,
-  ContinueProperties,
-} from "@continuedev/config-yaml";
+import { AssistantUnrolled } from "@arclength-continuation/config-yaml";
 import fetch, { Response } from "node-fetch";
 import OpenAI from "openai";
 
@@ -20,23 +17,29 @@ interface OpenAIClientOptions extends Record<string, any> {
   organizationId?: string | null;
 
   /**
-   * Whether to always use the Continue-managed proxy for model requests
+   * Whether to always use the ArclengthContinuation-managed proxy for model requests
    */
   alwaysUseProxy?: boolean;
 
   /**
-   * API key for Continue Hub
+   * API key for ArclengthContinuation Hub
    */
   apiKey?: string;
 
   /**
-   * Base URL for the Continue API
+   * Base URL for the ArclengthContinuation API
    */
   baseURL?: string;
 }
 
+type ArclengthContinuationProperties = {
+  apiKeyLocation?: string;
+  envSecretLocations?: Record<string, string>;
+  orgScopeId: string | null;
+};
+
 /**
- * Create and configure an OpenAI client that uses Continue Hub for authentication
+ * Create and configure an OpenAI client that uses ArclengthContinuation Hub for authentication
  *
  * @param options - OpenAI client options with assistant models
  * @returns Configured OpenAI client
@@ -45,7 +48,7 @@ export function createOpenAIClient({
   models: assistantModels,
   organizationId,
   apiKey,
-  baseURL = "https://api.continue.dev/",
+  baseURL = "https://api.arclength-continuation.dev/",
 }: OpenAIClientOptions): OpenAI {
   return new OpenAI({
     apiKey,
@@ -80,9 +83,9 @@ export function createOpenAIClient({
             );
           }
 
-          const continueProperties: ContinueProperties = {
-            apiKeyLocation: modelConfig.apiKeyLocation,
-            envSecretLocations: modelConfig.envSecretLocations,
+          const continueProperties: ArclengthContinuationProperties = {
+            apiKeyLocation: (modelConfig as any).apiKeyLocation,
+            envSecretLocations: (modelConfig as any).envSecretLocations,
             orgScopeId: organizationId ?? null,
           };
 

@@ -10,8 +10,10 @@ describe("processPromptOrRule (rule processing)", () => {
 
     it("should treat hub-slug-like strings as direct content (hub loading removed)", async () => {
       // Hub loading has been removed, so "owner/package" is treated as direct content
-      const result = await processPromptOrRule("continuedev/sentry-nextjs");
-      expect(result).toBe("continuedev/sentry-nextjs");
+      const result = await processPromptOrRule(
+        "arclength-continuation/sentry-nextjs",
+      );
+      expect(result).toBe("arclength-continuation/sentry-nextjs");
     });
 
     it("should treat multiline strings as direct content", async () => {

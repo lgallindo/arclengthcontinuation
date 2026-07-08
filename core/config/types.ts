@@ -177,7 +177,7 @@ declare global {
   export type FetchFunction = (url: string | URL, init?: any) => Promise<any>;
   
   export interface ContextProviderExtras {
-    config: ContinueConfig;
+    config: ArclengthContinuationConfig;
     fullInput: string;
     embeddingsProvider: ILLM;
     reranker: ILLM | undefined;
@@ -188,7 +188,7 @@ declare global {
   }
   
   export interface LoadSubmenuItemsArgs {
-    config: ContinueConfig;
+    config: ArclengthContinuationConfig;
     ide: IDE;
     fetch: FetchFunction;
   }
@@ -762,7 +762,7 @@ declare global {
   
   // Slash Commands
   
-  export interface ContinueSDK {
+  export interface ArclengthContinuationSDK {
     ide: IDE;
     llm: ILLM;
     addContextItem: (item: ContextItemWithId) => void;
@@ -771,7 +771,7 @@ declare global {
     params?: { [key: string]: any } | undefined;
     contextItems: ContextItemWithId[];
     selectedCode: RangeInFile[];
-    config: ContinueConfig;
+    config: ArclengthContinuationConfig;
     fetch: FetchFunction;
   }
   
@@ -779,7 +779,7 @@ declare global {
     name: string;
     description: string;
     params?: { [key: string]: any };
-    run: (sdk: ContinueSDK) => AsyncGenerator<string | undefined>;
+    run: (sdk: ArclengthContinuationSDK) => AsyncGenerator<string | undefined>;
   }
   
   // Config
@@ -1033,7 +1033,7 @@ declare global {
     transport: TransportOptions;
   }
   
-  export interface ContinueUIConfig {
+  export interface ArclengthContinuationUIConfig {
     codeBlockToolbarPosition?: "top" | "bottom";
     fontSize?: number;
     displayRawMarkdown?: boolean;
@@ -1143,7 +1143,7 @@ declare global {
   }
   
   // config.json
-  export interface SerializedContinueConfig {
+  export interface SerializedArclengthContinuationConfig {
     env?: string[];
     allowAnonymousTelemetry?: boolean;
     models: ModelDescription[];
@@ -1159,7 +1159,7 @@ declare global {
     embeddingsProvider?: EmbeddingsProviderDescription;
     tabAutocompleteModel?: ModelDescription | ModelDescription[];
     tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
-    ui?: ContinueUIConfig;
+    ui?: ArclengthContinuationUIConfig;
     reranker?: RerankerDescription;
     experimental?: ExperimentalConfig;
     analytics?: AnalyticsConfig;
@@ -1168,17 +1168,17 @@ declare global {
   
   export type ConfigMergeType = "merge" | "overwrite";
   
-  export type ContinueRcJson = Partial<SerializedContinueConfig> & {
+  export type ArclengthContinuationRcJson = Partial<SerializedArclengthContinuationConfig> & {
     mergeBehavior: ConfigMergeType;
   };
   
   // config.ts - give users simplified interfaces
   export interface Config {
-    /** If set to true, Continue will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.continue.dev/telemetry */
+    /** If set to true, ArclengthContinuation will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.arclength-continuation.dev/telemetry */
     allowAnonymousTelemetry?: boolean;
     /** Each entry in this array will originally be a ModelDescription, the same object from your config.json, but you may add CustomLLMs.
      * A CustomLLM requires you only to define an AsyncGenerator that calls the LLM and yields string updates. You can choose to define either \`streamCompletion\` or \`streamChat\` (or both).
-     * Continue will do the rest of the work to construct prompt templates, handle context items, prune context, etc.
+     * ArclengthContinuation will do the rest of the work to construct prompt templates, handle context items, prune context, etc.
      */
     models: (CustomLLM | ModelDescription)[];
     /** A system message to be followed by all of your models */
@@ -1190,18 +1190,18 @@ declare global {
     /** The list of slash commands that will be available in the sidebar */
     slashCommands?: SlashCommand[];
     /** Each entry in this array will originally be a ContextProviderWithParams, the same object from your config.json, but you may add CustomContextProviders.
-     * A CustomContextProvider requires you only to define a title and getContextItems function. When you type '@title <query>', Continue will call \`getContextItems(query)\`.
+     * A CustomContextProvider requires you only to define a title and getContextItems function. When you type '@title <query>', ArclengthContinuation will call \`getContextItems(query)\`.
      */
     contextProviders?: (CustomContextProvider | ContextProviderWithParams)[];
-    /** If set to true, Continue will not index your codebase for retrieval */
+    /** If set to true, ArclengthContinuation will not index your codebase for retrieval */
     disableIndexing?: boolean;
-    /** If set to true, Continue will not make extra requests to the LLM to generate a summary title of each session. */
+    /** If set to true, ArclengthContinuation will not make extra requests to the LLM to generate a summary title of each session. */
     disableSessionTitles?: boolean;
-    /** An optional token to identify a user. Not used by Continue unless you write custom coniguration that requires such a token */
+    /** An optional token to identify a user. Not used by ArclengthContinuation unless you write custom coniguration that requires such a token */
     userToken?: string;
-    /** The provider used to calculate embeddings. If left empty, Continue will use transformers.js to calculate the embeddings with all-MiniLM-L6-v2 */
+    /** The provider used to calculate embeddings. If left empty, ArclengthContinuation will use transformers.js to calculate the embeddings with all-MiniLM-L6-v2 */
     embeddingsProvider?: EmbeddingsProviderDescription | ILLM;
-    /** The model that Continue will use for tab autocompletions. */
+    /** The model that ArclengthContinuation will use for tab autocompletions. */
     tabAutocompleteModel?:
       | CustomLLM
       | ModelDescription
@@ -1209,7 +1209,7 @@ declare global {
     /** Options for tab autocomplete */
     tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
     /** UI styles customization */
-    ui?: ContinueUIConfig;
+    ui?: ArclengthContinuationUIConfig;
     /** Options for the reranker */
     reranker?: RerankerDescription | ILLM;
     /** Experimental configuration */
@@ -1218,8 +1218,8 @@ declare global {
     analytics?: AnalyticsConfig;
   }
   
-  // in the actual Continue source code
-  export interface ContinueConfig {
+  // in the actual ArclengthContinuation source code
+  export interface ArclengthContinuationConfig {
     allowAnonymousTelemetry?: boolean;
     models: ILLM[];
     systemMessage?: string;
@@ -1233,7 +1233,7 @@ declare global {
     embeddingsProvider: ILLM;
     tabAutocompleteModels?: ILLM[];
     tabAutocompleteOptions?: Partial<TabAutocompleteOptions>;
-    ui?: ContinueUIConfig;
+    ui?: ArclengthContinuationUIConfig;
     reranker?: ILLM;
     experimental?: ExperimentalConfig;
     analytics?: AnalyticsConfig;
@@ -1241,7 +1241,7 @@ declare global {
     tools: Tool[];
   }
   
-  export interface BrowserSerializedContinueConfig {
+  export interface BrowserSerializedArclengthContinuationConfig {
     allowAnonymousTelemetry?: boolean;
     models: ModelDescription[];
     systemMessage?: string;
@@ -1253,7 +1253,7 @@ declare global {
     disableSessionTitles?: boolean;
     userToken?: string;
     embeddingsProvider?: string;
-    ui?: ContinueUIConfig;
+    ui?: ArclengthContinuationUIConfig;
     reranker?: RerankerDescription;
     experimental?: ExperimentalConfig;
     analytics?: AnalyticsConfig;

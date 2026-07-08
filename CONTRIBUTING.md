@@ -1,11 +1,11 @@
-# Contributing to Continue
+# Contributing to Arclength-Continuation
 
 ## Table of Contents
 
-- [Contributing to Continue](#contributing-to-continue)
+- [Contributing to Arclength-Continuation](#contributing-to-continue)
   - [Table of Contents](#table-of-contents)
 - [❤️ Ways to Contribute](#️-ways-to-contribute)
-  - [👋 Continue Contribution Ideas](#-continue-contribution-ideas)
+  - [👋 Arclength-Continuation Contribution Ideas](#-continue-contribution-ideas)
   - [🐛 Report Bugs](#-report-bugs)
   - [✨ Suggest Enhancements](#-suggest-enhancements)
   - [📖 Updating / Improving Documentation](#-updating--improving-documentation)
@@ -15,7 +15,7 @@
   - [🧑‍💻 Contributing Code](#-contributing-code)
     - [Environment Setup](#environment-setup)
       - [Pre-requisites](#pre-requisites)
-      - [Fork the Continue Repository](#fork-the-continue-repository)
+      - [Fork the Arclength-Continuation Repository](#fork-the-continue-repository)
       - [VS Code](#vs-code)
         - [Debugging](#debugging)
       - [JetBrains](#jetbrains)
@@ -29,23 +29,23 @@
   - [Contributing new LLM Providers/Models](#contributing-new-llm-providersmodels)
     - [Adding an LLM Provider](#adding-an-llm-provider)
     - [Adding Models](#adding-models)
-  - [📐 Continue Architecture](#-continue-architecture)
-    - [Continue VS Code Extension](#continue-vs-code-extension)
-    - [Continue JetBrains Extension](#continue-jetbrains-extension)
+  - [📐 Arclength-Continuation Architecture](#-continue-architecture)
+    - [Arclength-Continuation VS Code Extension](#continue-vs-code-extension)
+    - [Arclength-Continuation JetBrains Extension](#continue-jetbrains-extension)
   - [Contributor License Agreement](#contributor-license-agreement-cla)
 
 # ❤️ Ways to Contribute
 
-## 👋 Continue Contribution Ideas
+## 👋 Arclength-Continuation Contribution Ideas
 
-[This GitHub project board](https://github.com/orgs/continuedev/projects/2) is a list of ideas for how you can
-contribute to Continue. These aren't the only ways, but are a great starting point if you are new to the project. You
+[This GitHub project board](https://github.com/orgs/arclength-continuation/projects/2) is a list of ideas for how you can
+contribute to Arclength-Continuation. These aren't the only ways, but are a great starting point if you are new to the project. You
 can also browse the list
-of [good first issues](https://github.com/continuedev/continue/issues?q=is:issue%20state:open%20label:good-first-issue).
+of [good first issues](https://github.com/arclength-continuation/continue/issues?q=is:issue%20state:open%20label:good-first-issue).
 
 ## 🐛 Report Bugs
 
-If you find a bug, please [create an issue](https://github.com/continuedev/continue/issues) to report it! A great bug
+If you find a bug, please [create an issue](https://github.com/arclength-continuation/continue/issues) to report it! A great bug
 report includes:
 
 - A description of the bug
@@ -56,22 +56,22 @@ report includes:
 
 ## ✨ Suggest Enhancements
 
-Continue is quickly adding features, and we'd love to hear which are the most important to you. The best ways to suggest
+Arclength-Continuation is quickly adding features, and we'd love to hear which are the most important to you. The best ways to suggest
 an enhancement are:
 
 - Create an issue
 
   - First, check whether a similar proposal has already been made
-  - If not, [create an issue](https://github.com/continuedev/continue/issues)
+  - If not, [create an issue](https://github.com/arclength-continuation/continue/issues)
   - Please describe the enhancement in as much detail as you can, and why it would be useful
 
-- Join the [GitHub Discussions](https://github.com/continuedev/continue/discussions) and tell us about your idea
+- Join the [GitHub Discussions](https://github.com/arclength-continuation/continue/discussions) and tell us about your idea
 
 ## 📖 Updating / Improving Documentation
 
-Continue is continuously improving, but a feature isn't complete until it is reflected in the documentation! If you see
+Arclength-Continuation is continuously improving, but a feature isn't complete until it is reflected in the documentation! If you see
 something out-of-date or missing, you can help by clicking "Edit this page" at the bottom of any page
-on [docs.continue.dev](https://docs.continue.dev).
+on [docs.arclength-continuation.dev](https://docs.arclength-continuation.dev).
 
 ### Running the Documentation Server Locally
 
@@ -129,9 +129,9 @@ Then, install Vite globally
 npm i -g vite
 ```
 
-#### Fork the Continue Repository
+#### Fork the Arclength-Continuation Repository
 
-1. Go to the [Continue GitHub repository](https://github.com/continuedev/continue) and fork it to your GitHub account.
+1. Go to the [Arclength-Continuation GitHub repository](https://github.com/arclength-continuation/continue) and fork it to your GitHub account.
 
 2. Clone your forked repository to your local machine. Use: `git clone https://github.com/YOUR_USERNAME/continue.git`
 
@@ -185,24 +185,24 @@ is well explained by <http://releaseflow.org>.
 
 ### What makes a good PR?
 
-To keep the Continue codebase clean and maintainable, we expect the following from our own team and all contributors:
+To keep the Arclength-Continuation codebase clean and maintainable, we expect the following from our own team and all contributors:
 
 - Open a new issue or comment on an existing one before writing code. This ensures your proposed changes are aligned
   with the project direction
 - Keep changes focused. Multiple unrelated fixes should be opened as separate PRs
 - Write or update tests for new functionality
 - Update relevant documentation in the `docs` folder
-- **For new features**: Include a short screen recording or screenshot demonstrating the new functionality. This makes it much easier for us as contributors to review and understand your changes. See [this PR](https://github.com/continuedev/continue/pull/6455) as a good example
+- **For new features**: Include a short screen recording or screenshot demonstrating the new functionality. This makes it much easier for us as contributors to review and understand your changes. See [this PR](https://github.com/arclength-continuation/continue/pull/6455) as a good example
 - Open a PR against the `main` branch. Make sure to fill in the PR template
 
 ### Formatting
 
-Continue uses [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to format
+Arclength-Continuation uses [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to format
 JavaScript/TypeScript. Please install the Prettier extension in VS Code and enable "Format on Save" in your settings.
 
 ### Theme Colors
 
-Continue has a set of named theme colors that we map to extension colors and tailwind classes, which can be found in [gui/src/styles/theme.ts](gui/src/styles/theme.ts)
+Arclength-Continuation has a set of named theme colors that we map to extension colors and tailwind classes, which can be found in [gui/src/styles/theme.ts](gui/src/styles/theme.ts)
 
 Guidelines for using theme colors:
 
@@ -233,15 +233,15 @@ When contributing, please update or create the appropriate tests to help verify 
 
 ### Getting Help
 
-Join the [GitHub Discussions](https://github.com/continuedev/continue/discussions) to engage with maintainers and other contributors.
+Join the [GitHub Discussions](https://github.com/arclength-continuation/continue/discussions) to engage with maintainers and other contributors.
 
 ## Contributing New LLM Providers/Models
 
 ### Adding an LLM Provider
 
-Continue has support for more than a dozen different LLM "providers", making it easy to use models running on OpenAI,
+Arclength-Continuation has support for more than a dozen different LLM "providers", making it easy to use models running on OpenAI,
 Ollama, Together, LM Studio, Msty, and more. You can find all of the existing
-providers [here](https://github.com/continuedev/continue/tree/main/core/llm/llms), and if you see one missing, you can
+providers [here](https://github.com/arclength-continuation/continue/tree/main/core/llm/llms), and if you see one missing, you can
 add it with the following steps:
 
 1. Create a new file in the `core/llm/llms` directory. The name of the file should be the name of the provider, and it
@@ -257,7 +257,7 @@ add it with the following steps:
 
 ### Adding Models
 
-While any model that works with a supported provider can be used with Continue, we keep a list of recommended models
+While any model that works with a supported provider can be used with Arclength-Continuation, we keep a list of recommended models
 that can be automatically configured from the UI or `config.json`. The following files should be updated when adding a
 model:
 
@@ -268,13 +268,13 @@ model:
   2. Add the model within its provider's array
      to [configs/providers.ts](./gui/src/pages/AddNewModel/configs/providers.ts) (add provider if needed)
 - LLM Providers: Since many providers use their own custom strings to identify models, you'll have to add the
-  translation from Continue's model name (the one you added to `index.d.ts`) and the model string for each of these
+  translation from Arclength-Continuation's model name (the one you added to `index.d.ts`) and the model string for each of these
   providers: [Ollama](./core/llm/llms/Ollama.ts), [Together](./core/llm/llms/Together.ts),
   and [Replicate](./core/llm/llms/Replicate.ts). You can find their full model lists
   here: [Ollama](https://ollama.ai/library), [Together](https://docs.together.ai/docs/inference-models), [Replicate](https://replicate.com/collections/streaming-language-models).
 - [Prompt Templates](./core/llm/autodetect.ts) - In this file you'll find the `autodetectTemplateType` function. Make
   sure that for the model name you just added, this function returns the correct template type. This is assuming that
-  the chat template for that model is already built in Continue. If not, you will have to add the template type and
+  the chat template for that model is already built in Arclength-Continuation. If not, you will have to add the template type and
   corresponding edit and chat templates.
 
 ## Contributor License Agreement (CLA)

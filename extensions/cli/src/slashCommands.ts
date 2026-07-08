@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { type AssistantConfig } from "@continuedev/sdk";
+import { type AssistantConfig } from "@arclength-continuation/sdk";
 import chalk from "chalk";
 import type { Session } from "core/index.js";
 import historyManager from "core/util/history.js";
@@ -213,7 +213,7 @@ function handleImport(args: string[]): SlashCommandResult {
       return {
         exit: false,
         output: chalk.red(
-          "Invalid session file: expected a valid Continue exported session (version 1).",
+          "Invalid session file: expected a valid ArclengthContinuation exported session (version 1).",
         ),
       };
     }

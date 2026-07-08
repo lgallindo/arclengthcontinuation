@@ -62,12 +62,13 @@ export default function StepContainer(props: StepContainerProps) {
     dispatch(deleteMessage(props.index));
   }
 
-  function onContinueGeneration() {
+  function onArclengthContinuationGeneration() {
     window.postMessage(
       {
         messageType: "userInput",
         data: {
-          input: "Continue your response exactly where you left off:",
+          input:
+            "ArclengthContinuation your response exactly where you left off:",
         },
       },
       "*",
@@ -111,7 +112,9 @@ export default function StepContainer(props: StepContainerProps) {
           <ResponseActions
             isTruncated={isTruncated}
             onDelete={onDelete}
-            onContinueGeneration={onContinueGeneration}
+            onArclengthContinuationGeneration={
+              onArclengthContinuationGeneration
+            }
             index={props.index}
             item={props.item}
             isLast={props.isLast}

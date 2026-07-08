@@ -1,7 +1,10 @@
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 import { ContextItem, McpUiState } from "core";
 import { CLIENT_TOOLS_IMPLS } from "core/tools/builtIn";
-import { ContinueError, ContinueErrorReason } from "core/util/errors";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors";
 
 import { callClientTool } from "../../util/clientTools/callClientTool";
 import { selectSelectedChatModel } from "../slices/configSlice";
@@ -48,7 +51,7 @@ export const callToolById = createAsyncThunk<
 
   let output: ContextItem[] | undefined = undefined;
   let mcpUiState: McpUiState | undefined = undefined;
-  let error: ContinueError | undefined = undefined;
+  let error: ArclengthContinuationError | undefined = undefined;
   let streamResponse: boolean;
 
   // IMPORTANT:
@@ -85,8 +88,9 @@ export const callToolById = createAsyncThunk<
       output = result.content.contextItems;
       mcpUiState = result.content.mcpUiState;
       error = result.content.errorMessage
-        ? new ContinueError(
-            result.content.errorReason || ContinueErrorReason.Unspecified,
+        ? new ArclengthContinuationError(
+            result.content.errorReason ||
+              ArclengthContinuationErrorReason.Unspecified,
             result.content.errorMessage,
           )
         : undefined;

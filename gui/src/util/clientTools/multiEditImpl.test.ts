@@ -1,4 +1,4 @@
-import { ContinueErrorReason } from "core/util/errors";
+import { ArclengthContinuationErrorReason } from "core/util/errors";
 import * as ideUtils from "core/util/ideUtils";
 import { beforeEach, describe, expect, it, Mock, vi } from "vitest";
 import { applyForEditTool } from "../../redux/thunks/handleApplyStateUpdate";
@@ -53,7 +53,8 @@ describe("multiEditImpl GUI specific", () => {
         ),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMissingFilepath,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMissingFilepath,
         }),
       );
     });
@@ -72,7 +73,7 @@ describe("multiEditImpl GUI specific", () => {
         ),
       ).rejects.toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FileNotFound,
+          reason: ArclengthContinuationErrorReason.FileNotFound,
         }),
       );
     });

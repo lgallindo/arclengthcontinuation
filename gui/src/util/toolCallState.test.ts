@@ -83,7 +83,7 @@ describe("addToolCallDeltaToState", () => {
     const result = addToolCallDeltaToState(delta, currentState);
     expect(result.toolCall.function.name).toBe("readFil");
 
-    // Continue the streaming
+    // ArclengthContinuation the streaming
     const nextDelta: ToolCallDelta = {
       function: {
         name: "readFile",

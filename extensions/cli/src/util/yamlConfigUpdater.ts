@@ -4,13 +4,28 @@ export interface ModelConfig {
   name: string;
   provider: string;
   model: string;
-  apiKey: string;
+  apiKey?: string;
+  apiBase?: string;
+  projectId?: string;
+  region?: string;
+  env?: Record<string, string>;
   roles: string[];
   defaultCompletionOptions?: {
     contextLength: number;
     maxTokens: number;
   };
   capabilities?: string[];
+}
+
+export interface ProviderSetup {
+  provider: string;
+  name: string;
+  model: string;
+  apiKey?: string;
+  apiBase?: string;
+  projectId?: string;
+  region?: string;
+  keyFile?: string;
 }
 
 export interface ConfigStructure {
@@ -20,7 +35,7 @@ export interface ConfigStructure {
   models: ModelConfig[];
 }
 
-// These model definitions are inlined copies of the corresponding Continue Hub
+// These model definitions are inlined copies of the corresponding ArclengthContinuation Hub
 // blocks (e.g. anthropic/claude-sonnet-4-6) that onboarding previously resolved
 // via `uses:` slugs. Since Hub/slug resolution has been removed, we reproduce
 // the exact block contents here, with `apiKey` substituted for the block's
@@ -62,6 +77,41 @@ function isManagedAnthropicModel(model: any): boolean {
     model.provider === "anthropic" &&
     (model.model === "claude-sonnet-4-6" || model.model === "claude-opus-4-6")
   );
+}
+
+function getProviderModel(setup: ProviderSetup): ModelConfig {
+  const model: ModelConfig = {
+    name: setup.name,
+    provider: setup.provider,
+    model: setup.model,
+    roles: ["chat", "edit", "apply"],
+  };
+
+  if (setup.apiKey) {
+    model.apiKey = setup.apiKey;
+  }
+  if (setup.apiBase) {
+    model.apiBase = setup.apiBase;
+  }
+  if (setup.projectId) {
+    model.projectId = setup.projectId;
+  }
+  if (setup.region) {
+    model.region = setup.region;
+  }
+  if (setup.keyFile) {
+    model.env = { keyFile: setup.keyFile };
+  }
+
+  return model;
+}
+
+function isManagedSetupModel(model: any, setup: ProviderSetup): boolean {
+  if (!model || typeof model !== "object") {
+    return false;
+  }
+
+  return model.provider === setup.provider && model.model === setup.model;
 }
 
 /**
@@ -125,6 +175,73 @@ export function updateAnthropicModelInYaml(
       version: "1.0.0",
       schema: "v1",
       models: newModels,
+    };
+
+    const doc = parseDocument("");
+    Object.keys(defaultConfig).forEach((key) =>
+      doc.set(key, (defaultConfig as any)[key]),
+    );
+    return doc.toString();
+  }
+}
+
+/**
+ * Updates or adds a single provider model configuration in a YAML string while
+ * preserving unrelated models and comments where possible.
+ */
+export function updateProviderModelInYaml(
+  yamlContent: string,
+  setup: ProviderSetup,
+): string {
+  const newModel = getProviderModel(setup);
+
+  try {
+    const doc = parseDocument(yamlContent);
+
+    if (!doc.contents || doc.contents === null) {
+      const defaultConfig: ConfigStructure = {
+        name: "Main Config",
+        version: "1.0.0",
+        schema: "v1",
+        models: [newModel],
+      };
+
+      const newDoc = parseDocument("");
+      Object.keys(defaultConfig).forEach((key) =>
+        newDoc.set(key, (defaultConfig as any)[key]),
+      );
+      return newDoc.toString();
+    }
+
+    const config = doc.toJS() as any;
+
+    if (!config.models || !Array.isArray(config.models)) {
+      config.models = [];
+    }
+
+    config.models = config.models.filter(
+      (model: any) => !isManagedSetupModel(model, setup),
+    );
+    config.models.push(newModel);
+    doc.set("models", config.models);
+
+    if (!config.name) {
+      doc.set("name", "Main Config");
+    }
+    if (!config.version) {
+      doc.set("version", "1.0.0");
+    }
+    if (!config.schema) {
+      doc.set("schema", "v1");
+    }
+
+    return doc.toString();
+  } catch {
+    const defaultConfig: ConfigStructure = {
+      name: "Main Config",
+      version: "1.0.0",
+      schema: "v1",
+      models: [newModel],
     };
 
     const doc = parseDocument("");

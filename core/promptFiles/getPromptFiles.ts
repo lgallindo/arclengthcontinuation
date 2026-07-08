@@ -7,7 +7,10 @@ import {
 } from ".";
 import { IDE } from "..";
 import { walkDir } from "../indexing/walkDir";
-import { getContinueGlobalPath, readAllGlobalPromptFiles } from "../util/paths";
+import {
+  getArclengthContinuationGlobalPath,
+  readAllGlobalPromptFiles,
+} from "../util/paths";
 import { joinPathsToUri } from "../util/uri";
 
 export async function getPromptFilesFromDir(
@@ -66,7 +69,7 @@ export async function getAllPromptFiles(
   promptFiles.push(...readAllGlobalPromptFiles());
 
   const promptFilesFromRulesDirectory = readAllGlobalPromptFiles(
-    path.join(getContinueGlobalPath(), RULES_DIR_NAME),
+    path.join(getArclengthContinuationGlobalPath(), RULES_DIR_NAME),
   );
   promptFiles.push(...promptFilesFromRulesDirectory);
 

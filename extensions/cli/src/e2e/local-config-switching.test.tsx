@@ -11,7 +11,7 @@ describe("Local Config Switching Investigation", () => {
         "/absolute/path/to/config.yaml",
       ],
       remoteAssistantSlugs: [
-        "continuedev/default-cli-config",
+        "arclength-continuation/default-cli-config",
         "myorg/custom-assistant",
         "user/my-assistant",
       ],
@@ -43,14 +43,14 @@ describe("Local Config Switching Investigation", () => {
     const problemScenarios = [
       {
         name: "Remote to Remote switching",
-        from: "continuedev/default-cli-config",
+        from: "arclength-continuation/default-cli-config",
         to: "myorg/custom-assistant",
         works: true,
         reason: "Both are assistant slugs, normal flow works",
       },
       {
         name: "Remote to Local switching",
-        from: "continuedev/default-cli-config",
+        from: "arclength-continuation/default-cli-config",
         to: "~/.continue/config.yaml",
         works: false, // This is the reported issue
         reason: "UNKNOWN - this is what we need to debug",
@@ -58,7 +58,7 @@ describe("Local Config Switching Investigation", () => {
       {
         name: "Local to Remote switching",
         from: "~/.continue/config.yaml",
-        to: "continuedev/default-cli-config",
+        to: "arclength-continuation/default-cli-config",
         works: false, // Likely also broken
         reason: "UNKNOWN - probably same root cause",
       },

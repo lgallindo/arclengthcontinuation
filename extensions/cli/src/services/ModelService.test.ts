@@ -1,4 +1,7 @@
-import { AssistantUnrolled, ModelConfig } from "@continuedev/config-yaml";
+import {
+  AssistantUnrolled,
+  ModelConfig,
+} from "@arclength-continuation/config-yaml";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 // Mock dependencies before imports
@@ -141,7 +144,7 @@ describe("ModelService", () => {
         provider: "continue-proxy",
         model: "proxy-model",
         name: "Proxy Model",
-        apiBase: "https://proxy.continue.dev",
+        apiBase: "https://proxy.arclength-continuation.dev",
         apiKeyLocation: "env.PROXY_KEY",
         roles: ["chat"],
       } as ModelConfig;

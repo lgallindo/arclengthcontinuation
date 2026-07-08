@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ContinueErrorReason } from "../../util/errors";
+import { ArclengthContinuationErrorReason } from "../../util/errors";
 import { executeFindAndReplace } from "./performReplace";
 
 describe("executeFindAndReplace", () => {
@@ -165,7 +165,8 @@ describe("executeFindAndReplace", () => {
         executeFindAndReplace(content, "xyz", "abc", false);
       }).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceOldStringNotFound,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
         }),
       );
     });
@@ -177,7 +178,8 @@ describe("executeFindAndReplace", () => {
         executeFindAndReplace(content, "xyz", "abc", false, 2);
       }).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceOldStringNotFound,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceOldStringNotFound,
         }),
       );
     });
@@ -189,7 +191,8 @@ describe("executeFindAndReplace", () => {
         executeFindAndReplace(content, "Hello", "Hi", false);
       }).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
         }),
       );
     });
@@ -201,7 +204,8 @@ describe("executeFindAndReplace", () => {
         executeFindAndReplace(content, "test", "exam", false, 1);
       }).toThrowError(
         expect.objectContaining({
-          reason: ContinueErrorReason.FindAndReplaceMultipleOccurrences,
+          reason:
+            ArclengthContinuationErrorReason.FindAndReplaceMultipleOccurrences,
         }),
       );
     });

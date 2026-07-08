@@ -1,4 +1,4 @@
-import { type AssistantConfig } from "@continuedev/sdk";
+import { type AssistantConfig } from "@arclength-continuation/sdk";
 
 import {
   getSkillSlashCommandName,
@@ -10,6 +10,7 @@ export { chat } from "./chat.js";
 export { listSessionsCommand } from "./ls.js";
 export { review } from "./review.js";
 export { serve } from "./serve.js";
+export { setup } from "./setup.js";
 
 export interface SlashCommand {
   name: string;
@@ -35,7 +36,7 @@ export const SYSTEM_SLASH_COMMANDS: SystemCommand[] = [
   },
   {
     name: "update",
-    description: "Update the Continue CLI",
+    description: "Update the ArclengthContinuation CLI",
     category: "system",
   },
   {

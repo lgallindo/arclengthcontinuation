@@ -8,15 +8,15 @@ import {
   ConfigValidationError,
   mergeConfigYamlRequestOptions,
   ModelRole,
-} from "@continuedev/config-yaml";
+} from "@arclength-continuation/config-yaml";
 import * as JSONC from "comment-json";
 
 import {
-  BrowserSerializedContinueConfig,
+  BrowserSerializedArclengthContinuationConfig,
   Config,
   ContextProviderWithParams,
-  ContinueConfig,
-  ContinueRcJson,
+  ArclengthContinuationConfig,
+  ArclengthContinuationRcJson,
   CustomContextProvider,
   EmbeddingsProviderDescription,
   IDE,
@@ -29,7 +29,7 @@ import {
   LLMOptions,
   ModelDescription,
   RerankerDescription,
-  SerializedContinueConfig,
+  SerializedArclengthContinuationConfig,
   SlashCommandWithSource,
 } from "..";
 import { getLegacyBuiltInSlashCommandFromDescription } from "../commands/slash/built-in-legacy";
@@ -52,7 +52,7 @@ import {
   getConfigJsPath,
   getConfigJsPathForRemote,
   getConfigTsPath,
-  getContinueDotEnv,
+  getArclengthContinuationDotEnv,
   getEsbuildBinaryPath,
 } from "../util/paths";
 import { localPathToUri } from "../util/pathToUri";
@@ -73,13 +73,15 @@ import { validateConfig } from "./validation.js";
 
 export function resolveSerializedConfig(
   filepath: string,
-): SerializedContinueConfig {
+): SerializedArclengthContinuationConfig {
   let content = fs.readFileSync(filepath, "utf8");
-  const config = JSONC.parse(content) as unknown as SerializedContinueConfig;
+  const config = JSONC.parse(
+    content,
+  ) as unknown as SerializedArclengthContinuationConfig;
   if (config.env && Array.isArray(config.env)) {
     const env = {
       ...process.env,
-      ...getContinueDotEnv(),
+      ...getArclengthContinuationDotEnv(),
     };
 
     config.env.forEach((envVar) => {
@@ -92,7 +94,9 @@ export function resolveSerializedConfig(
     });
   }
 
-  return JSONC.parse(content) as unknown as SerializedContinueConfig;
+  return JSONC.parse(
+    content,
+  ) as unknown as SerializedArclengthContinuationConfig;
 }
 
 const configMergeKeys = {
@@ -110,13 +114,13 @@ const configMergeKeys = {
 };
 
 function loadSerializedConfig(
-  workspaceConfigs: ContinueRcJson[],
+  workspaceConfigs: ArclengthContinuationRcJson[],
   ideSettings: IdeSettings,
   ideType: IdeType,
-  overrideConfigJson: SerializedContinueConfig | undefined,
+  overrideConfigJson: SerializedArclengthContinuationConfig | undefined,
   ide: IDE,
-): ConfigResult<SerializedContinueConfig> {
-  let config: SerializedContinueConfig = overrideConfigJson!;
+): ConfigResult<SerializedArclengthContinuationConfig> {
+  let config: SerializedArclengthContinuationConfig = overrideConfigJson!;
   if (!config) {
     try {
       config = resolveSerializedConfig(getConfigJsonPath());
@@ -167,7 +171,7 @@ function loadSerializedConfig(
 }
 
 async function serializedToIntermediateConfig(
-  initial: SerializedContinueConfig,
+  initial: SerializedArclengthContinuationConfig,
   ide: IDE,
 ): Promise<Config> {
   // DEPRECATED - load custom slash commands
@@ -247,7 +251,10 @@ async function intermediateToFinalConfig({
   uniqueId: string;
   llmLogger: ILLMLogger;
   loadPromptFiles?: boolean;
-}): Promise<{ config: ContinueConfig; errors: ConfigValidationError[] }> {
+}): Promise<{
+  config: ArclengthContinuationConfig;
+  errors: ConfigValidationError[];
+}> {
   const errors: ConfigValidationError[] = [];
   const workspaceDirs = await ide.getWorkspaceDirs();
   const getUriFromPath = (path: string) => {
@@ -470,7 +477,7 @@ async function intermediateToFinalConfig({
   }
   const newReranker = getRerankingILLM(config.reranker);
 
-  const continueConfig: ContinueConfig = {
+  const continueConfig: ArclengthContinuationConfig = {
     ...config,
     contextProviders,
     tools: getBaseToolDefinitions(),
@@ -623,9 +630,9 @@ function llmToSerializedModelDescription(llm: ILLM): ModelDescription {
 }
 
 async function finalToBrowserConfig(
-  final: ContinueConfig,
+  final: ArclengthContinuationConfig,
   ide: IDE,
-): Promise<BrowserSerializedContinueConfig> {
+): Promise<BrowserSerializedArclengthContinuationConfig> {
   return {
     allowAnonymousTelemetry: final.allowAnonymousTelemetry,
     completionOptions: final.completionOptions,
@@ -693,7 +700,7 @@ async function handleEsbuildInstallation(
       await ide.showToast(
         "error",
         [
-          "config.ts has been deprecated and esbuild is no longer automatically installed by Continue.",
+          "config.ts has been deprecated and esbuild is no longer automatically installed by ArclengthContinuation.",
           "To use config.ts, install esbuild manually:",
           "",
           `    ${installCmd}`,
@@ -788,14 +795,14 @@ async function buildConfigTsandReadConfigJs(ide: IDE, ideType: IdeType) {
   return readConfigJs();
 }
 
-async function loadContinueConfigFromJson(
+async function loadArclengthContinuationConfigFromJson(
   ide: IDE,
   ideSettings: IdeSettings,
   ideInfo: IdeInfo,
   uniqueId: string,
   llmLogger: ILLMLogger,
-  overrideConfigJson: SerializedContinueConfig | undefined,
-): Promise<ConfigResult<ContinueConfig>> {
+  overrideConfigJson: SerializedArclengthContinuationConfig | undefined,
+): Promise<ConfigResult<ArclengthContinuationConfig>> {
   const workspaceConfigs = await getWorkspaceRcConfigs(ide);
   // Serialized config
   let {
@@ -899,6 +906,6 @@ async function loadContinueConfigFromJson(
 
 export {
   finalToBrowserConfig,
-  loadContinueConfigFromJson,
-  type BrowserSerializedContinueConfig,
+  loadArclengthContinuationConfigFromJson,
+  type BrowserSerializedArclengthContinuationConfig,
 };

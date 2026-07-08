@@ -3,7 +3,7 @@ import ignore, { Ignore } from "ignore";
 import type { FileType, IDE } from "..";
 
 import { joinPathsToUri } from "../util/uri";
-import { getGlobalContinueIgArray } from "./continueignore";
+import { getGlobalArclengthContinuationIgArray } from "./continueignore";
 import { defaultIgnoreFileAndDir, gitIgArrayFromFile } from "./ignore";
 
 export interface WalkerOptions {
@@ -91,7 +91,7 @@ class DFSWalker {
     let section = Date.now();
     const defaultAndGlobalIgnores = ignore()
       .add(this.options.overrideDefaultIgnores ?? defaultIgnoreFileAndDir)
-      .add(getGlobalContinueIgArray());
+      .add(getGlobalArclengthContinuationIgArray());
     ignoreFileTime += Date.now() - section;
 
     const rootContext: WalkContext = {
@@ -320,7 +320,7 @@ export async function getIgnoreContext(
     }
     return [];
   };
-  const getContinueIgnorePatterns = async () => {
+  const getArclengthContinuationIgnorePatterns = async () => {
     if (continueIgnoreFile) {
       const contents = await ide.readFile(`${currentDir}/.continueignore`);
       return gitIgArrayFromFile(contents);
@@ -330,7 +330,7 @@ export async function getIgnoreContext(
 
   const ignoreArrays = await Promise.all([
     getGitIgnorePatterns(),
-    getContinueIgnorePatterns(),
+    getArclengthContinuationIgnorePatterns(),
   ]);
 
   if (ignoreArrays[0].length === 0 && ignoreArrays[1].length === 0) {

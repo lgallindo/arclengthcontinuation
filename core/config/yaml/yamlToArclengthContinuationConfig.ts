@@ -3,7 +3,7 @@ import {
   mergeConfigYamlRequestOptions,
   RequestOptions,
   Rule,
-} from "@continuedev/config-yaml";
+} from "@arclength-continuation/config-yaml";
 import {
   InternalMcpOptions,
   InternalSseMcpOptions,
@@ -12,7 +12,9 @@ import {
   RuleWithSource,
 } from "../..";
 
-export function convertYamlRuleToContinueRule(rule: Rule): RuleWithSource {
+export function convertYamlRuleToArclengthContinuationRule(
+  rule: Rule,
+): RuleWithSource {
   if (typeof rule === "string") {
     return {
       rule: rule,

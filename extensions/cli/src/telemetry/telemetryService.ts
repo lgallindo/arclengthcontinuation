@@ -17,9 +17,12 @@ import {
 } from "@opentelemetry/semantic-conventions";
 import { v4 as uuidv4 } from "uuid";
 
-import { ContinueErrorReason } from "../../../../core/util/errors.js";
+import { ArclengthContinuationErrorReason } from "../../../../core/util/errors.js";
 import { isHeadlessMode } from "../util/cli.js";
-import { isContinueRemoteAgent, isGitHubActions } from "../util/git.js";
+import {
+  isArclengthContinuationRemoteAgent,
+  isGitHubActions,
+} from "../util/git.js";
 import { logger } from "../util/logger.js";
 import { getVersion } from "../version.js";
 
@@ -203,7 +206,7 @@ class TelemetryService {
 
     // Core metrics (Claude Code compatible)
     this.sessionCounter = this.meter.createCounter(
-      "continue_cli_session_count",
+      "arclength_continuation_cli_session_count",
       {
         description: "Count of CLI sessions started",
         unit: "count",
@@ -211,7 +214,7 @@ class TelemetryService {
     );
 
     this.linesOfCodeCounter = this.meter.createCounter(
-      "continue_cli_lines_of_code_count",
+      "arclength_continuation_cli_lines_of_code_count",
       {
         description: "Count of lines of code modified",
         unit: "count",
@@ -219,30 +222,39 @@ class TelemetryService {
     );
 
     this.pullRequestCounter = this.meter.createCounter(
-      "continue_cli_pull_request_count",
+      "arclength_continuation_cli_pull_request_count",
       {
         description: "Number of pull requests created",
         unit: "count",
       },
     );
 
-    this.commitCounter = this.meter.createCounter("continue_cli_commit_count", {
-      description: "Number of git commits created",
-      unit: "count",
-    });
+    this.commitCounter = this.meter.createCounter(
+      "arclength_continuation_cli_commit_count",
+      {
+        description: "Number of git commits created",
+        unit: "count",
+      },
+    );
 
-    this.costCounter = this.meter.createCounter("continue_cli_cost_usage", {
-      description: "Cost of the Continue CLI session",
-      unit: "USD",
-    });
+    this.costCounter = this.meter.createCounter(
+      "arclength_continuation_cli_cost_usage",
+      {
+        description: "Cost of the ArclengthContinuation CLI session",
+        unit: "USD",
+      },
+    );
 
-    this.tokenCounter = this.meter.createCounter("continue_cli_token_usage", {
-      description: "Number of tokens used",
-      unit: "tokens",
-    });
+    this.tokenCounter = this.meter.createCounter(
+      "arclength_continuation_cli_token_usage",
+      {
+        description: "Number of tokens used",
+        unit: "tokens",
+      },
+    );
 
     this.codeEditDecisionCounter = this.meter.createCounter(
-      "continue_cli_code_edit_tool_decision",
+      "arclength_continuation_cli_code_edit_tool_decision",
       {
         description: "Count of code editing tool permission decisions",
         unit: "count",
@@ -250,16 +262,16 @@ class TelemetryService {
     );
 
     this.activeTimeCounter = this.meter.createCounter(
-      "continue_cli_active_time_total",
+      "arclength_continuation_cli_active_time_total",
       {
         description: "Total active time in seconds",
         unit: "s",
       },
     );
 
-    // Additional Continue CLI specific metrics
+    // Additional ArclengthContinuation CLI specific metrics
     this.authAttemptsCounter = this.meter.createCounter(
-      "continue_cli_auth_attempts",
+      "arclength_continuation_cli_auth_attempts",
       {
         description: "Authentication attempts",
         unit: "{attempt}",
@@ -267,7 +279,7 @@ class TelemetryService {
     );
 
     this.mcpConnectionsGauge = this.meter.createObservableGauge(
-      "continue_cli_mcp_connections",
+      "arclength_continuation_cli_mcp_connections",
       {
         description: "Active MCP connections",
         unit: "{connection}",
@@ -275,7 +287,7 @@ class TelemetryService {
     );
 
     this.startupTimeHistogram = this.meter.createHistogram(
-      "continue_cli_startup_time",
+      "arclength_continuation_cli_startup_time",
       {
         description: "Time from CLI start to ready state",
         unit: "ms",
@@ -283,7 +295,7 @@ class TelemetryService {
     );
 
     this.responseTimeHistogram = this.meter.createHistogram(
-      "continue_cli_response_time",
+      "arclength_continuation_cli_response_time",
       {
         description: "LLM response time metrics",
         unit: "ms",
@@ -291,7 +303,7 @@ class TelemetryService {
     );
 
     this.slashCommandCounter = this.meter.createCounter(
-      "continue_cli_slash_command_usage",
+      "arclength_continuation_cli_slash_command_usage",
       {
         description: "Count of slash commands used",
         unit: "count",
@@ -342,7 +354,8 @@ class TelemetryService {
     const sessionAttributes = this.getStandardAttributes({
       is_headless: isHeadlessMode().toString(),
       is_github_actions: isGitHubActionsEnv.toString(),
-      is_continue_remote_agent: isContinueRemoteAgent().toString(),
+      is_arclength_continuation_remote_agent:
+        isArclengthContinuationRemoteAgent().toString(),
     });
 
     this.sessionCounter.add(1, sessionAttributes);
@@ -508,7 +521,7 @@ class TelemetryService {
     success: boolean;
     durationMs: number;
     error?: string;
-    errorReason?: ContinueErrorReason;
+    errorReason?: ArclengthContinuationErrorReason;
     decision?: "accept" | "reject";
     source?: string;
     toolParameters?: string;

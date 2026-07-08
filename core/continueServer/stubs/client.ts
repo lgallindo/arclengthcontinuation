@@ -1,10 +1,12 @@
 import type {
   ArtifactType,
   EmbeddingsCacheResponse,
-  IContinueServerClient,
+  IArclengthContinuationServerClient,
 } from "../interface.js";
 
-export class ContinueServerClient implements IContinueServerClient {
+export class ArclengthContinuationServerClient
+  implements IArclengthContinuationServerClient
+{
   url: URL | undefined;
 
   constructor(
@@ -17,7 +19,7 @@ export class ContinueServerClient implements IContinueServerClient {
           ? undefined
           : new URL(serverUrl.endsWith("/") ? serverUrl : `${serverUrl}/`);
     } catch (e) {
-      console.warn("Invalid Continue server url", e);
+      console.warn("Invalid ArclengthContinuation server url", e);
       this.url = undefined;
     }
   }

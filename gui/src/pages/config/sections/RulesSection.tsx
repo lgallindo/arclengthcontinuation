@@ -1,4 +1,4 @@
-import { parseConfigYaml } from "@continuedev/config-yaml";
+import { parseConfigYaml } from "@arclength-continuation/config-yaml";
 import {
   ArrowsPointingOutIcon,
   BookmarkIcon as BookmarkOutline,
@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { BookmarkIcon as BookmarkSolid } from "@heroicons/react/24/solid";
 import {
-  BrowserSerializedContinueConfig,
+  BrowserSerializedArclengthContinuationConfig,
   RuleSource,
   RuleWithSource,
   SlashCommandDescWithSource,
@@ -374,7 +374,7 @@ function PromptsSubSection() {
 function addDefaultSystemMessage(
   rules: RuleWithSource[],
   mode: string,
-  config: BrowserSerializedContinueConfig,
+  config: BrowserSerializedArclengthContinuationConfig,
 ) {
   const modeConfig = {
     chat: {

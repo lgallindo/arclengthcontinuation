@@ -1,10 +1,10 @@
 /**
  * @license
  * Copyright 2025 Google LLC
- * SPDX-License-Identifier: Apache-2.0
+ * SPDX-License-Identifier: GPL-3.0-or-later
  *
  * NOTICE: This file has been modified from the original Gemini CLI source
- * for integration with Continue CLI (cn)
+ * for integration with ArclengthContinuation CLI (cn)
  */
 
 /*

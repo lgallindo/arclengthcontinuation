@@ -62,9 +62,9 @@ export function isGitHubActions(): boolean {
 }
 
 /**
- * Check if running in Continue remote agents
+ * Check if running in ArclengthContinuation remote agents
  */
-export function isContinueRemoteAgent(): boolean {
+export function isArclengthContinuationRemoteAgent(): boolean {
   return process.env.CONTINUE_REMOTE === "true";
 }
 

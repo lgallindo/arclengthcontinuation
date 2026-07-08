@@ -2,7 +2,10 @@ import * as child_process from "child_process";
 import * as fs from "fs";
 import * as util from "util";
 
-import { ContinueError, ContinueErrorReason } from "core/util/errors.js";
+import {
+  ArclengthContinuationError,
+  ArclengthContinuationErrorReason,
+} from "core/util/errors.js";
 import { findUp } from "find-up";
 
 import { parseEnvNumber } from "../util/truncateOutput.js";
@@ -146,8 +149,8 @@ export const searchCodeTool: Tool = {
   }): Promise<string> => {
     const searchPath = args.path || process.cwd();
     if (!fs.existsSync(searchPath)) {
-      throw new ContinueError(
-        ContinueErrorReason.Unspecified,
+      throw new ArclengthContinuationError(
+        ArclengthContinuationErrorReason.Unspecified,
         `Path does not exist: ${searchPath}`,
       );
     }
@@ -206,7 +209,7 @@ export const searchCodeTool: Tool = {
         args.file_pattern ? ` in files matching "${args.file_pattern}"` : ""
       }:\n\n${resultText}${truncationMessage}`;
     } catch (error: any) {
-      if (error instanceof ContinueError) {
+      if (error instanceof ArclengthContinuationError) {
         throw error;
       }
       if (error.code === 1) {

@@ -30,10 +30,10 @@ This document catalogs all build dependencies, secrets, and environment variable
 
 ## CLI
 
-| Variable            | Purpose                                                                 | Referenced In                                                                                      |
-| ------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `CONTINUE_API_BASE` | Base URL for the Continue API (defaults to `https://api.continue.dev/`) | `extensions/cli/.env.example`                                                                      |
-| `CONTINUE_API_KEY`  | API key for Continue authentication                                     | `extensions/cli/.env.example`, `packages/continue-sdk/typescript/.env.example`, multiple workflows |
+| Variable            | Purpose                                                                                             | Referenced In                                                                                      |
+| ------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `CONTINUE_API_BASE` | Base URL for the Arclength-Continuation API (defaults to `https://api.arclength-continuation.dev/`) | `extensions/cli/.env.example`                                                                      |
+| `CONTINUE_API_KEY`  | API key for Arclength-Continuation authentication                                                   | `extensions/cli/.env.example`, `packages/continue-sdk/typescript/.env.example`, multiple workflows |
 
 ---
 
@@ -73,7 +73,7 @@ Used for integration tests in PR checks and package releases.
 | ------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `GITHUB_TOKEN`     | Default GitHub Actions token (automatic)                        | Many workflows                                                                                                        |
 | `CI_GITHUB_TOKEN`  | Elevated GitHub PAT for cross-repo operations and PR management | `jetbrains-release.yaml`, `preview.yaml`, `main.yaml`, `pr-checks.yaml`, `auto-assign-issue.yaml`                     |
-| `CONTINUE_API_KEY` | Continue platform API key for agent workflows                   | `run-continue-agent.yml`, `tidy-up-codebase.yml`, `snyk-agent.yaml`, `auto-fix-failed-tests.yml`, `cli-pr-checks.yml` |
+| `CONTINUE_API_KEY` | Arclength-Continuation platform API key for agent workflows     | `run-continue-agent.yml`, `tidy-up-codebase.yml`, `snyk-agent.yaml`, `auto-fix-failed-tests.yml`, `cli-pr-checks.yml` |
 | `RUNLOOP_API_KEY`  | Runloop API key for uploading sandbox blueprints                | `stable-release.yml`, `upload-runloop-blueprint.yml`                                                                  |
 | `SNYK_TOKEN`       | Snyk security scanning token                                    | `snyk-agent.yaml`                                                                                                     |
 
@@ -103,3 +103,31 @@ All workflow files are located under `.github/workflows/`. Environment example f
 
 - `extensions/cli/.env.example`
 - `packages/continue-sdk/typescript/.env.example`
+
+## Sequential Build Process
+
+This monorepo uses local `file:` links between internal packages. All internal packages must be installed and compiled in dependency order before the VS Code extension can be built.
+
+### Build Order
+
+```
+1. npm install              (root — installs shared devDependencies)
+2. packages/config-types    (leaf — no internal deps)
+3. packages/config-yaml     (depends on config-types)
+4. packages/fetch           (depends on config-types)
+5. packages/llm-info        (leaf — no internal deps)
+6. packages/terminal-security (leaf — no internal deps)
+7. packages/openai-adapters (depends on config-types, config-yaml, fetch)
+8. core                     (depends on all packages above)
+9. extensions/vscode        (depends on core, config-types, fetch)
+```
+
+### Quick Start
+
+```bash
+./scripts/build_all.sh
+```
+
+### Internal Package Links
+
+All `@arclength-continuation/*` dependencies use `file:` links to sibling directories. These packages are **not published** to the NPM registry under this scope. If you see `npm error 404` for any `@arclength-continuation/*` package, verify the dependency in `package.json` uses a `file:` link rather than a version number.

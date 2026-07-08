@@ -1,4 +1,4 @@
-import { ModelConfig } from "@continuedev/config-yaml";
+import { ModelConfig } from "@arclength-continuation/config-yaml";
 import type { ChatHistoryItem } from "core/index.js";
 import { useMemo } from "react";
 
