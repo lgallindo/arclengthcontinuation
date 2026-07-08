@@ -5,6 +5,7 @@ import chalk from "chalk";
 import { setConfigFilePermissions } from "core/util/paths.js";
 
 import type { AuthConfig } from "./auth/workos.js";
+import { updateModelName } from "./auth/workos.js";
 import { getApiClient } from "./config.js";
 import { loadConfiguration } from "./configLoader.js";
 import { env } from "./env.js";
@@ -75,6 +76,7 @@ type ProviderChoice = {
   requiresApiKey?: boolean;
   requiresProjectId?: boolean;
   supportsKeyFile?: boolean;
+  supportsModelDiscovery?: boolean;
 };
 
 const PROVIDER_CHOICES: ProviderChoice[] = [
@@ -84,6 +86,7 @@ const PROVIDER_CHOICES: ProviderChoice[] = [
     description: "Local Ollama server, usually http://localhost:11434/",
     defaultModel: "llama3.1",
     defaultApiBase: "http://localhost:11434/",
+    supportsModelDiscovery: true,
   },
   {
     id: "lmstudio",
@@ -91,6 +94,7 @@ const PROVIDER_CHOICES: ProviderChoice[] = [
     description: "Local LM Studio OpenAI-compatible server",
     defaultModel: "local-model",
     defaultApiBase: "http://localhost:1234/v1/",
+    supportsModelDiscovery: true,
   },
   {
     id: "llama.cpp",
@@ -105,6 +109,7 @@ const PROVIDER_CHOICES: ProviderChoice[] = [
     description: "OpenAI-compatible vLLM server",
     defaultModel: "local-model",
     defaultApiBase: "http://localhost:8000/v1/",
+    supportsModelDiscovery: true,
   },
   {
     id: "gemini",
@@ -146,6 +151,91 @@ function choiceMenu(): string {
   ).join("\n");
 }
 
+type DiscoveredModel = {
+  id: string;
+  name: string;
+};
+
+async function fetchJson(url: string): Promise<any | undefined> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      return undefined;
+    }
+    return await response.json();
+  } catch {
+    return undefined;
+  }
+}
+
+async function discoverModels(
+  provider: ProviderChoice,
+  apiBase: string | undefined,
+): Promise<DiscoveredModel[]> {
+  if (!apiBase || !provider.supportsModelDiscovery) {
+    return [];
+  }
+
+  if (provider.id === "ollama") {
+    const data = await fetchJson(new URL("api/tags", apiBase).toString());
+    return Array.isArray(data?.models)
+      ? data.models
+          .map((model: any) => model?.name)
+          .filter((name: any): name is string => typeof name === "string")
+          .map((name: string) => ({ id: name, name }))
+      : [];
+  }
+
+  const data = await fetchJson(new URL("models", apiBase).toString());
+  return Array.isArray(data?.data)
+    ? data.data
+        .map((model: any) => model?.id)
+        .filter((id: any): id is string => typeof id === "string")
+        .map((id: string) => ({ id, name: id }))
+    : [];
+}
+
+async function chooseModel(
+  provider: ProviderChoice,
+  apiBase: string | undefined,
+): Promise<string> {
+  const discoveredModels = await discoverModels(provider, apiBase);
+
+  if (discoveredModels.length > 0) {
+    console.log(chalk.green(`\n✓ Found ${discoveredModels.length} model(s).`));
+    discoveredModels.forEach((model, index) => {
+      console.log(`  ${index + 1}. ${model.name}`);
+    });
+
+    const customChoice = String(discoveredModels.length + 1);
+    const choices = [
+      ...discoveredModels.map((_, index) => String(index + 1)),
+      customChoice,
+    ];
+    const selected = await questionWithChoices(
+      chalk.white(`\nSelect a model [1] or ${customChoice} to type one: `),
+      choices,
+      "1",
+      chalk.red(`Please choose one of: ${choices.join(", ")}`),
+    );
+
+    if (selected !== customChoice) {
+      return discoveredModels[Number(selected) - 1].id;
+    }
+  } else if (provider.supportsModelDiscovery && apiBase) {
+    console.log(
+      chalk.yellow(
+        `\nNo models were discovered at ${apiBase}. You can still type a model name manually.`,
+      ),
+    );
+  }
+
+  return (
+    (await question(chalk.white(`Model name [${provider.defaultModel}]: `))) ||
+    provider.defaultModel
+  );
+}
+
 async function promptForProviderSetup(): Promise<ProviderSetup> {
   console.log(
     chalk.yellow("Set up your LLM provider for ArclengthContinuation."),
@@ -164,24 +254,24 @@ async function promptForProviderSetup(): Promise<ProviderSetup> {
     "1",
     chalk.red(`Please choose one of: ${choices.join(", ")}`),
   );
-  const provider = PROVIDER_CHOICES[Number(selected) - 1];
+  let provider = PROVIDER_CHOICES[Number(selected) - 1];
 
-  const model =
-    (await question(chalk.white(`Model name [${provider.defaultModel}]: `))) ||
-    provider.defaultModel;
+  let apiBase: string | undefined;
+  if (provider.defaultApiBase) {
+    apiBase =
+      (await question(
+        chalk.white(`API base [${provider.defaultApiBase}]: `),
+      )) || provider.defaultApiBase;
+  }
+
+  const model = await chooseModel(provider, apiBase);
 
   const setup: ProviderSetup = {
     provider: provider.id,
     name: `${provider.label} ${model}`,
     model,
+    apiBase,
   };
-
-  if (provider.defaultApiBase) {
-    setup.apiBase =
-      (await question(
-        chalk.white(`API base [${provider.defaultApiBase}]: `),
-      )) || provider.defaultApiBase;
-  }
 
   if (provider.requiresApiKey) {
     setup.apiKey = await question(chalk.white("API key: "));
@@ -191,9 +281,21 @@ async function promptForProviderSetup(): Promise<ProviderSetup> {
   }
 
   if (provider.requiresProjectId) {
-    setup.projectId = await question(chalk.white("Google Cloud project ID: "));
+    setup.projectId = await question(
+      chalk.white(
+        "Google Cloud project ID [leave blank to use Gemini API instead]: ",
+      ),
+    );
     if (!setup.projectId) {
-      throw new Error("Vertex AI requires a Google Cloud project ID.");
+      provider = PROVIDER_CHOICES.find((choice) => choice.id === "gemini")!;
+      setup.provider = provider.id;
+      setup.name = `${provider.label} ${setup.model}`;
+      setup.apiBase = provider.defaultApiBase;
+      setup.apiKey = await question(chalk.white("Gemini API key: "));
+      if (!setup.apiKey) {
+        throw new Error("Gemini API requires an API key.");
+      }
+      return setup;
     }
     setup.region =
       (await question(chalk.white("Vertex region [us-central1]: "))) ||
@@ -217,6 +319,7 @@ async function promptForProviderSetup(): Promise<ProviderSetup> {
 export async function runSetupFlow(): Promise<void> {
   const setup = await promptForProviderSetup();
   await createOrUpdateProviderConfig(setup);
+  updateModelName(setup.name);
 
   console.log(
     chalk.green(`✓ Config file updated successfully at ${CONFIG_PATH}`),
