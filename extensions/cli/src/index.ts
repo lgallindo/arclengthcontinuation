@@ -10,6 +10,7 @@ import { checks } from "./commands/checks.js";
 import { listSessionsCommand } from "./commands/ls.js";
 import { review } from "./commands/review.js";
 import { serve } from "./commands/serve.js";
+import { setup } from "./commands/setup.js";
 import {
   handleValidationErrors,
   validateFlags,
@@ -305,6 +306,14 @@ program
     await listSessionsCommand({
       format: options.json ? "json" : undefined,
     });
+  });
+
+// Setup subcommand
+program
+  .command("setup")
+  .description("Configure the LLM provider used by ArclengthContinuation")
+  .action(async () => {
+    await setup();
   });
 
 // Serve subcommand
