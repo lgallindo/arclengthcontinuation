@@ -29,7 +29,7 @@ edited=""
 for i in $(seq 1 "$ATTEMPTS"); do
   echo "LOOP: edit attempt $i/$ATTEMPTS"
   FORCE_NO_TTY=true timeout "$TURN_TIMEOUT" "$CN_BIN" -p --auto \
-    "Edit the file ${PKG}: change the value of the top-level \"version\" field to exactly \"${TARGET_VERSION}\". Change nothing else. Use your file editing tool." \
+    "Edit the file ${CN_SRC}/${PKG}: change the value of its top-level \"version\" field to exactly \"${TARGET_VERSION}\". Change nothing else. Use your file editing tool." \
     || echo "LOOP: cn exited non-zero on attempt $i"
   if grep -q "\"version\": \"${TARGET_VERSION}\"" "$PKG"; then
     edited=yes
