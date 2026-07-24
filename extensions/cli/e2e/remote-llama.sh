@@ -11,8 +11,10 @@ if [ -z "${LLAMA_API_BASE:-}" ] || [ -z "${LLAMA_MODEL:-}" ]; then
   exit 0
 fi
 
-if [ ! -f dist/index.js ]; then
-  echo "FAIL: dist/index.js missing — run npm run build first" >&2
+# dist/cn.js is the executable wrapper that invokes runCli(); dist/index.js
+# is only the bundle module and does nothing when executed directly.
+if [ ! -f dist/cn.js ]; then
+  echo "FAIL: dist/cn.js missing — run npm run build first" >&2
   exit 1
 fi
 
@@ -36,7 +38,7 @@ echo "E2E: probing $LLAMA_API_BASE/models"
 curl -sS -m 10 "$LLAMA_API_BASE/models" > /dev/null
 
 echo "E2E: running headless cn"
-output="$(node dist/index.js -p --config "$workdir/config.yaml" \
+output="$(FORCE_NO_TTY=true node dist/cn.js -p --config "$workdir/config.yaml" \
   "Reply with exactly one word: PONG" 2>"$workdir/stderr.log")" || {
   echo "FAIL: cn exited non-zero. stderr:" >&2
   cat "$workdir/stderr.log" >&2
