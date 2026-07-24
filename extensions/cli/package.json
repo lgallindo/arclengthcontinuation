@@ -1,6 +1,6 @@
 {
   "name": "@arclength-continuation/cli",
-  "version": "0.0.0-dev",
+  "version": "0.0.1-selfhost164048",
   "description": "ArclengthContinuation CLI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
