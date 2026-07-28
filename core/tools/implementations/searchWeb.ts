@@ -1,13 +1,17 @@
 import { ToolImpl } from ".";
+import { fetchEmbeddedSearchResults } from "../../context/providers/embeddedWebSearch";
 import { fetchSearchResults } from "../../context/providers/WebContextProvider";
 import { getStringArg } from "../parseArgs";
 
 const DEFAULT_WEB_SEARCH_CHAR_LIMIT = 8000;
+const USE_TRIAL_PROXY = process.env.ARCLENGTH_WEBSEARCH_PROXY === "1";
 
 export const searchWebImpl: ToolImpl = async (args, extras) => {
   const query = getStringArg(args, "query");
 
-  const webResults = await fetchSearchResults(query, 5, extras.fetch);
+  const webResults = USE_TRIAL_PROXY
+    ? await fetchSearchResults(query, 5, extras.fetch)
+    : await fetchEmbeddedSearchResults(query, 5, extras.fetch);
 
   // Track truncated results
   const truncatedResults: string[] = [];

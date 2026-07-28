@@ -336,4 +336,29 @@ models:
     expect(result).toContain("model: llama3.1");
     expect(result).toContain("apiBase: http://localhost:11434/");
   });
+
+  // Contract for SPEC_20260724T150000Z_CN_REMOTE_LLAMA: a remote
+  // OpenAI-compatible endpoint (e.g. llama-server) configured with a custom
+  // apiBase, a served-model id, and a placeholder apiKey.
+  it("configures a remote OpenAI-compatible llama-server endpoint", () => {
+    const result = updateProviderModelInYaml("", {
+      provider: "openai",
+      name: "remote-llama",
+      model: "/opt/models/some-model.gguf",
+      apiBase: "http://llama.example.internal:38080/v1",
+      apiKey: "dummy-key-unused",
+    });
+
+    const config = parse(result);
+    expect(config.schema).toBe("v1");
+    expect(config.models).toHaveLength(1);
+    expect(config.models[0]).toMatchObject({
+      name: "remote-llama",
+      provider: "openai",
+      model: "/opt/models/some-model.gguf",
+      apiBase: "http://llama.example.internal:38080/v1",
+      apiKey: "dummy-key-unused",
+      roles: ["chat", "edit", "apply"],
+    });
+  });
 });
