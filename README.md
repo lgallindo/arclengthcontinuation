@@ -33,13 +33,13 @@ The current build baseline was restored and verified with:
 
 ```bash
 cd packages/continue-sdk/typescript
-npm run build
+bun run build
 
 cd ../../../extensions/cli
-npm run build
+bun run build
 
 cd ../vscode
-npm run esbuild
+bun run esbuild
 
 cd ../intellij
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 \

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (c) 2026 Lucas Gallindo
+
 import { ToolImpl } from ".";
 import { fetchEmbeddedSearchResults } from "../../context/providers/embeddedWebSearch";
 import { fetchSearchResults } from "../../context/providers/WebContextProvider";
