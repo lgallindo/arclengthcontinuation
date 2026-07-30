@@ -59,7 +59,7 @@ export const uploadArtifactTool: Tool = {
       if (!agentId) {
         throw new ArclengthContinuationError(
           ArclengthContinuationErrorReason.Unspecified,
-          "Agent ID is required. This tool only works with 'alc serve --id <agentId>'.",
+          "Agent ID is required. This tool only works with 'arclen serve --id <agentId>'.",
         );
       }
 

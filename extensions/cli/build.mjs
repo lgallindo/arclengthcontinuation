@@ -95,7 +95,7 @@ const require = __createRequire(import.meta.url);`,
   // Create wrapper script with shebang that explicitly runs the CLI
   // Note: We must call runCli(); a plain dynamic import will not execute the CLI.
   writeFileSync(
-    "dist/alc.js",
+    "dist/arclen.js",
     "#!/usr/bin/env node\nimport { runCli } from './index.js';\nawait runCli();\n",
   );
   // Copy worker files needed by JSDOM
@@ -112,7 +112,7 @@ const require = __createRequire(import.meta.url);`,
   }
 
   // Make the wrapper script executable
-  chmodSync("dist/alc.js", 0o755);
+  chmodSync("dist/arclen.js", 0o755);
 
   // Calculate bundle size
   const bundleSize = result.metafile.outputs["dist/index.js"].bytes;

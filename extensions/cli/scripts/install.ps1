@@ -22,7 +22,7 @@ $ProgressPreference = 'SilentlyContinue'  # Faster downloads
 
 $script:RequiredNodeVersion = [version]"20.20.1"
 $script:PackageName = "@arclength-continuation/cli"
-$script:CliCommand = "alc"
+$script:CliCommand = "arclen"
 $script:FnmInstalled = $false
 $script:FnmPath = "$env:LOCALAPPDATA\fnm"
 

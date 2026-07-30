@@ -1,5 +1,5 @@
 /**
- * Determines if a model is recommended for use with `alc`
+ * Determines if a model is recommended for use with `arclen`
  */
 export function isModelCapable(
   provider: string,

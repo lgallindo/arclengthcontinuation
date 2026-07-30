@@ -184,7 +184,7 @@ describe("TelemetryService - Session Metadata", () => {
     });
 
     it("should include is_arclength_continuation_remote_agent=true when in remote agent mode", () => {
-      // Set ArclengthContinuation remote agent environment
+      // Set arclength remote agent environment
       process.env.CONTINUE_REMOTE = "true";
 
       const mockAdd = vi.fn();

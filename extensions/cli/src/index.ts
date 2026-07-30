@@ -172,7 +172,7 @@ process.on("SIGINT", async () => {
 const program = new Command();
 
 program
-  .name("alc")
+  .name("arclen")
   .description(
     "ArclengthContinuation CLI - AI-powered development assistant. Starts an interactive session by default, use -p/--print for non-interactive output.",
   )
@@ -239,7 +239,7 @@ addCommonOptions(program)
       ask: options.ask,
       exclude: options.exclude,
       isRootCommand: true,
-      commandName: "alc",
+      commandName: "arclen",
     });
 
     if (!validation.isValid) {
@@ -282,12 +282,12 @@ addCommonOptions(program)
         "Error: A prompt is required when using the -p/--print flag, unless --prompt, --agent, or --resume is provided.\n\n",
       );
       safeStderr("Usage examples:\n");
-      safeStderr('  alc -p "please review my current git diff"\n');
-      safeStderr('  echo "hello" | alc -p\n');
-      safeStderr('  alc -p "analyze the code in src/"\n');
-      safeStderr("  alc -p --agent my-org/my-agent\n");
-      safeStderr("  alc -p --prompt my-org/my-prompt\n");
-      safeStderr("  alc -p --resume\n");
+      safeStderr('  arclen -p "please review my current git diff"\n');
+      safeStderr('  echo "hello" | arclen -p\n');
+      safeStderr('  arclen -p "analyze the code in src/"\n');
+      safeStderr("  arclen -p --agent my-org/my-agent\n");
+      safeStderr("  arclen -p --prompt my-org/my-prompt\n");
+      safeStderr("  arclen -p --resume\n");
       await gracefulExit(1);
     }
 
@@ -377,7 +377,7 @@ program.on("command:*", () => {
 });
 
 export async function runCli(): Promise<void> {
-  // Handle internal worker subprocess for alc review
+  // Handle internal worker subprocess for arclen review
   if (process.argv.includes("--internal-review-worker")) {
     const { runReviewWorker } = await import(
       "./commands/review/reviewWorker.js"

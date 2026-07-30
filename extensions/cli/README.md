@@ -1,6 +1,6 @@
 # Arclength-Continuation CLI
 
-The Arclength-Continuation CLI (`alc`) is a customizable command line coding agent.
+The Arclength-Continuation CLI (`arclen`) is a customizable command line coding agent.
 
 ![Arclength-Continuation CLI Demo](./media/demo.gif)
 
@@ -9,25 +9,25 @@ The Arclength-Continuation CLI (`alc`) is a customizable command line coding age
 **macOS / Linux:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arclength-continuation/continue/main/extensions/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Arclength/continue/main/extensions/cli/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/arclength-continuation/continue/main/extensions/cli/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/Arclength/continue/main/extensions/cli/scripts/install.ps1 | iex
 ```
 
 Or install with npm if you have Node.js 20+:
 
 ```bash
-npm i -g @arclength-continuation/cli
+npm i -g Arclength
 ```
 
 ## Usage
 
 ```bash
-alc
+arclen
 ```
 
 ### Headless Mode
@@ -42,16 +42,16 @@ Headless mode (`-p` flag) runs without an interactive terminal UI, making it per
 
 ```bash
 # Basic usage
-alc -p "Generate a conventional commit name for the current git changes."
+arclen -p "Generate a conventional commit name for the current git changes."
 
 # With piped input
-echo "Review this code" | alc -p
+echo "Review this code" | arclen -p
 
 # JSON output for scripting
-alc -p "Analyze the code" --format json
+arclen -p "Analyze the code" --format json
 
 # Silent mode (strips thinking tags)
-alc -p "Write a README" --silent
+arclen -p "Write a README" --silent
 ```
 
 **TTY-less Environments**: Headless mode is designed to work in environments without a terminal (TTY), such as when called from VSCode/IntelliJ extensions using terminal commands. The CLI will not attempt to read stdin or initialize the interactive UI when running in headless mode with a supplied prompt.
@@ -62,13 +62,13 @@ The CLI automatically saves your chat history for each terminal session. You can
 
 ```bash
 # Resume the last session in this terminal
-alc --resume
+arclen --resume
 
 # List recent sessions and choose one to resume
-alc ls
+arclen ls
 
 # List sessions in JSON format (for scripting)
-alc ls --json
+arclen ls --json
 ```
 
 ## Command Line Options
@@ -85,14 +85,14 @@ alc ls --json
 
 ## Commands
 
-- `alc`: Start an interactive chat session
-- `alc ls`: List recent sessions with TUI selector to choose one to resume
-- `alc login`: Authenticate with Arclength-Continuation
-- `alc logout`: Sign out of current session
-- `alc remote`: Launch a remote instance
-- `alc serve`: Start HTTP server mode
+- `arclen`: Start an interactive chat session
+- `arclen ls`: List recent sessions with TUI selector to choose one to resume
+- `arclen login`: Authenticate with Arclength-Continuation
+- `arclen logout`: Sign out of current session
+- `arclen remote`: Launch a remote instance
+- `arclen serve`: Start HTTP server mode
 
-### Session Listing (`alc ls`)
+### Session Listing (`arclen ls`)
 
 Shows recent sessions, limited by screen height to ensure it fits on your terminal.
 
@@ -104,13 +104,13 @@ The CLI fully supports running in environments without a TTY (terminal):
 
 ```bash
 # From Docker without TTY allocation
-docker run --rm my-image alc -p "Generate docs"
+docker run --rm my-image arclen -p "Generate docs"
 
 # From CI/CD pipeline
-alc -p "Review changes" --format json
+arclen -p "Review changes" --format json
 
 # From VSCode/IntelliJ extension terminal tool
-alc -p "Analyze code" --silent
+arclen -p "Analyze code" --silent
 ```
 
 The CLI automatically detects TTY-less environments and adjusts its behavior:

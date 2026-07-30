@@ -132,9 +132,9 @@ function renderTextReport(
     lines.push(
       isTTY
         ? chalk.dim(
-            "Tip: Run these automatically on every PR → https://arclength-continuation.dev",
+            "Tip: Run these automatically on every PR → https://ArclengthContinuation.dev",
           )
-        : "Tip: Run these automatically on every PR → https://arclength-continuation.dev",
+        : "Tip: Run these automatically on every PR → https://ArclengthContinuation.dev",
     );
   }
 

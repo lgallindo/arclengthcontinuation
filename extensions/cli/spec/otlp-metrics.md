@@ -1,10 +1,10 @@
-# OTLP Metrics Specification for Arclength-Continuation CLI
+# OTLP Metrics Specification for arclength-Continuation CLI
 
-This document specifies the OpenTelemetry Protocol (OTLP) metrics that should be emitted by the Arclength-Continuation CLI to provide comprehensive observability and usage monitoring. The metrics are designed to be compatible with Claude Code dashboards for easy migration.
+This document specifies the OpenTelemetry Protocol (OTLP) metrics that should be emitted by the arclength-Continuation CLI to provide comprehensive observability and usage monitoring. The metrics are designed to be compatible with Claude Code dashboards for easy migration.
 
 ## Overview
 
-The Arclength-Continuation CLI should emit metrics that provide insights into:
+The arclength-Continuation CLI should emit metrics that provide insights into:
 
 - Usage patterns and session analytics
 - Performance and reliability
@@ -45,7 +45,7 @@ All metrics and events share these standard attributes:
 | Attribute           | Description                                                   | Controlled By                                       |
 | ------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
 | `session.id`        | Unique session identifier                                     | `OTEL_METRICS_INCLUDE_SESSION_ID` (default: true)   |
-| `app.version`       | Current Arclength-Continuation CLI version                    | `OTEL_METRICS_INCLUDE_VERSION` (default: false)     |
+| `app.version`       | Current arclength-Continuation CLI version                    | `OTEL_METRICS_INCLUDE_VERSION` (default: false)     |
 | `organization.id`   | Organization UUID (when authenticated)                        | Always included when available                      |
 | `user.account_uuid` | Account UUID (when authenticated)                             | `OTEL_METRICS_INCLUDE_ACCOUNT_UUID` (default: true) |
 | `terminal.type`     | Terminal type (e.g., `iTerm.app`, `vscode`, `cursor`, `tmux`) | Always included when detected                       |
@@ -113,7 +113,7 @@ All metrics and events share these standard attributes:
 
 **Type:** Counter  
 **Unit:** `USD`  
-**Description:** Cost of the Arclength-Continuation CLI session
+**Description:** Cost of the arclength-Continuation CLI session
 
 **Attributes:**
 
@@ -229,7 +229,7 @@ All metrics and events share these standard attributes:
 
 ## Additional Metrics
 
-These metrics are unique to Arclength-Continuation CLI and provide additional insights without conflicting with compatibility:
+These metrics are unique to arclength-Continuation CLI and provide additional insights without conflicting with compatibility:
 
 ### Authentication Metrics
 

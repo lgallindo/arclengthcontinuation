@@ -187,7 +187,7 @@ jobs:
           Format as markdown suitable for a GitHub pull request comment."
 
           # Run Continue CLI in headless mode
-          alc --config continuedev/review-bot \
+          arclen --config continuedev/review-bot \
              -p "$PROMPT" \
              --auto > review_output.md
 
@@ -351,7 +351,7 @@ The workflow will respond with a targeted review based on your request.
       CONTINUE_ORG: your-org-name      # Add your org
       CONTINUE_CONFIG: username/config-name  # Add your config
     run: |
-      alc --config $CONTINUE_ORG/$CONTINUE_CONFIG \
+      arclen --config $CONTINUE_ORG/$CONTINUE_CONFIG \
         -p "$PROMPT" \
         --auto > review_output.md
   ```
@@ -415,7 +415,7 @@ The workflow will respond with a targeted review based on your request.
 <Accordion title="No review generated">
 - Verify your Continue config is accessible
 - Check Continue CLI logs in the workflow run
-- Try running locally: `alc -p "Test prompt" --auto`
+- Try running locally: `arclen -p "Test prompt" --auto`
 </Accordion>
 <Accordion title="Review comment not posted">
 - Ensure `pull-requests: write` permission is set

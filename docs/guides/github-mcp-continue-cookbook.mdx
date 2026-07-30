@@ -60,7 +60,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
       <Step title="Load the Pre-Built Agent">
         Run:
         ```bash
-        alc --agent continuedev/github-project-manager-agent
+        arclen --agent continuedev/github-project-manager-agent
         ```
 
         Make sure your `GITHUB_TOKEN` environment variable is set.
@@ -69,14 +69,14 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
       <Step title="Launch the Agent">
         From your repo root:
         ```bash
-        alc --agent continuedev/github-project-manager-agent
+        arclen --agent continuedev/github-project-manager-agent
         ```
         Now try: "List my open issues labeled bug and summarize priorities."
       </Step>
     </Steps>
 
     <Info>
-      You can also attach an MCP to a one-off session: `alc --mcp anthropic/github-mcp`.
+      You can also attach an MCP to a one-off session: `arclen --mcp anthropic/github-mcp`.
     </Info>
   </Tab>
 
@@ -133,10 +133,10 @@ Use natural language to explore, triage, and act on open issues. The agent calls
 <Info>
   **Where to run these workflows:**
   - **IDE Extensions**: Use Continue in VS Code, JetBrains, or other supported IDEs
-  - **Terminal (TUI mode)**: Run `alc` to enter interactive mode, then type your prompts
-  - **CLI (headless mode)**: Use `alc -p "your prompt" --auto` for automation
+  - **Terminal (TUI mode)**: Run `arclen` to enter interactive mode, then type your prompts
+  - **CLI (headless mode)**: Use `arclen -p "your prompt" --auto` for automation
   
-  To run any of the example prompts below in headless mode, use `alc -p "prompt"`
+  To run any of the example prompts below in headless mode, use `arclen -p "prompt"`
 </Info>
 
 ### Triage and Summaries
@@ -278,7 +278,7 @@ jobs:
       - name: Weekly Issue Triage Summary
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          alc --agent continuedev/github-project-manager-agent \
+          arclen --agent continuedev/github-project-manager-agent \
              -p "List open issues updated in the last 14 days. Group by label and priority. Propose top 5 actions and include issue links." \
              --auto > issue_summary.txt
 
@@ -287,7 +287,7 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          REPORT=$(        alc --agent continuedev/github-project-manager-agent \
+          REPORT=$(        arclen --agent continuedev/github-project-manager-agent \
             -p "Summarize the context for PR #${PR_NUMBER}: related open issues, risk areas, and test suggestions. Keep under 200 words." \
             --auto)
           gh pr comment ${PR_NUMBER} --body "$REPORT"

@@ -107,7 +107,7 @@ Configures output handling for TTY-less environments:
 
 ```typescript
 // Using the run_terminal_command tool
-const command = 'alc -p "Analyze the current git diff"';
+const command = 'arclen -p "Analyze the current git diff"';
 const result = await runTerminalCommand(command);
 ```
 
@@ -115,7 +115,7 @@ const result = await runTerminalCommand(command);
 
 ```bash
 # Without TTY allocation (-t flag)
-docker run --rm my-image alc -p "Generate a README"
+docker run --rm my-image arclen -p "Generate a README"
 ```
 
 ### From CI/CD Pipeline
@@ -123,7 +123,7 @@ docker run --rm my-image alc -p "Generate a README"
 ```yaml
 - name: Run Arclength-Continuation CLI
   run: |
-    alc -p "Review code changes" --format json
+    arclen -p "Review code changes" --format json
 ```
 
 ### From Automated Script
@@ -131,7 +131,7 @@ docker run --rm my-image alc -p "Generate a README"
 ```bash
 #!/bin/bash
 # Non-interactive script
-alc -p "Generate commit message for current changes" --silent
+arclen -p "Generate commit message for current changes" --silent
 ```
 
 ## Environment Variables
@@ -166,7 +166,7 @@ const result = await runCLI(context, {
 ```
 Error: Cannot start TUI in TTY-less environment. No TTY available for interactive mode.
 For non-interactive use, run with -p flag:
-  alc -p "your prompt here"
+  arclen -p "your prompt here"
 ```
 
 ### Missing Prompt in Headless Mode
@@ -175,10 +175,10 @@ For non-interactive use, run with -p flag:
 Error: A prompt is required when using the -p/--print flag, unless --prompt or --agent is provided.
 
 Usage examples:
-  alc -p "please review my current git diff"
-  echo "hello" | alc -p
-  alc -p "analyze the code in src/"
-  alc -p --agent my-org/my-agent
+  arclen -p "please review my current git diff"
+  echo "hello" | arclen -p
+  arclen -p "analyze the code in src/"
+  arclen -p --agent my-org/my-agent
 ```
 
 ## Troubleshooting
@@ -190,7 +190,7 @@ Usage examples:
 **Solution**: Ensure using `-p` flag with a prompt:
 
 ```bash
-alc -p "your prompt" --config config.yaml
+arclen -p "your prompt" --config config.yaml
 ```
 
 ### "Cannot start TUI" Error
@@ -200,7 +200,7 @@ alc -p "your prompt" --config config.yaml
 **Solution**: Use headless mode:
 
 ```bash
-alc -p "your prompt"
+arclen -p "your prompt"
 ```
 
 ### Raw Mode Error

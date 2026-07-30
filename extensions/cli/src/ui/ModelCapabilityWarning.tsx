@@ -17,7 +17,7 @@ const ModelCapabilityWarning: React.FC<ModelCapabilityWarningProps> = ({
         </Text>
       </Box>
       <Text color="gray">
-        The model "{modelName}" is not recommended for use with alc due to
+        The model "{modelName}" is not recommended for use with arclen due to
         limited reasoning and tool calling capabilities
       </Text>
     </Box>

@@ -76,7 +76,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
         Run:
 
         ```bash
-        alc --agent continuedev/sanity-assistant-agent
+        arclen --agent continuedev/sanity-assistant-agent
         ```
 
         This agent includes:
@@ -116,7 +116,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
 
     <Tip>
       **Installation methods:**
-      1. **Quick CLI install**: `alc --mcp sanity/sanity-mcp`
+      1. **Quick CLI install**: `arclen --mcp sanity/sanity-mcp`
       2. **Manual configuration**: Add the MCP to your agent configuration
 
       Once installed, Sanity MCP tools become available to your Continue agent for all prompts.
@@ -133,7 +133,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
         <Step title="Your First MCP Conversation">
         Start with these beginner-friendly prompts:
         ```bash
-        alc
+        arclen
         # Try these starter prompts:
         # "Show me all blog posts published in the last month"
         # "Show me all the document types in my Sanity schema and explain their relationships"
@@ -213,15 +213,15 @@ Now you can use natural language prompts to manage your Sanity content and schem
 <Info>
   **Where to run these workflows:**
   - **IDE Extensions**: Use Continue in VS Code, JetBrains, or other supported IDEs
-  - **Terminal (TUI mode)**: Run `alc` to enter interactive mode, then type your prompts
-  - **CLI (headless mode)**: Use `alc -p "your prompt"` for headless commands
+  - **Terminal (TUI mode)**: Run `arclen` to enter interactive mode, then type your prompts
+  - **CLI (headless mode)**: Use `arclen -p "your prompt"` for headless commands
 
   **Test in Plan Mode First**: Before running operations that might make
   changes, test your prompts in plan mode (see the [Plan Mode
   Guide](/guides/plan-mode-guide); press **Shift+Tab** to switch modes in TUI/IDE). This
   shows you what the agent will do without executing it.
 
-  To run any of the example prompts below in headless mode, use `alc -p "prompt"`
+  To run any of the example prompts below in headless mode, use `arclen -p "prompt"`
 </Info>
 
 <Info>
@@ -397,7 +397,7 @@ jobs:
       - name: Validate Schema Structure
         run: |
           echo "🔍 Validating schema structure..."
-          alc --agent continuedev/sanity-assistant-agent \
+          arclen --agent continuedev/sanity-assistant-agent \
              -p "Analyze the Sanity schema for any structural issues,
                  missing required fields, or broken references between document types." \
              --auto
@@ -405,7 +405,7 @@ jobs:
       - name: Check Content Integrity
         run: |
           echo "📊 Checking content integrity..."
-          alc --agent continuedev/sanity-assistant-agent \
+          arclen --agent continuedev/sanity-assistant-agent \
              -p "Run GROQ queries to identify any orphaned documents,
                  broken references, or missing required fields in the content." \
              --auto
@@ -413,7 +413,7 @@ jobs:
       - name: Generate Schema Documentation
         run: |
           echo "📝 Generating schema documentation..."
-          alc --agent continuedev/sanity-assistant-agent \
+          arclen --agent continuedev/sanity-assistant-agent \
              -p "Generate a markdown summary of all schema changes
                  in this PR and their potential impact on existing content." \
              --auto > schema-changes.md
@@ -423,7 +423,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          REPORT=$(          alc --agent continuedev/sanity-assistant-agent \
+          REPORT=$(          arclen --agent continuedev/sanity-assistant-agent \
              -p "Generate a concise summary (200 words or less) of:
                  - Schema validation results
                  - Content integrity checks

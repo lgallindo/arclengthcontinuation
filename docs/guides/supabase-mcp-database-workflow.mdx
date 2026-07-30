@@ -43,7 +43,7 @@ Before starting, ensure you have:
     3. Navigate to your organization settings
     4. Click **"API Keys"** and then **"+ New API Key"**
     5. Copy the API key immediately (you won't see it again!)
-    6. Login to the CLI: `alc login`
+    6. Login to the CLI: `arclen login`
   </Step>
 </Steps>
 
@@ -146,7 +146,7 @@ First, you'll need to set up access to your Supabase project.
         Run:
         
         ```bash
-        alc --agent continuedev/supabase-agent
+        arclen --agent continuedev/supabase-agent
         ```
 
         This agent includes:
@@ -388,7 +388,7 @@ jobs:
           echo "🔍 Performing security audit..."
           
           # Use Continue CLI to audit RLS and generate fixes
-          alc -p "Using Supabase MCP, perform a comprehensive RLS security audit:
+          arclen -p "Using Supabase MCP, perform a comprehensive RLS security audit:
                  1. Check all tables for RLS enablement
                  2. Identify tables with missing or weak RLS policies
                  3. Find overly permissive policies (e.g., 'true' conditions)

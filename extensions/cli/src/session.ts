@@ -514,7 +514,7 @@ export function loadSessionById(sessionId: string): Session | null {
 
 /**
  * Load an existing session by ID or create a new one with that ID.
- * Useful for long-lived processes (e.g., alc serve) that need to
+ * Useful for long-lived processes (e.g., arclen serve) that need to
  * preserve chat history across restarts for the same storage/agent id.
  */
 export function loadOrCreateSessionById(

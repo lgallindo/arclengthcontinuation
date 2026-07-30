@@ -4,12 +4,12 @@ import React, { useMemo } from "react";
 // Array of helpful tips for ArclengthContinuation CLI users
 const CONTINUE_CLI_TIPS = [
   "Use `/help` to learn keyboard shortcuts",
-  "Press escape to pause alc, and press enter to continue",
+  "Press escape to pause arclen, and press enter to continue",
   "Use arrow keys (↑/↓) to navigate through your input history",
   'Multi-line input is supported by typing "\\" and pressing enter',
-  "Use `alc ls` or `/resume` to resume a previous conversation",
-  'Run `alc` with the `-p` flag for headless mode. For example: `alc -p "Generate a commit message for the current changes. Output _only_ the commit message and nothing else."`',
-  "Use the /init slash command to generate an AGENTS.md file. This will help `alc` understand your codebase and generate better responses.",
+  "Use `arclen ls` or `/resume` to resume a previous conversation",
+  'Run `arclen` with the `-p` flag for headless mode. For example: `arclen -p "Generate a commit message for the current changes. Output _only_ the commit message and nothing else."`',
+  "Use the /init slash command to generate an AGENTS.md file. This will help `arclen` understand your codebase and generate better responses.",
 ];
 
 interface TipsDisplayProps {

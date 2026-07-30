@@ -2,7 +2,7 @@
 
 ### Breaking Changes
 
-- Rename CLI binary from `cn` to `alc` (`dist/alc.js`, package `bin`, installers). Update scripts and PATH aliases; temporary `CN_BIN` still accepted as a fallback for `ALC_BIN` in the self-hosting loop.
+- Rename CLI binary from `cn` → `alc` → **`arclen`** (`dist/arclen.js`, package `bin`, installers). Update scripts and PATH aliases; `ARCLEN_BIN` preferred, with legacy `ALC_BIN` / `CN_BIN` fallbacks in the self-hosting loop.
 
 ## [1.4.2](https://github.com/arclength-continuation/cli/compare/v1.4.1...v1.4.2) (2025-07-17)
 

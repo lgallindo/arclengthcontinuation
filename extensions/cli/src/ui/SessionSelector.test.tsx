@@ -89,7 +89,7 @@ describe("SessionSelector", () => {
     );
 
     expect(lastFrame()).toContain("No previous sessions found");
-    expect(lastFrame()).toContain("Start a new conversation with: alc");
+    expect(lastFrame()).toContain("Start a new conversation with: arclen");
   });
 
   it("handles sessions without first user message", () => {

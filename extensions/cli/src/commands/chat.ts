@@ -499,9 +499,9 @@ async function runHeadlessMode(
     }
 
     throw new Error(
-      'Headless mode requires a prompt. Use: alc -p "your prompt"\n' +
-        'Or pipe input: echo "prompt" | alc -p\n' +
-        "Or use agent files: alc -p --agent my-org/my-agent\n" +
+      'Headless mode requires a prompt. Use: arclen -p "your prompt"\n' +
+        'Or pipe input: echo "prompt" | arclen -p\n' +
+        "Or use agent files: arclen -p --agent my-org/my-agent\n" +
         "Note: Agent files must contain a prompt field.",
     );
   }

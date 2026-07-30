@@ -16,7 +16,7 @@ global.fetch = vi
     // Mock the default config API call
     if (
       urlString.includes(
-        "get-assistant/arclength-continuation/default-cli-config",
+        "get-assistant/ArclengthContinuation/default-cli-config",
       )
     ) {
       return {

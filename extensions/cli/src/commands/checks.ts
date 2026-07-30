@@ -272,12 +272,12 @@ async function rejectChecks(prUrl: string): Promise<void> {
 }
 
 /**
- * Main entry point for `alc checks` command.
+ * Main entry point for `arclen checks` command.
  *
  * Usage:
- *   alc checks [pr-url]              - List checks with diffs
- *   alc checks accept [pr-url]       - Accept pending suggestions
- *   alc checks reject [pr-url]       - Reject pending suggestions
+ *   arclen checks [pr-url]              - List checks with diffs
+ *   arclen checks accept [pr-url]       - Accept pending suggestions
+ *   arclen checks reject [pr-url]       - Reject pending suggestions
  */
 export async function checks(
   actionOrUrl: string | undefined,

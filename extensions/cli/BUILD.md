@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Arclength-Continuation CLI uses esbuild to bundle the application along with local packages (`@arclength-continuation/config-yaml` and `@arclength-continuation/openai-adapters`) into a single distributable file. This ensures that users who install the CLI from npm don't need to worry about local file references.
+The Arclength-Continuation CLI uses esbuild to bundle the application along with local packages (`Arclength and `@arclength-continuation/openai-adapters`) into a single distributable file. This ensures that users who install the CLI from npm don't need to worry about local file references.
 
 ## Build Steps
 
@@ -21,7 +21,7 @@ The `build.mjs` script uses esbuild to:
 - Bundle all TypeScript/JavaScript code into a single ES module
 - Include local packages (`@arclength-continuation/config-yaml`, `@arclength-continuation/openai-adapters`) directly in the bundle
 - Keep problematic or native dependencies external (e.g., `winston`, `express`)
-- Create a wrapper script (`dist/alc.js`) with the proper shebang for CLI execution
+- Create a wrapper script (`dist/arclen.js`) with the proper shebang for CLI execution
 
 ### Key Features
 
@@ -71,5 +71,5 @@ When publishing to npm:
 
 1. The bundled files in `dist/` are included
 2. Users install via `npm install -g @arclength-continuation/cli`
-3. The `alc` command becomes available globally
+3. The `arclen` command becomes available globally
 4. No local file references or missing dependencies

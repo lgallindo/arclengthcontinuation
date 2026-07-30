@@ -45,9 +45,9 @@ models:
     expect(output).toContain(
       "A prompt is required when using the -p/--print flag",
     );
-    expect(output).toContain('alc -p "please review my current git diff"');
-    expect(output).toContain('echo "hello" | alc -p');
-    expect(output).toContain('alc -p "analyze the code in src/"');
+    expect(output).toContain('arclen -p "please review my current git diff"');
+    expect(output).toContain('echo "hello" | arclen -p');
+    expect(output).toContain('arclen -p "analyze the code in src/"');
   });
 
   it("should work correctly when prompt is provided with -p flag", async () => {

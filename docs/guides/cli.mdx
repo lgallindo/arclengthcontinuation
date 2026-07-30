@@ -9,11 +9,11 @@ import CLIInstall from '/snippets/cli-install.mdx'
 
 <OSAutoDetect />
 
-`alc` is an open-source, modular coding agent for the command line.
+`arclen` is an open-source, modular coding agent for the command line.
 
 It provides a battle-tested agent loop so you can simply plug in your model, rules, and tools.
 
-![alc](/images/alc-demo.gif)
+![arclen](/images/arclen-demo.gif)
 
 ## Quick Start
 
@@ -23,15 +23,15 @@ Then start using it:
 
 ```bash
 # Interactive mode
-alc
+arclen
 
 # Headless mode
-alc -p "Generate a conventional commit name for the current git changes"
+arclen -p "Generate a conventional commit name for the current git changes"
 ```
 
 ## How to Use Continue CLI - Basic Usage
 
-Out of the box, `alc` comes with tools that let it understand your codebase, edit files, run terminal commands, and more (if you approve). You can ask `alc` to:
+Out of the box, `arclen` comes with tools that let it understand your codebase, edit files, run terminal commands, and more (if you approve). You can ask `arclen` to:
 
 - Fix failing tests
 - Find something in the codebase
@@ -41,53 +41,53 @@ Out of the box, `alc` comes with tools that let it understand your codebase, edi
 
 Use '@' to give it file context, or '/' to run slash commands.
 
-If you want to resume a previous conversation, run `alc --resume`.
+If you want to resume a previous conversation, run `arclen --resume`.
 
 ## How to Use Headless Mode (`-p` flag)
 
-In headless mode, `alc` will only output its final response, making it perfect for Unix Philosophy-style scripting and automation. For example, you could pipe your git diff into `alc` to generate a commit message, and write this to a file:
+In headless mode, `arclen` will only output its final response, making it perfect for Unix Philosophy-style scripting and automation. For example, you could pipe your git diff into `arclen` to generate a commit message, and write this to a file:
 
 ```bash
-echo "$(git diff) Generate a conventional commit name for the current git changes" | alc -p > commit-message.txt
+echo "$(git diff) Generate a conventional commit name for the current git changes" | arclen -p > commit-message.txt
 ```
 
 ## How to Configure Continue CLI
 
-`alc` uses [`config.yaml`](/reference), the exact same configuration file as Continue. This means that you can use your existing local configuration.
+`arclen` uses [`config.yaml`](/reference), the exact same configuration file as Continue. This means that you can use your existing local configuration.
 
-To switch between configurations, you can use the `/config` slash command in `alc`, or you can start it with the `--config` flag (e.g. `alc --config continuedev/default-cli-config` or `alc --config ~/.continue/config.yaml`).
+To switch between configurations, you can use the `/config` slash command in `arclen`, or you can start it with the `--config` flag (e.g. `arclen --config continuedev/default-cli-config` or `arclen --config ~/.continue/config.yaml`).
 
 ### How to Add Custom Models
 
-Learn how to add custom models [here](/customize/overview). Then, you can use the `/model` slash command to switch between them in `alc`.
+Learn how to add custom models [here](/customize/overview). Then, you can use the `/model` slash command to switch between them in `arclen`.
 
 ### How to Configure Rules
 
-`alc` supports [rules](/customize/deep-dives/rules) in the same way as the Continue IDE extensions. You can also use the `--rule` flag to manually include a rule. For example, `alc --rule nate/spanish` will tell `alc` to always speak in Spanish.
+`arclen` supports [rules](/customize/deep-dives/rules) in the same way as the Continue IDE extensions. You can also use the `--rule` flag to manually include a rule. For example, `arclen --rule nate/spanish` will tell `arclen` to always speak in Spanish.
 
 ### How to Configure Tools
 
-`alc` supports MCP tools, which can be configured in the [same way](/customize/deep-dives/mcp) as with the Continue IDE extensions.
+`arclen` supports MCP tools, which can be configured in the [same way](/customize/deep-dives/mcp) as with the Continue IDE extensions.
 
 #### How to Set Tool Permissions
 
-`alc` includes a tool permission system to make sure you approve of the agent's actions. It will begin with minimal permissions but as you approve tool calls, it will add policies to `~/.continue/permissions.yaml` to remember your preferences.
+`arclen` includes a tool permission system to make sure you approve of the agent's actions. It will begin with minimal permissions but as you approve tool calls, it will add policies to `~/.continue/permissions.yaml` to remember your preferences.
 
 If you want to explicitly allow or deny tools for a single session, you can use the command line flags `--allow`, `--ask`, and `--exclude`. For example:
 
 ```bash
 # Always allow the Write tool
-alc --allow Write()
+arclen --allow Write()
 
 # Always ask before running curl
-alc --ask Bash(curl*)
+arclen --ask Bash(curl*)
 
 # Never use the Fetch tool
-alc --exclude Fetch
+arclen --exclude Fetch
 ```
 
 ## Troubleshooting
 
-Run `alc` with the `--verbose` flag to see more detailed logs. These will be output to `~/.continue/logs/alc.log`.
+Run `arclen` with the `--verbose` flag to see more detailed logs. These will be output to `~/.continue/logs/arclen.log`.
 
 If you have feedback on the beta, please [file a GitHub issue](https://github.com/continuedev/continue/issues).

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# E2E: attest -> verify roundtrip + tamper detection for the alc bundle.
+# E2E: attest -> verify roundtrip + tamper detection for the arclen bundle.
 # Contract: SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 set -euo pipefail
 
@@ -25,14 +25,14 @@ if [ -f dist/BUILD_ATTESTATION.json.sig ]; then
 fi
 
 # Tamper detection: flipping one byte in the bundle must fail verify.
-cp dist/alc.js /tmp/alc.js.bak
-printf '\n// tamper\n' >> dist/alc.js
+cp dist/arclen.js /tmp/arclen.js.bak
+printf '\n// tamper\n' >> dist/arclen.js
 if ./scripts/attest-build.sh verify dist/BUILD_ATTESTATION.json 2>/dev/null; then
-  mv /tmp/alc.js.bak dist/alc.js
+  mv /tmp/arclen.js.bak dist/arclen.js
   echo "FAIL: tampered bundle passed verification"
   exit 1
 fi
-mv /tmp/alc.js.bak dist/alc.js
+mv /tmp/arclen.js.bak dist/arclen.js
 echo "TAMPER-DETECTION-OK"
 
 echo "BUILD-ATTESTATION-E2E-OK"

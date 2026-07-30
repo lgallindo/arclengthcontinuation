@@ -1,20 +1,20 @@
 ---
-name: alc-check
-description: Install and run the Arclength-Continuation CLI (`alc`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with alc", or set up Arclength-Continuation CI locally.
+name: arclen-check
+description: Install and run the Arclength-Continuation CLI (`arclen`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with arclen", or set up Arclength-Continuation CI locally.
 license: GPL-3.0-or-later
 metadata:
-  author: arclength-continuation
+  author: Arclength
   version: "1.0.0"
 ---
 
-# alc check — Local AI Agent Checks
+# arclen check — Local AI Agent Checks
 
 Run AI-powered code checks locally against your working tree changes using the Arclength-Continuation CLI. Each check is an agent (defined in markdown) that reviews your diff, identifies issues, and optionally suggests fixes as a patch.
 
 ## When to Use
 
 - User asks to run AI checks on their code changes
-- User wants to set up `alc check` in a project
+- User wants to set up `arclen check` in a project
 - User needs to create custom check agents
 - User wants to apply AI-suggested fixes locally
 - User asks about Arclength-Continuation CI or agent-based code review
@@ -29,13 +29,13 @@ Run AI-powered code checks locally against your working tree changes using the A
 ### Install the CLI
 
 ```bash
-npm install -g @arclength-continuation/cli
+npm install -g Arclength
 ```
 
 ### Authenticate (required for Hub checks, optional for local-only)
 
 ```bash
-alc login
+arclen login
 ```
 
 This opens a browser for authentication. After login, Hub-configured checks are available automatically.
@@ -45,31 +45,31 @@ This opens a browser for authentication. After login, Hub-configured checks are 
 ### Basic: Run all discovered checks
 
 ```bash
-alc check
+arclen check
 ```
 
 This auto-detects checks from three sources (in priority order):
 
-1. Hub API — checks configured for your repo on arclength-continuation.dev
+1. Hub API — checks configured for your repo on Arclength.dev
 2. Local agents — markdown files in `.continue/agents/*.md`
 
 ### Specify agents explicitly
 
 ```bash
 # Run a single local agent
-alc check --agent .continue/agents/security-review.md
+arclen check --agent .continue/agents/security-review.md
 
 # Run a Hub-published agent
-alc check --agent myorg/code-style
+arclen check --agent myorg/code-style
 
 # Run multiple agents
-alc check --agent .continue/agents/security.md --agent .continue/agents/docs.md
+arclen check --agent .continue/agents/security.md --agent .continue/agents/docs.md
 ```
 
 ### Compare against a specific base branch
 
 ```bash
-alc check --base develop
+arclen check --base develop
 ```
 
 Default: auto-detects `main` or `master`.
@@ -78,19 +78,19 @@ Default: auto-detects `main` or `master`.
 
 ```bash
 # JSON output (for CI pipelines or scripting)
-alc check --format json
+arclen check --format json
 
 # Unified patch output (pipe to git apply)
-alc check --patch | git apply
+arclen check --patch | git apply
 
 # Stop on first failure
-alc check --fail-fast
+arclen check --fail-fast
 ```
 
 ### Auto-fix mode
 
 ```bash
-alc check --fix
+arclen check --fix
 ```
 
 Runs all checks, then applies any suggested patches directly to the working tree. Patches that conflict are reported but skipped.
@@ -138,7 +138,7 @@ Checks run in parallel by default. Use `--fail-fast` for sequential execution th
 A live-updating table shows check progress:
 
 ```
-alc check  -  3 checks against main  -  5 changed files
+arclen check  -  3 checks against main  -  5 changed files
 
 Check               Status         Time
 --------------------------------------------
@@ -175,7 +175,7 @@ When complete, a full report prints with pass/fail status, agent output, and sug
 ## CLI Reference
 
 ```
-alc check [options]
+arclen check [options]
 
 Options:
   --base <branch>     Base branch for diff (default: auto-detect)
@@ -191,10 +191,10 @@ Options:
 
 ## Troubleshooting
 
-| Problem                      | Solution                                                                               |
-| ---------------------------- | -------------------------------------------------------------------------------------- |
-| "No changes detected"        | Make sure you have uncommitted changes or specify `--base`                             |
-| "No checks found"            | Create `.continue/agents/*.md` files or run `alc login` for Hub checks                 |
-| Check times out (5 min)      | Reduce diff size or split into focused agents                                          |
-| "Worker exited with code 1"  | Run with `--verbose` to see worker stderr                                              |
-| Patch conflicts with `--fix` | Apply patches manually: `alc check --patch > changes.patch && git apply changes.patch` |
+| Problem                      | Solution                                                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------------------- |
+| "No changes detected"        | Make sure you have uncommitted changes or specify `--base`                                |
+| "No checks found"            | Create `.continue/agents/*.md` files or run `arclen login` for Hub checks                 |
+| Check times out (5 min)      | Reduce diff size or split into focused agents                                             |
+| "Worker exited with code 1"  | Run with `--verbose` to see worker stderr                                                 |
+| Patch conflicts with `--fix` | Apply patches manually: `arclen check --patch > changes.patch && git apply changes.patch` |

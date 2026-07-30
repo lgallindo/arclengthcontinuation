@@ -47,14 +47,14 @@ runTest("Bundle file exists", () => {
   if (!existsSync(resolve(__dirname, "dist/index.js"))) {
     throw new Error("dist/index.js not found");
   }
-  if (!existsSync(resolve(__dirname, "dist/alc.js"))) {
-    throw new Error("dist/alc.js not found");
+  if (!existsSync(resolve(__dirname, "dist/arclen.js"))) {
+    throw new Error("dist/arclen.js not found");
   }
 });
 
 // Test 2: Check if wrapper script is executable
 runTest("Wrapper script has shebang", () => {
-  const content = readFileSync(resolve(__dirname, "dist/alc.js"), "utf8");
+  const content = readFileSync(resolve(__dirname, "dist/arclen.js"), "utf8");
   if (!content.startsWith("#!/usr/bin/env node")) {
     throw new Error("Wrapper script missing shebang");
   }
@@ -64,9 +64,9 @@ runTest("Wrapper script has shebang", () => {
 function getCLICommand(args = "") {
   const isWindows = process.platform === "win32";
   if (isWindows) {
-    return `node dist/alc.js ${args}`;
+    return `node dist/arclen.js ${args}`;
   } else {
-    return `./dist/alc.js ${args}`;
+    return `./dist/arclen.js ${args}`;
   }
 }
 
@@ -88,7 +88,7 @@ runTest("Help command", () => {
   const output = execCommand(getCLICommand("--help"));
   if (
     (!output.includes("ArclengthContinuation CLI") &&
-      !output.includes("Usage: alc")) ||
+      !output.includes("Usage: arclen")) ||
     !output.includes("--version")
   ) {
     throw new Error("Help output missing expected content");
@@ -207,7 +207,7 @@ runTest("No missing runtime dependencies", () => {
 runTest("CLI works via npm link", () => {
   try {
     // Simply test that we can execute with node directly
-    const output = execCommand("node dist/alc.js --version 2>&1");
+    const output = execCommand("node dist/arclen.js --version 2>&1");
     const packageJson = JSON.parse(
       readFileSync(resolve(__dirname, "package.json"), "utf8"),
     );

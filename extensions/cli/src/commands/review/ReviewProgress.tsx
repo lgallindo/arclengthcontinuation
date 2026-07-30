@@ -72,7 +72,7 @@ export const ReviewProgress: React.FC<ReviewProgressProps> = ({
   return (
     <Box flexDirection="column" paddingTop={1} paddingBottom={1}>
       <Box gap={1}>
-        <Text bold>alc review</Text>
+        <Text bold>arclen review</Text>
         {baseBranch ? (
           <>
             <Text dimColor>─</Text>

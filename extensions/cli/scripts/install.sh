@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ArclengthContinuation CLI Installer - Unix (macOS, Linux, WSL, Git Bash)
+# arclength CLI Installer - Unix (macOS, Linux, WSL, Git Bash)
 # curl -fsSL https://raw.githubusercontent.com/lgallindo/arclengthcontinuation/main/extensions/cli/scripts/install.sh | bash
 
 REQUIRED_NODE_VERSION="20.20.1"
 PACKAGE_NAME="@arclength-continuation/cli"
-CLI_COMMAND="alc"
+CLI_COMMAND="arclen"
 NETWORK_TIMEOUT=60
 FNM_INSTALL_DIR="$HOME/.local/share/fnm"
 

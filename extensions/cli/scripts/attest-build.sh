@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Source <-> binary attestation for the alc CLI bundle.
+# Source <-> binary attestation for the arclen CLI bundle.
 # Contract: docs/specs/SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 #
 #   attest-build.sh attest            build + write dist/BUILD_ATTESTATION.json (+ .sig)
@@ -35,7 +35,7 @@ write_attestation() {
   node -e '
     const fs = require("fs");
     const doc = {
-      schema: "alc-build-attestation/1",
+      schema: "arclen-build-attestation/1",
       commit: process.argv[1],
       dirty: false,
       timestamp: new Date().toISOString(),
@@ -46,13 +46,13 @@ write_attestation() {
       },
       digests_sha256: {
         "package-lock.json": process.argv[4],
-        "dist/alc.js": process.argv[5],
+        "dist/arclen.js": process.argv[5],
         "dist/index.js": process.argv[6],
       },
     };
     fs.writeFileSync(process.argv[7], JSON.stringify(doc, null, 2) + "\n");
   ' "$commit" "$(npm --version)" "$(esbuild_version)" \
-    "$(sha package-lock.json)" "$(sha dist/alc.js)" "$(sha dist/index.js)" \
+    "$(sha package-lock.json)" "$(sha dist/arclen.js)" "$(sha dist/index.js)" \
     "$ATTESTATION"
   echo "ATTESTATION written: $ATTESTATION"
 
@@ -83,15 +83,15 @@ verify_attestation() {
 
   # The current bundle digests must match BEFORE the rebuild (artifact under
   # test), and the rebuild must reproduce them (source equivalence).
-  local claim_alc claim_idx
-  claim_alc="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/alc.js"]' "$file")"
+  local claim_arclen claim_idx
+  claim_arclen="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/arclen.js"]' "$file")"
   claim_idx="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/index.js"]' "$file")"
 
-  [ "$(sha dist/alc.js)" = "$claim_alc" ] || { echo "FAIL: dist/alc.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
+  [ "$(sha dist/arclen.js)" = "$claim_arclen" ] || { echo "FAIL: dist/arclen.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
   [ "$(sha dist/index.js)" = "$claim_idx" ] || { echo "FAIL: dist/index.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
 
   do_build
-  [ "$(sha dist/alc.js)" = "$claim_alc" ] || { echo "FAIL: rebuild produced different dist/alc.js" >&2; exit 1; }
+  [ "$(sha dist/arclen.js)" = "$claim_arclen" ] || { echo "FAIL: rebuild produced different dist/arclen.js" >&2; exit 1; }
   [ "$(sha dist/index.js)" = "$claim_idx" ] || { echo "FAIL: rebuild produced different dist/index.js" >&2; exit 1; }
 
   echo "VERIFY-OK: source at $actual_commit reproduces the attested bundle"

@@ -45,7 +45,7 @@ Before starting, ensure you have:
         3. Navigate to your organization settings
         4. Click **"API Keys"** and then **"+ New API Key"** 
         5. Copy the API key immediately (you won't see it again!)
-        6. Login to the CLI: `alc login`
+        6. Login to the CLI: `arclen login`
   </Step>
 
   <Step title="Add Required Secrets to Continue CLI">
@@ -137,7 +137,7 @@ Replace `YOUR_API_KEY` with your Personal API Key from PostHog (phx_...).
         Run:
         
         ```bash
-        alc --agent continuedev/posthog-continuous-ai-agent
+        arclen --agent continuedev/posthog-continuous-ai-agent
         ```
 
         This agent includes:
@@ -169,7 +169,7 @@ Replace `YOUR_API_KEY` with your Personal API Key from PostHog (phx_...).
     </Step>
     <Step title="Add PostHog + GitHub Analysis Rules">
       Add PostHog GitHub Continuous AI rules to your configuration:
-      1. Pass `--rule bekah-hawrot-weigel/posthog-github-continuous-ai-rules` to `alc` OR
+      1. Pass `--rule bekah-hawrot-weigel/posthog-github-continuous-ai-rules` to `arclen` OR
       2. Copy the rules to your local `.continue/rules` folder. See the [Rules Guide](/customize/deep-dives/rules#how-to-create-rules).
     </Step>
     <Step title="Create Your Custom Prompts">

@@ -138,7 +138,7 @@ The backend calculates total storage by summing all files under the session's S3
 The `UploadArtifact` tool is available when running with the beta flag:
 
 ```bash
-alc serve --id <agentSessionId> --beta-upload-artifact-tool
+arclen serve --id <agentSessionId> --beta-upload-artifact-tool
 ```
 
 Agents can then use the built-in `UploadArtifact` tool to upload files:
@@ -166,7 +166,7 @@ The tool will:
 
 - Must run with `--id <agentSessionId>` (agent mode)
 - Must enable `--beta-upload-artifact-tool` flag
-- User must be authenticated (`alc login`)
+- User must be authenticated (`arclen login`)
 
 ### Programmatic Upload (Service API)
 
@@ -207,7 +207,7 @@ results.forEach((result) => {
 The CLI requires these environment variables for artifact uploads:
 
 - `CONTINUE_API_KEY`: Bearer token for backend authentication
-- `CONTINUE_API_BASE`: API base URL (defaults to `https://api.arclength-continuation.dev/`)
+- `CONTINUE_API_BASE`: API base URL (defaults to `https://api.Arclength.dev/`)
 - `AGENT_SESSION_ID`: The current agent session identifier
 
 These are automatically provided when running in Arclength-Continuation's devbox environment.

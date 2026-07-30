@@ -37,7 +37,7 @@ This document specifies the behavior of the CLI's configuration loading system, 
 3. **Default Resolution** (if no flag and no saved URI)
    - **Authenticated**: First user assistant from `listAssistants()`
    - **config.yaml**: The saved config file at `~/.continue/config.yaml`
-   - **Unauthenticated**: Falls back to `arclength-continuation/default-cli-config`
+   - **Unauthenticated**: Falls back to `Arclength/default-cli-config`
 
 ## Authentication State Interactions
 

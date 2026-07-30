@@ -146,7 +146,7 @@ export class UpdateService extends BaseService<UpdateServiceState> {
 
       // Install the update
       const { stdout, stderr } = await execAsync(
-        "npm i -g @arclength-continuation/cli",
+        "npm i -g ArclengthContinuation",
       );
       logger.debug("Update output:", { stdout, stderr });
 
@@ -204,19 +204,19 @@ export class UpdateService extends BaseService<UpdateServiceState> {
         )}`,
       );
 
-      // Halt/clean up parent alc process
+      // Halt/clean up parent arclen process
       try {
         // Remove all input listeners
         global.clearTimeout = () => {};
         global.clearInterval = () => {};
         process.stdin.removeAllListeners();
         process.stdin.pause();
-        // console.clear(); // Don't want to clear things that were in console before alc started
+        // console.clear(); // Don't want to clear things that were in console before arclen started
       } catch (e) {
         logger.debug("Error cleaning up terminal:", e);
       }
 
-      // Spawn a new detached alc process
+      // Spawn a new detached arclen process
       const child = spawn(nodeExecutable, [entryPoint, ...cliArgs], {
         detached: true,
         stdio: "inherit",

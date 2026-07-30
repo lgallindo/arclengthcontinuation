@@ -11,7 +11,7 @@ import {
 const CONTINUE_API_KEY = process.env.CONTINUE_API_KEY;
 // continue-proxy requires a 4-part model name (owner/package/provider/model)
 // that depends on org-specific proxy configuration, so we also require
-// SMOKE_PROXY_MODEL to be set (e.g. "arclength-continuation/default/anthropic/claude-3-haiku-20240307")
+// SMOKE_PROXY_MODEL to be set (e.g. "ArclengthContinuation/default/anthropic/claude-3-haiku-20240307")
 const SMOKE_PROXY_MODEL = process.env.SMOKE_PROXY_MODEL;
 
 describe.skipIf(!CONTINUE_API_KEY || !SMOKE_PROXY_MODEL)(

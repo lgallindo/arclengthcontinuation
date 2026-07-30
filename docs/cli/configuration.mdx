@@ -2,7 +2,7 @@
 title: "Configuration"
 ---
 
-`alc` resolves its configuration (models, MCP servers, rules, etc.) from several sources, in this order:
+`arclen` resolves its configuration (models, MCP servers, rules, etc.) from several sources, in this order:
 
 1. **`--config` flag** — a file path passed at launch
 2. **Saved config** — the last-used configuration, persisted across sessions
@@ -10,10 +10,10 @@ title: "Configuration"
 
 ## `--config` flag
 
-Point `alc` at a local YAML file:
+Point `arclen` at a local YAML file:
 
 ```bash
-alc --config ./my-config.yaml
+arclen --config ./my-config.yaml
 ```
 
 This overrides any saved preference for the current session.
@@ -30,7 +30,7 @@ This shows your available local configs. The selection is saved for next time.
 
 ## `config.yaml`
 
-`alc` looks for `~/.continue/config.yaml`. This file uses the same format as the IDE extensions — see [config.yaml reference](/customize/deep-dives/configuration) for the full schema.
+`arclen` looks for `~/.continue/config.yaml`. This file uses the same format as the IDE extensions — see [config.yaml reference](/customize/deep-dives/configuration) for the full schema.
 
 ## CLI-specific flags
 
@@ -38,11 +38,11 @@ Several flags inject configuration at launch without editing a file:
 
 ```bash
 # Add rules (file path or inline string)
-alc --rule ./rules/style.md
-alc --rule "Always use TypeScript strict mode"
+arclen --rule ./rules/style.md
+arclen --rule "Always use TypeScript strict mode"
 
 # Load an agent file
-alc --agent my-org/pr-reviewer
+arclen --agent my-org/pr-reviewer
 ```
 
 All of these are repeatable — pass them multiple times to add multiple items.

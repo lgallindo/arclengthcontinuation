@@ -7,10 +7,10 @@ import CLIInstall from '/snippets/cli-install.mdx'
 
 <OSAutoDetect />
 
-Continue CLI (`alc`) is a terminal-based coding agent. It can edit files, run commands, and work through multi-step tasks — the same agent that powers the Continue IDE extensions, running in your terminal.
+Continue CLI (`arclen`) is a terminal-based coding agent. It can edit files, run commands, and work through multi-step tasks — the same agent that powers the Continue IDE extensions, running in your terminal.
 
 <Frame>
-  <img src="/images/alc-demo.gif" />
+  <img src="/images/arclen-demo.gif" />
 </Frame>
 
 ## Install
@@ -20,7 +20,7 @@ Continue CLI (`alc`) is a terminal-based coding agent. It can edit files, run co
 Verify the installation:
 
 ```bash
-alc --version
+arclen --version
 ```
 
 ### Requirements
@@ -32,7 +32,7 @@ alc --version
 
 ```bash
 cd your-project
-alc
+arclen
 ```
 
 On first launch you'll be asked to log in with [Continue](https://continue.dev) or enter an Anthropic API key. After that, you're in a session and can start typing.
@@ -42,10 +42,10 @@ On first launch you'll be asked to log in with [Continue](https://continue.dev) 
 ### Log in with Continue
 
 ```bash
-alc login
+arclen login
 ```
 
-This opens your browser to authenticate with [Continue](https://continue.dev). Once authenticated, `alc` can use your configured assistants, models, and MCP servers from the platform.
+This opens your browser to authenticate with [Continue](https://continue.dev). Once authenticated, `arclen` can use your configured assistants, models, and MCP servers from the platform.
 
 ### API key (headless / CI)
 
@@ -53,18 +53,18 @@ For automation environments where there's no browser, set the `CONTINUE_API_KEY`
 
 ```bash
 export CONTINUE_API_KEY=your-key-here
-alc -p "your prompt"
+arclen -p "your prompt"
 ```
 
 ### Local API key
 
-If you don't want to use Continue, you can use an Anthropic API key directly. On first launch, `alc` will prompt you to choose between logging in with Continue or entering an Anthropic API key.
+If you don't want to use Continue, you can use an Anthropic API key directly. On first launch, `arclen` will prompt you to choose between logging in with Continue or entering an Anthropic API key.
 
 ## Two modes
 
-**[TUI mode](/cli/tui-mode)** — run `alc` to start an interactive session. You type messages, reference files with `@`, approve tool calls, and iterate with the agent. This is the default.
+**[TUI mode](/cli/tui-mode)** — run `arclen` to start an interactive session. You type messages, reference files with `@`, approve tool calls, and iterate with the agent. This is the default.
 
-**[Headless mode](/cli/headless-mode)** — run `alc -p "your prompt"` for single-shot automation. The agent runs to completion and prints its response to stdout. Use this in scripts, CI/CD, and git hooks.
+**[Headless mode](/cli/headless-mode)** — run `arclen -p "your prompt"` for single-shot automation. The agent runs to completion and prints its response to stdout. Use this in scripts, CI/CD, and git hooks.
 
 ## Common flags
 
@@ -83,4 +83,4 @@ If you don't want to use Continue, you can use an Anthropic API key directly. On
 | `--agent <slug>` | Load an agent file by slug |
 | `--verbose` | Enable verbose logging |
 
-Run `alc --help` for the full list.
+Run `arclen --help` for the full list.

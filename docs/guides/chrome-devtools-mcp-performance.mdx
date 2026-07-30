@@ -71,7 +71,7 @@ After completing **Quick Setup** above, you have two paths to get started:
         Run:
         
         ```bash
-        alc --agent continuedev/chrome-dev-tools-agent
+        arclen --agent continuedev/chrome-dev-tools-agent
         ```
 
         This agent includes:
@@ -209,8 +209,8 @@ Now you can use natural language prompts to analyze web performance. The Continu
 <Info>
   **Where to run these workflows:**
   - **IDE Extensions**: Use Continue in VS Code, JetBrains, or other supported IDEs
-  - **Terminal (TUI mode)**: Run `alc` to enter interactive mode, then type your prompts
-  - **CLI (headless mode)**: Use `alc -p "your prompt"` for headless commands
+  - **Terminal (TUI mode)**: Run `arclen` to enter interactive mode, then type your prompts
+  - **CLI (headless mode)**: Use `arclen -p "your prompt"` for headless commands
 
   **Test in Plan Mode First**: Before running performance measurements, test your prompts in plan mode (see the [Plan Mode Guide](/guides/plan-mode-guide); press **Shift+Tab** to switch modes). This shows you what the agent will do without executing it.
 </Info>
@@ -441,7 +441,7 @@ jobs:
         env:
           CONTINUE_API_KEY: ${{ secrets.CONTINUE_API_KEY }}
         run: |
-          alc --agent continuedev/chrome-dev-tools-agent \
+          arclen --agent continuedev/chrome-dev-tools-agent \
              -p "Navigate to http://localhost:3000 and:
              1. Record performance trace with reload
              2. Extract LCP, FID, CLS values

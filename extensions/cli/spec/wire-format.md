@@ -1,13 +1,13 @@
-# HTTP Wire Protocol: `alc remote` � `alc serve`
+# HTTP Wire Protocol: `arclen remote` � `arclen serve`
 
-This document describes the HTTP protocol used for communication between the `alc remote` client and `alc serve` server
+This document describes the HTTP protocol used for communication between the `arclen remote` client and `arclen serve` server
 
 ## Overview
 
 The protocol uses a polling-based REST API where:
 
-- The server (`alc serve`) runs an Express HTTP server on port 3000
-- The client (`alc remote`) polls the server every 500ms for state updates
+- The server (`arclen serve`) runs an Express HTTP server on port 3000
+- The client (`arclen remote`) polls the server every 500ms for state updates
 - All communication uses JSON payloads
 
 ## Endpoints

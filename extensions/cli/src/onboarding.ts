@@ -242,7 +242,7 @@ async function promptForProviderSetup(): Promise<ProviderSetup> {
   );
   console.log(
     chalk.gray(
-      "Choose a local provider or a hosted API. You can rerun this with `alc setup`.\n",
+      "Choose a local provider or a hosted API. You can rerun this with `arclen setup`.\n",
     ),
   );
   console.log(choiceMenu());
