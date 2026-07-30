@@ -2,6 +2,8 @@
 
 This file provides guidance to AI coding agents when working with code in this repository.
 
+> **Multi-agent bus:** Before substantive work, read repo-root [`PROJECT_RULES.md`](../../PROJECT_RULES.md) and tail [`docs/plans/AGENT_BUS.jsonl`](../../docs/plans/AGENT_BUS.jsonl). Append heartbeats there. Product identity: [`docs/PRODUCT_IDENTITY.md`](../../docs/PRODUCT_IDENTITY.md) (apps/README only — not lgallindo.github.io).
+
 ## Development Commands
 
 - **Build**: `npm run build` - Compiles TypeScript to JavaScript in dist/
