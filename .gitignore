@@ -179,3 +179,6 @@ keys
 .copy-status
 .copy-log
 
+
+# Internal sausage-making (plans, analyses, philology)
+.local/

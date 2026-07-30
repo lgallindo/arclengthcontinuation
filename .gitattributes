@@ -1,2 +1,4 @@
 media/readme.png filter=lfs diff=lfs merge=lfs -text
 media/github-readme.png filter=lfs diff=lfs merge=lfs -text
+
+media/_archive/**/*.png filter=lfs diff=lfs merge=lfs -text
