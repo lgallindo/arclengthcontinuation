@@ -13,11 +13,28 @@
   <img src="media/github-readme.png" alt="ArclengthContinuation banner" />
 </p>
 
+<p align="center">
+  <img src="media/readme.png" alt="ArclengthContinuation wordmark banner" width="750" />
+</p>
+
 ## Status
 
-ArclengthContinuation is a work-in-progress fork of Continue. The immediate project goal is to restore a reliable build baseline, then improve the VS Code extension as a first-class citizen for local and hosted model discovery in VS Code, Google Antigravity, and Kiro-style development environments.
+ArclengthContinuation is a work-in-progress fork of Continue. Immediate focus: reliable build baseline, then VS Code as a first-class surface for local and hosted model discovery (VS Code, Google Antigravity, Kiro-style environments).
 
-No project releases are being published from this repository at this time. GitHub Actions workflows are intentionally disabled until the repository automation policy is reviewed.
+No project releases yet. GitHub Actions remain under `.github/workflows.disabled/` until automation policy is reviewed.
+
+Build and run notes (operator site): [lgallindo.github.io](https://lgallindo.github.io/en_US/).
+
+Product visual identity (apps + this README): [`docs/PRODUCT_IDENTITY.md`](docs/PRODUCT_IDENTITY.md).
+
+## Guiding principles
+
+1. **Local-first** — optimize for local models; keep cloud compatibility open.
+2. **SLMs via planning** — small models succeed through many planning calls, not one giant shot.
+3. **Deterministic tools** — expose tools for imaginable tasks; prefer tools over free-form guesswork.
+4. **Opinionated SDD** — new features need Intent / Boundaries / Acceptance specs, tests, and CLI E2E ([`SPEC_DRIVEN_DEVELOPMENT.md`](SPEC_DRIVEN_DEVELOPMENT.md)).
+
+Agents coordinating on this repo: read [`PROJECT_RULES.md`](PROJECT_RULES.md) and append to [`docs/plans/AGENT_BUS.jsonl`](docs/plans/AGENT_BUS.jsonl).
 
 ## Components
 

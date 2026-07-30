@@ -1,0 +1,18 @@
+---
+description: ArclengthContinuation multi-agent bus and project principles
+globs:
+alwaysApply: true
+---
+
+# Arclength agent coordination
+
+Before substantive work in this repo:
+
+1. Read `PROJECT_RULES.md` (BUS-*, SITE-*, GP-*, NAME-*).
+2. Tail `docs/plans/AGENT_BUS.jsonl` (last ~30 lines).
+3. If touching brand/UI/README, read `docs/PRODUCT_IDENTITY.md`.
+4. Append a bus heartbeat/announce when starting or finishing strategic work; update `/home/lugatj/code/agent_presence/arclength-continuation.json`.
+
+Do **not** restyle https://lgallindo.github.io/ with product identity — that site is build notes only.
+
+Internal artifacts: `PLAN_|ANALYSIS_|REPORT_|SPEC_` + `YYYYMMDDTHHMMSSZ` + `_TOPIC`. CLI rename candidates (`alc`/`arclc`/`arclen`/`arccont`) require bus announce — no silent rename.

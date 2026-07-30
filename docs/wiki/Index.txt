@@ -1,0 +1,23 @@
+====== Arclength Continuation repository ledger ======
+
+This Zim notebook is the navigation layer for durable repository planning. Markdown reports remain authoritative for review, Git history, and build workflows.
+
+* [[../plans/AGENT_BUS_README.md|Agent bus (Cursor/Codex realtime)]]
+* [[../plans/AGENT_BUS.jsonl|Agent bus log (JSONL)]]
+* [[../PRODUCT_IDENTITY.md|Product identity (apps + README only)]]
+* [[../plans/INDEX_20260730T102451Z_REPOSITORY_LEDGER.md|Repository ledger index]]
+* [[../plans/REPORT_20260730T102451Z_REPOSITORY_ACTIVITY.md|Cross-repository activity ledger]]
+* [[../plans/PLAN_20260730T001816Z_ARCLENGTH_REBRAND_REPORT.md|Rebrand report]]
+* [[../plans/PLAN_20260730T004854Z_RESEARCH_TO_FOSS_REDUCTION.md|Research reduction plan]]
+* [[../plans/PLAN_20260730T100600Z_BANNER_REPLACEMENT.md|Banner / visual identity plan]]
+* [[../plans/ANALYSIS_20260730T140600Z_CLI_NAME_PROPOSALS.md|CLI name proposals]]
+* [[../../../../research/arclengthcontinuation/docs/INDEX_20260730T102451Z_REPOSITORY_LEDGER.md|Research checkout ledger]]
+* [[../../../../research/vps/docs/agents/REPORT_20260730T102451Z_ARCLENGTH_CROSS_REPO_LEDGER.md|VPS deployment ledger]]
+
+====== Pending review ======
+
+* Heartbeat on the agent bus when starting Cursor/Codex sessions on this repo.
+* Review the branch-by-branch research-to-primary merge decision.
+* CLI short-name decision (`arclc` preferred in analysis; do not silent-rename).
+* Keep recovery branches and the preserved stash until the operator closes recovery.
+* Personal Pages https://lgallindo.github.io/ is live for build notes — not product chrome.

@@ -4,6 +4,10 @@
 > Adopted 2026-07-24 from the proven variant in the operator's infrastructure
 > workspace: **OpenSpec-style three-section specs** + **spec-anchored**
 > enforcement via TDD/E2E harness — not full GitHub Spec Kit / Kiro / Tessl.
+>
+> This project is **opinionated** about SDD (PROJECT_RULES GP-004): new feature
+> work without Intent/Boundaries/Acceptance + tests + CLI E2E is incomplete.
+> Pair with GP-001..GP-003 (local-first models, SLM multi-planning, deterministic tools).
 
 ## Why this variant
 
