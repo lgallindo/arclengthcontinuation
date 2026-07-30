@@ -1,0 +1,110 @@
+path,ext,bytes,sha256_16,brand_class,proposed_action
+docs-site/app/favicon.ico,.ico,32528,3172a2258c17a2b9,generic_ui,Review
+docs-site/public/images/continue-logo-light.png,.png,32528,3172a2258c17a2b9,continue_branded,Replace or regenerate
+docs/favicon.png,.png,30835,0476a2b1781547d4,generic_ui,Review
+docs/images/ask-continue-5aff7cbb94c0be066510331c09a3c377.png,.png,101020,cfc919e3e45ee71c,continue_branded,Replace or regenerate
+docs/images/ask-continue.png,.png,101020,cfc919e3e45ee71c,continue_branded,Replace or regenerate
+docs/images/assets/images/continue-console-d387a10c2918c117c6c253a3b5f18c22.png,.png,114081,4a767f2cfd0f0ead,continue_branded,Replace or regenerate
+docs/images/assets/images/intro-0c302b9c15b890c251b1ad04586c880f.png,.png,225663,42cb3b0d2d4cb0e2,duplicate,Dedup later
+docs/images/assets/images/prerelease-9bed93e846914165d30a3b227a680d9b.png,.png,126529,d0073749717a16c5,duplicate,Dedup later
+docs/images/cn-demo.gif,.gif,7126574,df09c4150954e90e,cn_named,Rename with alc
+docs/images/configure-continue-a5c8c79f3304c08353f3fc727aa5da7e.png,.png,59494,7633e3d2917f544b,continue_branded,Replace or regenerate
+docs/images/configure-continue.png,.png,59494,7633e3d2917f544b,continue_branded,Replace or regenerate
+docs/images/continue-console-d387a10c2918c117c6c253a3b5f18c22.png,.png,114081,4a767f2cfd0f0ead,continue_branded,Replace or regenerate
+docs/images/continue-console.png,.png,114081,4a767f2cfd0f0ead,continue_branded,Replace or regenerate
+docs/images/continue-screenshot.png,.png,200263,42aea0027863545e,continue_branded,Replace or regenerate
+docs/images/continue-screenshot2.png,.png,531452,10289e5bae39d4e0,continue_branded,Replace or regenerate
+docs/images/continue-settings-card-layout.png,.png,159886,70e2d665529ab9e5,continue_branded,Replace or regenerate
+docs/images/continue-social-card.png,.png,99869,d86d82ddf393105f,continue_branded,Replace or regenerate
+docs/images/customize/assets/images/configure-continue-a5c8c79f3304c08353f3fc727aa5da7e.png,.png,59494,7633e3d2917f544b,continue_branded,Replace or regenerate
+docs/images/customize/assets/images/context-provider-example-0c96ff77286fa970b23dddfdc1fa986a.png,.png,61845,9b3fb7a2cd819220,duplicate,Dedup later
+docs/images/customize/assets/images/mcp-blocks-overview-c9a104f9b586779c156f9cf34da197c2.png,.png,1725971,510bba32ae259ea2,duplicate,Dedup later
+docs/images/customize/assets/images/model-blocks-overview-36c30e7e01928d7a9b5b26ff1639c34b.png,.png,1772574,6806f8a2c2c7491e,duplicate,Dedup later
+docs/images/customize/assets/images/prompts-blocks-overview-17194d870840576f9a0dde548f2c70ec.png,.png,1566176,69605f12c4ae39eb,duplicate,Dedup later
+docs/images/customize/assets/images/settings-header-acd40f47f47b56a0baf63be6c8780077.png,.png,30727,6100eab0dd8171b5,duplicate,Dedup later
+docs/images/customize/assets/images/settings-page-4a14934bc9f99cce5e11424f2c9b6be2.png,.png,56943,6ee864691b331b31,duplicate,Dedup later
+docs/images/customize/images/configure-continue-a5c8c79f3304c08353f3fc727aa5da7e.png,.png,59494,7633e3d2917f544b,continue_branded,Replace or regenerate
+docs/images/customize/model-roles/assets/images/settings-model-roles-5e5f8a6bd9137b70cf94178a7e45847c.png,.png,43961,bafdcd1badd83f35,duplicate,Dedup later
+docs/images/favicon.ico,.ico,152126,5ba8b58688e6910d,generic_ui,Review
+docs/images/getting-started/assets/images/hub-onboarding-card-81abd457b6d131c4b0aa89a5a6d647d3.png,.png,67958,5db59f9b535bd553,duplicate,Dedup later
+docs/images/getting-started/assets/images/jetbrains-getting-started-d62b7edee1cdd58508c5075faf285955.png,.png,301290,231a6385978bf599,duplicate,Dedup later
+docs/images/guides/assets/images/image-8befb5162b7779402f70ff42bb589edb.png,.png,76020,0c2a01acf01daa29,duplicate,Dedup later
+docs/images/guides/assets/images/mistral-x-continue-8c0b3c33fa5fd4ecc4cabb2c3b8a9909.png,.png,23371,d7a143e984c2a5b6,continue_branded,Replace or regenerate
+docs/images/hero-dark.png,.png,110614,b01bca41fd68bb5a,generic_ui,Review
+docs/images/hero-light.png,.png,104264,41a7a3663ae3226d,generic_ui,Review
+docs/images/hub/assets/images/models-page-e1f91fcf2d9c1d66ad3ad2bdac2b3774.png,.png,1119795,5a9880707b258dfb,duplicate,Dedup later
+docs/images/hub/assets/images/template-repo-65ccd7537b6fba3bbb202ee3e83e1953.png,.png,435776,9a77f6443b53dbe7,duplicate,Dedup later
+docs/images/hub/assistants/assets/images/assistant-create-sidebar-608be49973f2a7723212adeb52dbcafb.png,.png,133637,6a6512a67e28ffde,duplicate,Dedup later
+docs/images/hub/assistants/assets/images/assistant-create-yaml-a991e5a81506f1c3ba611a664a50734c.png,.png,257469,259e7bdbc67c0eb6,duplicate,Dedup later
+docs/images/hub/assistants/assets/images/assistant-new-button-16070e2cff9ce25ec9ebfeecb0e2f2b5.png,.png,325376,f54a07b21fe6abfd,duplicate,Dedup later
+docs/images/hub/assistants/assets/images/assistant-remix-button-728ececa73983140eeab42e33cc3903b.png,.png,122704,919bd84529b17780,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/block-inputs-b26686c49eea145a875dfe46862c85e0.png,.png,93502,4308a9d885d92f4d,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/block-new-button-03d90f6cc9be774c52bdfc4baa5d634e.png,.png,43777,2950d494e27e21e3,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/block-new-page-2d7faf71739d0f062d555b5d7257fb56.png,.png,208294,f31ff7c084abf01a,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/block-remix-button-913beb80672662855acc7013561c78d0.png,.png,128048,a323fd9ca49dc173,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/bundle-create-page-51dc9d72652c6675edb2e2a085db16a1.png,.png,143554,2663b40e42ab2828,duplicate,Dedup later
+docs/images/hub/blocks/assets/images/bundle-new-button-4e6ae842500100fffeff8b39f74728f0.png,.png,40622,3bd1f49988508850,duplicate,Dedup later
+docs/images/hub/governance/assets/images/create-org-form-1c7655050d8f423b0ecdfbd1cc85e0af.png,.png,119386,ccb409cb8c83bf72,duplicate,Dedup later
+docs/images/hub/governance/assets/images/org-home-page-4509e2ff8c4e1d6325c8f0afae3b16dd.png,.png,124672,891c2c794cf712e4,duplicate,Dedup later
+docs/images/hub/governance/assets/images/org-selector-4ea627afc7c0765633780920a0fbe16e.png,.png,52058,ae34378991574545,duplicate,Dedup later
+docs/images/ide-extensions/agent/assets/images/agent-permission-c150919a5c43eb4f55d9d4a46ef8b2d6.png,.png,107099,ea97995a0dec6876,duplicate,Dedup later
+docs/images/ide-extensions/agent/assets/images/agent-response-c7287c82aac93fb4376f9d85b352b2d7.png,.png,188451,3919da2b32a56241,duplicate,Dedup later
+docs/images/ide-extensions/edit/assets/images/select-edit-mode-75c8f01861ebe03177986a5b7f21f746.png,.png,22912,3fc1a1c18045eb32,duplicate,Dedup later
+docs/images/images/continue-console-d387a10c2918c117c6c253a3b5f18c22.png,.png,114081,4a767f2cfd0f0ead,continue_branded,Replace or regenerate
+docs/images/logo.png,.png,20844,83cf6b53dd1b695c,generic_ui,Review
+docs/images/mistral-x-continue-8c0b3c33fa5fd4ecc4cabb2c3b8a9909.png,.png,23371,d7a143e984c2a5b6,continue_branded,Replace or regenerate
+docs/images/mistral-x-continue.png,.png,23371,d7a143e984c2a5b6,continue_branded,Replace or regenerate
+docs/logo/dark.svg,.svg,1588,c695c47b23d715dc,generic_ui,Keep unless Continue chrome
+docs/logo/light.svg,.svg,1588,1bc34eaf4ebc5960,generic_ui,Keep unless Continue chrome
+extensions/intellij/src/main/resources/icons/continue.svg,.svg,1597,f81d0ca0355295cb,continue_branded,Replace or regenerate
+extensions/intellij/src/main/resources/icons/continue_dark.svg,.svg,1598,5410fad2797e0d55,continue_branded,Replace or regenerate
+extensions/vscode/media/readme.png,.png,215373,280c3ccbcf1ddffd,arclength_ok,Keep
+gui/public/logos/TetrateAgentRouterService.png,.png,31852,1dfb44df8213b136,generic_ui,Keep unless Continue chrome
+gui/public/logos/WatsonX.png,.png,36230,bedfb28ba0b348eb,generic_ui,Keep unless Continue chrome
+gui/public/logos/allenai.png,.png,57602,0942892d82419eb7,generic_ui,Keep unless Continue chrome
+gui/public/logos/anthropic.png,.png,24301,3f2aa2e24cd52ab1,generic_ui,Keep unless Continue chrome
+gui/public/logos/ask-sage.png,.png,1223197,7380cdee0ffca25f,generic_ui,Keep unless Continue chrome
+gui/public/logos/azure.png,.png,11082,d8880a5f6650e37b,generic_ui,Keep unless Continue chrome
+gui/public/logos/cerebras.png,.png,2947,7ea5153e26e471fb,generic_ui,Keep unless Continue chrome
+gui/public/logos/clawrouter.png,.png,2362,da824ab8b6a8aeff,generic_ui,Keep unless Continue chrome
+gui/public/logos/cohere.png,.png,32816,3e54817e6868a04f,generic_ui,Keep unless Continue chrome
+gui/public/logos/cometapi.png,.png,69988,12ca9d4836892fa0,generic_ui,Keep unless Continue chrome
+gui/public/logos/deepseek.png,.png,39273,f5e2376724b3c698,generic_ui,Keep unless Continue chrome
+gui/public/logos/docker.png,.png,63380,512543b56384befc,generic_ui,Keep unless Continue chrome
+gui/public/logos/fireworks.png,.png,24802,c191b7e2e0a5e306,generic_ui,Keep unless Continue chrome
+gui/public/logos/function-network.png,.png,7965,633597ba91f685c3,generic_ui,Keep unless Continue chrome
+gui/public/logos/gemini.png,.png,40409,64e675e574ca10af,generic_ui,Keep unless Continue chrome
+gui/public/logos/groq.png,.png,22392,6cf58f2839237ae4,generic_ui,Keep unless Continue chrome
+gui/public/logos/hunyuan.png,.png,52496,156db1489ee6dc94,generic_ui,Keep unless Continue chrome
+gui/public/logos/ibm.png,.png,8066,750c4cb3e40361c2,generic_ui,Keep unless Continue chrome
+gui/public/logos/inception.png,.png,13048,b3fa3f62c94c624d,generic_ui,Keep unless Continue chrome
+gui/public/logos/lemonade.png,.png,27587,b0919ced1b7ae879,generic_ui,Keep unless Continue chrome
+gui/public/logos/llamacpp.png,.png,34267,16c4c14e982316c7,generic_ui,Keep unless Continue chrome
+gui/public/logos/llamafile.png,.png,50579,d464e793ea5ea39b,generic_ui,Keep unless Continue chrome
+gui/public/logos/lmstudio.png,.png,18853,4edcfda9c5280395,generic_ui,Keep unless Continue chrome
+gui/public/logos/meta.png,.png,50138,907e3d525d295aa4,generic_ui,Keep unless Continue chrome
+gui/public/logos/mimo.png,.png,108256,c9cab18544c804a4,generic_ui,Keep unless Continue chrome
+gui/public/logos/mistral.png,.png,19733,73114ed2ac7cb405,generic_ui,Keep unless Continue chrome
+gui/public/logos/moonshot.png,.png,33390,e961861e42fc76da,generic_ui,Keep unless Continue chrome
+gui/public/logos/ncompass.png,.png,117223,ddefbce48cc900e9,generic_ui,Keep unless Continue chrome
+gui/public/logos/nebius.png,.png,4706,c6888f94d032222c,generic_ui,Keep unless Continue chrome
+gui/public/logos/novita.png,.png,2713,c19fd70cd1126e16,generic_ui,Keep unless Continue chrome
+gui/public/logos/nvidia.png,.png,38177,a20d697e85d80bf0,generic_ui,Keep unless Continue chrome
+gui/public/logos/ollama.png,.png,35748,9ea09b5b70f15d10,generic_ui,Keep unless Continue chrome
+gui/public/logos/openai.png,.png,45414,5d4877a114835587,generic_ui,Keep unless Continue chrome
+gui/public/logos/openrouter.png,.png,20641,ea6f59a35253c319,generic_ui,Keep unless Continue chrome
+gui/public/logos/ovhcloud.png,.png,6710,bccc7f604cf416c6,generic_ui,Keep unless Continue chrome
+gui/public/logos/qwen.png,.png,53923,18d526fd763d5b93,generic_ui,Keep unless Continue chrome
+gui/public/logos/replicate.png,.png,14066,6abc365196b3b424,generic_ui,Keep unless Continue chrome
+gui/public/logos/sambanova.png,.png,12593,55e92e10dc292970,generic_ui,Keep unless Continue chrome
+gui/public/logos/scaleway.png,.png,3045,559083fc35aaa76e,generic_ui,Keep unless Continue chrome
+gui/public/logos/siliconflow.png,.png,29089,94ab84bb25e24809,generic_ui,Keep unless Continue chrome
+gui/public/logos/together.png,.png,28417,eaee3f5b9423545f,generic_ui,Keep unless Continue chrome
+gui/public/logos/venice.png,.png,43168,29c754d9e1de708a,generic_ui,Keep unless Continue chrome
+gui/public/logos/vertexai.png,.png,58975,ee15f45e5c39c9a7,generic_ui,Keep unless Continue chrome
+gui/public/logos/wizardlm.png,.png,494793,6ba577db3f646443,generic_ui,Keep unless Continue chrome
+gui/public/logos/xAI.png,.png,28436,f8f5d0a357016e6d,generic_ui,Keep unless Continue chrome
+gui/public/logos/zai.svg,.svg,11037,07a45e8e35b0b631,generic_ui,Keep unless Continue chrome
+media/github-readme.png,.png,2106724,2656643b093083fb,arclength_ok,Keep
+media/readme.png,.png,215373,280c3ccbcf1ddffd,arclength_ok,Keep
+media/run-continue-intellij.png,.png,11535,21c10f1617e770f8,continue_branded,Replace or regenerate

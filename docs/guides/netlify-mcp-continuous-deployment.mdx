@@ -89,7 +89,7 @@ After completing **Quick Setup** above, you have two paths to get started:
         Run:
         
         ```bash
-        cn --agent continuedev/netlify-continuous-ai-agent
+        alc --agent continuedev/netlify-continuous-ai-agent
         ```
 
         This agent includes:
@@ -137,7 +137,7 @@ After completing **Quick Setup** above, you have two paths to get started:
     Test the connection with cn CLI:
 
     ```bash
-    cn
+    alc
     # Then in TUI mode:
     "Check my Netlify auth and list sites"
     ```
@@ -170,8 +170,8 @@ After completing **Quick Setup** above, you have two paths to get started:
 Establish your current performance baseline using cn CLI:
 
 ```bash
-# Start cn in TUI mode
-cn
+# Start alc in TUI mode
+alc
 
 # Then ask:
 "Show my site's Core Web Vitals and build times"
@@ -488,7 +488,7 @@ jobs:
         env:
           CONTINUE_API_KEY: ${{ secrets.CONTINUE_API_KEY }}
         run: |
-          cn auth login --api-key "$CONTINUE_API_KEY"
+          alc auth login --api-key "$CONTINUE_API_KEY"
           echo "✅ Continue CLI authenticated"
 
       - name: Deploy and Test Performance
@@ -498,7 +498,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
           echo "🚀 Deploying PR preview and analyzing performance..."
-          cn -p "Deploy PR preview and run Lighthouse.
+          alc -p "Deploy PR preview and run Lighthouse.
                  Compare scores with main branch.
                  Output JSON with score deltas." > performance.json
 

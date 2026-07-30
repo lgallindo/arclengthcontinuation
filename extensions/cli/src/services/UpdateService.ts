@@ -204,19 +204,19 @@ export class UpdateService extends BaseService<UpdateServiceState> {
         )}`,
       );
 
-      // Halt/clean up parent cn process
+      // Halt/clean up parent alc process
       try {
         // Remove all input listeners
         global.clearTimeout = () => {};
         global.clearInterval = () => {};
         process.stdin.removeAllListeners();
         process.stdin.pause();
-        // console.clear(); // Don't want to clear things that were in console before cn started
+        // console.clear(); // Don't want to clear things that were in console before alc started
       } catch (e) {
         logger.debug("Error cleaning up terminal:", e);
       }
 
-      // Spawn a new detached cn process
+      // Spawn a new detached alc process
       const child = spawn(nodeExecutable, [entryPoint, ...cliArgs], {
         detached: true,
         stdio: "inherit",

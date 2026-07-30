@@ -1,0 +1,45 @@
+id,path,match,tier,proposal
+PATH-001,README.md,/home/lugatj/code/foss/continue/.gradle-home,A,"Use GRADLE_USER_HOME=""$PWD/.gradle-home"""
+PATH-002,extensions/cli/e2e/self-hosting-loop.sh,/usr/local/bin/cn,A,ALC_BIN / command -v alc
+PATH-003,docs/specs/SPEC_20260724T154500Z_SELF_HOSTING_LOOP.md,/usr/local/bin/cn,A,Document alc + ALC_BIN
+,extensions/intellij/build/idea-sandbox/IC-2024.1/log/idea.log,/code/foss/continue/,A,Review/fix machine-specific
+,extensions/intellij/build/idea-sandbox/IC-2024.1/system/.home,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/tmp/buildSearchableOptions/vcs-perforce.jar/search/vcs-perforce.jar.searchableOptions.xml,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/reports/configuration-cache/588kesva83bcvmhfkdrd11o16/rbmrzkq5ngyxqjdzrew3uylp/configuration-cache-report.html,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/reports/configuration-cache/9vk6r3faenoh6e1qg2pq62yim/d9kxly1zqo7ojf12abij6sjt3/configuration-cache-report.html,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/reports/configuration-cache/9vk6r3faenoh6e1qg2pq62yim/caklp5egwl6edi9hy4zonnyvv/configuration-cache-report.html,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/reports/configuration-cache/9vk6r3faenoh6e1qg2pq62yim/9jfpyzsbf930iqedx2riw51l9/configuration-cache-report.html,/home/lugatj,A,Review/fix machine-specific
+,extensions/intellij/build/reports/configuration-cache/9vk6r3faenoh6e1qg2pq62yim/8khztvh2adnuqr5gpwdqr1r0g/configuration-cache-report.html,/home/lugatj,A,Review/fix machine-specific
+,extensions/vscode/build/meta.json,/home/lugatj,A,Review/fix machine-specific
+,.github/pull_request_template.md,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/overview.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/faqs.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/troubleshooting.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/reference.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/custom-providers.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/deep-dives/rules.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/deep-dives/autocomplete.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/deep-dives/development-data.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/deep-dives/model-capabilities.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/cloudflare.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/SambaNova.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/flowise.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/lemonade.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/replicatellm.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/llamafile.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/novita.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/vllm.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/ncompass.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/relace.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/msty.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/customize/model-providers/more/tensorix.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/overview.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/running-continue-without-internet.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/how-to-self-host-a-model.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/custom-code-rag.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/continue-docs-mcp-cookbook.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/guides/cli.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/ide-extensions/plan/how-it-works.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/ide-extensions/autocomplete/next-edit.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/snippets/cli-install.mdx,continuedev URL or upstream author path,C,Docs provenance pass later
+,docs/reference/json-reference.mdx,continuedev URL or upstream author path,C,Docs provenance pass later

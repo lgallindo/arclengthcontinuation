@@ -236,7 +236,7 @@ export function DocsShell({
             >
               <Link href={resolveHref("/")} className="flex items-center">
                 <img
-                  src={withBasePath("/images/continue-logo-light.png")}
+                  src={withBasePath("/images/arclength-logo-light.png")}
                   alt="Arclength-Continuation"
                   className="h-8 w-auto dark:invert"
                 />
@@ -246,7 +246,7 @@ export function DocsShell({
             <div className="flex items-center px-5 py-3 lg:hidden">
               <Link href={resolveHref("/")} className="flex items-center">
                 <img
-                  src={withBasePath("/images/continue-logo-light.png")}
+                  src={withBasePath("/images/arclength-logo-light.png")}
                   alt="Arclength-Continuation"
                   className="h-8 w-auto dark:invert"
                 />

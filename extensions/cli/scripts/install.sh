@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Continue CLI Installer - Unix (macOS, Linux, WSL, Git Bash)
-# curl -fsSL https://continue.dev/install.sh | bash
+# ArclengthContinuation CLI Installer - Unix (macOS, Linux, WSL, Git Bash)
+# curl -fsSL https://raw.githubusercontent.com/lgallindo/arclengthcontinuation/main/extensions/cli/scripts/install.sh | bash
 
 REQUIRED_NODE_VERSION="20.20.1"
-PACKAGE_NAME="@continuedev/cli"
-CLI_COMMAND="cn"
+PACKAGE_NAME="@arclength-continuation/cli"
+CLI_COMMAND="alc"
 NETWORK_TIMEOUT=60
 FNM_INSTALL_DIR="$HOME/.local/share/fnm"
 
@@ -310,7 +310,7 @@ finalize() {
 main() {
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    printf "${BOLD}           Continue CLI Installer${NC}\n"
+    printf "${BOLD}           ArclengthContinuation CLI Installer${NC}\n"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 

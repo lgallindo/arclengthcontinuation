@@ -23,7 +23,7 @@ import CLIInstall from '/snippets/cli-install.mdx'
 
 This guide demonstrates how to create automated documentation generation based on code updates in a git branch using the Continue CLI, either as part of your local workflow or as part of a GitHub workflow.
 
-This process utilizes the **Continue CLI** (`cn`) in **headless mode** to analyze changes and generate the necessary documentation, and commit and push the changes. The goal is to keep the workflow as simple as possible by using straightforward shell commands, Continue CLI prompts, and basic git operations.
+This process utilizes the **Continue CLI** (`alc`) in **headless mode** to analyze changes and generate the necessary documentation, and commit and push the changes. The goal is to keep the workflow as simple as possible by using straightforward shell commands, Continue CLI prompts, and basic git operations.
 
 ## Why Use Continue CLI for Documentation?
 
@@ -191,7 +191,7 @@ jobs:
     - name: Verify Continue CLI installation
       run: |
         echo "Checking Continue CLI version..."
-        cn --version || exit 1
+        alc --version || exit 1
 
     - name: Set branch name
       id: branch
@@ -217,7 +217,7 @@ jobs:
     - name: Generate documentation with Continue CLI
       run: |
         echo "Running Continue agent to generate documentation..."
-        cn --config <continue-user>/<agent-config> \
+        alc --config <continue-user>/<agent-config> \
            --auto \
            --allow Write \
            -p \

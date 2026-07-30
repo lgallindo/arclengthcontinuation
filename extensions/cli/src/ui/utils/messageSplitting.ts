@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
  * NOTICE: This file has been modified from the original Gemini CLI source
- * for integration with ArclengthContinuation CLI (cn)
+ * for integration with ArclengthContinuation CLI (alc)
  */
 
 /*

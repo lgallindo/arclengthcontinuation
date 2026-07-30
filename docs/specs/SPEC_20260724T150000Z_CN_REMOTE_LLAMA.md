@@ -1,8 +1,8 @@
-# SPEC: cn against a remote llama-server
+# SPEC: alc against a remote llama-server
 
 ## Intent
 
-Run the `cn` CLI (extensions/cli) in headless mode against a remote
+Run the `alc` CLI (extensions/cli) in headless mode against a remote
 OpenAI-compatible llama-server endpoint, so Arclength-Continuation works with
 self-hosted models without any hosted-API key. The endpoint is deliberately
 NOT hardcoded: it is injected via environment variables so public CI and the

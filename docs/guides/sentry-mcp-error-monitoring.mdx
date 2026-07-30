@@ -44,7 +44,7 @@ Before starting, ensure you have:
     3. Navigate to your organization settings
     4. Click **"API Keys"** and then **"+ New API Key"**
     5. Copy the API key immediately (you won't see it again!)
-    6. Login to the CLI: `cn login`
+    6. Login to the CLI: `alc login`
   </Step>
 </Steps>
 
@@ -190,7 +190,7 @@ First, you'll need to gather your Sentry and GitHub API credentials.
 Use Continue CLI to perform intelligent error analysis. Enter these prompts in the Continue CLI TUI:
 
 <Info>
-To run any of the example prompts below in headless mode, use `cn -p "prompt"`
+To run any of the example prompts below in headless mode, use `alc -p "prompt"`
 </Info>
 
 <Tabs>
@@ -330,7 +330,7 @@ jobs:
           echo "🔍 Analyzing Sentry errors..."
           
           # Use Continue CLI to analyze errors and generate comprehensive issue descriptions
-          cn -p "Using Sentry MCP, analyze errors from the past 6 hours for project $SENTRY_PROJECT:
+          alc -p "Using Sentry MCP, analyze errors from the past 6 hours for project $SENTRY_PROJECT:
                  1. Filter for unresolved errors with high or critical severity
                  2. Group similar errors to avoid duplicates
                  3. For each unique critical error:

@@ -54,7 +54,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
       <Step title="Load the Pre-Built Agent">
         Navigate to your pipeline project directory and run:
         ```bash
-        cn --agent continuedev/dlt-agent
+        alc --agent continuedev/dlt-agent
         ```
 
         This agent includes:
@@ -86,7 +86,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
 
     <Tip>
       **Installation methods:**
-      1. **Quick CLI install**: `cn --mcp dlthub/dlt-mcp`
+      1. **Quick CLI install**: `alc --mcp dlthub/dlt-mcp`
       2. **Manual configuration**: Add the MCP to your `~/.continue/config.json` under the `mcpServers` section
 
       Once installed, dlt MCP tools become available to your Continue agent for all prompts.
@@ -102,7 +102,7 @@ After ensuring you meet the **Prerequisites** above, you have two paths to get s
     Start with a comprehensive pipeline check:
     ```bash
     # TUI mode
-    cn
+    alc
     # Then type: Inspect the execution of my dlt pipeline and summarize the load info, including timing and file sizes.
     ```
   </Step>
@@ -149,15 +149,15 @@ Now you can use natural language prompts to develop and debug your dlt pipelines
 <Info>
   **Where to run these workflows:**
   - **IDE Extensions**: Use Continue in VS Code, JetBrains, or other supported IDEs
-  - **Terminal (TUI mode)**: Run `cn` to enter interactive mode, then type your prompts
-  - **CLI (headless mode)**: Use `cn -p "your prompt"` for headless commands
+  - **Terminal (TUI mode)**: Run `alc` to enter interactive mode, then type your prompts
+  - **CLI (headless mode)**: Use `alc -p "your prompt"` for headless commands
 
   **Test in Plan Mode First**: Before running pipeline operations that might make
   changes, test your prompts in plan mode (see the [Plan Mode
   Guide](/guides/plan-mode-guide); press **Shift+Tab** to switch modes in TUI/IDE). This
   shows you what the agent will do without executing it.
   
-  To run any of the example prompts below in headless mode, use `cn -p "prompt"`
+  To run any of the example prompts below in headless mode, use `alc -p "prompt"`
 </Info>
 
 <Info>
@@ -305,7 +305,7 @@ jobs:
       - name: Validate Pipeline Schema
         run: |
           echo "🔍 Validating pipeline schema..."
-          cn --agent continuedev/dlt-agent \
+          alc --agent continuedev/dlt-agent \
              -p "Inspect the pipeline schema and verify all required tables
                  and columns are present. Flag any missing or unexpected changes." \
              --auto
@@ -313,7 +313,7 @@ jobs:
       - name: Check Pipeline Health
         run: |
           echo "📊 Checking pipeline health..."
-          cn --agent continuedev/dlt-agent \
+          alc --agent continuedev/dlt-agent \
              -p "Analyze the last pipeline run for errors or warnings.
                  Report any issues that need attention." \
              --auto
@@ -323,7 +323,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          REPORT=$(cn --agent continuedev/dlt-agent \
+          REPORT=$(alc --agent continuedev/dlt-agent \
              -p "Generate a concise summary (200 words or less) of:
                  - Pipeline schemas and row counts
                  - Any load errors or warnings

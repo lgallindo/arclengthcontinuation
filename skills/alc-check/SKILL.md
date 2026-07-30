@@ -1,20 +1,20 @@
 ---
-name: cn-check
-description: Install and run the Arclength-Continuation CLI (`cn`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with cn", or set up Arclength-Continuation CI locally.
+name: alc-check
+description: Install and run the Arclength-Continuation CLI (`alc`) to execute AI agent checks on local code changes. Use when asked to "run checks", "lint with AI", "review my changes with alc", or set up Arclength-Continuation CI locally.
 license: GPL-3.0-or-later
 metadata:
   author: arclength-continuation
   version: "1.0.0"
 ---
 
-# cn check — Local AI Agent Checks
+# alc check — Local AI Agent Checks
 
 Run AI-powered code checks locally against your working tree changes using the Arclength-Continuation CLI. Each check is an agent (defined in markdown) that reviews your diff, identifies issues, and optionally suggests fixes as a patch.
 
 ## When to Use
 
 - User asks to run AI checks on their code changes
-- User wants to set up `cn check` in a project
+- User wants to set up `alc check` in a project
 - User needs to create custom check agents
 - User wants to apply AI-suggested fixes locally
 - User asks about Arclength-Continuation CI or agent-based code review
@@ -35,7 +35,7 @@ npm install -g @arclength-continuation/cli
 ### Authenticate (required for Hub checks, optional for local-only)
 
 ```bash
-cn login
+alc login
 ```
 
 This opens a browser for authentication. After login, Hub-configured checks are available automatically.
@@ -45,7 +45,7 @@ This opens a browser for authentication. After login, Hub-configured checks are 
 ### Basic: Run all discovered checks
 
 ```bash
-cn check
+alc check
 ```
 
 This auto-detects checks from three sources (in priority order):
@@ -57,19 +57,19 @@ This auto-detects checks from three sources (in priority order):
 
 ```bash
 # Run a single local agent
-cn check --agent .continue/agents/security-review.md
+alc check --agent .continue/agents/security-review.md
 
 # Run a Hub-published agent
-cn check --agent myorg/code-style
+alc check --agent myorg/code-style
 
 # Run multiple agents
-cn check --agent .continue/agents/security.md --agent .continue/agents/docs.md
+alc check --agent .continue/agents/security.md --agent .continue/agents/docs.md
 ```
 
 ### Compare against a specific base branch
 
 ```bash
-cn check --base develop
+alc check --base develop
 ```
 
 Default: auto-detects `main` or `master`.
@@ -78,19 +78,19 @@ Default: auto-detects `main` or `master`.
 
 ```bash
 # JSON output (for CI pipelines or scripting)
-cn check --format json
+alc check --format json
 
 # Unified patch output (pipe to git apply)
-cn check --patch | git apply
+alc check --patch | git apply
 
 # Stop on first failure
-cn check --fail-fast
+alc check --fail-fast
 ```
 
 ### Auto-fix mode
 
 ```bash
-cn check --fix
+alc check --fix
 ```
 
 Runs all checks, then applies any suggested patches directly to the working tree. Patches that conflict are reported but skipped.
@@ -138,7 +138,7 @@ Checks run in parallel by default. Use `--fail-fast` for sequential execution th
 A live-updating table shows check progress:
 
 ```
-cn check  -  3 checks against main  -  5 changed files
+alc check  -  3 checks against main  -  5 changed files
 
 Check               Status         Time
 --------------------------------------------
@@ -175,7 +175,7 @@ When complete, a full report prints with pass/fail status, agent output, and sug
 ## CLI Reference
 
 ```
-cn check [options]
+alc check [options]
 
 Options:
   --base <branch>     Base branch for diff (default: auto-detect)
@@ -191,10 +191,10 @@ Options:
 
 ## Troubleshooting
 
-| Problem                      | Solution                                                                              |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| "No changes detected"        | Make sure you have uncommitted changes or specify `--base`                            |
-| "No checks found"            | Create `.continue/agents/*.md` files or run `cn login` for Hub checks                 |
-| Check times out (5 min)      | Reduce diff size or split into focused agents                                         |
-| "Worker exited with code 1"  | Run with `--verbose` to see worker stderr                                             |
-| Patch conflicts with `--fix` | Apply patches manually: `cn check --patch > changes.patch && git apply changes.patch` |
+| Problem                      | Solution                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| "No changes detected"        | Make sure you have uncommitted changes or specify `--base`                             |
+| "No checks found"            | Create `.continue/agents/*.md` files or run `alc login` for Hub checks                 |
+| Check times out (5 min)      | Reduce diff size or split into focused agents                                          |
+| "Worker exited with code 1"  | Run with `--verbose` to see worker stderr                                              |
+| Patch conflicts with `--fix` | Apply patches manually: `alc check --patch > changes.patch && git apply changes.patch` |

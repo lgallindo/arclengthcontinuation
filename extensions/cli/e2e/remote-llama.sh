@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# E2E: headless cn against a remote OpenAI-compatible llama-server.
+# E2E: headless alc against a remote OpenAI-compatible llama-server.
 # Contract: SPEC_20260724T150000Z_CN_REMOTE_LLAMA.md
 # Requires: LLAMA_API_BASE (e.g. http://host:port/v1), LLAMA_MODEL (served id).
 set -euo pipefail
@@ -11,10 +11,10 @@ if [ -z "${LLAMA_API_BASE:-}" ] || [ -z "${LLAMA_MODEL:-}" ]; then
   exit 0
 fi
 
-# dist/cn.js is the executable wrapper that invokes runCli(); dist/index.js
+# dist/alc.js is the executable wrapper that invokes runCli(); dist/index.js
 # is only the bundle module and does nothing when executed directly.
-if [ ! -f dist/cn.js ]; then
-  echo "FAIL: dist/cn.js missing — run npm run build first" >&2
+if [ ! -f dist/alc.js ]; then
+  echo "FAIL: dist/alc.js missing — run npm run build first" >&2
   exit 1
 fi
 
@@ -37,10 +37,10 @@ EOF
 echo "E2E: probing $LLAMA_API_BASE/models"
 curl -sS -m 10 "$LLAMA_API_BASE/models" > /dev/null
 
-echo "E2E: running headless cn"
-output="$(FORCE_NO_TTY=true node dist/cn.js -p --config "$workdir/config.yaml" \
+echo "E2E: running headless alc"
+output="$(FORCE_NO_TTY=true node dist/alc.js -p --config "$workdir/config.yaml" \
   "Reply with exactly one word: PONG" 2>"$workdir/stderr.log")" || {
-  echo "FAIL: cn exited non-zero. stderr:" >&2
+  echo "FAIL: alc exited non-zero. stderr:" >&2
   cat "$workdir/stderr.log" >&2
   exit 1
 }

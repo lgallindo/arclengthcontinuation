@@ -43,7 +43,7 @@ bun run esbuild
 
 cd ../intellij
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 \
-GRADLE_USER_HOME=/home/lugatj/code/foss/continue/.gradle-home \
+GRADLE_USER_HOME="$PWD/.gradle-home" \
 ./gradlew buildPlugin --stacktrace
 ```
 

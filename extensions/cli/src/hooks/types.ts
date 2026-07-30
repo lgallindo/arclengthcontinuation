@@ -2,7 +2,7 @@
  * Claude Code-compatible hooks system for ArclengthContinuation CLI.
  *
  * These types match the exact schemas from Claude Code so that any hook
- * written for `claude` works with `cn` out of the box.
+ * written for `claude` works with `alc` out of the box.
  */
 
 // ---------------------------------------------------------------------------

@@ -87,7 +87,7 @@ Select the `Run Arclength-Continuation` task in the top right corner of the IDE 
 > a
 > different environment that supports debugging, such as VS Code (Launch "Core Binary").
 
-![run-extension-screenshot](../../media/run-continue-intellij.png)
+![run-extension-screenshot](../../media/run-arclength-intellij.png)
 
 This should open a new instance on IntelliJ with the extension installed.
 
