@@ -15,4 +15,6 @@ Before substantive work in this repo:
 
 Do **not** restyle https://lgallindo.github.io/ with product identity — that site is build notes only.
 
+**COMM-OPEN:** Any open/pending/backlog item in status tables must include what / why-open / done-looks-like. See `PROJECT_RULES.md` COMM-OPEN-* and `.cursor/rules/open-items-explained.mdc`.
+
 Internal artifacts: `PLAN_|ANALYSIS_|REPORT_|SPEC_` + `YYYYMMDDTHHMMSSZ` + `_TOPIC`. CLI rename candidates (`alc`/`arclc`/`arclen`/`arccont`) require bus announce — no silent rename.

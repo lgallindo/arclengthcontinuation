@@ -1,0 +1,18 @@
+---
+description: Open/pending items must be explained, not just listed
+alwaysApply: true
+---
+
+# Open items must be explained (COMM-OPEN)
+
+When reporting **open**, **pending**, **backlog**, or **TODO** items (including tables of demands, P-ids, BL-ids):
+
+1. **Never** list an open item as a bare label or ID alone.
+2. For **each** open item, include a short explanation covering:
+   - **What** it is (concrete scope)
+   - **Why** it remains open (blocker, deferral reason, or not started)
+   - **What “done” looks like** (one sentence)
+3. If an item was previously listed without explanation, **fix the message** in the same reply or the next status table — do not leave unexplained open rows.
+4. Closed items may stay terse; open items may not.
+
+Applies to chat replies, plan boards, and demand/resolution tables in this workspace.

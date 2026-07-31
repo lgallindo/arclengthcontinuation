@@ -71,3 +71,11 @@ This checkout (`~/code/foss/arclength-continuation`) is the primary working copy
 - Maintain the repository ledger and the Zim navigation layer under `docs/plans/` and `docs/wiki/`.
 - Preserve existing product documentation and user-authored dirty work; add successor records instead of overwriting prior evidence.
 - Product visual identity: [`docs/PRODUCT_IDENTITY.md`](docs/PRODUCT_IDENTITY.md).
+
+## Communication — open items (COMM-OPEN)
+
+| ID            | Rule                                                                                                                                                                                                                   |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| COMM-OPEN-001 | When reporting **open / pending / backlog** items (P-ids, BL-ids, demand tables), **each open row must explain** what it is, why it is still open, and what “done” looks like. Bare IDs or labels alone are forbidden. |
+| COMM-OPEN-002 | Closed items may stay terse. If a prior message listed open items without explanation, fix that in the same or next status reply.                                                                                      |
+| COMM-OPEN-003 | Cursor always-apply rule: [`.cursor/rules/open-items-explained.mdc`](.cursor/rules/open-items-explained.mdc). P7 detail: `.local/plans/EXPLAIN_20260731T193500Z_P7_CONTINUE_BRAND.md`.                                 |
