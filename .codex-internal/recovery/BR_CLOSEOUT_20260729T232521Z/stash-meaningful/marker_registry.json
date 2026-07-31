@@ -1,0 +1,45 @@
+[
+  {
+    "marker_id": "MKR-20260707T172348Z-0001",
+    "scope": "repo",
+    "target": ".",
+    "classification": "internal",
+    "marked_at": "2026-07-07T17:23:48+00:00",
+    "updated_at": "2026-07-07T17:23:48+00:00",
+    "performer_id": "Antigravity",
+    "rationale": "Internal fork for experimental feature development",
+    "notes": "Root namespace wrapper"
+  },
+  {
+    "marker_id": "MKR-20260707T172348Z-0002",
+    "scope": "path",
+    "target": "docs/ARCLENGTH_PLAN_20260707T142028Z.md",
+    "classification": "internal",
+    "marked_at": "2026-07-07T17:23:48+00:00",
+    "updated_at": "2026-07-07T17:23:48+00:00",
+    "performer_id": "Antigravity",
+    "rationale": "Sausage making feature plan",
+    "notes": "Draft documentation"
+  },
+  {
+    "marker_id": "MKR-20260707T172348Z-0003",
+    "scope": "path",
+    "target": "scripts/rebrand.py",
+    "classification": "internal",
+    "marked_at": "2026-07-07T17:23:48+00:00",
+    "updated_at": "2026-07-07T17:23:48+00:00",
+    "performer_id": "Antigravity",
+    "rationale": "Sausage making script",
+    "notes": "Temporary automation"
+  {
+    "marker_id": "MKR-20260712T161500Z-0004",
+    "scope": "repo",
+    "target": ".",
+    "classification": "internal",
+    "marked_at": "2026-07-12T16:15:00Z",
+    "updated_at": "2026-07-12T16:15:00Z",
+    "performer_id": "cursor-agent",
+    "rationale": "Push blocked until rebrand and relicensing complete",
+    "notes": "Operator policy 2026-07-12. websearch commit 3d45d410b already pushed; governance commits must stay local until gate clears."
+  }
+]

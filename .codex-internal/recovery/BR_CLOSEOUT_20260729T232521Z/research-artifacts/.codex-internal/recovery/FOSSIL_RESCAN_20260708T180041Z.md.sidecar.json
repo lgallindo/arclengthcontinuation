@@ -1,0 +1,8 @@
+{
+  "artifact": ".codex-internal/recovery/FOSSIL_RESCAN_20260708T180041Z.md",
+  "signed_by": "codex-cli",
+  "signed_at": "2026-07-08T18:00:41Z",
+  "rationale": "Rescan of pre-catastrophic recovery content using /home/lugatj/code/foss/continue as the effective home folder after the local merge.",
+  "usage": "Reference index for post-merge recovery, image-generation provenance, and multi-agent coordination context.",
+  "sha256": "c21771761f65e351e1e053cd4fb317d11cd0ca6a5d98eb7495487ab86134ad44"
+}

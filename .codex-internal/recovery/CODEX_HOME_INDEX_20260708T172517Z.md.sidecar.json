@@ -1,0 +1,11 @@
+{
+  "artifact": ".codex-internal/recovery/CODEX_HOME_INDEX_20260708T172517Z.md",
+  "artifact_sha256": "6235813142bf37c5c0f64cfd4e1e1a9e0485eaa197ca9c1ae92b682c79343bdd",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Index ~/.codex contents for local recovery without copying raw secret-bearing state.",
+  "signed_at": "2026-07-08T17:25:17Z",
+  "signed_by": "codex-cli",
+  "usage": "Use to locate sessions, generated images, state databases, plugin caches, and private Codex runtime files after crashes."
+}

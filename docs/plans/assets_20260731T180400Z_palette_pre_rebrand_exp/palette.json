@@ -1,0 +1,22 @@
+{
+  "source": "media/_stash/.../github-readme.pre-rebrand.PALETTE-REF-ONLY.png",
+  "rule": "Composition retired \u2014 colors only",
+  "hex": [
+    "#D0D0C0",
+    "#706080",
+    "#807090",
+    "#605070",
+    "#9080A0",
+    "#504060",
+    "#A090B0",
+    "#303060"
+  ],
+  "product_identity_bridge": {
+    "Paper": "#E8E2D6",
+    "Ink": "#2C2A28",
+    "Clay blue": "#6B7F8F",
+    "Oxide": "#A65D3F",
+    "Sage": "#7A8F6E",
+    "note": "Experiment: map pre-rebrand CRT-adjacent accents onto PRODUCT_IDENTITY tokens without shipping pre-rebrand art"
+  }
+}

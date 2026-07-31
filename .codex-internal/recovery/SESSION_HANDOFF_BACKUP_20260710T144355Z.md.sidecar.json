@@ -1,0 +1,12 @@
+{
+  "artifact": ".codex-internal/recovery/SESSION_HANDOFF_BACKUP_20260710T144355Z.md",
+  "artifact_sha256": "556f961495c6478d0015a87100755cb2f762de6d8cbb748cc5f9485f370e3106",
+  "source_path": "/home/lugatj/code/foss/arclength-continuation-fossil/SESSION_HANDOFF.md",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Pre-termination backup of repo-local SESSION_HANDOFF.md after cursor session pause entry.",
+  "signed_at": "2026-07-10T14:43:55Z",
+  "signed_by": "cursor-agent",
+  "usage": "Restore repo-local handoff log if SESSION_HANDOFF.md is lost or corrupted before next session."
+}

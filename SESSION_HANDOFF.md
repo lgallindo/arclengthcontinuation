@@ -16,3 +16,11 @@ _Append-only. Timestamped. Agents also write `docs/plans/AGENT_BUS.jsonl`._
 - naming: Prefer `arclc`/`arclen`/`arccont` discussion on bus before further `alc` churn; banners already at `media/readme.png` + `media/github-readme.png`.
 - rollback: Revert this handoff entry's files via normal commits; Pages deploy is separate repo `lgallindo.github.io`.
 - next: Codex/Cursor peers heartbeat on bus; README principle blurb; app chrome follow PRODUCT_IDENTITY when touching UI.
+
+## [2026-07-31T15:22:00-03:00]
+
+- **[DONE]** Conversation documented: `docs/plans/CONVERSATION_20260731T182226Z_PAGES_ARCLENGTH_BANNER_TRAIN.md`.
+- **[DONE]** D30: shipped proposal_r2_01→github-readme 2176x544, proposal_r2_03→readme 1500x500; prior LFS in `_stash/pre-d30-ship-*`.
+- **[DONE]** D32: GUI `THEME_COLORS` defaults mapped to PRODUCT_IDENTITY.
+- **[OPEN]** D28 hygiene (AGENT_BUS.jsonl, notebook.zim); D29 promote→main; D31 real runner.
+- **[NEXT]** Session terminate after commits/deploy of D30/D32.

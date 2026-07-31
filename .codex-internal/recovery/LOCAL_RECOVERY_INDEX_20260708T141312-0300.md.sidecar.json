@@ -1,0 +1,11 @@
+{
+  "artifact": ".codex-internal/recovery/LOCAL_RECOVERY_INDEX_20260708T141312-0300.md",
+  "artifact_sha256": "2cce7611b5b8be79395ea9e4a57ccbe69c0d4e94d482d805365c2ca1b517d585",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Moved prior root-level local recovery index into repo-internal artifact folder.",
+  "signed_at": "2026-07-08T17:25:17Z",
+  "signed_by": "codex-cli",
+  "usage": "Read when recovering the previous Codex/Antigravity rebranding session."
+}

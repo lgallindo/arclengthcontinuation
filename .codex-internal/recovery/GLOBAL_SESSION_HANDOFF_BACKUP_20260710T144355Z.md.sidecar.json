@@ -1,0 +1,12 @@
+{
+  "artifact": ".codex-internal/recovery/GLOBAL_SESSION_HANDOFF_BACKUP_20260710T144355Z.md",
+  "artifact_sha256": "207be46cc3b7c0d439eeb99274fad66e9a9be3e2a787951e499240061e08a349",
+  "source_path": "/home/lugatj/code/SESSION_HANDOFF.md",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Pre-termination backup of cross-workspace SESSION_HANDOFF mirror after FOSS114200 entry.",
+  "signed_at": "2026-07-10T14:43:55Z",
+  "signed_by": "cursor-agent",
+  "usage": "Restore global handoff mirror if ~/code/SESSION_HANDOFF.md is lost or corrupted before next session."
+}

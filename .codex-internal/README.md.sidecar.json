@@ -1,0 +1,11 @@
+{
+  "artifact": ".codex-internal/README.md",
+  "artifact_sha256": "83aca86edd1632828c1a7fb474f19a4dfade6c59c11c10c9e0f28ddc64a68bcc",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Index and usage instructions for repo-local internal artifacts.",
+  "signed_at": "2026-07-08T17:25:17Z",
+  "signed_by": "codex-cli",
+  "usage": "Future agents should read this file after AGENTS.md when performing recovery, rebranding, or Codex-internals work."
+}

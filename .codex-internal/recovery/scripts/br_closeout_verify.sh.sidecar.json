@@ -1,0 +1,10 @@
+{
+  "signed_by": "cursor-agent",
+  "signed_at": "2026-07-29T23:27:00Z",
+  "rationale": "Verify sha256 manifests for BR closeout archives",
+  "usage": "./br_closeout_verify.sh [--archive PATH]",
+  "pairs_with": [
+    "br_closeout_lossless.sh",
+    "../CALL_LOG_20260729T232700Z_BR_CLOSEOUT.md"
+  ]
+}
