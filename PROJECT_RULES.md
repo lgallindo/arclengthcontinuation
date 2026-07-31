@@ -16,7 +16,7 @@ notes: Keep this file focused on repository-local workflow; workspace rules rema
 
 ## Scope
 
-This checkout (`~/code/foss/arclength-continuation`) is the primary working copy for the ArclengthContinuation rebrand and consolidation effort. The research checkout (`~/code/research/arclengthcontinuation`) and VPS infrastructure checkout are related repositories, not alternate working directories for this repository.
+This checkout (`~/code/foss/arclength-continuation`) is the primary working copy for the ArclengthContinuation rebrand and consolidation effort. The former research dual-checkout was **retired** under `~/code/research/_retired/` after P6; do not recreate dual-checkout workflow without explicit authorization.
 
 ## Agent realtime bus (Cursor / Codex / peers)
 
