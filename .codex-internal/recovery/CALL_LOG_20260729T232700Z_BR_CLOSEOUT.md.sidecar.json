@@ -1,0 +1,11 @@
+{
+  "signed_by": "cursor-agent",
+  "signed_at": "2026-07-29T23:27:00Z",
+  "rationale": "Call log and script index for BR-001..BR-005 lossless closeout; replaces one-off bash",
+  "usage": "Read before re-running closeout. Prefer scripts/br_closeout_lossless.sh and scripts/br_closeout_verify.sh",
+  "scripts": [
+    "scripts/br_closeout_lossless.sh",
+    "scripts/br_closeout_verify.sh"
+  ],
+  "related_archive": "BR_CLOSEOUT_20260729T232521Z"
+}

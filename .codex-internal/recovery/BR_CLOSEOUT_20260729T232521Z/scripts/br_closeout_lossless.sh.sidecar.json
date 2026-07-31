@@ -1,0 +1,10 @@
+{
+  "signed_by": "cursor-agent",
+  "signed_at": "2026-07-29T23:27:00Z",
+  "rationale": "Durable lossless BR closeout script; no destructive git ops",
+  "usage": "./br_closeout_lossless.sh [--dry-run] [--primary PATH] [--research PATH]",
+  "pairs_with": [
+    "br_closeout_verify.sh",
+    "../CALL_LOG_20260729T232700Z_BR_CLOSEOUT.md"
+  ]
+}

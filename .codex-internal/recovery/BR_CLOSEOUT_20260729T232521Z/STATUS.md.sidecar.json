@@ -1,0 +1,9 @@
+{
+  "signed_by": "cursor-agent",
+  "signed_at": "2026-07-29T23:26:10Z",
+  "rationale": "Lossless BR-001..BR-005 closeout archive for arclength-continuation consolidation",
+  "usage": "Read STATUS.md before deleting research checkout or applying stash remnants",
+  "primary_checkout": "/home/lugatj/code/foss/arclength-continuation",
+  "research_checkout": "/home/lugatj/code/research/arclengthcontinuation",
+  "archive_root": "/home/lugatj/code/foss/arclength-continuation/.codex-internal/recovery/BR_CLOSEOUT_20260729T232521Z"
+}

@@ -1,0 +1,6 @@
+{
+  "signed_by": "cursor-agent",
+  "signed_at": "2026-07-30T00:02:00Z",
+  "rationale": "Implementation plan artifact for cn→alc / paths / images rebrand",
+  "usage": "Read PLAN.md and tables/ before editing; prefer allowlist over blind sed"
+}

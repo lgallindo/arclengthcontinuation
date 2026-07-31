@@ -32,3 +32,6 @@ coverage
 # e2e
 packages/continue-sdk
 .conductor
+
+# Historical Codex recovery snapshots (commit as-is; may contain invalid JSON/symlinks)
+.codex-internal/

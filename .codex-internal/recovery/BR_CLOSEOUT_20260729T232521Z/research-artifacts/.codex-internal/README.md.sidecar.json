@@ -1,0 +1,8 @@
+{
+  "artifact": ".codex-internal/README.md",
+  "signed_by": "codex-cli",
+  "signed_at": "2026-07-08T18:00:41Z",
+  "rationale": "Local-only artifact home marker and operational note for recovery work.",
+  "usage": "Read before recovery, rebranding, or multi-agent handoff work in this repo.",
+  "sha256": "8d09f1c22e8865d10543ac8086f3a4adbc4c13a8ac74f54997fea26b007294b1"
+}

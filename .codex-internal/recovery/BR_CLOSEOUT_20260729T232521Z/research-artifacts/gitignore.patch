@@ -1,0 +1,9 @@
+diff --git a/.gitignore b/.gitignore
+index 60305a04b..2f3c16ba3 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -179,3 +179,4 @@ keys
+ .copy-status
+ .copy-log
+ 
++REPO_ASSET_INDEX.md

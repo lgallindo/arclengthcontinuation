@@ -1,0 +1,29 @@
+ArclengthContinuation Fork Notice
+=================================
+
+This repository is a derivative work of Continue (https://github.com/continuedev/continue).
+
+Upstream
+--------
+Copyright Continue Dev, Inc. and contributors.
+Licensed under the Apache License, Version 2.0.
+See LICENSE.
+
+Fork Modifications (2026)
+-------------------------
+Copyright (c) 2026 Lucas Gallindo
+Licensed under GPL-3.0-or-later for new and substantially modified files.
+See LICENSE-COPYLEFT.md.
+
+File-Level SPDX Inventory (fork modifications, partial)
+-------------------------------------------------------
+- core/context/providers/embeddedWebSearch.ts — GPL-3.0-or-later
+- core/context/providers/embeddedWebSearch.vitest.ts — GPL-3.0-or-later
+- core/tools/implementations/searchWeb.ts — GPL-3.0-or-later
+- scripts/marker.py, scripts/marker_schema.json — GPL-3.0-or-later (internal governance)
+- AGENTS.md, PROJECT_RULES.md, AGENT_COORDINATION.md — internal governance (not for public release until audit complete)
+
+Third-Party
+-----------
+Node and Rust dependencies are listed in bun.lock / package-lock files and Cargo.lock where applicable.
+Complete dependency audit is pending before public release.

@@ -1,0 +1,11 @@
+{
+  "artifact": ".codex-internal/recovery/IMAGE_GENERATION_FINDINGS_20260708T172517Z.md",
+  "artifact_sha256": "d69c1be37efa0b77107e97899561f3e23a7de1096c17952f72c857b4b39cec6a",
+  "classification_state": "internal (sausage making), local-only, git-excluded",
+  "do_not_commit": true,
+  "git_exclusion": ".git/info/exclude -> .codex-internal/",
+  "rationale": "Summarize image-generation provenance and candidate purpose for README rebrand decision-making.",
+  "signed_at": "2026-07-08T17:25:17Z",
+  "signed_by": "codex-cli",
+  "usage": "Read before choosing or regenerating README banner images."
+}
