@@ -12,3 +12,4 @@
 {"ts":"2026-07-31T12:38:07Z","agent":"cursor-composer","event":"p6_merge_complete","note":"keep-both .gitignore; merge done on recovery/merge-research-main-20260731T123228Z"}
 {"ts":"2026-07-31T18:55:14Z","agent":"cursor-composer","event":"p6_step2b_done","note":"no-ff merge select-stash<-merge-research; 1a1daed13 pushed"}
 {"ts":"2026-07-31T18:56:47Z","agent":"cursor-composer","event":"p6_research_retired","note":"Moved research checkout to /home/lugatj/code/research/_retired/arclengthcontinuation-20260731T185646Z; leftovers in .local/research-retire-20260731T185646Z; removed research-local remote"}
+{"ts":"2026-07-31T19:37:22Z","agent":"cursor-composer","event":"comm_open_rule","note":"COMM-OPEN documented; P7/P8 explainers in .local/plans"}
