@@ -10,3 +10,5 @@
 {"ts":"2026-07-30T18:09:30Z","agent":"cursor-composer","event":"p1_arclen_pushed","note":"feat(cli) arclen committed+pushed 8b6c95d88; LFS banners also pushed; media opened in Explorer"}
 {"ts":"2026-07-30T18:31:05Z","agent":"cursor-composer","event":"p3_p4_p5_p6plan","note":"Sausage plans→.local gitignored; assets+P5 media LFS committed 691233b91; P6 minutiae plan in .local/plans"}
 {"ts":"2026-07-31T12:38:07Z","agent":"cursor-composer","event":"p6_merge_complete","note":"keep-both .gitignore; merge done on recovery/merge-research-main-20260731T123228Z"}
+{"ts":"2026-07-31T18:55:14Z","agent":"cursor-composer","event":"p6_step2b_done","note":"no-ff merge select-stash<-merge-research; 1a1daed13 pushed"}
+{"ts":"2026-07-31T18:56:47Z","agent":"cursor-composer","event":"p6_research_retired","note":"Moved research checkout to /home/lugatj/code/research/_retired/arclengthcontinuation-20260731T185646Z; leftovers in .local/research-retire-20260731T185646Z; removed research-local remote"}
