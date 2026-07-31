@@ -5,13 +5,15 @@
 
 ## Sources
 
-| ID      | Artifact                                                                                                      |
-| :------ | :------------------------------------------------------------------------------------------------------------ |
-| SRC-001 | [`docs/plans/PLAN_20260730T100600Z_BANNER_REPLACEMENT.md`](plans/PLAN_20260730T100600Z_BANNER_REPLACEMENT.md) |
-| SRC-002 | [`docs/plans/assets_20260730T140255Z_banners/`](plans/assets_20260730T140255Z_banners/)                       |
-| SRC-003 | [`media/readme.png`](../media/readme.png) (1500×500)                                                          |
-| SRC-004 | [`media/github-readme.png`](../media/github-readme.png) (2176×544)                                            |
-| SRC-005 | Research proposals (reference only): `~/code/research/arclengthcontinuation/media/arclength-proposals/`       |
+| ID      | Artifact                                                                                                                                                                  |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| SRC-001 | [`docs/plans/PLAN_20260730T100600Z_BANNER_REPLACEMENT.md`](plans/PLAN_20260730T100600Z_BANNER_REPLACEMENT.md)                                                             |
+| SRC-002 | [`docs/plans/assets_20260730T140255Z_banners/`](plans/assets_20260730T140255Z_banners/)                                                                                   |
+| SRC-003 | [`media/readme.png`](../media/readme.png) (1500×500)                                                                                                                      |
+| SRC-004 | [`media/github-readme.png`](../media/github-readme.png) (2176×544) — run-2 crop; replaces earlier weird-bottom-crop LFS                                                   |
+| SRC-005 | Stashed early proposals (reference only, not for shipping): [`media/_stash/arclength-proposals-20260731T175706Z/`](../media/_stash/arclength-proposals-20260731T175706Z/) |
+| SRC-006 | Run-2 uncropped generative source (not a ship target): `docs/plans/assets_20260730T172200Z_banner_run2/run2-github-readme-hero.png`                                       |
+| SRC-007 | Palette inspiration only (composition retired): `media/_stash/palette-ref-pre-rebrand-20260731T175706Z/` — do **not** use as banner; prefer SRC-004                       |
 
 ## Conceptual vocabulary
 
