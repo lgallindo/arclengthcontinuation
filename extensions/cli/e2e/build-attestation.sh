@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Lucas Gallindo
 # E2E: attest -> verify roundtrip + tamper detection for the cn bundle.
 # Contract: SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 set -euo pipefail

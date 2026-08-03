@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Lucas Gallindo
 # E2E: self-hosting loop — cn edits its own source, harness rebuilds,
 # tests, reinstalls, and verifies the edit in the reinstalled binary.
 # Contract: SPEC_20260724T154500Z_SELF_HOSTING_LOOP.md

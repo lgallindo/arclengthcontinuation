@@ -1,0 +1,24 @@
+ArclengthContinuation
+Copyright (c) 2026 Lucas Gallindo
+
+This product is a fork of Continue (https://github.com/continuedev/continue),
+Copyright (c) Continue Dev, Inc. and contributors, licensed under the Apache
+License, Version 2.0 (see LICENSE). The overwhelming majority of this
+repository's source is that unmodified or lightly-rebranded upstream code and
+remains Apache-2.0.
+
+New ArclengthContinuation modifications are licensed under GPL-3.0-or-later
+per LICENSE-COPYLEFT.md. Substantive fork-original work is concentrated in
+extensions/cli/ (build attestation, self-hosting-loop E2E, spec-driven E2E
+harness) — see file-level SPDX-License-Identifier headers on individual
+files for authoritative per-file licensing.
+
+Third-party code that must NOT be treated as relicensed by this fork,
+regardless of any package-level metadata:
+
+- core/vendor/modules/@xenova/transformers — Xenova/transformers.js,
+  Apache License 2.0. Vendored as-is; not modified by this fork.
+- extensions/cli/src/ui/utils/messageSplitting.ts (and its .test.ts) —
+  adapted from Google's Gemini CLI (https://github.com/google-gemini/gemini-cli),
+  Copyright 2025 Google LLC, Apache License 2.0. Modified for integration
+  with this project but not relicensed; see the file's own header.

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Lucas Gallindo
 # Source <-> binary attestation for the cn CLI bundle.
 # Contract: docs/specs/SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 #

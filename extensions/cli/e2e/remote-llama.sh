@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Lucas Gallindo
 # E2E: headless cn against a remote OpenAI-compatible llama-server.
 # Contract: SPEC_20260724T150000Z_CN_REMOTE_LLAMA.md
 # Requires: LLAMA_API_BASE (e.g. http://host:port/v1), LLAMA_MODEL (served id).
