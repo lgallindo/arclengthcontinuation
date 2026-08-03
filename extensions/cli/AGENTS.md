@@ -1,5 +1,8 @@
 # AGENTS.md
 
+## Agent tooling pointers
+- **BROWSER-001 (Playwright)**: Before browser automation (MCP or scripts), read the house Playwright agent guide at `~/code/research/bureaucracy/docs/workstation/PLAYWRIGHT_FOR_AGENTS_20260803T224500Z.md` (bureaucracy `docs/workstation/PLAYWRIGHT_FOR_AGENTS_20260803T224500Z.md`). Prefer Chromium + a11y snapshots; see that doc for install paths and FOSS MCP alternatives.
+
 This file provides guidance to AI coding agents when working with code in this repository.
 
 ## Development Commands
