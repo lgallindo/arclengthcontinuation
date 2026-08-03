@@ -2,7 +2,7 @@
 title: "Configuration"
 ---
 
-`crisfield` resolves its configuration (models, MCP servers, rules, etc.) from several sources, in this order:
+`cfld` resolves its configuration (models, MCP servers, rules, etc.) from several sources, in this order:
 
 1. **`--config` flag** — a file path passed at launch
 2. **Saved config** — the last-used configuration, persisted across sessions
@@ -10,10 +10,10 @@ title: "Configuration"
 
 ## `--config` flag
 
-Point `crisfield` at a local YAML file:
+Point `cfld` at a local YAML file:
 
 ```bash
-crisfield --config ./my-config.yaml
+cfld --config ./my-config.yaml
 ```
 
 This overrides any saved preference for the current session.
@@ -30,7 +30,7 @@ This shows your available local configs. The selection is saved for next time.
 
 ## `config.yaml`
 
-`crisfield` looks for `~/.continue/config.yaml`. This file uses the same format as the IDE extensions — see [config.yaml reference](/customize/deep-dives/configuration) for the full schema.
+`cfld` looks for `~/.continue/config.yaml`. This file uses the same format as the IDE extensions — see [config.yaml reference](/customize/deep-dives/configuration) for the full schema.
 
 ## CLI-specific flags
 
@@ -38,11 +38,11 @@ Several flags inject configuration at launch without editing a file:
 
 ```bash
 # Add rules (file path or inline string)
-crisfield --rule ./rules/style.md
-crisfield --rule "Always use TypeScript strict mode"
+cfld --rule ./rules/style.md
+cfld --rule "Always use TypeScript strict mode"
 
 # Load an agent file
-crisfield --agent my-org/pr-reviewer
+cfld --agent my-org/pr-reviewer
 ```
 
 All of these are repeatable — pass them multiple times to add multiple items.

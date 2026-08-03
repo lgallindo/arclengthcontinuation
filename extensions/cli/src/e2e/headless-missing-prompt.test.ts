@@ -45,9 +45,9 @@ models:
     expect(output).toContain(
       "A prompt is required when using the -p/--print flag",
     );
-    expect(output).toContain('crisfield -p "please review my current git diff"');
-    expect(output).toContain('echo "hello" | crisfield -p');
-    expect(output).toContain('crisfield -p "analyze the code in src/"');
+    expect(output).toContain('cfld -p "please review my current git diff"');
+    expect(output).toContain('echo "hello" | cfld -p');
+    expect(output).toContain('cfld -p "analyze the code in src/"');
   });
 
   it("should work correctly when prompt is provided with -p flag", async () => {

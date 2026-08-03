@@ -1,13 +1,13 @@
-# HTTP Wire Protocol: `crisfield remote` � `crisfield serve`
+# HTTP Wire Protocol: `cfld remote` � `cfld serve`
 
-This document describes the HTTP protocol used for communication between the `crisfield remote` client and `crisfield serve` server
+This document describes the HTTP protocol used for communication between the `cfld remote` client and `cfld serve` server
 
 ## Overview
 
 The protocol uses a polling-based REST API where:
 
-- The server (`crisfield serve`) runs an Express HTTP server on port 3000
-- The client (`crisfield remote`) polls the server every 500ms for state updates
+- The server (`cfld serve`) runs an Express HTTP server on port 3000
+- The client (`cfld remote`) polls the server every 500ms for state updates
 - All communication uses JSON payloads
 
 ## Endpoints

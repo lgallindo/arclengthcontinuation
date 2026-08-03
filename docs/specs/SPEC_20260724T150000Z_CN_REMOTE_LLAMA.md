@@ -1,8 +1,8 @@
-# SPEC: crisfield against a remote llama-server
+# SPEC: cfld against a remote llama-server
 
 ## Intent
 
-Run the `crisfield` CLI (extensions/cli) in headless mode against a remote
+Run the `cfld` CLI (extensions/cli) in headless mode against a remote
 OpenAI-compatible llama-server endpoint, so Arclength-Continuation works with
 self-hosted models without any hosted-API key. The endpoint is deliberately
 NOT hardcoded: it is injected via environment variables so public CI and the

@@ -17,7 +17,7 @@ const ModelCapabilityWarning: React.FC<ModelCapabilityWarningProps> = ({
         </Text>
       </Box>
       <Text color="gray">
-        The model "{modelName}" is not recommended for use with crisfield due to
+        The model "{modelName}" is not recommended for use with cfld due to
         limited reasoning and tool calling capabilities
       </Text>
     </Box>

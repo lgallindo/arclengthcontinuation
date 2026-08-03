@@ -1,5 +1,5 @@
 /**
- * Determines if a model is recommended for use with `crisfield`
+ * Determines if a model is recommended for use with `cfld`
  */
 export function isModelCapable(
   provider: string,

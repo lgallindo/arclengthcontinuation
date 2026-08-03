@@ -172,7 +172,7 @@ process.on("SIGINT", async () => {
 const program = new Command();
 
 program
-  .name("crisfield")
+  .name("cfld")
   .description(
     "ArclengthContinuation CLI - AI-powered development assistant. Starts an interactive session by default, use -p/--print for non-interactive output.",
   )
@@ -239,7 +239,7 @@ addCommonOptions(program)
       ask: options.ask,
       exclude: options.exclude,
       isRootCommand: true,
-      commandName: "crisfield",
+      commandName: "cfld",
     });
 
     if (!validation.isValid) {
@@ -282,12 +282,12 @@ addCommonOptions(program)
         "Error: A prompt is required when using the -p/--print flag, unless --prompt, --agent, or --resume is provided.\n\n",
       );
       safeStderr("Usage examples:\n");
-      safeStderr('  crisfield -p "please review my current git diff"\n');
-      safeStderr('  echo "hello" | crisfield -p\n');
-      safeStderr('  crisfield -p "analyze the code in src/"\n');
-      safeStderr("  crisfield -p --agent my-org/my-agent\n");
-      safeStderr("  crisfield -p --prompt my-org/my-prompt\n");
-      safeStderr("  crisfield -p --resume\n");
+      safeStderr('  cfld -p "please review my current git diff"\n');
+      safeStderr('  echo "hello" | cfld -p\n');
+      safeStderr('  cfld -p "analyze the code in src/"\n');
+      safeStderr("  cfld -p --agent my-org/my-agent\n");
+      safeStderr("  cfld -p --prompt my-org/my-prompt\n");
+      safeStderr("  cfld -p --resume\n");
       await gracefulExit(1);
     }
 
@@ -377,7 +377,7 @@ program.on("command:*", () => {
 });
 
 export async function runCli(): Promise<void> {
-  // Handle internal worker subprocess for crisfield review
+  // Handle internal worker subprocess for cfld review
   if (process.argv.includes("--internal-review-worker")) {
     const { runReviewWorker } = await import(
       "./commands/review/reviewWorker.js"

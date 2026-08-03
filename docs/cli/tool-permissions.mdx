@@ -20,13 +20,13 @@ Use `--allow`, `--ask`, and `--exclude` to override defaults at launch:
 
 ```bash
 # Allow file writes without prompting
-crisfield --allow Write --allow Edit
+cfld --allow Write --allow Edit
 
 # Exclude terminal commands
-crisfield --exclude Bash
+cfld --exclude Bash
 
 # Allow everything (headless automation)
-crisfield -p "Set up the project" --allow "*"
+cfld -p "Set up the project" --allow "*"
 ```
 
 Flags take precedence over all other permission sources.
@@ -41,10 +41,10 @@ Flags accept tool matching patterns:
 
 ```bash
 # Allow writing only to TypeScript files
-crisfield --allow "Write(**/*.ts)"
+cfld --allow "Write(**/*.ts)"
 
 # Allow bash but not for install commands
-crisfield --allow Bash --exclude "Bash(npm install*)"
+cfld --allow Bash --exclude "Bash(npm install*)"
 ```
 
 ## `permissions.yaml`
@@ -79,8 +79,8 @@ When multiple sources define a permission for the same tool, the highest-priorit
 Modes are a shorthand for common permission sets. Switch modes with `Shift+Tab` during a TUI session, or set them at launch:
 
 ```bash
-crisfield --auto       # Allow all tools without prompting
-crisfield --readonly   # Plan mode — read-only tools only, no file writes
+cfld --auto       # Allow all tools without prompting
+cfld --readonly   # Plan mode — read-only tools only, no file writes
 ```
 
 | Mode | Effect |

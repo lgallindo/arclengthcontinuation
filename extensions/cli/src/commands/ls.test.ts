@@ -147,7 +147,7 @@ describe("listSessionsCommand", () => {
     await listSessionsCommand({});
 
     expect(consoleSpy).toHaveBeenCalledWith(
-      "No previous sessions found. Start a new conversation with: crisfield",
+      "No previous sessions found. Start a new conversation with: cfld",
     );
 
     consoleSpy.mockRestore();

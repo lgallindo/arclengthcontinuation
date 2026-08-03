@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Lucas Gallindo
-# E2E: attest -> verify roundtrip + tamper detection for the crisfield bundle.
+# E2E: attest -> verify roundtrip + tamper detection for the cfld bundle.
 # Contract: SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 set -euo pipefail
 
@@ -27,14 +27,14 @@ if [ -f dist/BUILD_ATTESTATION.json.sig ]; then
 fi
 
 # Tamper detection: flipping one byte in the bundle must fail verify.
-cp dist/crisfield.js /tmp/crisfield.js.bak
-printf '\n// tamper\n' >> dist/crisfield.js
+cp dist/cfld.js /tmp/cfld.js.bak
+printf '\n// tamper\n' >> dist/cfld.js
 if ./scripts/attest-build.sh verify dist/BUILD_ATTESTATION.json 2>/dev/null; then
-  mv /tmp/crisfield.js.bak dist/crisfield.js
+  mv /tmp/cfld.js.bak dist/cfld.js
   echo "FAIL: tampered bundle passed verification"
   exit 1
 fi
-mv /tmp/crisfield.js.bak dist/crisfield.js
+mv /tmp/cfld.js.bak dist/cfld.js
 echo "TAMPER-DETECTION-OK"
 
 echo "BUILD-ATTESTATION-E2E-OK"

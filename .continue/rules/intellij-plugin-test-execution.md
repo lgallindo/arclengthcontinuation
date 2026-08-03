@@ -10,11 +10,11 @@ Run IntelliJ plugin tests using Gradle with the fully qualified test class or me
 ## Run test class
 
 ```bash
-./gradlew test --tests "com.github.lgallindo.crisfieldintellijextension.unit.ApplyToFileHandlerTest"
+./gradlew test --tests "com.github.lgallindo.cfldintellijextension.unit.ApplyToFileHandlerTest"
 ```
 
 ## Run specific test method
 
 ```bash
-./gradlew test --tests "com.github.lgallindo.crisfieldintellijextension.unit.ApplyToFileHandlerTest.should*"
+./gradlew test --tests "com.github.lgallindo.cfldintellijextension.unit.ApplyToFileHandlerTest.should*"
 ```

@@ -15,7 +15,7 @@
 - [ ] Input field shows typed text
 - [ ] Input field clears after pressing Enter
 - [ ] Input field handles special characters
-- [ ] Input prompt shows correctly ("crisfield>" or custom)
+- [ ] Input prompt shows correctly ("cfld>" or custom)
 
 ### Loading State Tests
 

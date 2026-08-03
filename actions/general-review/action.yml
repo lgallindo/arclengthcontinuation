@@ -300,13 +300,13 @@ runs:
         # Test Arclength-Continuation CLI availability
         if [ "$SKIP_CLI" != "true" ]; then
           echo "Testing Arclength-Continuation CLI..."
-          if ! which crisfield > /dev/null 2>&1; then
+          if ! which cfld > /dev/null 2>&1; then
             echo "Warning: Arclength-Continuation CLI not found or not working"
             node .continue-action-scripts/writeMarkdown.js code_review.md cli_install_failed
             echo "SKIP_CLI=true" >> $GITHUB_ENV
           else
-            echo "Arclength-Continuation CLI found at: $(which crisfield)"
-            echo "Arclength-Continuation CLI version: $(crisfield --version 2>/dev/null || echo 'version check failed')"
+            echo "Arclength-Continuation CLI found at: $(which cfld)"
+            echo "Arclength-Continuation CLI version: $(cfld --version 2>/dev/null || echo 'version check failed')"
           fi
         fi
 
@@ -321,9 +321,9 @@ runs:
           echo "Prompt length: $(wc -c < "$PROMPT_FILE") characters"
           
           # Use timeout to prevent hanging (360 seconds = 6 minutes)
-          echo "Executing command: crisfield --agent $CONTINUE_ORG/$CONTINUE_AGENT -p @$PROMPT_FILE --allow Bash"
+          echo "Executing command: cfld --agent $CONTINUE_ORG/$CONTINUE_AGENT -p @$PROMPT_FILE --allow Bash"
           
-          if timeout 360 crisfield --agent "$CONTINUE_ORG/$CONTINUE_AGENT" -p "@$PROMPT_FILE" --allow Bash > code_review_raw.md 2>cli_error.log; then
+          if timeout 360 cfld --agent "$CONTINUE_ORG/$CONTINUE_AGENT" -p "@$PROMPT_FILE" --allow Bash > code_review_raw.md 2>cli_error.log; then
             echo "Arclength-Continuation CLI completed successfully"
             echo "Raw output length: $(wc -c < code_review_raw.md) characters"
             

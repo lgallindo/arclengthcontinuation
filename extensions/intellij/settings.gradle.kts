@@ -1,1 +1,1 @@
-rootProject.name = "crisfield-intellij-extension"
+rootProject.name = "cfld-intellij-extension"

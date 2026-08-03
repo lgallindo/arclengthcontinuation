@@ -1,10 +1,10 @@
-# Devbox entrypoint behavior (crisfield serve)
+# Devbox entrypoint behavior (cfld serve)
 
-Context: runloop resumes a devbox by re-running the same entrypoint script, which invokes `crisfield serve --id <agentId> ...`. Because the entrypoint always replays, the CLI must avoid duplicating state on restart.
+Context: runloop resumes a devbox by re-running the same entrypoint script, which invokes `cfld serve --id <agentId> ...`. Because the entrypoint always replays, the CLI must avoid duplicating state on restart.
 
 - **Session reuse:** `serve` now calls `loadOrCreateSessionById` when `--id` is provided so the same session file is reused instead of generating a new UUID. This keeps chat history intact across suspend/resume.
 - **Skip replaying the initial prompt:** `shouldQueueInitialPrompt` checks existing history and only queues the initial prompt when there are no non-system messages. This prevents the first prompt from being resent when a suspended devbox restarts.
-- **Environment persistence:** The devbox entrypoint (control-plane) writes all env vars to `~/.continue/devbox-env` and sources it before `crisfield serve`, so keys survive suspend/resume. The CLI assumes env is already present.
+- **Environment persistence:** The devbox entrypoint (control-plane) writes all env vars to `~/.continue/devbox-env` and sources it before `cfld serve`, so keys survive suspend/resume. The CLI assumes env is already present.
 
 Operational notes:
 

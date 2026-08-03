@@ -204,19 +204,19 @@ export class UpdateService extends BaseService<UpdateServiceState> {
         )}`,
       );
 
-      // Halt/clean up parent crisfield process
+      // Halt/clean up parent cfld process
       try {
         // Remove all input listeners
         global.clearTimeout = () => {};
         global.clearInterval = () => {};
         process.stdin.removeAllListeners();
         process.stdin.pause();
-        // console.clear(); // Don't want to clear things that were in console before crisfield started
+        // console.clear(); // Don't want to clear things that were in console before cfld started
       } catch (e) {
         logger.debug("Error cleaning up terminal:", e);
       }
 
-      // Spawn a new detached crisfield process
+      // Spawn a new detached cfld process
       const child = spawn(nodeExecutable, [entryPoint, ...cliArgs], {
         detached: true,
         stdio: "inherit",

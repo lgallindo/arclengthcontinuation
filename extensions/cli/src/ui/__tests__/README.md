@@ -4,13 +4,13 @@ This directory contains a comprehensive testing framework for the Arclength-Cont
 
 ## Overview
 
-The testing framework ensures that the TUI behaves consistently whether running locally or connected to a remote `crisfield serve` instance. Most tests run in both modes automatically, verifying feature parity between local and remote operation.
+The testing framework ensures that the TUI behaves consistently whether running locally or connected to a remote `cfld serve` instance. Most tests run in both modes automatically, verifying feature parity between local and remote operation.
 
 ## Key Components
 
 ### 1. Mock Remote Server (`mockRemoteServer.ts`)
 
-A mock Express server that simulates the `crisfield serve` endpoints:
+A mock Express server that simulates the `cfld serve` endpoints:
 
 - `GET /state` - Returns current chat state
 - `POST /message` - Receives user messages and can simulate responses

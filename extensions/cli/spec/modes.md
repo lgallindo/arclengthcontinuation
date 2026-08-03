@@ -40,9 +40,9 @@ Auto mode that **completely overrides all user permissions** to allow everything
 Modes can be set when starting the CLI:
 
 ```bash
-crisfield --readonly "Help me analyze this code"  # Starts in plan mode
-crisfield --auto "Fix all the linting errors"     # Starts in auto mode
-crisfield "Let me implement this feature"         # Starts in normal mode (default)
+cfld --readonly "Help me analyze this code"  # Starts in plan mode
+cfld --auto "Fix all the linting errors"     # Starts in auto mode
+cfld "Let me implement this feature"         # Starts in normal mode (default)
 ```
 
 ### Dynamic Mode Switching

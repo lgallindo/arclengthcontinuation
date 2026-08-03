@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Lucas Gallindo
-# Source <-> binary attestation for the crisfield CLI bundle.
+# Source <-> binary attestation for the cfld CLI bundle.
 # Contract: docs/specs/SPEC_20260724T190500Z_BUILD_ATTESTATION.md
 #
 #   attest-build.sh attest            build + write dist/BUILD_ATTESTATION.json (+ .sig)
@@ -37,7 +37,7 @@ write_attestation() {
   node -e '
     const fs = require("fs");
     const doc = {
-      schema: "crisfield-build-attestation/1",
+      schema: "cfld-build-attestation/1",
       commit: process.argv[1],
       dirty: false,
       timestamp: new Date().toISOString(),
@@ -48,13 +48,13 @@ write_attestation() {
       },
       digests_sha256: {
         "package-lock.json": process.argv[4],
-        "dist/crisfield.js": process.argv[5],
+        "dist/cfld.js": process.argv[5],
         "dist/index.js": process.argv[6],
       },
     };
     fs.writeFileSync(process.argv[7], JSON.stringify(doc, null, 2) + "\n");
   ' "$commit" "$(npm --version)" "$(esbuild_version)" \
-    "$(sha package-lock.json)" "$(sha dist/crisfield.js)" "$(sha dist/index.js)" \
+    "$(sha package-lock.json)" "$(sha dist/cfld.js)" "$(sha dist/index.js)" \
     "$ATTESTATION"
   echo "ATTESTATION written: $ATTESTATION"
 
@@ -86,14 +86,14 @@ verify_attestation() {
   # The current bundle digests must match BEFORE the rebuild (artifact under
   # test), and the rebuild must reproduce them (source equivalence).
   local claim_cn claim_idx
-  claim_cn="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/crisfield.js"]' "$file")"
+  claim_cn="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/cfld.js"]' "$file")"
   claim_idx="$(node -pe 'JSON.parse(require("fs").readFileSync(process.argv[1])).digests_sha256["dist/index.js"]' "$file")"
 
-  [ "$(sha dist/crisfield.js)" = "$claim_cn" ] || { echo "FAIL: dist/crisfield.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
+  [ "$(sha dist/cfld.js)" = "$claim_cn" ] || { echo "FAIL: dist/cfld.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
   [ "$(sha dist/index.js)" = "$claim_idx" ] || { echo "FAIL: dist/index.js digest mismatch (artifact tampered or stale)" >&2; exit 1; }
 
   do_build
-  [ "$(sha dist/crisfield.js)" = "$claim_cn" ] || { echo "FAIL: rebuild produced different dist/crisfield.js" >&2; exit 1; }
+  [ "$(sha dist/cfld.js)" = "$claim_cn" ] || { echo "FAIL: rebuild produced different dist/cfld.js" >&2; exit 1; }
   [ "$(sha dist/index.js)" = "$claim_idx" ] || { echo "FAIL: rebuild produced different dist/index.js" >&2; exit 1; }
 
   echo "VERIFY-OK: source at $actual_commit reproduces the attested bundle"

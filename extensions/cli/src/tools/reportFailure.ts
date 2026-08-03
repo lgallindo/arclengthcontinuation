@@ -55,7 +55,7 @@ export const reportFailureTool: Tool = {
       const agentId = getAgentIdFromArgs();
       if (!agentId) {
         const errorMessage =
-          "Agent ID is required. Please use the --id flag with crisfield serve.";
+          "Agent ID is required. Please use the --id flag with cfld serve.";
         logger.error(errorMessage);
         throw new ArclengthContinuationError(
           ArclengthContinuationErrorReason.Unspecified,

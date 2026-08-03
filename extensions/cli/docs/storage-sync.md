@@ -1,14 +1,14 @@
-# Storage Sync Flow for `crisfield serve`
+# Storage Sync Flow for `cfld serve`
 
 ## Overview
 
-The `--id <storageId>` flag enables the `crisfield serve` command to periodically persist session state to an external Arclength-Continuation-managed storage bucket. On startup, the CLI exchanges the provided `storageId` for two pre-signed S3 URLs - one for `session.json` and one for `diff.txt` - and then pushes fresh copies of those files every 30 seconds.
+The `--id <storageId>` flag enables the `cfld serve` command to periodically persist session state to an external Arclength-Continuation-managed storage bucket. On startup, the CLI exchanges the provided `storageId` for two pre-signed S3 URLs - one for `session.json` and one for `diff.txt` - and then pushes fresh copies of those files every 30 seconds.
 
 This document captures the responsibilities for both the CLI and backend components so we can iterate on the feature together.
 
 ## CLI Responsibilities
 
-- **Flag plumbing**: When `crisfield serve` is invoked with `--id <storageId>`, the CLI treats that value as an opaque identifier.
+- **Flag plumbing**: When `cfld serve` is invoked with `--id <storageId>`, the CLI treats that value as an opaque identifier.
 - **API key auth**: The CLI attaches the user-level Arclength-Continuation API key (same mechanism we already use for other authenticated requests) to backend calls.
 - **Presign handshake**:
   1. On startup, issue `POST https://api.arclength-continuation.dev/agents/storage/presigned-url` with JSON payload `{ "storageId": "<storageId>" }`.

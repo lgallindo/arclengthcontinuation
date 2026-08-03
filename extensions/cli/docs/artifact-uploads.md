@@ -138,7 +138,7 @@ The backend calculates total storage by summing all files under the session's S3
 The `UploadArtifact` tool is available when running with the beta flag:
 
 ```bash
-crisfield serve --id <agentSessionId> --beta-upload-artifact-tool
+cfld serve --id <agentSessionId> --beta-upload-artifact-tool
 ```
 
 Agents can then use the built-in `UploadArtifact` tool to upload files:
@@ -166,7 +166,7 @@ The tool will:
 
 - Must run with `--id <agentSessionId>` (agent mode)
 - Must enable `--beta-upload-artifact-tool` flag
-- User must be authenticated (`crisfield login`)
+- User must be authenticated (`cfld login`)
 
 ### Programmatic Upload (Service API)
 

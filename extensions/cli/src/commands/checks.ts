@@ -272,12 +272,12 @@ async function rejectChecks(prUrl: string): Promise<void> {
 }
 
 /**
- * Main entry point for `crisfield checks` command.
+ * Main entry point for `cfld checks` command.
  *
  * Usage:
- *   crisfield checks [pr-url]              - List checks with diffs
- *   crisfield checks accept [pr-url]       - Accept pending suggestions
- *   crisfield checks reject [pr-url]       - Reject pending suggestions
+ *   cfld checks [pr-url]              - List checks with diffs
+ *   cfld checks accept [pr-url]       - Accept pending suggestions
+ *   cfld checks reject [pr-url]       - Reject pending suggestions
  */
 export async function checks(
   actionOrUrl: string | undefined,

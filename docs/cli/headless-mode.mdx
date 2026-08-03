@@ -2,27 +2,27 @@
 title: "Headless Mode"
 ---
 
-Run `crisfield -p "your prompt"` to execute a single task without an interactive session. The agent runs to completion and prints its response to stdout.
+Run `cfld -p "your prompt"` to execute a single task without an interactive session. The agent runs to completion and prints its response to stdout.
 
 ```bash
-crisfield -p "Generate a conventional commit message for the staged changes"
+cfld -p "Generate a conventional commit message for the staged changes"
 ```
 
 ## Piping
 
-Pipe data into `crisfield` to include it as context:
+Pipe data into `cfld` to include it as context:
 
 ```bash
-git diff --staged | crisfield -p "Write a commit message for this diff"
-cat error.log | crisfield -p "Explain what went wrong"
-curl -s https://api.example.com/health | crisfield -p "Is this healthy?"
+git diff --staged | cfld -p "Write a commit message for this diff"
+cat error.log | cfld -p "Explain what went wrong"
+curl -s https://api.example.com/health | cfld -p "Is this healthy?"
 ```
 
 Pipe the output into other tools:
 
 ```bash
-crisfield -p "Generate a commit message" | git commit -F -
-crisfield -p "List all TODO comments in src/" --silent > todos.txt
+cfld -p "Generate a commit message" | git commit -F -
+cfld -p "List all TODO comments in src/" --silent > todos.txt
 ```
 
 ## Output options
@@ -40,10 +40,10 @@ In headless mode, tools that would normally prompt for approval (`ask` permissio
 
 ```bash
 # Allow the agent to write files
-crisfield -p "Fix the type errors in src/" --allow Write --allow Edit
+cfld -p "Fix the type errors in src/" --allow Write --allow Edit
 
 # Allow everything
-crisfield -p "Set up the project" --allow "*"
+cfld -p "Set up the project" --allow "*"
 ```
 
 See [tool permissions](/cli/tool-permissions) for the full policy system.
@@ -53,7 +53,7 @@ See [tool permissions](/cli/tool-permissions) for the full policy system.
 Resume a previous session without interactive input:
 
 ```bash
-crisfield -p --resume
+cfld -p --resume
 ```
 
 This replays the previous session's history, which can be useful for inspecting past results in automation.
@@ -62,14 +62,14 @@ This replays the previous session's history, which can be useful for inspecting 
 
 ```bash
 # Git hooks
-crisfield -p "Review staged changes for obvious bugs" --silent
+cfld -p "Review staged changes for obvious bugs" --silent
 
 # CI pipeline — allow file writes for auto-fix
-crisfield -p "Fix all ESLint errors in src/" --allow Write --allow Edit --allow Bash
+cfld -p "Fix all ESLint errors in src/" --allow Write --allow Edit --allow Bash
 
 # Generate docs from code
-crisfield -p "@src/api/ Generate OpenAPI documentation for these endpoints" --silent > api-docs.yaml
+cfld -p "@src/api/ Generate OpenAPI documentation for these endpoints" --silent > api-docs.yaml
 
 # Use a specific assistant
-crisfield -p "Triage this error log" --config my-org/error-triage-assistant
+cfld -p "Triage this error log" --config my-org/error-triage-assistant
 ```

@@ -4,12 +4,12 @@ import React, { useMemo } from "react";
 // Array of helpful tips for ArclengthContinuation CLI users
 const CONTINUE_CLI_TIPS = [
   "Use `/help` to learn keyboard shortcuts",
-  "Press escape to pause crisfield, and press enter to continue",
+  "Press escape to pause cfld, and press enter to continue",
   "Use arrow keys (↑/↓) to navigate through your input history",
   'Multi-line input is supported by typing "\\" and pressing enter',
-  "Use `crisfield ls` or `/resume` to resume a previous conversation",
-  'Run `crisfield` with the `-p` flag for headless mode. For example: `crisfield -p "Generate a commit message for the current changes. Output _only_ the commit message and nothing else."`',
-  "Use the /init slash command to generate an AGENTS.md file. This will help `crisfield` understand your codebase and generate better responses.",
+  "Use `cfld ls` or `/resume` to resume a previous conversation",
+  'Run `cfld` with the `-p` flag for headless mode. For example: `cfld -p "Generate a commit message for the current changes. Output _only_ the commit message and nothing else."`',
+  "Use the /init slash command to generate an AGENTS.md file. This will help `cfld` understand your codebase and generate better responses.",
 ];
 
 interface TipsDisplayProps {
