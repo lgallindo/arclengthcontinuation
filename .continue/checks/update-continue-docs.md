@@ -87,4 +87,4 @@ Determine if the Arclength-Continuation Docs should be updated based on the chan
 
 # Context: Arclength-Continuation
 
-Arclength-Continuation is the leading open-source AI coding agent, with IDE extensions for VS Code and JetBrains, as well as a CLI, `cn`.
+Arclength-Continuation is the leading open-source AI coding agent, with IDE extensions for VS Code and JetBrains, as well as a CLI, `crisfield`.
