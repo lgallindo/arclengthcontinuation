@@ -180,3 +180,6 @@ keys
 .copy-log
 
 REPO_ASSET_INDEX.md
+
+# Local-only scratch/notes/findings — never tracked, never published
+.local/
