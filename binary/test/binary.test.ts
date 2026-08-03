@@ -172,9 +172,9 @@ describe("Test Suite", () => {
     const [platform, arch] = autodetectPlatformAndArch();
     const binaryDir = path.join(__dirname, "..", "bin", `${platform}-${arch}`);
     const exe = platform === "win32" ? ".exe" : "";
-    const binaryPath = path.join(binaryDir, `continue-binary${exe}`);
+    const binaryPath = path.join(binaryDir, `crisfield${exe}`);
     const expectedItems = [
-      `continue-binary${exe}`,
+      `crisfield${exe}`,
       `rg${exe}`,
       "index.node",
       "package.json",
