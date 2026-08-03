@@ -499,9 +499,9 @@ async function runHeadlessMode(
     }
 
     throw new Error(
-      'Headless mode requires a prompt. Use: cn -p "your prompt"\n' +
-        'Or pipe input: echo "prompt" | cn -p\n' +
-        "Or use agent files: cn -p --agent my-org/my-agent\n" +
+      'Headless mode requires a prompt. Use: crisfield -p "your prompt"\n' +
+        'Or pipe input: echo "prompt" | crisfield -p\n' +
+        "Or use agent files: crisfield -p --agent my-org/my-agent\n" +
         "Note: Agent files must contain a prompt field.",
     );
   }

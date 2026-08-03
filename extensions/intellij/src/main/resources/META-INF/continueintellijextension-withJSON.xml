@@ -1,10 +1,10 @@
 <idea-plugin>
     <extensions defaultExtensionNs="JavaScript.JsonSchema">
         <ProviderFactory
-                implementation="com.github.continuedev.continueintellijextension.continue.ConfigJsonSchemaProviderFactory"/>
+                implementation="com.github.lgallindo.crisfieldintellijextension.continue.ConfigJsonSchemaProviderFactory"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript.JsonSchema">
         <ProviderFactory
-                implementation="com.github.continuedev.continueintellijextension.continue.ConfigRcJsonSchemaProviderFactory"/>
+                implementation="com.github.lgallindo.crisfieldintellijextension.continue.ConfigRcJsonSchemaProviderFactory"/>
     </extensions>
 </idea-plugin>

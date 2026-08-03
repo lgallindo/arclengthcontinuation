@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (c) 2026 Lucas Gallindo
-# E2E: headless cn against a remote OpenAI-compatible llama-server.
+# E2E: headless crisfield against a remote OpenAI-compatible llama-server.
 # Contract: SPEC_20260724T150000Z_CN_REMOTE_LLAMA.md
 # Requires: LLAMA_API_BASE (e.g. http://host:port/v1), LLAMA_MODEL (served id).
 set -euo pipefail
@@ -13,10 +13,10 @@ if [ -z "${LLAMA_API_BASE:-}" ] || [ -z "${LLAMA_MODEL:-}" ]; then
   exit 0
 fi
 
-# dist/cn.js is the executable wrapper that invokes runCli(); dist/index.js
+# dist/crisfield.js is the executable wrapper that invokes runCli(); dist/index.js
 # is only the bundle module and does nothing when executed directly.
-if [ ! -f dist/cn.js ]; then
-  echo "FAIL: dist/cn.js missing — run npm run build first" >&2
+if [ ! -f dist/crisfield.js ]; then
+  echo "FAIL: dist/crisfield.js missing — run npm run build first" >&2
   exit 1
 fi
 
@@ -39,10 +39,10 @@ EOF
 echo "E2E: probing $LLAMA_API_BASE/models"
 curl -sS -m 10 "$LLAMA_API_BASE/models" > /dev/null
 
-echo "E2E: running headless cn"
-output="$(FORCE_NO_TTY=true node dist/cn.js -p --config "$workdir/config.yaml" \
+echo "E2E: running headless crisfield"
+output="$(FORCE_NO_TTY=true node dist/crisfield.js -p --config "$workdir/config.yaml" \
   "Reply with exactly one word: PONG" 2>"$workdir/stderr.log")" || {
-  echo "FAIL: cn exited non-zero. stderr:" >&2
+  echo "FAIL: crisfield exited non-zero. stderr:" >&2
   cat "$workdir/stderr.log" >&2
   exit 1
 }

@@ -1,13 +1,13 @@
-# HTTP Wire Protocol: `cn remote` � `cn serve`
+# HTTP Wire Protocol: `crisfield remote` � `crisfield serve`
 
-This document describes the HTTP protocol used for communication between the `cn remote` client and `cn serve` server
+This document describes the HTTP protocol used for communication between the `crisfield remote` client and `crisfield serve` server
 
 ## Overview
 
 The protocol uses a polling-based REST API where:
 
-- The server (`cn serve`) runs an Express HTTP server on port 3000
-- The client (`cn remote`) polls the server every 500ms for state updates
+- The server (`crisfield serve`) runs an Express HTTP server on port 3000
+- The client (`crisfield remote`) polls the server every 500ms for state updates
 - All communication uses JSON payloads
 
 ## Endpoints

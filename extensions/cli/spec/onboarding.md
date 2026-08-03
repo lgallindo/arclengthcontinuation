@@ -1,6 +1,6 @@
 # Onboarding
 
-When a user first runs `cn` in interactive mode, they will be taken through "onboarding". After they have completed onboarding once, they will follow a normal config loading flow.
+When a user first runs `crisfield` in interactive mode, they will be taken through "onboarding". After they have completed onboarding once, they will follow a normal config loading flow.
 
 ## Onboarding flow
 
@@ -40,7 +40,7 @@ When a user first runs `cn` in interactive mode, they will be taken through "onb
 Users can rerun provider setup at any time:
 
 ```bash
-cn setup
+crisfield setup
 ```
 
 When something in the onboarding flow is done automatically, we should tell the user what happened. For example, when CONTINUE_USE_BEDROCK=1 is detected, the CLI displays: "✓ Using AWS Bedrock (CONTINUE_USE_BEDROCK detected)"
@@ -51,7 +51,7 @@ Users can bypass the interactive onboarding menu by setting the `CONTINUE_USE_BE
 
 ```bash
 export CONTINUE_USE_BEDROCK=1
-cn <command>
+crisfield <command>
 ```
 
 This will:

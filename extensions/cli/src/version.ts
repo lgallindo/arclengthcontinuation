@@ -39,7 +39,7 @@ export async function getLatestVersion(
     try {
       const id = getEventUserId();
       const response = await fetch(
-        `https://api.arclength-continuation.dev/cn/info?id=${encodeURIComponent(id)}`,
+        `https://api.arclength-continuation.dev/crisfield/info?id=${encodeURIComponent(id)}`,
         { signal },
       );
       if (!response.ok) {
