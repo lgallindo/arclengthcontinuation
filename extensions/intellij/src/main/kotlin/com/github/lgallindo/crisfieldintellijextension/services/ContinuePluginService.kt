@@ -1,13 +1,13 @@
-package com.github.continuedev.continueintellijextension.services
+package com.github.lgallindo.crisfieldintellijextension.services
 
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessenger
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessengerManager
-import com.github.continuedev.continueintellijextension.`continue`.DiffManager
-import com.github.continuedev.continueintellijextension.`continue`.IdeProtocolClient
-import com.github.continuedev.continueintellijextension.listeners.ActiveHandlerManager
-import com.github.continuedev.continueintellijextension.listeners.DocumentChangeTracker
-import com.github.continuedev.continueintellijextension.toolWindow.ContinuePluginToolWindowFactory
-import com.github.continuedev.continueintellijextension.utils.uuid
+import com.github.lgallindo.crisfieldintellijextension.`continue`.CoreMessenger
+import com.github.lgallindo.crisfieldintellijextension.`continue`.CoreMessengerManager
+import com.github.lgallindo.crisfieldintellijextension.`continue`.DiffManager
+import com.github.lgallindo.crisfieldintellijextension.`continue`.IdeProtocolClient
+import com.github.lgallindo.crisfieldintellijextension.listeners.ActiveHandlerManager
+import com.github.lgallindo.crisfieldintellijextension.listeners.DocumentChangeTracker
+import com.github.lgallindo.crisfieldintellijextension.toolWindow.ContinuePluginToolWindowFactory
+import com.github.lgallindo.crisfieldintellijextension.utils.uuid
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service

@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.autocomplete.ContinueInlineCompletionProvider
-import com.github.continuedev.continueintellijextension.autocomplete.CompletionService
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.autocomplete.ContinueInlineCompletionProvider
+import com.github.lgallindo.crisfieldintellijextension.autocomplete.CompletionService
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
 import com.intellij.codeInsight.inline.completion.InlineCompletionHandler
 import com.intellij.codeInsight.inline.completion.testInlineCompletion
 import com.intellij.openapi.fileTypes.PlainTextFileType

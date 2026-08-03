@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.getAltKeyLabel
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.getAltKeyLabel
 import com.intellij.diff.DiffContentFactory
 import com.intellij.diff.DiffManager
 import com.intellij.diff.DiffRequestPanel

@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.castNestedOrNull
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.Logger

@@ -1,14 +1,14 @@
-package com.github.continuedev.continueintellijextension.autocomplete
+package com.github.lgallindo.crisfieldintellijextension.autocomplete
 
-import com.github.continuedev.continueintellijextension.FimResult
-import com.github.continuedev.continueintellijextension.Position
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditJumpManager
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditService
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditStatusService
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditUtils
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditWindowManager
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.utils.uuid
+import com.github.lgallindo.crisfieldintellijextension.FimResult
+import com.github.lgallindo.crisfieldintellijextension.Position
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditJumpManager
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditService
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditStatusService
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditUtils
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditWindowManager
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.utils.uuid
 import com.intellij.codeInsight.inline.completion.*
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionElement
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionGrayTextElement

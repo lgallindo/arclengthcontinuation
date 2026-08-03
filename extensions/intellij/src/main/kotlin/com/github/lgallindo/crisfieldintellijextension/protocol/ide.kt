@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.protocol
+package com.github.lgallindo.crisfieldintellijextension.protocol
 
-import com.github.continuedev.continueintellijextension.Range
-import com.github.continuedev.continueintellijextension.TerminalOptions
+import com.github.lgallindo.crisfieldintellijextension.Range
+import com.github.lgallindo.crisfieldintellijextension.TerminalOptions
 
 data class WriteFileParams(
     val path: String,

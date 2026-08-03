@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
-import com.github.continuedev.continueintellijextension.utils.getAltKeyLabel
-import com.github.continuedev.continueintellijextension.utils.getShiftKeyLabel
+import com.github.lgallindo.crisfieldintellijextension.utils.getAltKeyLabel
+import com.github.lgallindo.crisfieldintellijextension.utils.getShiftKeyLabel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.command.WriteCommandAction

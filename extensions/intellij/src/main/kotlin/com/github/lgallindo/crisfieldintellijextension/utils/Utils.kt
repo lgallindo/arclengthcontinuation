@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.utils
+package com.github.lgallindo.crisfieldintellijextension.utils
 
-import com.github.continuedev.continueintellijextension.FimResult
+import com.github.lgallindo.crisfieldintellijextension.FimResult
 import com.intellij.openapi.vfs.VirtualFile
 import java.net.NetworkInterface
 import java.util.*

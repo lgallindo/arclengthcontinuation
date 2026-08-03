@@ -1,9 +1,9 @@
-package com.github.continuedev.continueintellijextension.browser
+package com.github.lgallindo.crisfieldintellijextension.browser
 
-import com.github.continuedev.continueintellijextension.constants.MessageTypes
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.services.GsonService
-import com.github.continuedev.continueintellijextension.utils.uuid
+import com.github.lgallindo.crisfieldintellijextension.constants.MessageTypes
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.services.GsonService
+import com.github.lgallindo.crisfieldintellijextension.utils.uuid
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.Logger

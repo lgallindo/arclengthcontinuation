@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.activities
+package com.github.lgallindo.crisfieldintellijextension.activities
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service

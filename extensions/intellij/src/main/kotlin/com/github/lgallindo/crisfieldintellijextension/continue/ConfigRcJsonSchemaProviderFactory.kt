@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.activities.ContinuePluginStartupActivity
-import com.github.continuedev.continueintellijextension.constants.getContinueGlobalPath
+import com.github.lgallindo.crisfieldintellijextension.activities.ContinuePluginStartupActivity
+import com.github.lgallindo.crisfieldintellijextension.constants.getContinueGlobalPath
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.io.StreamUtil
 import com.intellij.openapi.vfs.LocalFileSystem

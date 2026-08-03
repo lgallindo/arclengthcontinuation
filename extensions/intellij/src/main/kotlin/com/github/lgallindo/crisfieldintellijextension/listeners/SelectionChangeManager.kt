@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.listeners
+package com.github.lgallindo.crisfieldintellijextension.listeners
 
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditService
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditJumpManager
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditWindowManager
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditService
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditJumpManager
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditWindowManager
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Document

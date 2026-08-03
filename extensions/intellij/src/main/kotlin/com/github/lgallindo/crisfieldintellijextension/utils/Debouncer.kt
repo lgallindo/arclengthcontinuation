@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.utils
+package com.github.lgallindo.crisfieldintellijextension.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

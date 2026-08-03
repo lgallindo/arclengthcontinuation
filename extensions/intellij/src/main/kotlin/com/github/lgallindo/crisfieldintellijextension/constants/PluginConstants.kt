@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.constants
+package com.github.lgallindo.crisfieldintellijextension.constants
 
 /**
  * Constants related to the Continue plugin.
@@ -7,5 +7,5 @@ object ContinueConstants {
     /**
      * The unique identifier for the Continue plugin.
      */
-    const val PLUGIN_ID = "com.github.continuedev.continueintellijextension"
+    const val PLUGIN_ID = "com.github.lgallindo.crisfieldintellijextension"
 }

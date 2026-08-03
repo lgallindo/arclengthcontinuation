@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.listeners
+package com.github.lgallindo.crisfieldintellijextension.listeners
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service

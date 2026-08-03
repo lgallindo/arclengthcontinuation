@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.`continue`.process
+package com.github.lgallindo.crisfieldintellijextension.`continue`.process
 
 import com.intellij.openapi.diagnostic.Logger
 import kotlinx.coroutines.*

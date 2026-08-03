@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`.file
+package com.github.lgallindo.crisfieldintellijextension.`continue`.file
 
-import com.github.continuedev.continueintellijextension.FileStats
-import com.github.continuedev.continueintellijextension.FileType
+import com.github.lgallindo.crisfieldintellijextension.FileStats
+import com.github.lgallindo.crisfieldintellijextension.FileType
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.diagnostic.Logger

@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.protocol
+package com.github.lgallindo.crisfieldintellijextension.protocol
 
 data class CopyTextParams(
     val text: String

@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.proxy.ProxySettings
+import com.github.lgallindo.crisfieldintellijextension.proxy.ProxySettings
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import com.intellij.util.net.HttpConfigurable
 

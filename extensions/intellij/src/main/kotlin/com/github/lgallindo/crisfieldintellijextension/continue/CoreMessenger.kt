@@ -1,13 +1,13 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.constants.MessageTypes
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueBinaryProcess
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueProcessHandler
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueSocketProcess
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.services.GsonService
-import com.github.continuedev.continueintellijextension.utils.uuid
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.constants.MessageTypes
+import com.github.lgallindo.crisfieldintellijextension.`continue`.process.ContinueBinaryProcess
+import com.github.lgallindo.crisfieldintellijextension.`continue`.process.ContinueProcessHandler
+import com.github.lgallindo.crisfieldintellijextension.`continue`.process.ContinueSocketProcess
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.services.GsonService
+import com.github.lgallindo.crisfieldintellijextension.utils.uuid
 import com.google.gson.JsonSyntaxException
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.Logger

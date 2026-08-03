@@ -1,12 +1,12 @@
-package com.github.continuedev.continueintellijextension.actions
+package com.github.lgallindo.crisfieldintellijextension.actions
 
-import com.github.continuedev.continueintellijextension.HighlightedCodePayload
-import com.github.continuedev.continueintellijextension.RangeInFileWithContents
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.editor.DiffStreamService
-import com.github.continuedev.continueintellijextension.editor.EditorUtils
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.HighlightedCodePayload
+import com.github.lgallindo.crisfieldintellijextension.RangeInFileWithContents
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.editor.DiffStreamService
+import com.github.lgallindo.crisfieldintellijextension.editor.EditorUtils
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys

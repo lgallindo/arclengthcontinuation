@@ -1,18 +1,18 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.*
-import com.github.continuedev.continueintellijextension.activities.ContinuePluginDisposable
-import com.github.continuedev.continueintellijextension.activities.showTutorial
+import com.github.lgallindo.crisfieldintellijextension.*
+import com.github.lgallindo.crisfieldintellijextension.activities.ContinuePluginDisposable
+import com.github.lgallindo.crisfieldintellijextension.activities.showTutorial
 
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.editor.DiffStreamService
-import com.github.continuedev.continueintellijextension.editor.EditorUtils
-import com.github.continuedev.continueintellijextension.protocol.*
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.services.GsonService
-import com.github.continuedev.continueintellijextension.utils.getMachineUniqueID
-import com.github.continuedev.continueintellijextension.utils.uuid
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.editor.DiffStreamService
+import com.github.lgallindo.crisfieldintellijextension.editor.EditorUtils
+import com.github.lgallindo.crisfieldintellijextension.protocol.*
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.services.GsonService
+import com.github.lgallindo.crisfieldintellijextension.utils.getMachineUniqueID
+import com.github.lgallindo.crisfieldintellijextension.utils.uuid
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.components.service

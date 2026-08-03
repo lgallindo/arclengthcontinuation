@@ -2,7 +2,7 @@
  * Note: This file is out of sync with the contents of core/util/paths.ts, which we use in VS Code.
  * This is potentially causing JetBrains specific bugs.
  */
-package com.github.continuedev.continueintellijextension.constants
+package com.github.lgallindo.crisfieldintellijextension.constants
 
 import java.nio.file.Files
 import java.nio.file.Paths

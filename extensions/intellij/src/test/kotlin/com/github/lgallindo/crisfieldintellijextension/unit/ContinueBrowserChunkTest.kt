@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowser
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowser.Companion.buildChunkScripts
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowser
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowser.Companion.buildChunkScripts
 import junit.framework.TestCase
 import java.util.Base64
 

@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension
+package com.github.lgallindo.crisfieldintellijextension
 
-import com.github.continuedev.continueintellijextension.editor.RangeInFileWithContents
+import com.github.lgallindo.crisfieldintellijextension.editor.RangeInFileWithContents
 import com.google.gson.JsonElement
 
 enum class ToastType(val value: String) {
@@ -283,7 +283,7 @@ data class ApplyState(
 )
 
 data class HighlightedCodePayload(
-    val rangeInFileWithContents: com.github.continuedev.continueintellijextension.RangeInFileWithContents,
+    val rangeInFileWithContents: com.github.lgallindo.crisfieldintellijextension.RangeInFileWithContents,
     val prompt: String? = null,
     val shouldRun: Boolean? = null
 )

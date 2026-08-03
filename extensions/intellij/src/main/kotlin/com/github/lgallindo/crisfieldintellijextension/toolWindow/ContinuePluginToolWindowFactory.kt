@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.toolWindow
+package com.github.lgallindo.crisfieldintellijextension.toolWindow
 
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project

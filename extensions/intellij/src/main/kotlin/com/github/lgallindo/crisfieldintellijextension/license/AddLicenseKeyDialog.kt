@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.license
+package com.github.lgallindo.crisfieldintellijextension.license
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper

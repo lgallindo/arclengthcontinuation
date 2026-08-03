@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.license
+package com.github.lgallindo.crisfieldintellijextension.license
 
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.castNestedOrNull
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType

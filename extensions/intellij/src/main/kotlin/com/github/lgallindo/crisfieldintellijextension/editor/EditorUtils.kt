@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
-import com.github.continuedev.continueintellijextension.utils.toUriOrNull
+import com.github.lgallindo.crisfieldintellijextension.utils.toUriOrNull
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.command.WriteCommandAction

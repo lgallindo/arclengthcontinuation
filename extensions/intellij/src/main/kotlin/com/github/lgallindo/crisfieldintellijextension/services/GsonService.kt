@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.services
+package com.github.lgallindo.crisfieldintellijextension.services
 
 import com.google.gson.Gson
 import com.intellij.openapi.components.Service

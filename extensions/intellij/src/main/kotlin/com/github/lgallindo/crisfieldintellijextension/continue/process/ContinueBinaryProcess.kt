@@ -1,9 +1,9 @@
-package com.github.continuedev.continueintellijextension.`continue`.process
+package com.github.lgallindo.crisfieldintellijextension.`continue`.process
 
-import com.github.continuedev.continueintellijextension.proxy.ProxySettings
-import com.github.continuedev.continueintellijextension.utils.OS
-import com.github.continuedev.continueintellijextension.utils.getContinueBinaryPath
-import com.github.continuedev.continueintellijextension.utils.getOS
+import com.github.lgallindo.crisfieldintellijextension.proxy.ProxySettings
+import com.github.lgallindo.crisfieldintellijextension.utils.OS
+import com.github.lgallindo.crisfieldintellijextension.utils.getContinueBinaryPath
+import com.github.lgallindo.crisfieldintellijextension.utils.getOS
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import java.io.File

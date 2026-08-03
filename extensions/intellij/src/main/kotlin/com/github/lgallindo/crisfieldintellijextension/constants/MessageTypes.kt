@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.constants
+package com.github.lgallindo.crisfieldintellijextension.constants
 
 class MessageTypes {
     companion object {

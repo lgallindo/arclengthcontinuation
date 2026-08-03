@@ -1,11 +1,11 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
-import com.github.continuedev.continueintellijextension.ApplyState
-import com.github.continuedev.continueintellijextension.ApplyStateStatus
-import com.github.continuedev.continueintellijextension.StreamDiffLinesPayload
-import com.github.continuedev.continueintellijextension.GetDiffLinesPayload
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.ApplyState
+import com.github.lgallindo.crisfieldintellijextension.ApplyStateStatus
+import com.github.lgallindo.crisfieldintellijextension.StreamDiffLinesPayload
+import com.github.lgallindo.crisfieldintellijextension.GetDiffLinesPayload
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.command.undo.UndoManager

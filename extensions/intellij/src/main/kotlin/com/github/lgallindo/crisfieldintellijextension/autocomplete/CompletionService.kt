@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.autocomplete
+package com.github.lgallindo.crisfieldintellijextension.autocomplete
 
 
 interface CompletionService {

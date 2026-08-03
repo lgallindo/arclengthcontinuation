@@ -1,5 +1,5 @@
-import com.github.continuedev.continueintellijextension.actions.FocusActionUtil
-import com.github.continuedev.continueintellijextension.editor.openInlineEdit
+import com.github.lgallindo.crisfieldintellijextension.actions.FocusActionUtil
+import com.github.lgallindo.crisfieldintellijextension.editor.openInlineEdit
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.editor.colors.EditorFontType

@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
-import com.github.continuedev.continueintellijextension.Position
-import com.github.continuedev.continueintellijextension.Range
+import com.github.lgallindo.crisfieldintellijextension.Position
+import com.github.lgallindo.crisfieldintellijextension.Range
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.util.TextRange
 

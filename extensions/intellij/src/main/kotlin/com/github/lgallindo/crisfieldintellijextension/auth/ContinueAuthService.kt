@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.auth
+package com.github.lgallindo.crisfieldintellijextension.auth
 
 import com.intellij.openapi.components.Service
 

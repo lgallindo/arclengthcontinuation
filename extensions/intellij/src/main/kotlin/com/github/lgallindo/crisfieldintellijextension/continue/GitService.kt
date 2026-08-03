@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.toUriOrNull
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.toUriOrNull
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import kotlinx.coroutines.Dispatchers

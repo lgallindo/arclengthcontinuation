@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension
+package com.github.lgallindo.crisfieldintellijextension
 
 import com.automation.remarks.junit5.Video
 import com.intellij.driver.sdk.ui.components.*

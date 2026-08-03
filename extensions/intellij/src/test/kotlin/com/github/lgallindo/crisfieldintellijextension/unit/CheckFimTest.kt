@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.FimResult
-import com.github.continuedev.continueintellijextension.nextEdit.NextEditUtils.checkFim
+import com.github.lgallindo.crisfieldintellijextension.FimResult
+import com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditUtils.checkFim
 import junit.framework.TestCase
 
 class CheckFimTest : TestCase() {

@@ -1,60 +1,60 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.continuedev.continueintellijextension</id>
-    <name>Continue</name>
-    <vendor url="https://www.continue.dev/">continue-dev</vendor>
+    <id>com.github.lgallindo.crisfieldintellijextension</id>
+    <name>ArclengthContinuation</name>
+    <vendor url="https://lgallindo.github.io/en_US/projects/">ArclengthContinuation</vendor>
     <change-notes>
-        <![CDATA[View the latest release notes on <a href="https://github.com/continuedev/continue/releases">GitHub</a>]]></change-notes>
+        <![CDATA[See <a href="https://lgallindo.github.io/en_US/projects/">the project page</a> for release notes.]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
 
     <!-- See here for why this is optional:  https://github.com/continuedev/continue/issues/2775#issuecomment-2535620877-->
-    <depends optional="true" config-file="continueintellijextension-withJSON.xml">
+    <depends optional="true" config-file="crisfieldintellijextension-withJSON.xml">
         com.intellij.modules.json
     </depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Continue" anchor="right" icon="com.github.continuedev.continueintellijextension.Icons.Continue"
-                    factoryClass="com.github.continuedev.continueintellijextension.toolWindow.ContinuePluginToolWindowFactory"/>
+        <toolWindow id="Continue" anchor="right" icon="com.github.lgallindo.crisfieldintellijextension.Icons.Continue"
+                    factoryClass="com.github.lgallindo.crisfieldintellijextension.toolWindow.ContinuePluginToolWindowFactory"/>
         <projectService id="ContinuePluginService"
-                        serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinuePluginService"/>
+                        serviceImplementation="com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService"/>
         <projectService
                 id="DiffStreamService"
-                serviceImplementation="com.github.continuedev.continueintellijextension.editor.DiffStreamService"/>
+                serviceImplementation="com.github.lgallindo.crisfieldintellijextension.editor.DiffStreamService"/>
 
-        <projectService serviceInterface="com.github.continuedev.continueintellijextension.autocomplete.CompletionService"
-                        serviceImplementation="com.github.continuedev.continueintellijextension.autocomplete.ContinueCompletionService"/>
+        <projectService serviceInterface="com.github.lgallindo.crisfieldintellijextension.autocomplete.CompletionService"
+                        serviceImplementation="com.github.lgallindo.crisfieldintellijextension.autocomplete.ContinueCompletionService"/>
         <projectService
-                serviceInterface="com.github.continuedev.continueintellijextension.nextEdit.NextEditService"
-                serviceImplementation="com.github.continuedev.continueintellijextension.nextEdit.ContinueNextEditService"/>
-
-        <projectService
-                serviceImplementation="com.github.continuedev.continueintellijextension.nextEdit.NextEditWindowManager"/>
+                serviceInterface="com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditService"
+                serviceImplementation="com.github.lgallindo.crisfieldintellijextension.nextEdit.ContinueNextEditService"/>
 
         <projectService
-                serviceImplementation="com.github.continuedev.continueintellijextension.nextEdit.NextEditJumpManager"/>
+                serviceImplementation="com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditWindowManager"/>
 
-        <inline.completion.provider id="Continue" implementation="com.github.continuedev.continueintellijextension.autocomplete.ContinueInlineCompletionProvider"/>
+        <projectService
+                serviceImplementation="com.github.lgallindo.crisfieldintellijextension.nextEdit.NextEditJumpManager"/>
+
+        <inline.completion.provider id="Continue" implementation="com.github.lgallindo.crisfieldintellijextension.autocomplete.ContinueInlineCompletionProvider"/>
         
         <notificationGroup id="Continue"
                            displayType="BALLOON"/>
         <actionPromoter order="last"
-                        implementation="com.github.continuedev.continueintellijextension.actions.ContinueActionPromote"/>
+                        implementation="com.github.lgallindo.crisfieldintellijextension.actions.ContinueActionPromote"/>
         <postStartupActivity
-                implementation="com.github.continuedev.continueintellijextension.activities.ContinuePluginStartupActivity"/>
-        <postStartupActivity implementation="com.github.continuedev.continueintellijextension.proxy.ProxyPoolingActivity"/>
+                implementation="com.github.lgallindo.crisfieldintellijextension.activities.ContinuePluginStartupActivity"/>
+        <postStartupActivity implementation="com.github.lgallindo.crisfieldintellijextension.proxy.ProxyPoolingActivity"/>
         <applicationConfigurable
                 parentId="tools"
-                instance="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
-                id="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
+                instance="com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionConfigurable"
+                id="com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionConfigurable"
                 displayName="Continue"/>
         <applicationService
-                serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings"/>
+                serviceImplementation="com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings"/>
     </extensions>
 
     <actions>
-        <action class="com.github.continuedev.continueintellijextension.editor.InlineEditAction"
+        <action class="com.github.lgallindo.crisfieldintellijextension.editor.InlineEditAction"
                 id="continue.inlineEdit"
                 description="Inline Edit"
                 text="Inline Edit">
@@ -66,7 +66,7 @@
         </action>
 
         <action id="continue.acceptDiff"
-                class="com.github.continuedev.continueintellijextension.actions.AcceptDiffAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.AcceptDiffAction"
                 text="Accept Diff" description="Accept Diff">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="shift ctrl ENTER"/>
@@ -76,14 +76,14 @@
         </action>
 
         <action id="continue.restartProcess"
-                class="com.github.continuedev.continueintellijextension.actions.RestartContinueProcess"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.RestartContinueProcess"
                 text="Restart Process"
                 description="Restart Process">
             <override-text place="GoToAction" text="Continue: Restart Process"/>
         </action>
 
         <action id="continue.rejectDiff"
-                class="com.github.continuedev.continueintellijextension.actions.RejectDiffAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.RejectDiffAction"
                 text="Reject Diff" description="Reject Diff">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="shift ctrl BACK_SPACE"/>
@@ -93,7 +93,7 @@
         </action>
 
         <action id="continue.acceptVerticalDiffBlock"
-                class="com.github.continuedev.continueintellijextension.actions.AcceptDiffAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.AcceptDiffAction"
                 text="Accept Diff" description="Accept Vertical Diff Block">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="alt shift Y"/>
@@ -103,7 +103,7 @@
         </action>
 
         <action id="continue.rejectVerticalDiffBlock"
-                class="com.github.continuedev.continueintellijextension.actions.RejectDiffAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.RejectDiffAction"
                 text="Reject Diff" description="Reject Vertical Diff Block">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="alt shift N"/>
@@ -113,14 +113,14 @@
         </action>
 
         <action id="continue.addLicenseKey"
-                class="com.github.continuedev.continueintellijextension.license.AddLicenseKey"
+                class="com.github.lgallindo.crisfieldintellijextension.license.AddLicenseKey"
                 text="Enter Enterprise License Key"
                 description="Enter Enterprise License Key">
             <override-text place="GoToAction" text="Continue: Enter Enterprise License Key"/>
         </action>
 
         <action id="continue.focusContinueInputWithoutClear"
-                class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputWithoutClearAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.FocusContinueInputWithoutClearAction"
                 text="Add selected code to context"
                 description="Focus Continue Input With Edit">
             <keyboard-shortcut keymap="$default"
@@ -132,7 +132,7 @@
 
         <action id="continue.newContinueSession"
                 icon="AllIcons.General.Add"
-                class="com.github.continuedev.continueintellijextension.actions.NewContinueSessionAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.NewContinueSessionAction"
                 text="New Session"
                 description="New Session">
 
@@ -141,14 +141,14 @@
 
         <action id="continue.viewHistory"
                 icon="AllIcons.Vcs.History"
-                class="com.github.continuedev.continueintellijextension.actions.ViewHistoryAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.ViewHistoryAction"
                 text="View History"
                 description="View History">
             <override-text place="GoToAction" text="View History"/>
         </action>
 
         <action id="continue.openConfigPage"
-                class="com.github.continuedev.continueintellijextension.actions.OpenConfigAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.OpenConfigAction"
                 icon="AllIcons.General.GearPlain"
                 text="Settings"
                 description="Settings">
@@ -156,7 +156,7 @@
         </action>
 
         <action id="continue.reloadPage"
-                class="com.github.continuedev.continueintellijextension.actions.ReloadBrowserAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.ReloadBrowserAction"
                 icon="AllIcons.Actions.Refresh"
                 text="Reload Continue Browser"
                 description="Reload Continue Browser">
@@ -164,7 +164,7 @@
         </action>
 
         <action id="continue.openLogs"
-                class="com.github.continuedev.continueintellijextension.actions.OpenLogsAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.OpenLogsAction"
                 icon="AllIcons.General.ShowInfos"
                 text="Open Logs"
                 description="Open Continue Logs">
@@ -179,7 +179,7 @@
         </group>
 
         <action id="continue.focusContinueInput"
-                class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputAction"
+                class="com.github.lgallindo.crisfieldintellijextension.actions.FocusContinueInputAction"
                 text="Add selected code to context"
                 description="Focus Continue Input">
             <keyboard-shortcut keymap="$default"
@@ -190,8 +190,8 @@
             <override-text place="GoToAction" text="Continue: Add Highlighted Code to Context and Clear Chat"/>
         </action>
         <group id="ContinueProjectViewPopUpMenuGroup" popup="true" text="Continue" icon="/icons/continue.svg">
-            <action id="com.github.continuedev.continueintellijextension.actions.AddToChatAction"
-                    class="com.github.continuedev.continueintellijextension.actions.AddToChatAction"
+            <action id="com.github.lgallindo.crisfieldintellijextension.actions.AddToChatAction"
+                    class="com.github.lgallindo.crisfieldintellijextension.actions.AddToChatAction"
                     text="Add to Chat">
             </action>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>

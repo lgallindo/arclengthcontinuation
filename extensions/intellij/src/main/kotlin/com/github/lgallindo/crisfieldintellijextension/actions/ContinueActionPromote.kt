@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.actions
+package com.github.lgallindo.crisfieldintellijextension.actions
 
 
 import com.intellij.openapi.actionSystem.ActionPromoter

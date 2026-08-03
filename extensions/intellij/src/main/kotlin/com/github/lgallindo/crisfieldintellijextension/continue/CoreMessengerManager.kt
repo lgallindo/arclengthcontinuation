@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project

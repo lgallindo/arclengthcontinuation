@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.error
+package com.github.lgallindo.crisfieldintellijextension.error
 
 import com.intellij.diagnostic.IdeaReportingEvent
 import com.intellij.openapi.diagnostic.ErrorReportSubmitter

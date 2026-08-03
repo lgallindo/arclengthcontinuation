@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.browser
+package com.github.lgallindo.crisfieldintellijextension.browser
 
 import com.intellij.openapi.project.DumbAware
 import org.cef.browser.CefBrowser

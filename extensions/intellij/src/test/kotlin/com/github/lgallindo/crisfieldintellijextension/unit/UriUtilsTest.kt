@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.`continue`.UriUtils
+import com.github.lgallindo.crisfieldintellijextension.`continue`.UriUtils
 import junit.framework.TestCase
 import java.io.File
 

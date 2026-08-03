@@ -1,9 +1,9 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.Position
-import com.github.continuedev.continueintellijextension.listeners.ActiveHandlerManager
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.InlineCompletionUtils
+import com.github.lgallindo.crisfieldintellijextension.Position
+import com.github.lgallindo.crisfieldintellijextension.listeners.ActiveHandlerManager
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.InlineCompletionUtils
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.EDT
 import com.intellij.openapi.command.WriteCommandAction

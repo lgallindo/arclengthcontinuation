@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.services
+package com.github.lgallindo.crisfieldintellijextension.services
 
-import com.github.continuedev.continueintellijextension.constants.getConfigJsonPath
-import com.github.continuedev.continueintellijextension.constants.getConfigJsPath
+import com.github.lgallindo.crisfieldintellijextension.constants.getConfigJsonPath
+import com.github.lgallindo.crisfieldintellijextension.constants.getConfigJsPath
 import com.google.gson.Gson
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
@@ -73,7 +73,7 @@ data class ContinueRemoteConfigSyncResponse(
 )
 
 @State(
-    name = "com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings",
+    name = "com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings",
     storages = [Storage("ContinueExtensionSettings.xml")]
 )
 open class ContinueExtensionSettings : PersistentStateComponent<ContinueExtensionSettings.ContinueState> {

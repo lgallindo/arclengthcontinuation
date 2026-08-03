@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.unit
+package com.github.lgallindo.crisfieldintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.FileType
-import com.github.continuedev.continueintellijextension.`continue`.file.FileUtils
+import com.github.lgallindo.crisfieldintellijextension.FileType
+import com.github.lgallindo.crisfieldintellijextension.`continue`.file.FileUtils
 import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileEditor.FileEditorManager

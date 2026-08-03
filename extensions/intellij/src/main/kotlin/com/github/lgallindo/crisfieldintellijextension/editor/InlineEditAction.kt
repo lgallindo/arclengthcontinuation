@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction

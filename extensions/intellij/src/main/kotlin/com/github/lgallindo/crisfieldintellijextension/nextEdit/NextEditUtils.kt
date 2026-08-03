@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.FimResult
+import com.github.lgallindo.crisfieldintellijextension.FimResult
 
 
 object NextEditUtils {

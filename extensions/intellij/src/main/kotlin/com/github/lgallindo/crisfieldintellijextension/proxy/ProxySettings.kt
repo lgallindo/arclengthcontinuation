@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.proxy
+package com.github.lgallindo.crisfieldintellijextension.proxy
 
 import com.intellij.util.net.HttpConfigurable
 

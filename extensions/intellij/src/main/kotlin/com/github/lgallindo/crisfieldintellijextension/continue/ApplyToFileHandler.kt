@@ -1,15 +1,15 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.ApplyState
-import com.github.continuedev.continueintellijextension.ApplyStateStatus
-import com.github.continuedev.continueintellijextension.IDE
-import com.github.continuedev.continueintellijextension.ToastType
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.editor.DiffStreamHandler
-import com.github.continuedev.continueintellijextension.editor.DiffStreamService
-import com.github.continuedev.continueintellijextension.editor.EditorUtils
-import com.github.continuedev.continueintellijextension.protocol.ApplyToFileParams
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.ApplyState
+import com.github.lgallindo.crisfieldintellijextension.ApplyStateStatus
+import com.github.lgallindo.crisfieldintellijextension.IDE
+import com.github.lgallindo.crisfieldintellijextension.ToastType
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.editor.DiffStreamHandler
+import com.github.lgallindo.crisfieldintellijextension.editor.DiffStreamService
+import com.github.lgallindo.crisfieldintellijextension.editor.EditorUtils
+import com.github.lgallindo.crisfieldintellijextension.protocol.ApplyToFileParams
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project

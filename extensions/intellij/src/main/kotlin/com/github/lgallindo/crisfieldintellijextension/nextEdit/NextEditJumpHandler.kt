@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.listeners.CursorMovementHandler
+import com.github.lgallindo.crisfieldintellijextension.listeners.CursorMovementHandler
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.project.Project

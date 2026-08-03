@@ -1,15 +1,15 @@
-package com.github.continuedev.continueintellijextension.activities
+package com.github.lgallindo.crisfieldintellijextension.activities
 
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
 
-import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService.Companion.getBrowser
-import com.github.continuedev.continueintellijextension.constants.getContinueGlobalPath
-import com.github.continuedev.continueintellijextension.`continue`.*
-import com.github.continuedev.continueintellijextension.listeners.ContinuePluginSelectionListener
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.services.SettingsListener
-import com.github.continuedev.continueintellijextension.utils.toUriOrNull
+import com.github.lgallindo.crisfieldintellijextension.browser.ContinueBrowserService.Companion.getBrowser
+import com.github.lgallindo.crisfieldintellijextension.constants.getContinueGlobalPath
+import com.github.lgallindo.crisfieldintellijextension.`continue`.*
+import com.github.lgallindo.crisfieldintellijextension.listeners.ContinuePluginSelectionListener
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.services.SettingsListener
+import com.github.lgallindo.crisfieldintellijextension.utils.toUriOrNull
 import com.intellij.openapi.actionSystem.KeyboardShortcut
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ApplicationNamesInfo

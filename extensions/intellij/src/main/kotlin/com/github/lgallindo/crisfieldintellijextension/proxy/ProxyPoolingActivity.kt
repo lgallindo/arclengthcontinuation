@@ -1,6 +1,6 @@
-package com.github.continuedev.continueintellijextension.proxy
+package com.github.lgallindo.crisfieldintellijextension.proxy
 
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project

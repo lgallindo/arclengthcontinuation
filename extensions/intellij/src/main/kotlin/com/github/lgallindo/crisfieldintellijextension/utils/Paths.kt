@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.utils
+package com.github.lgallindo.crisfieldintellijextension.utils
 
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.extensions.PluginId
-import com.github.continuedev.continueintellijextension.constants.ContinueConstants
+import com.github.lgallindo.crisfieldintellijextension.constants.ContinueConstants
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -41,7 +41,7 @@ fun getContinueBinaryPath(): String {
     val targetPath = getContinueCorePath()
     val os = getOS()
     val exeSuffix = if (os == OS.WINDOWS) ".exe" else ""
-    return Paths.get(targetPath, "continue-binary$exeSuffix").toString()
+    return Paths.get(targetPath, "crisfield$exeSuffix").toString()
 }
 
 /**

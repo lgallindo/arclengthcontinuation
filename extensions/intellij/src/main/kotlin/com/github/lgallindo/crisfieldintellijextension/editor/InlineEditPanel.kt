@@ -1,12 +1,12 @@
-package com.github.continuedev.continueintellijextension.editor
+package com.github.lgallindo.crisfieldintellijextension.editor
 
-import com.github.continuedev.continueintellijextension.Icons
-import com.github.continuedev.continueintellijextension.`continue`.GetTheme
-import com.github.continuedev.continueintellijextension.`continue`.ProfileInfoService
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
-import com.github.continuedev.continueintellijextension.utils.getMetaKeyLabel
-import com.github.continuedev.continueintellijextension.utils.getShiftKeyLabel
+import com.github.lgallindo.crisfieldintellijextension.Icons
+import com.github.lgallindo.crisfieldintellijextension.`continue`.GetTheme
+import com.github.lgallindo.crisfieldintellijextension.`continue`.ProfileInfoService
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.utils.castNestedOrNull
+import com.github.lgallindo.crisfieldintellijextension.utils.getMetaKeyLabel
+import com.github.lgallindo.crisfieldintellijextension.utils.getShiftKeyLabel
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Editor

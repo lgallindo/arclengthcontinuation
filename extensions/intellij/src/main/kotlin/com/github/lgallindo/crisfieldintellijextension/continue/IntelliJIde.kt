@@ -1,12 +1,12 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.lgallindo.crisfieldintellijextension.`continue`
 
-import com.github.continuedev.continueintellijextension.*
-import com.github.continuedev.continueintellijextension.constants.ContinueConstants
-import com.github.continuedev.continueintellijextension.constants.getContinueGlobalPath
-import com.github.continuedev.continueintellijextension.`continue`.file.FileUtils
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.*
+import com.github.lgallindo.crisfieldintellijextension.*
+import com.github.lgallindo.crisfieldintellijextension.constants.ContinueConstants
+import com.github.lgallindo.crisfieldintellijextension.constants.getContinueGlobalPath
+import com.github.lgallindo.crisfieldintellijextension.`continue`.file.FileUtils
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.*
 import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.util.ExecUtil

@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension
+package com.github.lgallindo.crisfieldintellijextension
 
 import com.intellij.openapi.util.IconLoader
 

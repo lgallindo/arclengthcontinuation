@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.listeners
+package com.github.lgallindo.crisfieldintellijextension.listeners
 
 import ToolTipComponent
-import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
-import com.github.continuedev.continueintellijextension.utils.Debouncer
+import com.github.lgallindo.crisfieldintellijextension.services.ContinueExtensionSettings
+import com.github.lgallindo.crisfieldintellijextension.utils.Debouncer
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Document

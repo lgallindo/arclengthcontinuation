@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.browser
+package com.github.lgallindo.crisfieldintellijextension.browser
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.application.ApplicationManager

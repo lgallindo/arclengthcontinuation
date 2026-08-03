@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.Position
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessenger
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.Position
+import com.github.lgallindo.crisfieldintellijextension.`continue`.CoreMessenger
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
 import com.intellij.codeInsight.inline.completion.InlineCompletionRequest
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
@@ -345,8 +345,8 @@ class ContinueNextEditService(private val project: Project) : NextEditService {
                 character = (endMap["character"] as? Number)?.toInt() ?: 0
             )
 
-            val range = com.github.continuedev.continueintellijextension.Range(startPosition, endPosition)
-            val location = com.github.continuedev.continueintellijextension.RangeInFile(filepath, range)
+            val range = com.github.lgallindo.crisfieldintellijextension.Range(startPosition, endPosition)
+            val location = com.github.lgallindo.crisfieldintellijextension.RangeInFile(filepath, range)
 
             // Parse outcome (NextEditOutcome) - reuse existing logic from parseNextEditOutcome
             @Suppress("UNCHECKED_CAST")

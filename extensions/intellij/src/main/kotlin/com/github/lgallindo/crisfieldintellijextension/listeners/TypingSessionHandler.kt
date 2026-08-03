@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.listeners
+package com.github.lgallindo.crisfieldintellijextension.listeners
 
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition

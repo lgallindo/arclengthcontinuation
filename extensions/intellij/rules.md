@@ -14,7 +14,7 @@ JetBrains/IntelliJ extension for Arclength-Continuation AI code agent. Provides 
 ## Key Source Structure
 
 ```
-src/main/kotlin/com/github/arclength-continuation/continueintellijextension/
+src/main/kotlin/com/github/lgallindo/crisfieldintellijextension/
 ├── continue/         # Core integration (CoreMessenger, IntelliJIde, IdeProtocolClient)
 ├── autocomplete/     # Code completion logic
 ├── editor/          # Diff handling, inline edits

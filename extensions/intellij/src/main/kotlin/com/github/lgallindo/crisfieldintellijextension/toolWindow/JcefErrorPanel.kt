@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.toolWindow
+package com.github.lgallindo.crisfieldintellijextension.toolWindow
 
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.panel

@@ -1,8 +1,8 @@
-package com.github.continuedev.continueintellijextension.autocomplete
+package com.github.lgallindo.crisfieldintellijextension.autocomplete
 
-import com.github.continuedev.continueintellijextension.`continue`.ProfileInfoService
-import com.github.continuedev.continueintellijextension.services.ContinuePluginService
-import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
+import com.github.lgallindo.crisfieldintellijextension.`continue`.ProfileInfoService
+import com.github.lgallindo.crisfieldintellijextension.services.ContinuePluginService
+import com.github.lgallindo.crisfieldintellijextension.utils.castNestedOrNull
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project

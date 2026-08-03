@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.`continue`.ProfileInfoService
-import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
+import com.github.lgallindo.crisfieldintellijextension.`continue`.ProfileInfoService
+import com.github.lgallindo.crisfieldintellijextension.utils.castNestedOrNull
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project

@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.nextEdit
+package com.github.lgallindo.crisfieldintellijextension.nextEdit
 
-import com.github.continuedev.continueintellijextension.Position
-import com.github.continuedev.continueintellijextension.RangeInFile
+import com.github.lgallindo.crisfieldintellijextension.Position
+import com.github.lgallindo.crisfieldintellijextension.RangeInFile
 
 //data class NextEditOutcome(
 //    val completion: String,

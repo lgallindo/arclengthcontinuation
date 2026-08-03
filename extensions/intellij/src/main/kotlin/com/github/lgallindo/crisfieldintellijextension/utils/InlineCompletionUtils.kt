@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.utils
+package com.github.lgallindo.crisfieldintellijextension.utils
 
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnActionEvent
