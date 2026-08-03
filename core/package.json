@@ -13,8 +13,8 @@
     "lint:fix": "eslint . --ext ts --fix"
   },
   "type": "module",
-  "author": "ArclengthContinuation Dev, Inc",
-  "license": "GPL-3.0-or-later",
+  "author": "Continue Dev, Inc",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
     "@biomejs/biome": "1.6.4",

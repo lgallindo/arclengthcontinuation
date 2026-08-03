@@ -11,8 +11,8 @@
     "build": "tsc",
     "clean": "rm -rf dist"
   },
-  "author": "ArclengthContinuation Dev, Inc",
-  "license": "GPL-3.0-or-later",
+  "author": "Continue Dev, Inc",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^20.11.19",
     "@types/shell-quote": "^1.7.5",

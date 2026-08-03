@@ -1,7 +1,7 @@
 {
   "name": "arclength-continuation",
   "icon": "media/icon.png",
-  "author": "ArclengthContinuation Dev, Inc",
+  "author": "Continue Dev, Inc",
   "version": "1.3.40",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://arclength-continuation.dev",
   "qna": "https://github.com/arclength-continuation/continue/issues/new/choose",
-  "license": "GPL-3.0-or-later",
+  "license": "Apache-2.0",
   "displayName": "ArclengthContinuation - open-source AI code agent",
   "pricing": "Free",
   "description": "The leading open-source AI code agent",

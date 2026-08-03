@@ -20,8 +20,8 @@
     "build": "tsc",
     "generate-schema": "tsc && node dist/scripts/generateJsonSchema.js"
   },
-  "author": "ArclengthContinuation Dev, Inc.",
-  "license": "GPL-3.0-or-later",
+  "author": "Continue Dev, Inc.",
+  "license": "Apache-2.0",
   "dependencies": {
     "@arclength-continuation/config-types": "file:../config-types",
     "yaml": "^2.8.2",

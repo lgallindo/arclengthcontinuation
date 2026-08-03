@@ -11,8 +11,8 @@
     "generate-client:ALL": "npm run generate-client:typescript && npm run generate-client:python",
     "swagger-ui": "node swagger-ui-server.js"
   },
-  "author": "ArclengthContinuation Dev, Inc.",
-  "license": "GPL-3.0-or-later",
+  "author": "Continue Dev, Inc.",
+  "license": "Apache-2.0",
   "dependencies": {
     "@arclength-continuation/config-yaml": "file:../config-yaml",
     "@openapitools/openapi-generator-cli": "^2.31.0",

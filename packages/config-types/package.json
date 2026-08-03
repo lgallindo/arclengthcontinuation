@@ -10,7 +10,7 @@
     "build": "tsc"
   },
   "author": "Nate Sesti and Ty Dunn",
-  "license": "GPL-3.0-or-later",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^20.11.19",
     "typescript": "^5.5.2"

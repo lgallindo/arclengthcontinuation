@@ -10,7 +10,7 @@
     "build": "tsc"
   },
   "author": "Nate Sesti and Ty Dunn",
-  "license": "GPL-3.0-or-later",
+  "license": "Apache-2.0",
   "dependencies": {
     "@arclength-continuation/config-types": "file:../config-types",
     "follow-redirects": "^1.15.6",
