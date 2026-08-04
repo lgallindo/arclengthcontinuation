@@ -34,7 +34,14 @@ Product visual identity (apps + this README): [`docs/PRODUCT_IDENTITY.md`](docs/
 3. **Deterministic tools** — expose tools for imaginable tasks; prefer tools over free-form guesswork.
 4. **Opinionated SDD** — new features need Intent / Boundaries / Acceptance specs, tests, and CLI E2E ([`SPEC_DRIVEN_DEVELOPMENT.md`](SPEC_DRIVEN_DEVELOPMENT.md)).
 
-Agents coordinating on this repo: read [`PROJECT_RULES.md`](PROJECT_RULES.md) and append to [`docs/plans/AGENT_BUS.jsonl`](docs/plans/AGENT_BUS.jsonl).
+Agents coordinating on this repo: read [`PROJECT_RULES.md`](PROJECT_RULES.md), [`AGENTS.md`](AGENTS.md), and append to [`docs/plans/AGENT_BUS.jsonl`](docs/plans/AGENT_BUS.jsonl).
+
+### Conversation log (rebrand / P6)
+
+| Document                                                                                                                                               | Role                                                                              |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| [`docs/plans/CONVERSATION_20260804T173824Z_REBRAND_P6_CLOSEOUT_MINUTIAE.md`](docs/plans/CONVERSATION_20260804T173824Z_REBRAND_P6_CLOSEOUT_MINUTIAE.md) | Full minutiae of the Jul 29–Aug 4 rebrand and dual-checkout closeout conversation |
+| [`docs/plans/LEDGER_20260804T173824Z_PENDING_DEBT_FROM_CONVERSATION.md`](docs/plans/LEDGER_20260804T173824Z_PENDING_DEBT_FROM_CONVERSATION.md)         | Pending items, debt, and warnings derived from that conversation                  |
 
 ## Components
 
